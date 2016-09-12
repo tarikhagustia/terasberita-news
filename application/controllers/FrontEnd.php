@@ -20,6 +20,9 @@ class FrontEnd extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('FrontOffice/Index');
+		$this->load->view('FrontOffice/header');
+		$this->load->view('FrontOffice/menu');
+		$this->load->view('FrontOffice/dashboard');
+		$this->load->view('FrontOffice/footer');
 	}
 }
