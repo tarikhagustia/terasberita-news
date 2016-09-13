@@ -1,0 +1,258 @@
+body {
+	margin:0;
+	padding:0;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+.body_iklanbaris {
+	background:#fff;
+	height: 297px;
+}
+.box_3 {
+	margin-bottom: 20px;
+	padding-bottom: 5px;
+	height: 260px;
+	overflow: hidden;
+	
+	background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(217,217,217,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(217,217,217,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(217,217,217,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(217,217,217,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(217,217,217,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(217,217,217,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d9d9d9',GradientType=0 ); /* IE6-9 */
+	
+	border:1px solid #58286e; 
+}
+.box_3a {
+	height: auto;
+	overflow:visible;
+	min-height: 93.5%;
+}
+.box_3 .title {
+	padding: 0px 10px;
+	border-bottom: 3px solid #CCC;
+	height: 30px;
+	margin-bottom: 5px;
+}
+.box_3 .title strong {
+	font:bold 13px tahoma;
+	color: red;
+	display: inline-block;
+	padding-top: 7px;
+	float: left;
+}
+.box_3 .title span {
+	font: bold 11px tahoma;
+	color:black;
+	display: block; 
+	margin-top: 10px;
+}
+.box_3 .title span.reg {
+	background: none;
+}
+.box_3 .title span.selengkapnya {
+	background: url(../image/detik.sprite.gif) 100px -195px no-repeat;
+	width: 85px;
+}
+.box_3 .title_iklanbaris {
+	padding: 0px 10px;
+	border-bottom: none;
+	margin-bottom: 0;
+	text-align: center;
+	height: 30px;
+}
+.list_berita_2 {
+	margin:0;
+	padding:0;
+	list-style:none; 
+}
+.list_berita_2 li{
+	text-align:left;
+	list-style-type:none;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	padding: 6px 5px 6px 5px;
+	border-bottom: 1px dotted #CCC;
+}
+.list_berita_2 li:hover {
+	background:#E6E6E6;
+	cursor:pointer;
+}
+.list_berita_2 span.ads_thumb img{
+	width:45px;
+	height:45px;
+	overflow:hidden;
+	margin:0px 10px 0 0;
+	float:left;
+} 
+.list_berita_2 span.ads_title{
+	font-weight:bold;
+	font:bold 13px arial, Georgia, "Times New Roman", Times, serif;
+	color:#602ea2; 
+}
+.list_berita_2 span.ads_desc{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#666;
+	font-weight:normal;
+	display: block;
+	margin: 5px 0 0;
+	height: 40px;
+}
+.list_berita_2 li a {
+	text-decoration:none;
+	
+}
+.search_iklanbaris {
+	background:#D9D9D9;
+	padding: 5px;
+	text-align: center;
+}
+.search_iklanbaris .input {
+	padding: 3px;
+	border: 1px solid #CCC;
+	width: 150px;
+}
+.search_iklanbaris .inputsubmit {
+	padding: 3px 6px;
+	background:red;
+	font:bold 11px arial, Tahoma, Geneva, sans-serif;
+	color:#FFF;
+	border:0;
+	cursor:pointer;
+	border-radius:2px;
+}
+.search_iklanbaris .inputsubmit:hover {
+	opacity:0.6;
+}
+
+.iklanbaris_detail fieldset {
+	border:1px solid #CCC;
+	padding:0;
+	margin:0;
+}
+.iklanbaris_detail legend {
+	font-size:11px;
+	color:red;
+	margin-left:10px;
+	font-weight:bold;
+}
+.iklanbaris_detail ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.iklanbaris_detail li {
+	width:46%;
+	float:left;
+	padding:10px;
+	color:#666;
+	font-size:11px;
+}
+.iklanbaris_detail li h5 {
+	font-weight:bold;
+	padding-bottom:3px;
+	font-size:12px;
+}
+.iklanbaris_detail li img {
+	width:50px;
+	height:50px;
+	float:left;
+	margin-right:10px;
+	border:1px solid #CCC;
+}
+.search_ib { 
+	width:280px;
+}
+.search_ib form {
+	background:#FFF;
+	border:1px solid #CCC;
+	height:18px;
+	padding:1px 5px;
+	margin-top:-5px;
+	
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	
+}
+.search_ib .input {
+	float:left;
+	width:250px;
+	border:0;
+	background:none;
+	color:#919191;
+}
+.search_ib .inputsubmit {
+	background:none;
+	padding:0;
+	border:0;
+	background: url(/assets/btn_search_1.png) 0 0 no-repeat;
+	width:15px;
+	height:15px;
+	float:right;
+}
+.line2 {
+	padding:1px 5px;
+	height:23px;
+	background: #58286e; /* Old browsers */
+}
+.pasang {
+	display:block;
+	color:#FFF;
+	font-weight:bold;
+	text-align:center;
+	text-decoration:none;
+	padding:5px;
+	font-size:12px;
+	float:left; 
+}
+.pasang:hover {
+	background:#420a5b;
+}
+.cate {
+	text-align:center;
+	float:right;
+}
+.cate img {
+	height:25px;
+	border:0;
+}
+.cate a:hover {
+	opacity:0.8;
+}
+
+#accordion  {
+	overflow: hidden;
+	clear: both;
+	height: 180px;
+}
+
+@media screen and (width: 250px) { 
+	.title_iklanbaris img {
+		width:100px;
+		padding-top:3px;
+	}
+	.search_ib .input {
+		width:200px;
+	}
+	.search_ib {
+		width:230px;
+	}
+	.list_berita_2 span.ads_title{
+		font:bold 11px arial, Georgia, "Times New Roman", Times, serif;
+	}
+	.list_berita_2 li{
+		/*height:48px;*/
+	}
+}
+
+.ads {
+	font-size:12px;
+	color:#666;
+	margin:1px 5px 0 0;
+	float:right; 
+}
+

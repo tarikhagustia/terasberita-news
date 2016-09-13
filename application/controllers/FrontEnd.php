@@ -25,4 +25,7 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('FrontOffice/dashboard');
 		$this->load->view('FrontOffice/footer');
 	}
+	public function mainteance(){
+		$this->load->view('CountDown/index');
+	}
 }

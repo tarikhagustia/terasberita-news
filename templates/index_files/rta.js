@@ -1,0 +1,1 @@
+crtg_content = ''; (function(){document.cookie = 'crtg_rta=' + escape(crtg_content) + '; path=/; expires=Thu, 13 Oct 2016 09:49:58 GMT; domain=detik.com';})();
