@@ -19,11 +19,11 @@ class Backoffice extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function __construct()
-	{	
+	{
 		parent::__construct();
 		$this->load->library('session');
 		if (!$this->session->userdata('logged_in')) {
-			
+
 			$this->session->set_flashdata('flashSuccess', 'You are not login, Please login first');
 			// echo $this->session->flashdata('flashSuccess');
 			redirect('auth/index','refresh');
@@ -82,5 +82,5 @@ class Backoffice extends CI_Controller {
 
 		}
 	}
-	
+
 }
