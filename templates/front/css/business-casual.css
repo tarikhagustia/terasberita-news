@@ -1,0 +1,546 @@
+/*!
+ * Start Bootstrap - Business Casual (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background: #dedede no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #000;
+}
+
+hr {
+    max-width: 400px;
+    border-color: #999999;
+}
+
+/*---NAv ATAS--*/
+#nav-atas{
+    width: 100%;
+    height:50px;
+    background-color: #006666;
+}
+.kiri{
+    width: 50%;
+    height: 50px;
+        float: left;
+}
+.kiri ul li{
+    float: left;
+    display: block;
+}
+.kiri ul li p{
+    margin-top: -10px;
+}
+ul li.button{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+a button{
+    color: #fff;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+}
+button{
+    border: none;
+    border-radius: 5px;
+}
+a button.brown{
+    background-color: #985703;
+}
+a button.grey{
+    background-color: #576266;
+}
+a button.brown:hover{
+    background-color: #a46205;
+    color: #fff;
+}
+a button.grey:hover{
+    background-color: grey;
+    color: #fff;
+}
+.kanan{
+    width: 43.5%;
+    height: 50px;
+    float: right;
+    z-index: 999999;
+}
+.kanan ul li{
+    float: left;
+    display: block;
+}
+.kanan ul li a img{
+    width: 30px;
+    height: 27px;
+    position: relative;
+    right: 20px;
+    top: 10px;
+    background-color: #2f2f2f;
+}
+.kanan ul li h5{
+    margin-top: 16px;
+}
+.kanan ul li input{
+    width: 200px;
+    height: 27px;
+    border: none;
+    position: relative;
+    top: 10px;
+}
+/*--Tengah--*/
+
+#nav-tengah{
+    width: 100%;
+    padding: 15px 0 15px 0;
+}
+.span{
+    width: 100%;
+}
+.logo{
+    width: 45%;
+    height: 100px;
+    background-color: #f8f8f8;
+    background-size:100%;
+    background-size: cover;
+    float: left;
+}
+.img{    
+    width: 40%;
+    height: 100px;
+    background:url(../img/mcd.jpg);
+    background-size:100%;
+    background-size: cover;
+    float: right;
+}
+
+#navigasi{    
+    width: 100%;
+}
+
+.brand,
+.address-bar {
+    display: none;
+}
+
+.navbar-brand {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.navbar-nav {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+.img-full {
+    min-width: 100%;
+}
+
+.brand-before,
+.brand-name {
+    text-transform: capitalize;
+}
+
+.brand-before {
+    margin: 15px 0;
+}
+
+.brand-name {
+    margin: 0;
+    font-size: 4em;
+}
+
+.tagline-divider {
+    margin: 15px auto 3px;
+    max-width: 250px;
+    border-color: #999999;
+}
+
+.box {
+    margin-bottom: 20px;
+    padding: 30px 15px;
+}
+.box-berita {
+    width: 140%;
+    height: 450px;
+    padding: 30px 15px;
+    background: #985703;
+}
+
+.intro-text {
+    text-transform: uppercase;
+    font-size: 1.25em;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.img-border {
+    float: none;
+    margin: 0 auto 0;
+    border: #999999 solid 1px;
+}
+
+.img-left {
+    float: none;
+    margin: 0 auto 0;
+}
+
+footer {
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+}
+
+footer p {
+    margin: 0;
+    padding: 50px 0;
+}
+
+@media screen and (min-width:768px) {
+    .brand {
+        display: inherit;
+        margin: 0;
+        padding: 30px 0 10px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 5em;
+        font-weight: 700;
+        line-height: normal;
+        color: #fff;
+    }
+
+    .top-divider {
+        margin-top: 0;
+    }
+
+    .img-left {
+        float: left;
+        margin-right: 25px;
+    }
+
+    .address-bar {
+        display: inherit;
+        margin: 0;
+        padding: 0 0 40px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        text-transform: uppercase;
+        font-size: 1.25em;
+        font-weight: 400;
+        letter-spacing: 3px;
+        color: #fff;
+    }
+
+    .navbar {
+        border-radius: 0;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 30px;
+        color: white
+    }
+
+    .navbar-header {
+        display: none;
+    }
+
+    .navbar {
+        min-height: 0;
+    }
+
+    .navbar-default {
+        border: none;
+        background: #fff;
+        background: transparent;
+    }
+
+    .nav ul li a {
+        color: #fff;
+        border-right: 1px solid;
+    }
+
+    .navbar-nav>li>a {
+        line-height: normal;
+        background-color: #985703;
+        margin-right:5px;
+        font-size: 12px;
+    }
+
+    .navbar-nav {
+        display: table;
+        float: none;
+        margin: 0 auto;
+        table-layout: fixed;
+        font-size: 1.25em;
+    }
+    .teras-nasional{
+        background-color: #036266;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .box:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+h5.title{
+    margin-top: -10px;
+    padding-bottom: 10px;
+    font-family:sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    font-weight: 700; 
+        color: #fff;
+
+}
+#slider{
+    margin-top: 1000px;
+}
+
+/*--FOKUS--*/
+
+.fokus{
+    width: 30%;
+    height: 400px;
+    float: right;
+}
+
+.fok-isi{
+    width: 260px;
+    padding-top: 10px;
+    margin-left: 20px;
+}
+#fokus{
+    border-bottom: none;
+}
+.list img{
+    width: 60px;
+    height: 60px;
+}
+
+p.des{
+    width: 190px;
+    float: right;
+    color: #000;
+    margin-bottom: 10px;
+            font-size: 10px;
+}
+a.title{
+    color: blue;
+    font-size: 15px;
+}
+
+
+
+
+
+
+/*--Populer--*/
+
+
+#populer{
+    width: 50%;
+    padding: 15px 0 15px 0;
+    float: left;
+}
+.populer{
+    width: 49%;
+    height: 400px;
+}
+.title-populer{
+    width: 100%;
+    height: 40px;
+    padding-top: 1px;
+    padding-left: 15px;
+    background-color: #985409;
+    color: white;
+}
+.pop-kiri{
+    width: 40%;
+    float: left;
+}
+.pop-kiri img{
+    width: 230px;
+    height: 120px;
+    margin-top: 10px;
+}
+.pop-kanan{
+    width: 260px;
+    float: right;
+    padding-top: 10px;
+}
+.pop-kanan img{
+    width: 60px;
+    height: 60px;
+}
+.list{
+    width: 100%;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+}
+p.des{
+    width: 190px;
+    float: right;
+    color: #000;
+    margin-bottom: 10px;
+            font-size: 10px;
+}
+a.title{
+    color: blue;
+    font-size: 15px;
+}
+
+/*----Peristiwa--*/
+.peristiwa{
+    width: 49%;
+    height: 400px; 
+}
+.atas img{
+    width: 100px;
+}
+
+
+/*----Peristiwa--*/
+.news{
+    width: 100%;
+    height: 500px;
+}
+
+
+.news-isi{
+    width: 400px;
+    float: left;
+    padding-top: 10px;
+}
+.news-isi img{
+    width: 100px;
+    height: 100px;
+}
+.list{
+    width: 100%;
+    border-bottom: none;
+    padding-bottom: 10px;
+}
+p.des-news{
+    width: 250px;
+    float: right;
+    color: #036266;
+    margin-bottom: 10px;
+            font-size: 12px;
+}
+a.title{
+    color: #323333;
+    font-size: 15px;
+    font-weight: 500;
+}
+small{
+    color: grey;
+}
+
+/*--Footer--*/
+#footer{
+    width: 100%;
+    height: 120px;
+    margin-top: 30px;
+    background-color: #036266;
+}
+
+.logo-bawah{
+    width: 200px;
+    height: 100px;
+}
+.logo-bawah img{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+.copyright{
+    width: 100%;
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--RESPONSIVE--*/
+@media (max-width: 768px) {
+    .navbar-brand,.kiri,.kanan{
+        display: none;
+    }
+    .logo{
+        display: none;
+    }
+    .img{
+        float: left;
+        width: 100%;
+        background:none;
+    }
+    .img img{
+        float: left;
+        width: 100%;
+        height: 100px;
+    }
+    .box-berita{
+        max-width: 100%;
+        height: auto;
+    }
+    .fokus{
+        display: none;
+    }
+    #populer{
+        display: none;
+    }
+    #news{
+        width: 100%;
+        position: relative;
+        left: -50px;
+    }
+    p.des-news{
+        position: relative;
+        left: -30px;
+        font-size: 10px;
+    }
+}
