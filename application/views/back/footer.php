@@ -1,6 +1,6 @@
  <footer>
  	<div class="pull-right">
- 		Allblue IT - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+ 		terasberita.co - Powered by <a href="#">Allblue IT</a>
  	</div>
  	<div class="clearfix"></div>
  </footer>

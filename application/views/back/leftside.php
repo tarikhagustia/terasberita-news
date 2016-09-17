@@ -2,7 +2,7 @@
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
             <a href="#" class="site_title"><i class="fa fa-paw"></i>
-            <span>Backoffice</span></a>
+            <span>Admin Panel</span></a>
         </div>
         <div class="clearfix"></div>
         <!-- menu profile quick info -->
@@ -29,7 +29,7 @@
                     <li>
                         <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="<?php echo base_url('backoffice/dashboard'); ?>" id="dashboard2" class='mm_menuitem ' >Dashboard</a>
+                            <li><a href="<?php echo base_url('backoffice/dashboard'); ?>" id="dashboard2" class='' >Dashboard</a>
                             </li>
                         </ul>
                     </li>
@@ -84,7 +84,7 @@
                     <li>
                         <a><i class="fa fa-clone"></i> User Management <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="<?php echo base_url('backoffice/manage_user'); ?>" id="dashboard2" class='mm_menuitem ' >Manage User</a>
+                            <li><a href="<?php echo base_url('backoffice/manage_user'); ?>" id="dashboard2" class='' >Manage User</a>
                             </li>
                         </ul>
                     </li>

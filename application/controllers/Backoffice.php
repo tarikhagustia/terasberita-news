@@ -57,13 +57,17 @@ class Backoffice extends CI_Controller {
 	}
 	public function dashboard()
 	{
-		$this->session->set_userdata(array('page' => 'dashboard'));
-		$this->load->view('back/dashboard');
+		$page = array(
+			"thepage" => $this->load->view('back/dashboard', array(), true)
+		);
+		$this->load->view('back/index', $page);
 	}
 	public function dashboard2()
-	{
-		$this->session->set_userdata(array('page' => 'dashboard2'));
-		$this->load->view('back/dashboard2');
+	{		
+		$page = array(
+			"thepage" => $this->load->view('back/dashboard2', array(), true)
+		);
+		$this->load->view('back/index', $page);
 	}
 	public function logout()
 	{
@@ -73,14 +77,11 @@ class Backoffice extends CI_Controller {
 	public function manage_user($do = false)
 	{
 		$this->load->model('back','modelbackoffice');
-		if($do == FALSE){
-			$this->session->set_userdata(array('page' => 'manage_user'));
-			$data = $this->modelbackoffice->getData('bo_user', 'username, full_name, date_create, email');
-			// var_dump($data);
-    		$this->load->view('back/manage_user', array('data' => $data));
-		}else{
-
-		}
+		$data = $this->modelbackoffice->getData('bo_user', 'username, full_name, date_create, email');
+		$page = array(
+			"thepage" => $this->load->view('back/manage_user', array('data' => $data), true)
+		);
+		$this->load->view('back/index', $page);
 	}
 
 }

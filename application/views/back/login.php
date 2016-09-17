@@ -14,7 +14,7 @@
 		<!-- Custom Theme Style -->
 		<link href="<?php echo base_url('assets/css/custom2.css'); ?>" rel="stylesheet">
 	</head>
-	<body style="background:#F7F7F7;">
+	<body style="background:#F7F7F9;">
 		<div class="">
 			<a class="hiddenanchor" id="toregister"></a>
 			<a class="hiddenanchor" id="tologin"></a>
@@ -37,7 +37,7 @@
 							<div>
 
 								<?php echo form_button($data=array('type' => 'submit', 'name'=>'submit','id'=>'sbmt', 'class' => 'btn btn-default submit'),'Submit'); ?>
-								<a class="reset_pass" href="#">Lost your password?</a>
+								<!-- <a class="reset_pass" href="#">Lost your password?</a> -->
 							</div>
 							<div class="clearfix"></div>
 							<div class="separator">
@@ -45,42 +45,11 @@
 								<div class="clearfix"></div>
 								<br />
 								<div>
-									<h1><i class="fa fa-paw" style="font-size: 26px;"></i> Gentelella Alela!</h1>
-									<p>©2015 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+									<h1><i class="fa fa-gear" style="font-size: 26px;"></i> terasberita.co</h1>
+									<p>terasberita.co - Powered by <a href="#"> Allblue IT</a></p>
 								</div>
 							</div>
 						<?php echo form_close();  ?>
-					</section>
-				</div>
-				<div id="register" class="form">
-					<section class="login_content">
-						<form>
-							<h1>Create Account</h1>
-							<div>
-								<input type="text" class="form-control" placeholder="Username" required="" />
-							</div>
-							<div>
-								<input type="email" class="form-control" placeholder="Email" required="" />
-							</div>
-							<div>
-								<input type="password" class="form-control" placeholder="Password" required="" />
-							</div>
-							<div>
-								<button class="btn btn-default"></button>
-							</div>
-							<div class="clearfix"></div>
-							<div class="separator">
-								<p class="change_link">Already a member ?
-									<a href="#tologin" class="to_register"> Log in </a>
-								</p>
-								<div class="clearfix"></div>
-								<br />
-								<div>
-									<h1><i class="fa fa-paw" style="font-size: 26px;"></i> Gentelella Alela!</h1>
-									<p>©2015 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-								</div>
-							</div>
-						</form>
 					</section>
 				</div>
 			</div>
