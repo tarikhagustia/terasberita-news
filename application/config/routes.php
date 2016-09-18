@@ -52,3 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'FrontEnd/mainteance';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['teras-sukabumi'] = 'FrontEnd/terasSukabumi';
+$route['teras-cianjur'] = 'FrontEnd/terasCianjur';
+$route['teras-kriminal'] = 'FrontEnd/terasKriminal';

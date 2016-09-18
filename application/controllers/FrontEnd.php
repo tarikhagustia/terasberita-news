@@ -18,11 +18,45 @@ class FrontEnd extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+	}
 	public function index()
 	{
-		$this->load->view('FrontOffice/header');
-		$this->load->view('FrontOffice/menu');
-		$this->load->view('FrontOffice/dashboard');
+
+		$this->load->view('FrontOffice/topside');
+		$this->load->view('FrontOffice/body');
+		$this->load->view('FrontOffice/footer');
+	}
+	public function terasNasional(){
+		$this->load->view('FrontOffice/topside');
+		$this->load->view('FrontOffice/body');
+		$this->load->view('FrontOffice/footer');
+	}
+	public function terasSukabumi(){
+		$this->load->view('FrontOffice/topside');
+		$this->load->view('FrontOffice/body');
+		$this->load->view('FrontOffice/footer');
+	}
+	public function terasCianjur(){
+		$this->load->view('FrontOffice/topside');
+		$this->load->view('FrontOffice/body');
+		$this->load->view('FrontOffice/footer');
+	}
+	public function terasKriminal(){
+		$this->load->view('FrontOffice/topside');
+		$this->load->view('FrontOffice/body');
+		$this->load->view('FrontOffice/footer');
+	}
+	public function terasEkonomi(){
+		$this->load->view('FrontOffice/topside');
+		$this->load->view('FrontOffice/body');
+		$this->load->view('FrontOffice/footer');
+	}
+	public function terasSehat(){
+		$this->load->view('FrontOffice/topside');
+		$this->load->view('FrontOffice/body');
 		$this->load->view('FrontOffice/footer');
 	}
 	public function mainteance(){
