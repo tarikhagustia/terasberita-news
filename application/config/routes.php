@@ -55,3 +55,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['teras-sukabumi'] = 'FrontEnd/terasSukabumi';
 $route['teras-cianjur'] = 'FrontEnd/terasCianjur';
 $route['teras-kriminal'] = 'FrontEnd/terasKriminal';
+$route['teras-nasional'] = 'FrontEnd/terasNasional';
+$route['teras-ekonomi'] = 'FrontEnd/terasEkonomi';
+$route['teras-sehat'] = 'FrontEnd/terasSehat';
+$route['(:any)'] = 'FrontEnd/viewMyArticle/$1';
+

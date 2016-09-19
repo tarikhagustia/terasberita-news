@@ -279,87 +279,23 @@
                 <div class="box-kiri"><!--kiri peristiwa-->
                     <div class="title-populer"><h5>NEWS FEED</h5></div>
                         <div id="scrolllable-news">
+                        <?php foreach($dataNews as $key => $rows){ ?>
                          <div class="news-isi"><!--News-Isi-->
                             <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
+                                 <?php if($rows->news_thumb == NULL || $rows->news_thumb == ''): ?>
+                                        <img src="<?php echo base_url() ?>assets/img/bg.jpg">
+                                <?php else: ?>
+                                        <img src="<?php echo $dataArticle->news_thumb ?>">
+                                <?php endif; ?>
+                                
                                 <p class="des-news">
-                                <a class="title" href="news-1.html">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small><br>
-                                and put anything you and put anything you want in them! anything you and put anything you want in them! you want in them! anything you and put anything you want in them! you and put anything you want in them! you !</p>
+                                <a class="title" href="<?php echo base_url($rows->news_url) ?>"><?php echo $rows->news_title ?></a><br>
+                                <small><?php echo $rows->news_timestamp ?></small><br>
+                                <?php echo $rows->news_desc ?>
+                                </p>
                             </div>
                         </div><!--/News-Isi-->
-                         <div class="news-isi"><!--News-Isi-->
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="news-2.html">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small><br>
-                                and put anything you and put anything you want in them! anything you and put anything you want in them! you want in them! anything you and put anything you want in them! you and put anything you want in them! you !</p>
-                            </div>
-                        </div><!--/News-Isi-->
-                         <div class="news-isi"><!--News-Isi-->
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="news-3.html">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small><br>
-                                and put anything you and put anything you want in them! anything you and put anything you want in them! you want in them! anything you and put anything you want in them! you and put anything you want in them! you !</p>
-                            </div>
-                        </div><!--/News-Isi-->
-                         <div class="news-isi"><!--News-Isi-->
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="news-4.html">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small><br>
-                                and put anything you and put anything you want in them! anything you and put anything you want in them! you want in them! anything you and put anything you want in them! you and put anything you want in them! you !</p>
-                            </div>
-                        </div><!--/News-Isi-->
-                         <div class="news-isi"><!--News-Isi-->
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="news-5.html">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small><br>
-                                and put anything you and put anything you want in them! anything you and put anything you want in them! you want in them! anything you and put anything you want in them! you and put anything you want in them! you !</p>
-                            </div>
-                        </div><!--/News-Isi-->
-                         <div class="news-isi"><!--News-Isi-->
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="news-6.html">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small><br>
-                                and put anything you and put anything you want in them! anything you and put anything you want in them! you want in them! anything you and put anything you want in them! you and put anything you want in them! you !</p>
-                            </div>
-                        </div><!--/News-Isi-->
-                         <div class="news-isi"><!--News-Isi-->
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="news-7.html">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small><br>
-                                and put anything you and put anything you want in them! anything you and put anything you want in them! you want in them! anything you and put anything you want in them! you and put anything you want in them! you !</p>
-                            </div>
-                        </div><!--/News-Isi-->
-                         <div class="news-isi"><!--News-Isi-->
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="news-8.html">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small><br>
-                                and put anything you and put anything you want in them! anything you and put anything you want in them! you want in them! anything you and put anything you want in them! you and put anything you want in them! you !</p>
-                            </div>
-                        </div><!--/News-Isi-->
-                         <div class="news-isi"><!--News-Isi-->
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="news-9.html">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small><br>
-                                and put anything you and put anything you want in them! anything you and put anything you want in them! you want in them! anything you and put anything you want in them! you and put anything you want in them! you !</p>
-                            </div>
-                        </div><!--/News-Isi-->
+                        <?php } ?>
                     </div>
                 </div>
             <div class="box-kanan" id="box-kanan"><!--Box-Kanan-->
