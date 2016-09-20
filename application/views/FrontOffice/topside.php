@@ -31,7 +31,7 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
- 
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -86,7 +86,7 @@
         <div class="col-md-12">
             <div class="span">
                 <a href=""><div class="logo"><img src="<?php echo base_url() ?>assets/img/logo/Teras Berita - Logo - Standart.png"></div></a>
-                <a href=""><div class="img"><img src="<?php echo base_url() ?>assets/img/mcd.jpg"></div></a>
+                <a href=""><div class="img img-ads"><img src="<?php echo base_url() ?>assets/img/mcd.jpg"></div></a>
             </div>
         </div>
     </div>

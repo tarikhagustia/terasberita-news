@@ -5,49 +5,34 @@
                 <div class="col-md-6">
                   <div class="box-berita">
                     <h5 class="title">Berita Utama</h5>
-                    <div id="carousel-example-generic" class="carousel slide" >
-                        <!-- Indicators -->
-                        <ol id="slider" class="carousel-indicators hidden-xs">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img class="img-responsive img-full" src="<?php echo base_url() ?>assets/img/slide-1.jpg" alt="">
-                                <div class="text-berita"><!--TextBeritaSlideshow -->
-                                    <h5 class="judul">Teras sehat</h5>
-                                    <p class="banner">Lorem ipsum dolor sit ametametamet<br>Lorem ipsum dolor sit amet</p>
-                                    <p class="date">Yesterday | sabtu, 15 april 2000</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive img-full" src="<?php echo base_url() ?>assets/img/slide-2.jpg" alt="">
-                                <div class="text-berita"><!--TextBeritaSlideshow -->
-                                    <h5 class="judul">Teras cianjur</h5>
-                                    <p class="banner">Lorem ipsum dolor sit ametametamet<br>Lorem ipsum dolor sit amet</p>
-                                    <p class="date">Yesterday | sabtu, 15 april 2000</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive img-full" src="<?php echo base_url() ?>assets/img/slide-3.jpg" alt="">
-                                <div class="text-berita"><!--TextBeritaSlideshow -->
-                                    <h5 class="judul">Teras Kriminal</h5>
-                                    <p class="banner">Lorem ipsum dolor sit ametametamet<br>Lorem ipsum dolor sit amet</p>
-                                    <p class="date">Yesterday | sabtu, 15 april 2000</p>
-                                </div>
-                            </div>
+                    <h3 class="title-breaking">Sandiaga Siap Dampingi Anies Baswedan, Apa Kabar Cawagub PKS Mardani? </h3>
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div id="breakingnews" style="background-image: url(<?php echo base_url() ?>assets/img/bg.jpg);width: auto;height: 300px;">
+                          <div class="text-berita"><!--TextBeritaSlideshow -->
+                                      <h5 class="judul">Teras Sukabumi</h5>
+                                      <p class="banner">Lorem ipsum dolor sit ametametamet<br>Lorem ipsum dolor sit amet</p>
+                                      <p class="date">Yesterday | sabtu, 15 april 2000</p>
+                          </div>
                         </div>
 
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                            <span class="icon-prev"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                            <span class="icon-next"></span>
-                        </a>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="titile_bt">Berita Terkait</div>
+                        <article class="article_terkait">
+                           <a href="http://news.detik.com/berita/d-3302203/anies-baswedan-sandiaga-penantang-kuat-ahok-ini-buktinya" data-category="GA WP New Detikcom 2015" data-action="HL" data-label="Berita Terkait">
+                           <span>Anies Baswedan-Sandiaga Penantang Kuat Ahok, Ini Buktinya</span>
+                           </a>
+                         </article>
+                         <article class="article_terkait">
+                            <a href="http://news.detik.com/berita/d-3302203/anies-baswedan-sandiaga-penantang-kuat-ahok-ini-buktinya" data-category="GA WP New Detikcom 2015" data-action="HL" data-label="Berita Terkait">
+                            <span>Anies Baswedan-Sandiaga Penantang Kuat Ahok, Ini Buktinya</span>
+                            </a>
+                          </article>
+                        <!-- <p>
+                          Sandiaga Uno menyatakan siap jika diminta mendampingi Anies Baswedan maju Pilgub DKI. Bagaimana dengan cawagub DKI dari PKS?
+                        </p> -->
+                      </div>
                     </div>
                 </div>
                 </div><!--BOX BERITA-->
@@ -154,7 +139,7 @@
                                 <a class="title" href="populer-1.html">Use as many boxes as you</a><br>
                                 and put anything you and put anything you want in them!</p>
                             </div>
-                        </div><!--/pop-kanan-->  
+                        </div><!--/pop-kanan-->
                         <div class="pop-kanan"><!--pop-kanan-->
                             <div class="list"id="fokus">
                                 <img src="<?php echo base_url() ?>assets/img/bg.jpg">
@@ -162,7 +147,7 @@
                                 <a class="title" href="">Use as many boxes as you</a><br>
                                 and put anything you and put anything you want in them!</p>
                             </div>
-                        </div><!--/pop-kanan-->  
+                        </div><!--/pop-kanan-->
                         <div class="pop-kanan"><!--pop-kanan-->
                             <div class="list"id="fokus">
                                 <img src="<?php echo base_url() ?>assets/img/bg.jpg">
@@ -170,7 +155,7 @@
                                 <a class="title" href="">Use as many boxes as you</a><br>
                                 and put anything you and put anything you want in them!</p>
                             </div>
-                        </div><!--/pop-kanan-->  
+                        </div><!--/pop-kanan-->
                         <div class="pop-kanan"><!--pop-kanan-->
                             <div class="list"id="fokus">
                                 <img src="<?php echo base_url() ?>assets/img/bg.jpg">
@@ -178,7 +163,7 @@
                                 <a class="title" href="">Use as many boxes as you</a><br>
                                 and put anything you and put anything you want in them!</p>
                             </div>
-                        </div><!--/pop-kanan-->  
+                        </div><!--/pop-kanan-->
                         <div class="pop-kanan"><!--pop-kanan-->
                             <div class="list"id="fokus">
                                 <img src="<?php echo base_url() ?>assets/img/bg.jpg">
@@ -186,7 +171,7 @@
                                 <a class="title" href="">Use as many boxes as you</a><br>
                                 and put anything you and put anything you want in them!</p>
                             </div>
-                        </div><!--/pop-kanan-->  
+                        </div><!--/pop-kanan-->
                         <div class="pop-kanan"><!--pop-kanan-->
                             <div class="list"id="fokus">
                                 <img src="<?php echo base_url() ?>assets/img/bg.jpg">
@@ -194,7 +179,7 @@
                                 <a class="title" href="">Use as many boxes as you</a><br>
                                 and put anything you and put anything you want in them!</p>
                             </div>
-                        </div><!--/pop-kanan-->  
+                        </div><!--/pop-kanan-->
                         <div class="pop-kanan"><!--pop-kanan-->
                             <div class="list"id="fokus">
                                 <img src="<?php echo base_url() ?>assets/img/bg.jpg">
@@ -202,7 +187,7 @@
                                 <a class="title" href="">Use as many boxes as you</a><br>
                                 and put anything you and put anything you want in them!</p>
                             </div>
-                        </div><!--/pop-kanan-->  
+                        </div><!--/pop-kanan-->
                         <div class="pop-kanan"><!--pop-kanan-->
                             <div class="list"id="fokus">
                                 <img src="<?php echo base_url() ?>assets/img/bg.jpg">
@@ -287,7 +272,7 @@
                                 <?php else: ?>
                                         <img src="<?php echo $dataArticle->news_thumb ?>">
                                 <?php endif; ?>
-                                
+
                                 <p class="des-news">
                                 <a class="title" href="<?php echo base_url($rows->news_url) ?>"><?php echo $rows->news_title ?></a><br>
                                 <small><?php echo $rows->news_timestamp ?></small><br>
@@ -373,6 +358,6 @@
                         </div>
                 </div>
             </div>
-        </div>      
+        </div>
     </div></div></div>
 </section>

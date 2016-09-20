@@ -129,7 +129,7 @@ a button.grey:hover{
 }
 .kanan ul li a img:hover{
     background-color: #ccc;
-}    
+}
 .sos img{
     width: 40px;
     height: 40px;
@@ -159,9 +159,9 @@ a button.grey:hover{
 }
 .logo img{
     width:500px;
-    height: 130px;   
+    height: 130px;
 }
-.img{    
+.img{
     width: 50%;
     height: 130px;
     float: left;
@@ -173,7 +173,7 @@ a button.grey:hover{
     margin-right: 5px;
 }
 
-#navigasi{    
+#navigasi{
     width: 100%;
 }
 
@@ -340,7 +340,7 @@ footer p {
     a#aktiv{
         color: #fff;
         border: 1px solid #ccc;
-        background-color: #036266;  
+        background-color: #036266;
     }
     a#aktiv:hover{
         background-color: transparent;
@@ -365,7 +365,7 @@ h5.title{
     font-family:sans-serif;
     font-size: 20px;
     font-weight: bold;
-    font-weight: 700; 
+    font-weight: 700;
         color: #fff;
 
 }
@@ -384,11 +384,18 @@ h5.title{
     display: none;
 }
 .text-berita{
-    width: 300px;
+    /*width: 300px;
     height: 0;
     z-index: 9999;
     position: relative;
     top: -100px;
+    color: #fff;*/
+
+    width: 300px;
+    height: 0;
+    z-index: 9999;
+    position: relative;
+    top: 200px;
     color: #fff;
 }
 .judul{
@@ -521,7 +528,7 @@ a.title{
 /*----Peristiwa--*/
 .peristiwa{
     width: 49%;
-    height: 400px; 
+    height: 400px;
 }
 .atas img{
     width: 100px;
@@ -641,7 +648,7 @@ small{
 .logo-daftar{
     width: 100px;
     height: 100px;
-    border-right: 10px solid #fff; 
+    border-right: 10px solid #fff;
     float: right;
 }
 
@@ -744,6 +751,7 @@ small{
 }
 
 .isi-kiri{
+    padding-top: 10px;
     width: 57%;
     float: left;
 }
@@ -809,7 +817,7 @@ background-color: white;
 #scroll-atas a{
     color: #fff;
     font-size: 30px;
-    text-align: center; 
+    text-align: center;
     font-weight: bold;
 }
 
@@ -882,7 +890,13 @@ h2.title{
     width: 100%;
     height: 300px;
 }
-
+.titile_bt{
+  color: #fed019;
+font-weight: bold;
+}
+.article_terkait{
+  padding: 10px;
+}
 
 
 
@@ -896,7 +910,7 @@ h2.title{
         z-index: 99999;
     }
     .navbar{
-        background-color: #006666;  
+        background-color: #006666;
         position: fixed;
         width: 100%;
         margin-top: -280px;
@@ -981,7 +995,10 @@ h2.title{
         padding-bottom: 20px;
     }
     .text-berita{
-        display: none;
+        /*display: none;*/
+    }
+    .img-ads{
+      display: none;
     }
     .title-populer{
         width: 100%;
@@ -1078,7 +1095,7 @@ h2.title{
     img#profil-contact{
         width: 100%;
     }
-    
+
     .box-deskripsi{
         width: 100%;
     }
