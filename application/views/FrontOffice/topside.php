@@ -111,25 +111,25 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" id="navigasi">
                     <li>
-                        <a id="aktiv" href="index.html">TerasNasional</a>
+                        <a id="aktiv" href="<?php echo base_url('teras-nasional') ?>">TerasNasional</a>
                     </li>
                     <li>
-                        <a href="teras-sukabumi.html">TerasSukabumi</a>
+                        <a href="<?php echo base_url('teras-kriminal') ?>">TerasKriminal</a>
                     </li>
                     <li>
-                        <a href="teras-cianjur.html">TerasCianjur</a>
+                        <a href="<?php echo base_url('teras-sukabumi') ?>">TerasSukabumi</a>
                     </li>
                     <li>
-                        <a href="teras-kriminal.html">TerasKriminal</a>
+                        <a href="<?php echo base_url('teras-cianjur') ?>">TerasCianjur</a>
                     </li>
                     <li>
-                        <a href="teras-ekonomi.html">TerasEkonomi</a>
+                        <a href="<?php echo base_url('teras-sehat') ?>">TerasSehat</a>
                     </li>
                     <li>
-                        <a href="teras-sehat.html">TerasSehat</a>
+                        <a href="<?php echo base_url('teras-ekonomi') ?>">TerasEkonomi</a>
                     </li>
                     <li style="width: 100px;">
-                        <a href="index.html" class="index">INDEX</a>
+                        <a href="" class="index">INDEX</a>
                     </li>
                 </ul>
             </div></div>

@@ -1,4 +1,4 @@
-<section id="berita">
+F<section id="berita">
     <div class="container">
         <div class="row">
             <div class="box">
@@ -21,7 +21,7 @@
                         <div class="titile_bt">Berita Terkait</div>
                         <article class="article_terkait">
                            <a href="http://news.detik.com/berita/d-3302203/anies-baswedan-sandiaga-penantang-kuat-ahok-ini-buktinya" data-category="GA WP New Detikcom 2015" data-action="HL" data-label="Berita Terkait">
-                           <span>Anies Baswedan-Sandiaga Penantang Kuat Ahok, Ini Buktinya</span>
+                           <span>Anies Baswedan-Sandiaga Penantang Kuat Ahok, Ini Bfuktinya</span>
                            </a>
                          </article>
                          <article class="article_terkait">
@@ -37,7 +37,7 @@
                 </div>
                 </div><!--BOX BERITA-->
                     <div class="fokus"><!--FOKUS-->
-                        <div class="title-populer"><h5>FOKUS</h5></div>
+                        <div class="title-populer"><h5>terasPeristiwa</h5></div>
                             <div id="scrolllable-fokus"><!--SCROLLLABLE-->
                                 <div class="fok-isi"><!--FOK ISI-->
                                     <div class="list">
@@ -157,7 +157,7 @@
                 </div>
             </div>
                 <div class="box-kanan" id="peristiwa">
-                    <div class="title-populer"><h5>IN-DEPTH PERISTIWA</h5></div>
+                    <div class="title-populer"><h5>Teras kejadian perkara - TKP</h5></div>
                         <div class="img-peristiwa"><!--Class Peristiwa-->
                     <div id="carousel-example-generic" class="carousel slide" >
                         <!-- Indicators -->

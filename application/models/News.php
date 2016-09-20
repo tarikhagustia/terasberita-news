@@ -14,7 +14,7 @@ class News extends CI_Model
         return "Haha";
     }
     public function getNewsFromPage($category_id){
-      $result = $this->db->query("SELECT news_url, news_thumb, fn_pages.`category_id`, fn_pages.`pages_id`, news_title, category_alias, news_desc, fn_news.`news_timestamp` FROM fn_pages, fn_category, fn_news WHERE fn_pages.`category_id` = fn_category.`category_id` AND fn_pages.`news_id` = fn_news.`news_id` AND fn_pages.category_id = '$category_id' ORDER BY fn_news.news_timestamp DESC");
+      $result = $this->db->query("SELECT news_url, news_thumb, fn_pages.`category_id`, fn_pages.`pages_id`, news_title, category_alias,  SUBSTR(news_desc, 1, 200) AS news_desc, fn_news.`news_timestamp` FROM fn_pages, fn_category, fn_news WHERE fn_pages.`category_id` = fn_category.`category_id` AND fn_pages.`news_id` = fn_news.`news_id` AND fn_pages.category_id = '$category_id' ORDER BY fn_news.news_timestamp DESC");
       return $result->result();
     }
     public function getNewsFromArticle($news_url = null){
