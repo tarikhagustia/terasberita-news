@@ -33,8 +33,10 @@ class FrontEnd extends CI_Controller {
 	public function terasNasional(){
 
 		$dataNews = $this->news->getNewsFromPage(4);
+		$dataPopular = $this->news->getPopularNewsByCatgory(4);
+		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne(4);
 		$this->load->view('FrontOffice/topside');
-		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews));
+		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne));
 		$this->load->view('FrontOffice/footer');
 	}
 	public function terasSukabumi(){

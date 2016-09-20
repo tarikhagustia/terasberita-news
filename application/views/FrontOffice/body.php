@@ -126,76 +126,33 @@
                     <div class="title-populer"><h5>Populer</h5></div>
                         <div class="populer">
                         <div class="pop-kiri"><!--pop-kiri -->
+                          <?php if($dataPopularOne->news_thumb == NULL || $dataPopularOne->news_thumb == ""): ?>
                             <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                            <small>Lorem Ipsum dolor sit amet</small>
-                            <a href=""><h5>Lorem Ipsum dolor sit amet amet</h5></a>
-                            <p>Use as many boxes as you like,Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit! like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
+                          <?php else: ?>
+                            <img src="<?php echo $dataPopularOne->news_thumb ?>">
+                          <?php endif; ?>
+
+                            <!-- <small><?php echo $dataPopularOne->news_title ?></small> -->
+                            <a href=""><h5><?php echo $dataPopularOne->news_title ?></h5></a>
+                            <p><?php echo $dataPopularOne->descriptions ?></p>
                         </div>  <!--/pop-kiri -->
                         <div id="scrolllable-populer">
+
+                        <?php foreach($dataPopular as $rows){
+                        ?>
                         <div class="pop-kanan"><!--pop-kanan-->
                             <div class="list" id="fokus">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
+                                <?php if($rows->news_thumb == NULL || $rows->news_thumb == ""): ?>
+                                  <img src="<?php echo base_url() ?>assets/img/bg.jpg">
+                                <?php else: ?>
+                                  <img src="<?php echo $rows->news_thumb ?>">
+                                <?php endif; ?>
                                 <p class="des">
-                                <a class="title" href="populer-1.html">Use as many boxes as you</a><br>
-                                and put anything you and put anything you want in them!</p>
+                                <a class="title" href="populer-1.html"><?php echo $rows->news_title ?></a><br>
+                                <?php echo $rows->descriptions ?></p>
                             </div>
-                        </div><!--/pop-kanan-->
-                        <div class="pop-kanan"><!--pop-kanan-->
-                            <div class="list"id="fokus">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des">
-                                <a class="title" href="">Use as many boxes as you</a><br>
-                                and put anything you and put anything you want in them!</p>
-                            </div>
-                        </div><!--/pop-kanan-->
-                        <div class="pop-kanan"><!--pop-kanan-->
-                            <div class="list"id="fokus">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des">
-                                <a class="title" href="">Use as many boxes as you</a><br>
-                                and put anything you and put anything you want in them!</p>
-                            </div>
-                        </div><!--/pop-kanan-->
-                        <div class="pop-kanan"><!--pop-kanan-->
-                            <div class="list"id="fokus">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des">
-                                <a class="title" href="">Use as many boxes as you</a><br>
-                                and put anything you and put anything you want in them!</p>
-                            </div>
-                        </div><!--/pop-kanan-->
-                        <div class="pop-kanan"><!--pop-kanan-->
-                            <div class="list"id="fokus">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des">
-                                <a class="title" href="">Use as many boxes as you</a><br>
-                                and put anything you and put anything you want in them!</p>
-                            </div>
-                        </div><!--/pop-kanan-->
-                        <div class="pop-kanan"><!--pop-kanan-->
-                            <div class="list"id="fokus">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des">
-                                <a class="title" href="">Use as many boxes as you</a><br>
-                                and put anything you and put anything you want in them!</p>
-                            </div>
-                        </div><!--/pop-kanan-->
-                        <div class="pop-kanan"><!--pop-kanan-->
-                            <div class="list"id="fokus">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des">
-                                <a class="title" href="">Use as many boxes as you</a><br>
-                                and put anything you and put anything you want in them!</p>
-                            </div>
-                        </div><!--/pop-kanan-->
-                        <div class="pop-kanan"><!--pop-kanan-->
-                            <div class="list"id="fokus">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des">
-                                <a class="title" href="">Use as many boxes as you</a><br>
-                                and put anything you and put anything you want in them!</p>
-                            </div>
-                        </div><!--/pop-kanan-->
+                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
