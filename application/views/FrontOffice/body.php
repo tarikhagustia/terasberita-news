@@ -133,7 +133,7 @@
                           <?php endif; ?>
 
                             <!-- <small><?php echo $dataPopularOne->news_title ?></small> -->
-                            <a href=""><h5><?php echo $dataPopularOne->news_title ?></h5></a>
+                            <a href="<?php echo $dataPopularOne->news_url ?>"><h5><?php echo $dataPopularOne->news_title ?></h5></a>
                             <p><?php echo $dataPopularOne->descriptions ?></p>
                         </div>  <!--/pop-kiri -->
                         <div id="scrolllable-populer">
@@ -148,7 +148,7 @@
                                   <img src="<?php echo $rows->news_thumb ?>">
                                 <?php endif; ?>
                                 <p class="des">
-                                <a class="title" href="populer-1.html"><?php echo $rows->news_title ?></a><br>
+                                <a class="title" href="<?php echo $rows->news_url ?>"><?php echo $rows->news_title ?></a><br>
                                 <?php echo $rows->descriptions ?></p>
                             </div>
                         </div>
