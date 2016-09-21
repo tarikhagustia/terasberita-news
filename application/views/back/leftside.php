@@ -88,6 +88,13 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a><i class="fa fa-edit"></i> Artikel Management <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="<?php echo base_url('backoffice/creat_new_artikel'); ?>" id="dashboard3" class='' >Creat New Artikel</a></li>
+							<li><a href="<?php echo base_url('backoffice/manage_artikel'); ?>" id="dashboard4" class='' >Manage Artikel</a>
+                        </ul>
+					</li>
                 </ul>
             </div>
 
