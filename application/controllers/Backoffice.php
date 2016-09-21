@@ -83,5 +83,19 @@ class Backoffice extends CI_Controller {
 		);
 		$this->load->view('back/index', $page);
 	}
+	public function creat_new_artikel($do = false)
+	{
+		$page = array(
+			"thepage" => $this->load->view('back/creat_new_artikel', array(), true)
+		);
+		$this->load->view('back/index', $page);
+	}
+	public function manage_artikel($do = false)
+	{
+		$page = array(
+			"thepage" => $this->load->view('back/manage_artikel', array(), true)
+		);
+		$this->load->view('back/index', $page);
+	}
 
 }
