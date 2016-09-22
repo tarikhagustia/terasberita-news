@@ -404,7 +404,7 @@ h5.title{
     position: relative;
     left: 20px;
     top: -50px;
-    padding: 10px;
+    padding: 5px 10px 10px 10px;
     background-color: #985409;
     font-size: 15px;
 }
@@ -1039,16 +1039,16 @@ p.pengirim a{
 .search input{
     width: 63%;
     height: 40px;float: left;
-}    
+}
 .search button{
     width: 40px;
     height: 40px;
     padding: 0px;
-    border-radius: 0px;   
+    border-radius: 0px;
 }
 .search img{
-    width: 100%; 
-    height: 40px;   
+    width: 100%;
+    height: 40px;
 }
 .notif{
     width: 100%;

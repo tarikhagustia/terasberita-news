@@ -63,7 +63,7 @@ class Backoffice extends CI_Controller {
 		$this->load->view('back/index', $page);
 	}
 	public function dashboard2()
-	{		
+	{
 		$page = array(
 			"thepage" => $this->load->view('back/dashboard2', array(), true)
 		);

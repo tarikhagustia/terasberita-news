@@ -50,8 +50,8 @@ class News extends CI_Model
       }
       return $data;
     }
-    public function getPopularNewsByCatgory($category_id){
-      $query = $this->db->query('SELECT news_url, fn_news.news_id, fn_category.category_id, news_title, SUBSTR(news_desc, 1, 50) AS descriptions, news_thumb FROM fn_news, fn_pages, fn_category WHERE fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fn_category.category_id = "'.$category_id.'" AND fn_news.news_id != (SELECT news_id FROM fn_news ORDER BY news_views DESC LIMIT 1) ORDER BY news_views DESC');
+    public function getPopularNewsByCatgory($category_id, $news_id){
+      $query = $this->db->query('SELECT news_url, fn_news.news_id, fn_category.category_id, news_title, SUBSTR(news_desc, 1, 50) AS descriptions, news_thumb FROM fn_news, fn_pages, fn_category WHERE fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fn_category.category_id = "'.$category_id.'" AND fn_news.news_id != "'.$news_id.'" ORDER BY news_views DESC');
       foreach ($query->result() as $key => $value) {
         # code...
         $data[] = $value;
@@ -67,7 +67,7 @@ class News extends CI_Model
       return @$data;
     }
     public function getTerasPeristiwa($category_id = null){
-      $query = $this->db->query("SELECT fokus_comment, fn_fokus.`fokus_id`, fokus_url, fokus_name FROM fn_fokus, fn_news, fn_pages, fn_category WHERE fn_news.news_id = fn_pages.news_id AND fn_pages.category_id = fn_category.category_id AND fn_fokus.`fokus_id` = fn_news.`fokus_id` AND fn_category.category_id = '$category_id' GROUP BY fn_fokus.`fokus_id` ORDER BY fn_news.`news_timestamp` DESC LIMIT 0,10");
+      $query = $this->db->query("SELECT fokus_comment, fn_fokus.`fokus_id`, fokus_url, fokus_name FROM fn_fokus, fn_news, fn_pages, fn_category WHERE fn_news.news_id = fn_pages.news_id AND fn_pages.category_id = fn_category.category_id AND fn_fokus.`fokus_id` = fn_news.`fokus_id` AND fn_category.category_id = '$category_id' GROUP BY fn_fokus.`fokus_id` ORDER BY fn_fokus.fokus_timestamp DESC LIMIT 0,10");
       return $query->result();
     }
     public function getNewsFromFokusWithUrl($fokus_url = null){
@@ -76,8 +76,9 @@ class News extends CI_Model
 
     }
     public function getIndeph($category_id = null){
-      $query = $this->db->query("SELECT 
+      $query = $this->db->query("SELECT
                 fn_indeph.`indeph_id`,
+                fn_news.news_id,
                 news_title,
                 news_url,
                 news_thumb,
@@ -87,20 +88,60 @@ class News extends CI_Model
                 fn_indeph,
                 fn_news,
                 fn_pages,
-                fn_category 
-              WHERE fn_indeph.`news_id` = fn_news.`news_id` 
-                AND fn_news.`news_id` = fn_pages.`news_id` 
-                AND fn_pages.`category_id` = fn_category.`category_id` 
-                AND date_from <= NOW() 
-                AND date_to >= NOW() 
+                fn_category
+              WHERE fn_indeph.`news_id` = fn_news.`news_id`
+                AND fn_news.`news_id` = fn_pages.`news_id`
+                AND fn_pages.`category_id` = fn_category.`category_id`
+                AND date_from <= NOW()
+                AND date_to >= NOW()
                 AND fn_category.category_id = '$category_id'
-              ORDER BY fn_indeph.`indeph_timestamp` DESC 
+              ORDER BY fn_indeph.`indeph_timestamp` DESC
               LIMIT 1 ");
       foreach($query->result() as $key => $rows){
         $data = $rows;
       }
       return @$data;
     }
+    public function getIndephLeft($category_id, $news_id){
+      $query = $this->db->query("SELECT fn_news.`news_url`, news_title FROM fn_pages, fn_news WHERE fn_pages.`news_id` = fn_news.`news_id` AND fn_pages.`category_id` = '$category_id' AND fn_news.news_id != '$news_id' ORDER BY pages_timestamp DESC LIMIT 0,3");
+      return $query->result();
+    }
+    public function getBreakingNews($category_id){
+      $query = $this->db->query("SELECT
+                fn_news.`news_title`,
+                news_url,
+                SUBSTR(news_desc, 1, 500) AS news_desc2,
+                category_alias,
+                news_thumb,
+                fokus_id,
+                fn_news.news_id,
+                news_timestamp
+              FROM
+                fn_news_breaking,
+                fn_news,
+                fn_pages,
+                fn_category
+              WHERE fn_news_breaking.`news_id` = fn_news.`news_id`
+                AND fn_news.`news_id` = fn_pages.`news_id`
+                AND fn_category.category_id = '$category_id'
+                AND fn_pages.`category_id` = fn_category.`category_id`
+                AND date_from <= NOW()
+                AND date_to >= NOW()
+                AND fn_news_breaking.isActive = TRUE
+                ORDER BY breaking_timestamp DESC
+                LIMIT 1
+                ");
+      foreach($query->result() as $key):
+        $data = $key;
+      endforeach;
+      return @$data;
+
+    }
+    public function getBreakingLeft($fokus_id, $news_id){
+      $query = $this->db->query("SELECT news_url, news_title FROM fn_fokus, fn_news WHERE fn_fokus.`fokus_id` = fn_news.`fokus_id` AND fn_fokus.fokus_id = '$fokus_id' AND fn_news.`news_id` != '$news_id' ORDER BY news_timestamp DESC LIMIT 0,2");
+      return $query->result();
+    }
+
 }
 
 /* End of file shop_model.php */

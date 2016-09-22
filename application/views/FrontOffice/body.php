@@ -1,38 +1,39 @@
 <section id="berita">
     <div class="container">
+        <?php if($dataBreakingNews): ?>
         <div class="row">
             <div class="box">
                 <div class="col-md-6">
                   <div class="box-berita">
                     <h5 class="title">Berita Utama</h5>
-                    <h3 class="title-breaking">Sandiaga Siap Dampingi Anies Baswedan, Apa Kabar Cawagub PKS Mardani? </h3>
+                    <?php if($dataBreakingNews): ?><h3 class="title-breaking"><a href="<?php echo base_url($dataBreakingNews->news_url) ?>"><?php echo $dataBreakingNews->news_title ?></a></h3><?php endif; ?>
                     <div class="row">
                       <div class="col-md-8">
+                      <?php if($dataBreakingNews): ?>
+                      <?php if($dataBreakingNews->news_thumb == NULL || $dataBreakingNews->news_thumb == ""): ?>
                         <div id="breakingnews" style="background-image: url(<?php echo base_url() ?>assets/img/bg.jpg);width: auto;height: 300px;">
+                        <?php else: ?>
+                          <div id="breakingnews" style="background-image: url(<?php echo base_url($dataBreakingNews->news_thumb) ?>);width: auto;height: 300px;">
+                        <?php endif; ?>
                           <div class="text-berita"><!--TextBeritaSlideshow -->
-                                      <h5 class="judul">Teras Sukabumi</h5>
-                                      <p class="banner">Lorem ipsum dolor sit ametametamet<br>Lorem ipsum dolor sit amet</p>
-                                      <p class="date">Yesterday | sabtu, 15 april 2000</p>
+                              <h5 class="judul"><?php echo $dataBreakingNews->category_alias ?></h5>
+                              <p class="banner text-justify"><?php echo $this->format->stripHTMLtags($dataBreakingNews->news_desc2, 0, 100) ?></p>
+                              <p class="date"><?php echo $dataBreakingNews->news_timestamp ?></p>
                           </div>
                         </div>
 
                       </div>
                       <div class="col-md-4">
                         <div class="titile_bt">Berita Terkait</div>
+                        <?php foreach($dataBreakingNewsLeft as $rows): ?>
                         <article class="article_terkait">
-                           <a href="http://news.detik.com/berita/d-3302203/anies-baswedan-sandiaga-penantang-kuat-ahok-ini-buktinya" data-category="GA WP New Detikcom 2015" data-action="HL" data-label="Berita Terkait">
-                           <span>Anies Baswedan-Sandiaga Penantang Kuat Ahok, Ini Bfuktinya</span>
+                           <a href="<?php echo base_url($rows->news_url)?>">
+                           <span><?php echo $rows->news_title ?></span>
                            </a>
                          </article>
-                         <article class="article_terkait">
-                            <a href="http://news.detik.com/berita/d-3302203/anies-baswedan-sandiaga-penantang-kuat-ahok-ini-buktinya" data-category="GA WP New Detikcom 2015" data-action="HL" data-label="Berita Terkait">
-                            <span>Anies Baswedan-Sandiaga Penantang Kuat Ahok, Ini Buktinya</span>
-                            </a>
-                          </article>
-                        <!-- <p>
-                          Sandiaga Uno menyatakan siap jika diminta mendampingi Anies Baswedan maju Pilgub DKI. Bagaimana dengan cawagub DKI dari PKS?
-                        </p> -->
+                       <?php endforeach; ?>
                       </div>
+                    <?php endif; ?>
                     </div>
                 </div>
                 </div><!--BOX BERITA-->
@@ -52,15 +53,16 @@
                                 </div><!--/FOK ISI-->
 
                             <?php } ?>
-                                
+
                                <!--/FOK ISI-->
                             </div>
                     </div><!--COL-MD-6-->
             </div><!--BOX-->
         </div>
+      <?php endif; ?>
     </div>
 </section>
-
+<?php if($dataIndeph): ?>
 <section id="populer">
     <div class="container">
         <div class="col-md-12">
@@ -99,19 +101,20 @@
                     </div>
                 </div>
             </div>
+
                 <div class="box-kanan" id="peristiwa">
                     <div class="title-populer"><h5>Teras kejadian perkara - TKP</h5></div>
                         <div class="img-peristiwa"><!--Class Peristiwa-->
-                        <?php 
-                        
+                        <?php
+
                         if($dataIndeph->news_thumb == NULL):
-                            echo "<img class='img-responsive img-full' src='".base_url()."assets/img/slide-1.jpg' alt=''>";    
-                        else:                           
-                            echo "<img class='img-responsive img-full' src='".base_url($dataIndeph->news_thumb)."' alt=''>";    
+                            echo "<img class='img-responsive img-full' src='".base_url()."assets/img/slide-1.jpg' alt=''>";
+                        else:
+                            echo "<img class='img-responsive img-full' src='".base_url($dataIndeph->news_thumb)."' alt=''>";
                         endif;
 
                         ?>
-                        
+
                         </div>
                         <div class="isi-peristiwa">
                             <div class="isi-kiri"><!--Isi-Kiri-Peristiwa-->
@@ -126,20 +129,21 @@
                                 <div class="title-peristiwa"><h5>BACA JUGA</h5></div>
                                 <div class="des"><!--Deskripsi-->
                                     <ul id="des">
-                                        <li><a href="peristiwa-1.html">Pembunuhan Mirna</a></li>
-                                        <li><a href="peristiwa-2.html">Kasus Korupsi Hambalang</a></li>
-                                        <li><a href="peristiwa-3.html">Naiknya Harga Rokok</a></li>
+                                        <?php foreach($dataIndephLeft as $rows):?>
+                                        <li><a href="<?php echo base_url($rows->news_url) ?>"><?php echo $rows->news_title; ?></a></li>
+                                      <?php endforeach; ?>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 </section>
-
+<?php endif; ?>
 <section id="news">
     <div class="container">
         <div class="col-md-12">

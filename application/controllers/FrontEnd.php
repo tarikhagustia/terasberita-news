@@ -32,42 +32,111 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('FrontOffice/footer');
 	}
 	public function terasNasional(){
-
-		$dataNews = $this->news->getNewsFromPage(4);
-		$dataPopular = $this->news->getPopularNewsByCatgory(4);
-		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne(4);
-		$dataIndeph = $this->news->getIndeph(4);		
-		$dataTerasPeristiwa = $this->news->getTerasPeristiwa(4);
+		$aid = 2;
+		$dataNews = $this->news->getNewsFromPage($aid);
+		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne($aid);
+		$dataPopular = $this->news->getPopularNewsByCatgory($aid, $dataPopularOne->news_id);
+		$dataIndeph = $this->news->getIndeph($aid);
+		if(!empty($dataIndeph)):
+			$dataIndephLeft = $this->news->getIndephLeft($dataIndeph->category_id, $dataIndeph->news_id);
+		endif;
+		$dataTerasPeristiwa = $this->news->getTerasPeristiwa($aid);
+		$dataBreakingNews = $this->news->getBreakingNews($aid);
+		if(!empty($dataBreakingNews)):
+			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
+		endif;
 		$this->load->view('FrontOffice/topside');
-		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph));
+		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
 	public function terasSukabumi(){
-		$dataNews = $this->news->getNewsFromPage(1);
-		$dataPopular = $this->news->getPopularNewsByCatgory(1);
-		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne(1);
+		$aid = 1;
+		$dataNews = $this->news->getNewsFromPage($aid);
+		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne($aid);
+		$dataPopular = $this->news->getPopularNewsByCatgory($aid, $dataPopularOne->news_id);
+		$dataIndeph = $this->news->getIndeph($aid);
+		if(!empty($dataIndeph)):
+			$dataIndephLeft = $this->news->getIndephLeft($dataIndeph->category_id, $dataIndeph->news_id);
+		endif;
+		$dataTerasPeristiwa = $this->news->getTerasPeristiwa($aid);
+		$dataBreakingNews = $this->news->getBreakingNews($aid);
+		if(!empty($dataBreakingNews)):
+			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
+		endif;
 		$this->load->view('FrontOffice/topside');
-		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne));
+		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
 	public function terasCianjur(){
+		$aid = 3;
+		$dataNews = $this->news->getNewsFromPage($aid);
+		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne($aid);
+		$dataPopular = $this->news->getPopularNewsByCatgory($aid, $dataPopularOne->news_id);
+		$dataIndeph = $this->news->getIndeph($aid);
+		if(!empty($dataIndeph)):
+			$dataIndephLeft = $this->news->getIndephLeft($dataIndeph->category_id, $dataIndeph->news_id);
+		endif;
+		$dataTerasPeristiwa = $this->news->getTerasPeristiwa($aid);
+		$dataBreakingNews = $this->news->getBreakingNews($aid);
+		if(!empty($dataBreakingNews)):
+			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
+		endif;
 		$this->load->view('FrontOffice/topside');
-		$this->load->view('FrontOffice/body');
+		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
 	public function terasKriminal(){
+		$aid = 4;
+		$dataNews = $this->news->getNewsFromPage($aid);
+		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne($aid);
+		$dataPopular = $this->news->getPopularNewsByCatgory($aid, $dataPopularOne->news_id);
+		$dataIndeph = $this->news->getIndeph($aid);
+		if(!empty($dataIndeph)):
+			$dataIndephLeft = $this->news->getIndephLeft($dataIndeph->category_id, $dataIndeph->news_id);
+		endif;
+		$dataTerasPeristiwa = $this->news->getTerasPeristiwa($aid);
+		$dataBreakingNews = $this->news->getBreakingNews($aid);
+		if(!empty($dataBreakingNews)):
+			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
+		endif;
 		$this->load->view('FrontOffice/topside');
-		$this->load->view('FrontOffice/body');
+		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
 	public function terasEkonomi(){
+		$aid = 5;
+		$dataNews = $this->news->getNewsFromPage($aid);
+		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne($aid);
+		$dataPopular = $this->news->getPopularNewsByCatgory($aid, $dataPopularOne->news_id);
+		$dataIndeph = $this->news->getIndeph($aid);
+		if(!empty($dataIndeph)):
+			$dataIndephLeft = $this->news->getIndephLeft($dataIndeph->category_id, $dataIndeph->news_id);
+		endif;
+		$dataTerasPeristiwa = $this->news->getTerasPeristiwa($aid);
+		$dataBreakingNews = $this->news->getBreakingNews($aid);
+		if(!empty($dataBreakingNews)):
+			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
+		endif;
 		$this->load->view('FrontOffice/topside');
-		$this->load->view('FrontOffice/body');
+		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
 	public function terasSehat(){
+		$aid = 6;
+		$dataNews = $this->news->getNewsFromPage($aid);
+		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne($aid);
+		$dataPopular = $this->news->getPopularNewsByCatgory($aid, $dataPopularOne->news_id);
+		$dataIndeph = $this->news->getIndeph($aid);
+		if(!empty($dataIndeph)):
+			$dataIndephLeft = $this->news->getIndephLeft($dataIndeph->category_id, $dataIndeph->news_id);
+		endif;
+		$dataTerasPeristiwa = $this->news->getTerasPeristiwa($aid);
+		$dataBreakingNews = $this->news->getBreakingNews($aid);
+		if(!empty($dataBreakingNews)):
+			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
+		endif;
 		$this->load->view('FrontOffice/topside');
-		$this->load->view('FrontOffice/body');
+		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
 	public function terasPeristiwa($fokus_url = null){
@@ -91,5 +160,5 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('FrontOffice/article', array('dataArticle' => $dataArticle));
 		$this->load->view('FrontOffice/footer');
 	}
-	
+
 }
