@@ -58,5 +58,6 @@ $route['teras-kriminal'] = 'FrontEnd/terasKriminal';
 $route['teras-nasional'] = 'FrontEnd/terasNasional';
 $route['teras-ekonomi'] = 'FrontEnd/terasEkonomi';
 $route['teras-sehat'] = 'FrontEnd/terasSehat';
+$route['teras-peristiwa/(:any)'] = 'FrontEnd/terasPeristiwa/$1';
 $route['backoffice'] = 'Backoffice';
 $route['(:any)'] = 'FrontEnd/viewMyArticle/$1';

@@ -22,6 +22,7 @@ class FrontEnd extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('news');
+		$this->load->library('format');
 	}
 	public function index()
 	{
@@ -35,8 +36,9 @@ class FrontEnd extends CI_Controller {
 		$dataNews = $this->news->getNewsFromPage(4);
 		$dataPopular = $this->news->getPopularNewsByCatgory(4);
 		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne(4);
+		$dataTerasPeristiwa = $this->news->getTerasPeristiwa();
 		$this->load->view('FrontOffice/topside');
-		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne));
+		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa));
 		$this->load->view('FrontOffice/footer');
 	}
 	public function terasSukabumi(){
@@ -67,6 +69,17 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('FrontOffice/body');
 		$this->load->view('FrontOffice/footer');
 	}
+	public function terasPeristiwa($fokus_url = null){
+		$dataFokus = $this->news->getNewsFromFokusWithUrl($fokus_url);
+		if (empty($dataFokus)) {
+			# code...
+			show_404();
+			exit;
+		}
+		$this->load->view('FrontOffice/topside');
+		$this->load->view('FrontOffice/fokus', array('dataFokus' => $dataFokus));
+		$this->load->view('FrontOffice/footer');
+	}
 	public function mainteance(){
 		$this->load->view('CountDown/index');
 	}
@@ -77,4 +90,5 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('FrontOffice/article', array('dataArticle' => $dataArticle));
 		$this->load->view('FrontOffice/footer');
 	}
+	
 }

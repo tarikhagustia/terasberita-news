@@ -12,7 +12,7 @@ body {
     background-size: cover;
     -o-background-size: cover;
 }
-a:hover{color: #fff;text-decoration: none;}
+a:hover{color:;text-decoration: none;}
 a,a img:hover{text-decoration:;color: #000;transition: 1s;}
 
 h1,
@@ -346,7 +346,7 @@ footer p {
         background-color: transparent;
     }
     .index{
-        width: 145px;
+        width: 135px;
         text-align: center;
     }
 }
@@ -414,6 +414,8 @@ h5.title{
     font-size: 10px;
     color: #fff;
 }
+
+
 /*--FOKUS--*/
 
 .fokus{
@@ -421,7 +423,9 @@ h5.title{
     overflow: hidden;
     padding-bottom: 10px;
     float: right;
-    background-color: #fff;left: 5px;position: relative;
+    background-color: #fff;
+    left: 5px;
+    position: relative;
 }
 
 .fok-isi{
@@ -456,7 +460,7 @@ a.title{
 
 
 
-/*--Populer--*/
+/*--POPULER--*/
 
 
 #populer-responsive{display: none;}
@@ -518,7 +522,9 @@ a.title{
     font-size: 15px;
 }
 
+
 /*----Peristiwa--*/
+
 .peristiwa{
     width: 49%;
     height: 400px; 
@@ -800,7 +806,6 @@ background-color: white;
 }
 
 #scroll-atas{
-    background-color: red;
     width: 30px;
     height: 30px;
     position: fixed;
@@ -885,10 +890,234 @@ h2.title{
 
 
 
+/*--BERITA--*/
+.coment{
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 50px;
+}
+.box-coment{
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #ccc;
+}
+.line-atas{
+    width: 100%;
+    height: 30px;
+    margin-top: -10px;
+    background-color: #4c4c4c;
+    color: #fff;
+}
+.line-atas h5{
+    line-height: 30px;
+    padding-left: 20px;
+}
+textarea{
+    width: 100%;
+    height: 200px;
+    border: none;
+    padding: 10px;
+    border: none;
+    font-size: 1.5em;
+}
+.line-bawah{
+    width: 100%;
+    overflow: hidden;
+    background-color: #d2d2d2;
+    color: #fff;
+}
+.colom-kiri{
+    width: 50%;
+    overflow: hidden;
+    float: left;
+}
+.colom-kiri ul li{
+    float: left;
+    display: block;
+    line-height: 40px;
+    margin-right: 10px;
+}
+.colom-kiri ul li img{
+    width: 25px;
+    height: 25px;
+    margin-top: -5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.colom-kanan{
+    width: 50%;
+    height: 40px;
+    float: right;
+}
+.colom-kanan input{
+    width: 50%;
+    height: 90%;
+    background-color: #999999;
+    margin-top: 2px;
+    float: right;
+    border: 1px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+.colom-kanan input:hover{
+    background-color: #777777;
+}
+
+
+.line-navigasi{
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    color: #ccc;
+    border-bottom: 2px solid #ccc;
+    box-shadow: 0px 5px 0px #ccc;
+}
+.line-navigasi a{
+    line-height: 40px;
+    padding-left: 10px;
+    font-size: 1em;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+.line-navigasi a:hover{
+    color: #0000ff;
+    transition: 0s;
+}
+
+.isi-coment{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.img-coment{
+    width: 10%;
+    overflow: hidden;
+    float: left;
+}
+.img-coment img{
+    width: 100%;
+}
+.des-coment{
+    width: 90%;
+    overflow: hidden;
+    padding-left: 10px;
+}
+p.pengirim a{
+    color: #0000cc;
+}
+
+
+
+
+
+/*--Search--*/
+#pencarian{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 150px;
+}
+.nav-pencarian{
+    width: 100%;
+    overflow: hidden;
+}
+.search input{
+    width: 63%;
+    height: 40px;float: left;
+}    
+.search button{
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+    border-radius: 0px;   
+}
+.search img{
+    width: 100%; 
+    height: 40px;   
+}
+.notif{
+    width: 100%;
+    overflow: hidden;
+}
+blockquote{
+    border: none;
+}
+.navigasi{
+    width: 67%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #000;
+}
+.navigasi a{
+    padding-left: 10px;
+    font-weight: bold;
+}
+.box-detail{
+    width: 30%;
+    overflow: hidden;
+    float: right;
+    background-color: #fff;
+}
+.box-hasil{
+    width: 140%;
+    overflow: hidden;
+    float: left;
+    padding: 20px 15px;
+    background-color:#fff;
+}
+.detail{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.detail h5{
+    text-align: center;
+}
+.detail h6{
+    width: 120px;
+    height:25px;
+    line-height: 25px;
+    color: #fff;
+    background-color: #aaa;
+}
+.detail ul li{
+    display: block;
+}
+.detail ul li input{
+    width: 30%;
+}
+.nav-content{
+    width: 100%;
+    overflow: hidden;
+}
+.img-content{
+    width: 40%;
+    height: 150px;
+    float: left;
+}
+.img-content img{
+    width: 92%;
+    height: 150px;
+}
+.isi-content{
+    width:95%;
+    padding-bottom: 20px;
+}
+
+
+
+
+
 
 
 /*--RESPONSIVE--*/
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     #nav-atas{
         width: 100%;
         position: relative;
@@ -914,13 +1143,40 @@ h2.title{
     ,.kiri
     ,.kanan
     ,.fokus
-    ,#populer
-    ,#news{
+    ,#populer{
         display: none;
+    }
+    .container{
+        width: 100%;
+    }
+
+    #news{
+        width: 100%;display: none;
+    }
+    .news-isi{
+        width: 100%;
+        box-shadow: none;
+        margin-top: 10px;
+    }
+    .box-kiri{
+        width: 100%;
+        margin-left: -10px;
+        margin-top: 30px;
+    }
+    p.des-news{
+        width: 100%;
+        float: left;
+    }
+    .news-responsive{
+        width: 100%;
+        height: 100px;
+        margin-left: 30px;
     }
 
     /*--FOKUS--*/
-    #scrolllable-fokus{width: 100%;}
+    #scrolllable-fokus{
+        width: 100%;
+    }
     .fokus{
         display: block;
         width: 100%;
@@ -943,9 +1199,6 @@ h2.title{
         margin: 0px;
         margin-left: 10px;
         float: left;
-    }
-    .container{
-        width: 100%;
     }
 
     .logo{
@@ -995,15 +1248,6 @@ h2.title{
         display: none;
         margin: 0 auto;
     }
-    .news-isi{
-        box-shadow: none;
-        margin-top: 10px;
-    }
-    .news-responsive{
-        width: 100%;
-        height: 100px;
-        margin-left: 30px;
-    }
     #populer-responsive img{
         width: 35%;
         height: 70px;
@@ -1031,7 +1275,7 @@ h2.title{
     #footer{
         width: 100%;
         height: 450px;
-        margin-top: 100px;
+        margin-top: 40px;
     }
     .footer-kanan{
         width: 100%;
@@ -1082,4 +1326,54 @@ h2.title{
     .box-deskripsi{
         width: 100%;
     }
+
+
+
+    /*KOMENTAR*/
+    .colom-kiri{
+        width: 100%;
+    }
+    .colom-kiri ul{
+        width: 80%;
+        height: 10px;
+        margin: auto;
+    }
+    .colom-kiri ul li{
+        padding: 0px;
+        margin: auto;
+    }
+    .colom-kiri ul li img{
+        margin: 2px;
+    }
+    .colom-kanan{
+        width: 100%;
+    }
+    .colom-kanan input{
+        width: 100%;
+    }
+    .line-navigasi{
+        font-weight: 0;
+        width: 100%;
+    }
+    .line-navigasi a{
+        float: left;
+    }
+    #pencarian{
+        width: 100%;
+        position: relative;
+        top: -25px;
+        left: -10px;
+    }
+    .notif{
+        width: 100%;
+    }
+    .box-detail{
+        display: none;
+    }
+    .nav-content{
+        width: 90%;
+    }
+    .isi-content{
+        width: 90%;
+    }.box-kanan{display: block;margin-top: 100px;float: left;}
 }

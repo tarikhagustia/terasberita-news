@@ -24,6 +24,7 @@
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url() ?>assets/css/business-casual.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/myawesome.css" rel="stylesheet">
     <link rel="icon" type="icon" href="img/logo.png">
 
     <!-- Fonts -->
@@ -105,31 +106,31 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Teras Berita</a>
+                <a class="navbar-brand" href="index.html">teras Berita</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" id="navigasi">
                     <li>
-                        <a id="aktiv" href="<?php echo base_url('teras-nasional') ?>">TerasNasional</a>
+                        <a id="aktiv" href="<?php echo base_url('teras-nasional') ?>">terasNasional</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-kriminal') ?>">TerasKriminal</a>
+                        <a href="<?php echo base_url('teras-kriminal') ?>">terasKriminal</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-sukabumi') ?>">TerasSukabumi</a>
+                        <a href="<?php echo base_url('teras-sukabumi') ?>">terasSukabumi</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-cianjur') ?>">TerasCianjur</a>
+                        <a href="<?php echo base_url('teras-cianjur') ?>">terasCianjur</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-sehat') ?>">TerasSehat</a>
+                        <a href="<?php echo base_url('teras-sehat') ?>">terasSehat</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-ekonomi') ?>">TerasEkonomi</a>
+                        <a href="<?php echo base_url('teras-ekonomi') ?>">terasEkonomi</a>
                     </li>
                     <li style="width: 100px;">
-                        <a href="" class="index">INDEX</a>
+                        <a href="#" class="index">INDEX</a>
                     </li>
                 </ul>
             </div></div>

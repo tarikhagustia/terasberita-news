@@ -1,0 +1,15 @@
+.profileImage { 
+	  font-family: "Open Sans";
+float: left; 
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #512DA8;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  margin-right: 0 auto;
+  margin-left: -10px;
+  /*margin: 20px 0;*/
+}

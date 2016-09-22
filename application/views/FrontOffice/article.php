@@ -29,6 +29,45 @@
                                 </p>
                             </div>
                         </div>
+                         <!--KOMENTAR-->
+ <div class="coment">
+    <div class="box-coment">
+        <div class="line-atas"><h5>271 Komentar</h5></div>
+        <textarea placeholder="Silahkan Login untuk menulis komentar"></textarea>
+        <div class="line-bawah">
+           <!--  <div class="colom-kiri">
+                <ul>
+                    <li>500</li>
+                    <li><input type="checkbox"><img src="img/medsos/fb-2.png"></input></li>
+                    <li><input type="checkbox"><img src="img/medsos/twit-2.jpg"></input></li>
+                </ul>
+            </div> -->
+            <div class="colom-kanan">
+                <input type="submit" value="Kirim Komentar"></input>
+            </div>
+        </div>    
+        <!-- <div class="line-navigasi">
+            <a href="">Terbaru</a>
+            <a href="">Terlama</a>
+            <a href="">Populer</a>
+        </div> -->
+    </div>
+    <div class="isi-coment">
+        <div class="img-coment"><img src="<?php echo base_url() ?>assets/img/medsos/fb-2.png"></div>
+        <div class="des-coment">
+            <p class="pengirim">Adhe Kurniawan - <small>6 menit yang lalu</small></p>
+            ______ and put anything you and put anything you want in them! and put anything you and put anything you want in them! and put anything you and put anything you want in them! and put anything you and put anything you want in them! and put anything you and put 
+            <br><br>
+            <a href="" style="float: left;">
+                Balas
+                Favorite
+                Share
+            </a>
+            <a href="" style="float: right;">Laporkan</a>
+        </div>
+    </div>
+</div>
+
                     </div>
                 </div><!--BOX BERITA-->
                 <div class="fokus"><!--populer-->

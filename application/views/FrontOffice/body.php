@@ -1,4 +1,4 @@
-F<section id="berita">
+<section id="berita">
     <div class="container">
         <div class="row">
             <div class="box">
@@ -39,78 +39,21 @@ F<section id="berita">
                     <div class="fokus"><!--FOKUS-->
                         <div class="title-populer"><h5>terasPeristiwa</h5></div>
                             <div id="scrolllable-fokus"><!--SCROLLLABLE-->
+                            <?php foreach($dataTerasPeristiwa as $key => $rows){ ?>
                                 <div class="fok-isi"><!--FOK ISI-->
                                     <div class="list">
-                                        <img src="<?php echo base_url() ?>assets/img/bg.jpg">
+                                        <div class="profileImage"><?php echo $key+1; ?></div>
                                         <p class="des">
-                                        <a class="title" href="fokus-1.html">Use as many boxes as you</a><br>
-                                        and put anything you and put anything you want in them!</p>
+                                        <a class="title" href="<?php echo base_url('teras-peristiwa/'.$rows->fokus_url); ?>"><?php echo $rows->fokus_name; ?></a>
+                                        <br>
+                                        <a href="<?php echo base_url('teras-peristiwa/'.$rows->fokus_url); ?>"><?php echo $rows->fokus_comment; ?></a>
+                                        </p>
                                     </div>
                                 </div><!--/FOK ISI-->
-                                <div class="fok-isi"><!--FOK ISI-->
-                                    <div class="list">
-                                        <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                        <p class="des">
-                                        <a class="title" href="fokus-2.html">Use as many boxes as you</a><br>
-                                        and put anything you and put anything you want in them!</p>
-                                    </div>
-                                </div><!--/FOK ISI-->
-                                <div class="fok-isi"><!--FOK ISI-->
-                                    <div class="list">
-                                        <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                        <p class="des">
-                                        <a class="title" href="fokus-3.html">Use as many boxes as you</a><br>
-                                        and put anything you and put anything you want in them!</p>
-                                    </div>
-                                </div><!--/FOK ISI-->
-                                <div class="fok-isi"><!--FOK ISI-->
-                                    <div class="list">
-                                        <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                        <p class="des">
-                                        <a class="title" href="fokus-4.html">Use as many boxes as you</a><br>
-                                        and put anything you and put anything you want in them!</p>
-                                    </div>
-                                </div><!--/FOK ISI-->
-                                <div class="fok-isi"><!--FOK ISI-->
-                                    <div class="list">
-                                        <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                        <p class="des">
-                                        <a class="title" href="fokus-5.html">Use as many boxes as you</a><br>
-                                        and put anything you and put anything you want in them!</p>
-                                    </div>
-                                </div><!--/FOK ISI-->
-                                <div class="fok-isi"><!--FOK ISI-->
-                                    <div class="list">
-                                        <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                        <p class="des">
-                                        <a class="title" href="fokus-5.html">Use as many boxes as you</a><br>
-                                        and put anything you and put anything you want in them!</p>
-                                    </div>
-                                </div><!--/FOK ISI-->
-                                <div class="fok-isi"><!--FOK ISI-->
-                                    <div class="list">
-                                        <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                        <p class="des">
-                                        <a class="title" href="fokus-5.html">Use as many boxes as you</a><br>
-                                        and put anything you and put anything you want in them!</p>
-                                    </div>
-                                </div><!--/FOK ISI-->
-                                <div class="fok-isi"><!--FOK ISI-->
-                                    <div class="list">
-                                        <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                        <p class="des">
-                                        <a class="title" href="fokus-5.html">Use as many boxes as you</a><br>
-                                        and put anything you and put anything you want in them!</p>
-                                    </div>
-                                </div><!--/FOK ISI-->
-                                <div class="fok-isi"><!--FOK ISI-->
-                                    <div class="list">
-                                        <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                        <p class="des">
-                                        <a class="title" href="fokus-5.html">Use as many boxes as you</a><br>
-                                        and put anything you and put anything you want in them!</p>
-                                    </div>
-                                </div><!--/FOK ISI-->
+
+                            <?php } ?>
+                                
+                               <!--/FOK ISI-->
                             </div>
                     </div><!--COL-MD-6-->
             </div><!--BOX-->
@@ -134,7 +77,7 @@ F<section id="berita">
 
                             <!-- <small><?php echo $dataPopularOne->news_title ?></small> -->
                             <a href="<?php echo $dataPopularOne->news_url ?>"><h5><?php echo $dataPopularOne->news_title ?></h5></a>
-                            <p><?php echo $dataPopularOne->descriptions ?></p>
+                            <p><?php echo $this->format->stripHTMLtags($dataPopularOne->descriptions) ?></p>
                         </div>  <!--/pop-kiri -->
                         <div id="scrolllable-populer">
 
@@ -149,7 +92,7 @@ F<section id="berita">
                                 <?php endif; ?>
                                 <p class="des">
                                 <a class="title" href="<?php echo $rows->news_url ?>"><?php echo $rows->news_title ?></a><br>
-                                <?php echo $rows->descriptions ?></p>
+                                <?php echo $this->format->stripHTMLtags($rows->descriptions) ?></p>
                             </div>
                         </div>
                         <?php } ?>
@@ -233,7 +176,7 @@ F<section id="berita">
                                 <p class="des-news">
                                 <a class="title" href="<?php echo base_url($rows->news_url) ?>"><?php echo $rows->news_title ?></a><br>
                                 <small><?php echo $rows->news_timestamp ?></small><br>
-                                <?php echo $rows->news_desc ?>
+                                <?php echo $this->format->stripHTMLtags($rows->news_desc) ?>
                                 </p>
                             </div>
                         </div><!--/News-Isi-->
