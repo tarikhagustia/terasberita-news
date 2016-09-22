@@ -102,41 +102,24 @@
                 <div class="box-kanan" id="peristiwa">
                     <div class="title-populer"><h5>Teras kejadian perkara - TKP</h5></div>
                         <div class="img-peristiwa"><!--Class Peristiwa-->
-                    <div id="carousel-example-generic" class="carousel slide" >
-                        <!-- Indicators -->
-                        <ol id="slider" class="carousel-indicators hidden-xs">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
+                        <?php 
+                        
+                        if($dataIndeph->news_thumb == NULL):
+                            echo "<img class='img-responsive img-full' src='".base_url()."assets/img/slide-1.jpg' alt=''>";    
+                        else:                           
+                            echo "<img class='img-responsive img-full' src='".base_url($dataIndeph->news_thumb)."' alt=''>";    
+                        endif;
 
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img class="img-responsive img-full" src="<?php echo base_url() ?>assets/img/slide-1.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive img-full" src="<?php echo base_url() ?>assets/img/slide-2.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive img-full" src="<?php echo base_url() ?>assets/img/slide-3.jpg" alt="">
-                            </div>
+                        ?>
+                        
                         </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                            <span class="icon-prev"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                            <span class="icon-next"></span>
-                        </a>
-                    </div>
-                </div>
                         <div class="isi-peristiwa">
                             <div class="isi-kiri"><!--Isi-Kiri-Peristiwa-->
-                                <div class="title-peristiwa"><h5>JERIT TERAKHIR MEMBANG DESA DI PAGI SUNYI</h5></div>
+                                <div class="title-peristiwa"><h5><a href="<?php echo base_url($dataIndeph->news_url) ?>"><?php echo $dataIndeph->news_title ?> </a></h5></div>
                                 <div class="des"><!--Deskripsi-->
-                                    <p>Use as many boxes as you like,Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limitboxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
+                                    <p class="text-justify">
+                                        <?php echo $this->format->stripHTMLtags($dataIndeph->news_desc, 0,150) ?>
+                                    </p>
                                 </div><!--/deskripsi-->
                             </div>
                             <div class="isi-kanan"><!--isi-kanan-Peristiwa-->

@@ -66,14 +66,40 @@ class News extends CI_Model
       }
       return @$data;
     }
-    public function getTerasPeristiwa(){
-      $query = $this->db->query("SELECT fokus_comment, fn_fokus.`fokus_id`, fokus_url, fokus_name FROM fn_fokus, fn_news WHERE fn_fokus.`fokus_id` = fn_news.`fokus_id` GROUP BY fn_fokus.`fokus_id` ORDER BY fn_news.`news_timestamp` DESC LIMIT 0,10");
+    public function getTerasPeristiwa($category_id = null){
+      $query = $this->db->query("SELECT fokus_comment, fn_fokus.`fokus_id`, fokus_url, fokus_name FROM fn_fokus, fn_news, fn_pages, fn_category WHERE fn_news.news_id = fn_pages.news_id AND fn_pages.category_id = fn_category.category_id AND fn_fokus.`fokus_id` = fn_news.`fokus_id` AND fn_category.category_id = '$category_id' GROUP BY fn_fokus.`fokus_id` ORDER BY fn_news.`news_timestamp` DESC LIMIT 0,10");
       return $query->result();
     }
     public function getNewsFromFokusWithUrl($fokus_url = null){
       $query = "SELECT fn_news.`news_title`, news_url, SUBSTR(news_desc, 1 , 100) AS descs, news_thumb, news_timestamp, category_alias FROM fn_fokus, fn_news, fn_pages, fn_category WHERE fn_fokus.`fokus_id` = fn_news.`fokus_id` AND fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fokus_url = '$fokus_url' ORDER BY fn_news.`news_timestamp` DESC";
       return $this->db->query($query)->result();
 
+    }
+    public function getIndeph($category_id = null){
+      $query = $this->db->query("SELECT 
+                fn_indeph.`indeph_id`,
+                news_title,
+                news_url,
+                news_thumb,
+                news_desc,
+                fn_category.category_id
+              FROM
+                fn_indeph,
+                fn_news,
+                fn_pages,
+                fn_category 
+              WHERE fn_indeph.`news_id` = fn_news.`news_id` 
+                AND fn_news.`news_id` = fn_pages.`news_id` 
+                AND fn_pages.`category_id` = fn_category.`category_id` 
+                AND date_from <= NOW() 
+                AND date_to >= NOW() 
+                AND fn_category.category_id = '$category_id'
+              ORDER BY fn_indeph.`indeph_timestamp` DESC 
+              LIMIT 1 ");
+      foreach($query->result() as $key => $rows){
+        $data = $rows;
+      }
+      return @$data;
     }
 }
 

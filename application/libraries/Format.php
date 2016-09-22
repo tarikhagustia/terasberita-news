@@ -18,10 +18,14 @@ class Format
 
         return "Rp. " . $data;
     }
-    public function stripHTMLtags($str)
+    public function stripHTMLtags($str, $start = null, $end = null)
     {
         $t = preg_replace('/<[^<|>]+?>/', '', htmlspecialchars_decode($str));
         $t = htmlentities($t, ENT_QUOTES, "UTF-8");
+        if($start == NULL && $end == NULL):
+        else:
+            $t = substr($t, $start, $end);
+        endif;
         return $t;
     }
     public function seoUrl($string)
