@@ -25,7 +25,8 @@
     <!-- Custom CSS -->
     <link href="<?php echo base_url() ?>assets/css/business-casual.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/myawesome.css" rel="stylesheet">
-    <link rel="icon" type="icon" href="img/logo.png">
+    <link href="<?php echo base_url() ?>assets/css/login-register.css" rel="stylesheet">
+    <!-- <link rel="icon" type="icon" href="img/logo.png"> -->
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -44,7 +45,69 @@
 </head>
 
 <body>
-
+  <div class="modal fade login" id="loginModal">
+       <div class="modal-dialog login animated">
+           <div class="modal-content">
+              <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                     <h4 class="modal-title">Login with</h4>
+                 </div>
+                 <div class="modal-body">
+                     <div class="box">
+                          <div class="content">
+                             <div class="social">
+                                 <!-- <a class="circle github" href="/auth/github">
+                                     <i class="fa fa-github fa-fw"></i>
+                                 </a>
+                                 <a id="google_login" class="circle google" href="/auth/google_oauth2">
+                                     <i class="fa fa-google-plus fa-fw"></i>
+                                 </a> -->
+                                 <a id="facebook_login" class="circle facebook" href="/auth/facebook">
+                                     <i class="fa fa-facebook fa-fw"></i>
+                                 </a>
+                             </div>
+                             <div class="division">
+                                 <div class="line l"></div>
+                                   <span>or</span>
+                                 <div class="line r"></div>
+                             </div>
+                             <div class="error"></div>
+                             <div class="form loginBox">
+                                 <form method="post" action="/login" accept-charset="UTF-8">
+                                 <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                 <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                 <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                 </form>
+                             </div>
+                          </div>
+                     </div>
+                     <div class="box">
+                         <div class="content registerBox" style="display:none;">
+                          <div class="form">
+                             <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
+                             <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                             <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                             <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                             <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
+                             </form>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="modal-footer">
+                     <div class="forgot login-footer">
+                         <span>Looking to
+                              <a href="javascript: showRegisterForm();">create an account</a>
+                         ?</span>
+                     </div>
+                     <div class="forgot register-footer" style="display:none">
+                          <span>Already have an account?</span>
+                          <a href="javascript: showLoginForm();">Login</a>
+                     </div>
+                 </div>
+           </div>
+       </div>
+   </div>
 <section id="nav-atas">
     <div class="container">
         <div class="col-md-12">
@@ -58,10 +121,11 @@
                             </a>
                         </li>
                         <li class="button">
-                            <a href=""><button class="brown">Daftar</button></a>
+                            <a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"><button class="brown">Masuk</button></a>
+                            <!-- <a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Log in</a> -->
                         </li>
                         <li class="button">
-                            <a href=""><button class="grey">Masuk</button></a>
+                            <a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();"><button class="grey">Daftar</button></a>
                         </li>
                     </ul>
                 </div>
@@ -93,7 +157,7 @@
     </div>
 </section>
 
-  
+
     <!-- Navigation -->
     <div class="col-md-12">
     <nav class="navbar navbar-default" role="navigation">
@@ -107,28 +171,28 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">teras Berita</a>
+                <a class="navbar-brand" href="index.html"> teras Berita</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" id="navigasi">
                     <li>
-                        <a id="aktiv" href="<?php echo base_url('teras-nasional') ?>">terasNasional</a>
+                        <a id="<?php if($this->uri->segment(1) == 'teras-nasional'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-nasional') ?>">terasNasional</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-kriminal') ?>">terasKriminal</a>
+                        <a id="<?php if($this->uri->segment(1) == 'teras-kriminal'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-kriminal') ?>">terasKriminal</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-sukabumi') ?>">terasSukabumi</a>
+                        <a id = "<?php if($this->uri->segment(1) == 'teras-sukabumi'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-sukabumi') ?>">terasSukabumi</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-cianjur') ?>">terasCianjur</a>
+                        <a id="<?php if($this->uri->segment(1) == 'teras-cianjur'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-cianjur') ?>">terasCianjur</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-sehat') ?>">terasSehat</a>
+                        <a id="<?php if($this->uri->segment(1) == 'teras-sehat'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-sehat') ?>">terasSehat</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-ekonomi') ?>">terasEkonomi</a>
+                        <a id="<?php if($this->uri->segment(1) == 'teras-ekonomi'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-ekonomi') ?>">terasEkonomi</a>
                     </li>
                     <li style="width: 100px;">
                         <a href="#" class="index">INDEX</a>

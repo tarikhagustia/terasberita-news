@@ -60,4 +60,5 @@ $route['teras-ekonomi'] = 'FrontEnd/terasEkonomi';
 $route['teras-sehat'] = 'FrontEnd/terasSehat';
 $route['teras-peristiwa/(:any)'] = 'FrontEnd/terasPeristiwa/$1';
 $route['backoffice'] = 'Backoffice';
+$route['example'] = 'Example';
 $route['(:any)'] = 'FrontEnd/viewMyArticle/$1';

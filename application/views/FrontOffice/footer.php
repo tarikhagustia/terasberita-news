@@ -13,7 +13,7 @@
                         <a href=""><img src="<?php echo base_url() ?>assets/img/medsos/yutube-3.png"></a>
                     </li>
                     <li class="line"></li>
-                    <li class="copyright" id="respon">Copyright &copy 2016 <a href="http://www.facebook.com/adhekurniawan">Adhe Kurniawan</a>. All Reserved. 
+                    <li class="copyright" id="respon">Copyright &copy 2016 <a href="http://www.facebook.com/adhekurniawan">Adhe Kurniawan</a>. All Reserved.
                     <a href="redaksi.html" id="res">Redaksi</a>
                     <a href="pedoman-media-siber.html" id="res">Pedoman Media Siber</a>
                     <a href="karir.html" id="res">Karir</a>
@@ -35,7 +35,8 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
-
+    <!-- For modal -->
+    <script src="<?php echo base_url() ?>assets/js/login-register.js"></script>
     <!-- Script to Activate the Carousel -->
     <script>
     $('.carousel').carousel({

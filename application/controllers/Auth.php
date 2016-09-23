@@ -33,7 +33,7 @@ class Auth extends CI_Controller {
 		// Validator
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required|callback_verfiyUser');
-		
+
 		if ($this->form_validation->run() == FALSE)
 		{
 			$this->load->view('back/login');
@@ -45,7 +45,7 @@ class Auth extends CI_Controller {
 			redirect('backoffice/index','refresh');
 		}
 
-		
+
 	}
 	public function verfiyUser()
 	{
@@ -63,5 +63,17 @@ class Auth extends CI_Controller {
 		// // print_r($_POST);
 		// // echo $this->mymodel->testaja();
 		// // var_dump($hasil);
+	}
+	public function facebook(){
+		$this->load->library('session');
+		$this->load->library('facebook');
+		$login_url = $this->facebook->login_url();
+		print_r($login_url);
+	}
+	public function facebook2(){
+		$this->load->library('session');
+		$this->load->library('facebook');
+		$login_url = $this->facebook->get_session();
+		var_dump($login_url);
 	}
 }
