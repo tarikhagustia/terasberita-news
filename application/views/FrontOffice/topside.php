@@ -17,7 +17,15 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="-1">
 
-    <title>Home - Teras Berita </title>
+    <title>
+    <?php
+    if(isset($title)):
+        echo $this->security->xss_clean($title)." - terasberita.co";
+    else:
+        echo "terasberita.co - Indeph, Jujur , Akurat";
+    endif;
+    ?>
+    </title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
@@ -56,12 +64,6 @@
                      <div class="box">
                           <div class="content">
                              <div class="social">
-                                 <!-- <a class="circle github" href="/auth/github">
-                                     <i class="fa fa-github fa-fw"></i>
-                                 </a>
-                                 <a id="google_login" class="circle google" href="/auth/google_oauth2">
-                                     <i class="fa fa-google-plus fa-fw"></i>
-                                 </a> -->
                                  <a id="facebook_login" class="circle facebook" href="/auth/facebook">
                                      <i class="fa fa-facebook fa-fw"></i>
                                  </a>
@@ -131,10 +133,12 @@
                 </div>
                 <div class="kanan">
                     <ul>
-                        <li><input placeholder="Cari Berita"></input></li>
+                        <form action="<?php echo base_url('search'); ?>" id="search-form">
+                        <li><input placeholder="Cari Berita" name="q"></input></li>
                         <li class="cari">
-                            <a href=""><img src="<?php echo base_url() ?>assets/img/search.png" class="cari" width="28px"></a>
+                            <a href="#"><img src="<?php echo base_url() ?>assets/img/search.png" class="cari" width="28px"></a>
                         </li>
+                        </form>
                         <li><h5>Follow US :</h5></li>
                         <li class="sos"><a href=""><img src="<?php echo base_url() ?>assets/img/medsos/fb-1.png"></a></li>
                         <li class="sos"><a href=""><img src="<?php echo base_url() ?>assets/img/medsos/twit-1.png"></a></li>

@@ -56,7 +56,8 @@
 
                                <!--/FOK ISI-->
                             </div>
-                    </div><!--COL-MD-6-->
+                    </div>
+                    <!--COL-MD-6-->
             </div><!--BOX-->
         </div>
       <?php endif; ?>
@@ -79,7 +80,7 @@
 
                             <!-- <small><?php echo $dataPopularOne->news_title ?></small> -->
                             <a href="<?php echo $dataPopularOne->news_url ?>"><h5><?php echo $dataPopularOne->news_title ?></h5></a>
-                            <p><?php echo $this->format->stripHTMLtags($dataPopularOne->descriptions) ?></p>
+                            <p class="text-justify"><?php echo $this->format->stripHTMLtags($dataPopularOne->descriptions, 0 , 150) ?></p>
                         </div>  <!--/pop-kiri -->
                         <div id="scrolllable-populer">
 
@@ -92,9 +93,9 @@
                                 <?php else: ?>
                                   <img src="<?php echo $rows->news_thumb ?>">
                                 <?php endif; ?>
-                                <p class="des">
+                                <p class="des text-justify">
                                 <a class="title" href="<?php echo $rows->news_url ?>"><?php echo $rows->news_title ?></a><br>
-                                <?php echo $this->format->stripHTMLtags($rows->descriptions) ?></p>
+                                <?php echo $this->format->stripHTMLtags($rows->descriptions, 0 , 150) ?></p>
                             </div>
                         </div>
                         <?php } ?>

@@ -29,6 +29,7 @@ class News extends CI_Model
       $result = $this->db->query("SELECT
                   fn_news.news_id,
                   category_alias,
+                  fn_category.category_id,
                   news_title,
                   news_desc,
                   news_thumb,
@@ -51,7 +52,7 @@ class News extends CI_Model
       return $data;
     }
     public function getPopularNewsByCatgory($category_id, $news_id){
-      $query = $this->db->query('SELECT news_url, fn_news.news_id, fn_category.category_id, news_title, SUBSTR(news_desc, 1, 50) AS descriptions, news_thumb FROM fn_news, fn_pages, fn_category WHERE fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fn_category.category_id = "'.$category_id.'" AND fn_news.news_id != "'.$news_id.'" ORDER BY news_views DESC');
+      $query = $this->db->query('SELECT news_url, fn_news.news_id, fn_category.category_id, news_title, news_desc AS descriptions, news_thumb FROM fn_news, fn_pages, fn_category WHERE fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fn_category.category_id = "'.$category_id.'" AND fn_news.news_id != "'.$news_id.'" ORDER BY news_views DESC');
       foreach ($query->result() as $key => $value) {
         # code...
         $data[] = $value;
@@ -59,7 +60,7 @@ class News extends CI_Model
       return @$data;
     }
     public function getPopularNewsByCatgoryOnlyOne($category_id){
-      $query = $this->db->query('SELECT news_url, fn_news.news_id, fn_category.category_id, news_title, SUBSTR(news_desc, 1, 50) AS descriptions, news_thumb FROM fn_news, fn_pages, fn_category WHERE fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fn_category.category_id = "'.$category_id.'" ORDER BY news_views DESC LIMIT 0,1');
+      $query = $this->db->query('SELECT news_url, fn_news.news_id, fn_category.category_id, news_title, news_desc AS descriptions, news_thumb FROM fn_news, fn_pages, fn_category WHERE fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fn_category.category_id = "'.$category_id.'" ORDER BY news_views DESC LIMIT 0,1');
       foreach ($query->result() as $key => $value) {
         # code...
         $data = $value;
@@ -140,6 +141,33 @@ class News extends CI_Model
     public function getBreakingLeft($fokus_id, $news_id){
       $query = $this->db->query("SELECT news_url, news_title FROM fn_fokus, fn_news WHERE fn_fokus.`fokus_id` = fn_news.`fokus_id` AND fn_fokus.fokus_id = '$fokus_id' AND fn_news.`news_id` != '$news_id' ORDER BY news_timestamp DESC LIMIT 0,2");
       return $query->result();
+    }
+    public function getCommentFromArticle($news_url){
+      $query = "SELECT fn_news_comment.`comment_text`, fn_news_comment.`comment_id`, fn_news_comment.`comment_timestamp`, bo_user.`full_name` FROM fn_news_comment, fn_news, bo_user WHERE fn_news_comment.`news_id` = fn_news.`news_id` AND fn_news_comment.`user_id` = bo_user.`id` AND fn_news.news_url = '$news_url' AND fn_news_comment.isActive = true ORDER BY news_timestamp DESC LIMIT 0,100";
+      return $this->db->query($query)->result();
+    }
+     public function insertData($table, $data)
+      {
+          $sql = $this->db->insert($table, $data);
+          if ($sql) {
+              # code...
+              return true;
+          } else {
+              return false;
+          }
+      }
+      public function getPopularNewsByFokus(){
+        $query = $this->db->query('SELECT news_url, news_title, news_desc, news_thumb FROM fn_fokus , fn_news WHERE fn_fokus.`fokus_id` = fn_news.`fokus_id` ORDER BY fn_news.`news_views` DESC LIMIT 0,7');
+        foreach ($query->result() as $key => $value) {
+          # code...
+          $data[] = $value;
+        }
+        return @$data;
+      }
+    public function getNewsFromSearch($keyword, $page = 0) {
+      $query = "SELECT news_timestamp, fn_news.`news_id`, news_thumb, news_url, news_title, news_desc, category_alias FROM fn_news, fn_pages, fn_category WHERE fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND news_desc LIKE '%$keyword%'";
+      return $this->db->query($query)->result();
+
     }
 
 }

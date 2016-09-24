@@ -39,6 +39,14 @@
     <script src="<?php echo base_url() ?>assets/js/login-register.js"></script>
     <!-- Script to Activate the Carousel -->
     <script>
+    jQuery(document).ready(function($) {
+
+        jQuery('.cari').click(function(event) {        
+            $('#search-form').submit();
+        });
+
+    });
+    
     $('.carousel').carousel({
         interval: 5000 //changes the speed
     })

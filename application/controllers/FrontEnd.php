@@ -23,6 +23,8 @@ class FrontEnd extends CI_Controller {
 		parent::__construct();
 		$this->load->model('news');
 		$this->load->library('format');
+		$this->load->library('encrypt');
+		$this->load->library('session');
 	}
 	public function index()
 	{
@@ -146,8 +148,9 @@ class FrontEnd extends CI_Controller {
 			show_404();
 			exit;
 		}
+		$dataPopular = $this->news->getPopularNewsByFokus();
 		$this->load->view('FrontOffice/topside');
-		$this->load->view('FrontOffice/fokus', array('dataFokus' => $dataFokus));
+		$this->load->view('FrontOffice/fokus', array('dataFokus' => $dataFokus, 'dataPopular' => $dataPopular));
 		$this->load->view('FrontOffice/footer');
 	}
 	public function mainteance(){
@@ -156,8 +159,51 @@ class FrontEnd extends CI_Controller {
 	public function viewMyArticle($news_url = null){
 
 		$dataArticle = $this->news->getNewsFromArticle($news_url);
+		if(empty($dataArticle)):
+			redirect(base_url());	
+		endif;
+		$dataCommentArticle = $this->news->getCommentFromArticle($news_url);
+		$dataPopular = $this->news->getPopularNewsByCatgory($dataArticle->category_id, $dataArticle->news_id);
+		$dataTerasPeristiwa = $this->news->getTerasPeristiwa($dataArticle->category_id);
+		$this->load->view('FrontOffice/topside', array('title' => $dataArticle->news_title));
+		$this->load->view('FrontOffice/article', array('dataArticle' => $dataArticle, 'dataCommentArticle' => $dataCommentArticle, 'dataPopuler' => $dataPopular, 'dataTerasPeristiwa' => $dataTerasPeristiwa));
+		$this->load->view('FrontOffice/footer');
+	}
+
+	public function setComment(){
+		$data = array(
+			'comment_text' => $this->security->xss_clean($this->input->post('comment_text')),
+			'news_id' => $this->encrypt->decode($this->input->post('crypt_news_id')),
+			'user_id' => $this->session->userdata('id')
+		);
+		$query = $this->news->insertData('fn_news_comment', $data);
+		if($query):
+			 $links = $this->news->getData('fn_news', 'news_url', $where = array('news_id' => $this->encrypt->decode($this->input->post('crypt_news_id'))));
+				$link = "";
+			 foreach ($links as $key => $value) {
+			 	# code...
+			 	$link = $value->news_url;
+			 }
+			 $this->session->set_flashdata('comment_status', 'komentar anda berhasil kami simpan');
+			 redirect(base_url($link));
+		else:
+			$links = $this->news->getData('fn_news', 'news_url', $where = array('news_id' => $this->encrypt->decode($this->input->post('crypt_news_id'))));
+				$link = "";
+			 foreach ($links as $key => $value) {
+			 	# code...
+			 	$link = $value->news_url;
+			 }
+			$this->session->set_flashdata('comment_status', 'komentar anda gagal kami simpan');
+		endif;
+	}
+	public function secureSearch(){
+		$keyword = $this->security->xss_clean($this->input->get('q'));
+		$page = $this->input->get('page');
+		$dataSearch = $this->news->getNewsFromSearch($keyword);
+		if($keyword == "" || $keyword == null): $dataSearch = array(); endif;
+		$dataPopular = $this->news->getPopularNewsByFokus();		
 		$this->load->view('FrontOffice/topside');
-		$this->load->view('FrontOffice/article', array('dataArticle' => $dataArticle));
+		$this->load->view('FrontOffice/secureSearch', array('dataSearch' => $dataSearch, 'dataPopular' => $dataPopular));
 		$this->load->view('FrontOffice/footer');
 	}
 
