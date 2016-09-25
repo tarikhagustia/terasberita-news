@@ -45,23 +45,44 @@ function openRegisterModal(){
 }
 
 function loginAjax(){
-    /*   Remove this comments when moving to server
-    $.post( "/login", function( data ) {
-            if(data == 1){
-                window.location.replace("/home");            
-            } else {
-                 shakeModal(); 
-            }
-        });
-    */
+    var datas = $('form[id=ajaxForm]').serializeArray();
+    $.ajax({
+        url: 'Auth/checkLoginAjax',
+        type: 'POST',
+        dataType: 'JSON',
+        data: datas,
+    })
+    .done(function(response) {
+        if(response.valid == false){
+            shakeModal(response.msg); 
+        }else{
+            alert('Success');
+
+        }
+    })
+    .fail(function() {
+        alert('Error')
+    })
+    .always(function() {
+        
+    });
+    
+    // $.post( "/Auth/checkLoginAjax", function( data ) {
+    //         if(data == 1){
+    //             window.location.replace("/home");            
+    //         } else {
+    
+    //         }
+    // });
+    
 
 /*   Simulate error message from the server   */
-     shakeModal();
+     // shakeModal();
 }
 
-function shakeModal(){
+function shakeModal(msg){
     $('#loginModal .modal-dialog').addClass('shake');
-             $('.error').addClass('alert alert-danger').html("Invalid email/password combination");
+             $('.error').addClass('alert alert-danger').html(msg);
              $('input[type="password"]').val('');
              setTimeout( function(){ 
                 $('#loginModal .modal-dialog').removeClass('shake'); 

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="box">
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <div class="box-deskripsi">
                         <!-- <p class="title"><small>Teras Berita / Fokus / Lorem Ipsum</small></p> -->
                         <div class="kanan">
@@ -18,9 +18,13 @@
                         <small><?php echo $dataArticle->full_name ?> - <?php echo $dataArticle->category_alias ?></small>
                         <div class="des">
                             <?php if($dataArticle->news_thumb == NULL || $dataArticle->news_thumb == ''): ?>
-                                <div class="img-header img-responsive"><img src="<?php echo base_url() ?>assets/img/bg.jpg"></div>
+                                <div class="img-header">
+                                <img class="img-responsive" src="<?php echo base_url() ?>assets/img/bg.jpg">
+                                </div>
                             <?php else: ?>
-                                <div class="img-header img-responsive"><img src="<?php echo $dataArticle->news_thumb ?>"></div>
+                                <div class="img-header">
+                                <img class="img-responsive" src="<?php echo $dataArticle->news_thumb ?>">
+                                </div>
                             <?php endif; ?>
                             <div class="isi">
                                 <p>

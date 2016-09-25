@@ -1126,6 +1126,12 @@ blockquote{
 
 /*--RESPONSIVE--*/
 @media (max-width: 768px) {
+     #pencarian{
+        width: 100%;
+        position: relative;
+        top: -25px;
+        left: -10px;
+    }
     #nav-atas{
         width: 100%;
         position: relative;
@@ -1162,7 +1168,7 @@ blockquote{
         display: block;
         width: 100%;
         float: left;
-        margin-top: 200px;
+        margin-top: 20px;
     }
     .list{
         position:relative;
@@ -1218,7 +1224,8 @@ blockquote{
         padding-bottom: 20px;
     }
     .text-berita{
-        /*display: none;*/
+        display: none;
+        /*width: 100%;*/
     }
     .img-ads{
       display: none;
@@ -1271,7 +1278,7 @@ blockquote{
     #footer{
         width: 100%;
         height: 450px;
-        margin-top: 100px;
+        margin-top: 20px;
     }
     .footer-kanan{
         width: 100%;
@@ -1322,4 +1329,61 @@ blockquote{
     .box-deskripsi{
         width: 100%;
     }
+    .nav-content{
+        width: 90%;
+    }
+    .profilepicture {
+        display: none;
+    }
+    .isi-content{
+        width: 90%;
+    }.box-kanan{display: block;margin-top: 100px;float: left;}
+    
+    /*KOMENTAR*/
+    .colom-kiri{
+        width: 100%;
+    }
+    .colom-kiri ul{
+        width: 80%;
+        height: 10px;
+        margin: auto;
+    }
+    .colom-kiri ul li{
+        padding: 0px;
+        margin: auto;
+    }
+    .colom-kiri ul li img{
+        margin: 2px;
+    }
+    .colom-kanan{
+        width: 100%;
+    }
+    .colom-kanan input{
+        width: 100%;
+    }
+    .line-navigasi{
+        font-weight: 0;
+        width: 100%;
+    }
+    .line-navigasi a{
+        float: left;
+    }
+    #pencarian{
+        width: 100%;
+        position: relative;
+        top: -25px;
+        left: -10px;
+    }
+    .notif{
+        width: 100%;
+    }
+    .box-detail{
+        display: none;
+    }
+    .nav-content{
+        width: 90%;
+    }
+    .isi-content{
+        width: 90%;
+    }.box-kanan{display: block;margin-top: 100px;float: left;}
 }

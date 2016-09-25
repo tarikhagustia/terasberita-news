@@ -75,8 +75,9 @@
                              </div>
                              <div class="error"></div>
                              <div class="form loginBox">
-                                 <form method="post" action="/login" accept-charset="UTF-8">
-                                 <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                 <!-- <form method="post" action="/login" accept-charset="UTF-8"> -->
+                                 <?php echo form_open('Auth/checkLoginAjax', array('id' => 'ajaxForm')) ?>
+                                 <input id="username" class="form-control" type="text" placeholder="username" name="username">
                                  <input id="password" class="form-control" type="password" placeholder="Password" name="password">
                                  <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
                                  </form>
@@ -87,7 +88,7 @@
                          <div class="content registerBox" style="display:none;">
                           <div class="form">
                              <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
-                             <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                             <input id="username" class="form-control" type="text" placeholder="Username" name="email">
                              <input id="password" class="form-control" type="password" placeholder="Password" name="password">
                              <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
                              <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
@@ -115,6 +116,16 @@
         <div class="col-md-12">
             <div class="span">
                 <div class="kiri">
+                <?php if ($this->session->userdata('logged_in')): ?>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <h5>Selamat Datang, <?php echo $this->session->userdata('full_name'); ?></h5>
+                                <p>Keluar</p>
+                            </a>
+                        </li>
+                    </ul>
+                <?php else: ?>
                     <ul>
                         <li>
                             <a href="">
@@ -130,6 +141,7 @@
                             <a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();"><button class="grey">Daftar</button></a>
                         </li>
                     </ul>
+                <?php endif; ?>
                 </div>
                 <div class="kanan">
                     <ul>

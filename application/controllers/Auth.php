@@ -25,7 +25,7 @@ class Auth extends CI_Controller {
 		// echo $this->config->item('encryption_key');
 		$this->load->view('back/login');
 	}
-	public function checkLogin()
+	public function checkLogin($redirect = null)
 	{
 		$this->load->library('session');
 		$this->load->model('mymodel');
@@ -42,7 +42,43 @@ class Auth extends CI_Controller {
 		{
 			$data = $this->mymodel->modelLoginSession($this->input->post('username'));
 			$this->session->set_userdata($data);
-			redirect('backoffice/index','refresh');
+			if($redirect == null):
+				redirect('backoffice/index');
+			else:
+				redirect($redirect);
+			endif;
+		}
+
+
+	}
+	public function checkLoginAjax($redirect = null)
+	{
+		$this->load->library('session');
+		$this->load->model('mymodel');
+		$this->load->library('form_validation');
+		// Validator
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required|callback_verfiyUser');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$resonse['valid'] = false;
+			$resonse['msg'] = 'Gagal login, silahkan cek kembali';
+			$this->output
+		         ->set_content_type('application/json')
+		         ->set_output(json_encode($resonse));
+		    // exit;
+		}
+		else
+		{
+			$data = $this->mymodel->modelLoginSession($this->input->post('username'));
+			$this->session->set_userdata($data);
+			$resonse['valid'] = true;
+			$resonse['msg'] = 'Berhasil login';
+			$this->output
+		         ->set_content_type('application/json')
+		         ->set_output(json_encode($resonse));
+		    // exit;
 		}
 
 
