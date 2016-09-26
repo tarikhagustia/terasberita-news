@@ -18,7 +18,7 @@
                           <div class="text-berita"><!--TextBeritaSlideshow -->
                               <h5 class="judul"><?php echo $dataBreakingNews->category_alias ?></h5>
                               <p class="banner text-justify"><?php echo $this->format->stripHTMLtags($dataBreakingNews->news_desc2, 0, 100) ?></p>
-                              <p class="date"><?php echo $dataBreakingNews->news_timestamp ?></p>
+                              <p class="date"><?php echo $this->format->date_indonesia($dataBreakingNews->news_timestamp); ?></p>
                           </div>
                         </div>
 
@@ -95,7 +95,7 @@
                                 <?php endif; ?>
                                 <p class="des text-justify">
                                 <a class="title" href="<?php echo $rows->news_url ?>"><?php echo $rows->news_title ?></a><br>
-                                <?php echo $this->format->stripHTMLtags($rows->descriptions, 0 , 150) ?></p>
+                                <?php echo $rows->category_alias . " | " . $this->format->date_indonesia($rows->news_timestamp) ?></p>
                             </div>
                         </div>
                         <?php } ?>
@@ -163,7 +163,7 @@
 
                                 <p class="des-news">
                                 <a class="title" href="<?php echo base_url($rows->news_url) ?>"><?php echo $rows->news_title ?></a><br>
-                                <small><?php echo $rows->news_timestamp ?></small><br>
+                                <small><?php echo $this->format->date_indonesia($rows->news_timestamp) ?></small><br>
                                 <?php echo $this->format->stripHTMLtags($rows->news_desc) ?>
                                 </p>
                             </div>

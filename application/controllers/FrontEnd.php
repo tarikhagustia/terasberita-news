@@ -174,7 +174,8 @@ class FrontEnd extends CI_Controller {
 		$data = array(
 			'comment_text' => $this->security->xss_clean($this->input->post('comment_text')),
 			'news_id' => $this->encrypt->decode($this->input->post('crypt_news_id')),
-			'user_id' => $this->session->userdata('id')
+			'user_id' => $this->session->userdata('id'),
+			'isActive' => false
 		);
 		$query = $this->news->insertData('fn_news_comment', $data);
 		if($query):
@@ -184,7 +185,7 @@ class FrontEnd extends CI_Controller {
 			 	# code...
 			 	$link = $value->news_url;
 			 }
-			 $this->session->set_flashdata('comment_status', 'komentar anda berhasil kami simpan');
+			 $this->session->set_flashdata('comment_status', 'komentar anda akan melalui proses moderasi');
 			 redirect(base_url($link));
 		else:
 			$links = $this->news->getData('fn_news', 'news_url', $where = array('news_id' => $this->encrypt->decode($this->input->post('crypt_news_id'))));

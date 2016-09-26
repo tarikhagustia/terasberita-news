@@ -18,9 +18,16 @@ class Auth extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('news');
+		// $this->load->config('email');
+	}
 	public function index()
 	{
 		$this->load->library('session');
+		$this->load->model('news');
 		// echo md5($this->config->item('encryption_key') . "1234");
 		// echo $this->config->item('encryption_key');
 		$this->load->view('back/login');
@@ -51,6 +58,48 @@ class Auth extends CI_Controller {
 
 
 	}
+	public function checkLoginUsers($redirect = null)
+	{
+		$this->load->library('session');
+		$this->load->model('mymodel');
+		$this->load->library('form_validation');
+		// Validator
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim|is_unique[bo_user.email]');
+		$this->form_validation->set_rules('full_name', 'Nama Anda', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('password_confirmation', 'Password Confirmation', 'required|matches[password]');
+		
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$resonse['valid'] = false;
+			$resonse['valid_msg'] = validation_errors();
+			$resonse['msg'] = '';
+			$this->output
+		         ->set_content_type('application/json')
+		         ->set_output(json_encode($resonse));
+		    // exit;
+		}
+		else
+		{
+			$data = array(
+				'username' => $this->input->post('email'),
+				'email' => $this->input->post('email'),
+				'full_name' => $this->input->post('full_name'),
+				'password' => md5($this->config->item('encryption_key').$this->input->post('password')),
+				'group_id' => 3
+			);
+			$insert = $this->news->insertData('bo_user', $data);	
+			$resonse['valid'] = true;
+			$resonse['msg'] = 'Anda berhasil melakukan registrasi, selamat datang :)';
+			$this->output
+		         ->set_content_type('application/json')
+		         ->set_output(json_encode($resonse));
+		    // exit;
+		}
+
+
+	}
 	public function checkLoginAjax($redirect = null)
 	{
 		$this->load->library('session');
@@ -63,7 +112,8 @@ class Auth extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$resonse['valid'] = false;
-			$resonse['msg'] = 'Gagal login, silahkan cek kembali';
+			$resonse['valid_msg'] = validation_errors();
+			$resonse['msg'] = '';
 			$this->output
 		         ->set_content_type('application/json')
 		         ->set_output(json_encode($resonse));
@@ -74,7 +124,7 @@ class Auth extends CI_Controller {
 			$data = $this->mymodel->modelLoginSession($this->input->post('username'));
 			$this->session->set_userdata($data);
 			$resonse['valid'] = true;
-			$resonse['msg'] = 'Berhasil login';
+			$resonse['msg'] = 'Anda berhasil masuk, selamat datang :)';
 			$this->output
 		         ->set_content_type('application/json')
 		         ->set_output(json_encode($resonse));
@@ -100,16 +150,14 @@ class Auth extends CI_Controller {
 		// // echo $this->mymodel->testaja();
 		// // var_dump($hasil);
 	}
-	public function facebook(){
-		$this->load->library('session');
-		$this->load->library('facebook');
-		$login_url = $this->facebook->login_url();
-		print_r($login_url);
-	}
-	public function facebook2(){
-		$this->load->library('session');
-		$this->load->library('facebook');
-		$login_url = $this->facebook->get_session();
-		var_dump($login_url);
+	public function logout()
+	{
+		$redirect = $this->input->get('redirect');
+		$this->session->sess_destroy();
+		if(isset($resonse)):
+    		redirect(base_url());
+    	else:
+    		redirect(urldecode($redirect));
+    	endif;
 	}
 }

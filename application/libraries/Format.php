@@ -22,7 +22,7 @@ class Format
     {
         $t = preg_replace('/<[^<|>]+?>/', '', htmlspecialchars_decode($str));
         $t = htmlentities($t, ENT_QUOTES, "UTF-8");
-        if($start == NULL && $end == NULL):
+        if ($start == null && $end == null):
         else:
             $t = substr($t, $start, $end);
         endif;
@@ -40,21 +40,35 @@ class Format
         $string = preg_replace("/[\s_]/", "-", $string);
         return $string;
     }
-    public function getFirstNameWithEs($name){
-      // var_dump($name);
-        if($name != NULL):
-        $pecah = explode(" ", $name);
-        if (count($pecah > 0)) {
-            # code...
+    public function getFirstNameWithEs($name)
+    {
+        // var_dump($name);
+        if ($name != null):
+            $pecah = explode(" ", $name);
+            if (count($pecah > 0)) {
+                # code...
 
-            return array_shift($pecah)."'s";
-        }else{
-            return NULL;
-        }
-      else:
-        return NULL;
-      endif;
+                return array_shift($pecah) . "'s";
+            } else {
+                return null;
+            } else :
+            return null;
+        endif;
 
-
+    }
+    public function date_indonesia($date, $pukul = false)
+    {
+        $hariData      = array('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu');
+        $BulanIndo = array("Januari", "Februari", "Maret",
+            "April", "Mei", "Juni",
+            "Juli", "Agustus", "September",
+            "Oktober", "November", "Desember");
+        $hari = date('w', strtotime($date));
+        $tahun = substr($date, 0, 4); // memisahkan format tahun menggunakan substring
+        $bulan = substr($date, 5, 2); // memisahkan format bulan menggunakan substring
+        $tgl   = substr($date, 8, 2); // memisahkan format tanggal menggunakan substring
+        $jam  = date('H:i', strtotime($date));
+        $result = $hariData[$hari - 1 ] . ", " .$tgl . " " . $BulanIndo[(int) $bulan - 1] . " " . $tahun . " pada " .$jam . " WIB";
+        return ($result);
     }
 }

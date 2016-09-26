@@ -12,7 +12,7 @@ function showRegisterForm(){
         $('.login-footer').fadeOut('fast',function(){
             $('.register-footer').fadeIn('fast');
         });
-        $('.modal-title').html('Register with');
+        $('.modal-title').html('Daftar dengan');
     }); 
     $('.error').removeClass('alert alert-danger').html('');
        
@@ -24,7 +24,7 @@ function showLoginForm(){
             $('.login-footer').fadeIn('fast');    
         });
         
-        $('.modal-title').html('Login with');
+        $('.modal-title').html('Masuk dengan');
     });       
      $('.error').removeClass('alert alert-danger').html(''); 
 }
@@ -54,10 +54,10 @@ function loginAjax(){
     })
     .done(function(response) {
         if(response.valid == false){
-            shakeModal(response.msg); 
+            shakeModal(response.msg,response.valid_msg); 
         }else{
-            alert('Success');
-
+            loginSuccess(response.msg);
+            location.reload();
         }
     })
     .fail(function() {
@@ -79,14 +79,44 @@ function loginAjax(){
 /*   Simulate error message from the server   */
      // shakeModal();
 }
-
-function shakeModal(msg){
+function registerAjax(){
+    var datas = $('form[id=ajaxForm2]').serializeArray();
+    $.ajax({
+        url: 'Auth/checkLoginUsers',
+        type: 'POST',
+        dataType: 'JSON',
+        data: datas,
+    })
+    .done(function(response) {
+         if(response.valid == false){
+            registerSuccess(response.valid_msg)
+        }else{
+            loginSuccess(response.msg);
+            location.reload();
+        }
+        
+    })
+    .fail(function() {
+        alert('Error')
+    })
+    .always(function() {
+        
+    });
+}
+function shakeModal(msg, msg2){
     $('#loginModal .modal-dialog').addClass('shake');
-             $('.error').addClass('alert alert-danger').html(msg);
+             $('.error').addClass('alert alert-danger').html(msg + msg2);
              $('input[type="password"]').val('');
              setTimeout( function(){ 
                 $('#loginModal .modal-dialog').removeClass('shake'); 
     }, 1000 ); 
 }
-
+function loginSuccess(msg){
+    $('.error').removeClass('alert alert-success');
+    $('.error').addClass('alert alert-success').html(msg);
+}
+function registerSuccess(msg){
+    $('.error-register').removeClass('alert alert-success');
+    $('.error-register').addClass('alert alert-success').html(msg);
+}
    

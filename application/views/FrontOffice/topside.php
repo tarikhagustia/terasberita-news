@@ -58,7 +58,7 @@
            <div class="modal-content">
               <div class="modal-header">
                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                     <h4 class="modal-title">Login with</h4>
+                     <h4 class="modal-title">Login dengan</h4>
                  </div>
                  <div class="modal-body">
                      <div class="box">
@@ -86,25 +86,27 @@
                      </div>
                      <div class="box">
                          <div class="content registerBox" style="display:none;">
+                         <?php echo form_open('Auth/checkLoginAjax', array('id' => 'ajaxForm2')) ?>
+                         <div class="error-register"></div>
                           <div class="form">
-                             <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
-                             <input id="username" class="form-control" type="text" placeholder="Username" name="email">
+                             <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                             <input id="full_name" class="form-control" type="text" placeholder="Nama Anda" name="full_name">
                              <input id="password" class="form-control" type="password" placeholder="Password" name="password">
                              <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
-                             <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
-                             </form>
+                             <input class="btn btn-default btn-register" type="button" value="Buat akun" onclick="registerAjax();" name="commit">
                              </div>
                          </div>
+                         <?php echo form_close(); ?>
                      </div>
                  </div>
                  <div class="modal-footer">
                      <div class="forgot login-footer">
-                         <span>Looking to
-                              <a href="javascript: showRegisterForm();">create an account</a>
+                         <span>Belum punya akun ?
+                              <a href="javascript: showRegisterForm();">Buat akun sekarang</a>
                          ?</span>
                      </div>
                      <div class="forgot register-footer" style="display:none">
-                          <span>Already have an account?</span>
+                          <span>Sudah punya akun ?</span>
                           <a href="javascript: showLoginForm();">Login</a>
                      </div>
                  </div>
@@ -119,16 +121,13 @@
                 <?php if ($this->session->userdata('logged_in')): ?>
                     <ul>
                         <li>
-                            <a href="">
-                                <h5>Selamat Datang, <?php echo $this->session->userdata('full_name'); ?></h5>
-                                <p>Keluar</p>
-                            </a>
+                            <h5 class="welcome-message">Selamat Datang, <?php echo $this->session->userdata('full_name'); ?>, <a href="<?php echo base_url('Auth/logout/?redirect='.urlencode(current_url())); ?>">Keluar</a></h5> 
                         </li>
                     </ul>
                 <?php else: ?>
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <h5>JADILAH BAGIAN DARI KAMI</h5>
                                 <p>Lorem Ipsum dolor sit amet</p>
                             </a>
@@ -152,9 +151,9 @@
                         </li>
                         </form>
                         <li><h5>Follow US :</h5></li>
-                        <li class="sos"><a href=""><img src="<?php echo base_url() ?>assets/img/medsos/fb-1.png"></a></li>
-                        <li class="sos"><a href=""><img src="<?php echo base_url() ?>assets/img/medsos/twit-1.png"></a></li>
-                        <li class="sos"><a href=""><img src="<?php echo base_url() ?>assets/img/medsos/yutube-1.png"></a></li>
+                        <li class="sos"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/fb-1.png"></a></li>
+                        <li class="sos"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/twit-1.png"></a></li>
+                        <li class="sos"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/yutube-1.png"></a></li>
                     </ul>
                 </div>
             </div>
@@ -166,8 +165,8 @@
     <div class="container">
         <div class="col-md-12">
             <div class="span">
-                <a href=""><div class="logo"><img src="<?php echo base_url() ?>assets/img/logo/Teras Berita - Logo - Standart.png"></div></a>
-                <a href=""><div class="img img-ads"><img src="<?php echo base_url() ?>assets/img/mcd.jpg"></div></a>
+                <a href="#"><div class="logo"><img src="<?php echo base_url() ?>assets/img/logo/Teras Berita - Logo - Standart.png"></div></a>
+                <a href="#"><div class="img img-ads"><img src="<?php echo base_url() ?>assets/img/mcd.jpg"></div></a>
             </div>
         </div>
     </div>

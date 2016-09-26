@@ -88,4 +88,15 @@ class Example extends CI_Controller {
 		$this->facebook->destroy_session();
 		redirect('example/web_login', redirect);
 	}
+	function sendmail()
+	{
+	    $this->load->library('email'); // load email library
+	    $this->email->from('user@gmail.com', 'sender name');
+	    $this->email->to('agustia.tarikh150@gmail.com');
+	    $this->email->cc('tarikhagustians@gmail.com'); 
+	    $this->email->subject('Your Subject');
+	    $this->email->message('Your Message hehe hehehehe ehhehe ehehhe hehehe hehhe');
+	    $this->email->send(FALSE);
+		print_r($this->email->print_debugger(array('headers')));	    
+	}
 }

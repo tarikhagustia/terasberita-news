@@ -27,3 +27,7 @@
   margin-right: 0 auto;
   /*margin: 20px 0;*/
 }
+.welcome-message {
+  margin-top: 16px;
+  color: yellow;
+}
