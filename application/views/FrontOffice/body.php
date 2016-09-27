@@ -173,8 +173,15 @@
                 </div>
             <div class="box-kanan" id="box-kanan"><!--Box-Kanan-->
                 <div class="iklan">
-                        <img id="kfc" src="<?php echo base_url() ?>assets/img/kfc.png">
-                        <img id="kupon" src="<?php echo base_url() ?>assets/img/kupon.png">
+                        <?php
+                        $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_type' => 'ads'));
+                        foreach ($ads as $key => $value) {
+                            # code...
+                            $data[$value->layout_name] = $value->layout_dir;
+                        }
+                        ?>
+                        <img id="kfc" src="<?php echo base_url($data['body-532x280']) ?>">
+                        <img id="kupon" src="<?php echo base_url($data['body-532x180']) ?>">
                         <div class="komentar"><!--Komentar-->
                             <div class="daftar">
                                 <div class="img-daftar">

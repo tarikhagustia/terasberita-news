@@ -88,13 +88,13 @@ $(document).ready(function() {
     });
 
     // check active menu
-    $SIDEBAR_MENU.find('a[href="' + CURRENT_URL + '"]').parent('li').addClass('active');
+    // $SIDEBAR_MENU.find('a[href="' + CURRENT_URL + '"]').parent('li').addClass('active');
     
-    $SIDEBAR_MENU.find('a').filter(function() {
-        return this.href == CURRENT_URL;
-    }).parent('li').addClass('active').parents('ul').slideDown(function() {
-        setContentHeight();
-    }).parent().addClass('active');
+    // $SIDEBAR_MENU.find('a').filter(function() {
+    //     return this.href == CURRENT_URL;
+    // }).parent('li').addClass('active').parents('ul').slideDown(function() {
+    //     setContentHeight();
+    // }).parent().addClass('active');
 
     // recompute content when resizing
     $(window).smartresize(function() {
