@@ -185,5 +185,9 @@ class Backoffice extends CI_Controller {
                 // echo '<img src="' . base_url() . $file['path'] . '" alt=""/>';
         }
 	}
+	public function update()
+	{
+		echo"Ok deal ";
+	}
 
 }
