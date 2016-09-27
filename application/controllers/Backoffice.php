@@ -187,7 +187,11 @@ class Backoffice extends CI_Controller {
 	}
 	public function update()
 	{
-		echo"Ok deal ";
+		$this->back->updataData();
+		$page = array(
+			"thepage" => $this->load->view('back/manage_brek_news', array(), true)
+		);
+		$this->load->view('back/index', $page);
 	}
 
 }

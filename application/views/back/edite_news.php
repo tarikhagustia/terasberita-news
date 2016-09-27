@@ -41,9 +41,9 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <!-- <form method="POST" data-parsley-validate class="form-horizontal form-label-left"> -->
+                    <form method="POST" data-parsley-validate class="form-horizontal form-label-left"> 
                      
-                      <?php echo form_open_multipart('backoffice/inputData', array('class' =>'form-horizontal form-label-left', 'id' => 'AwesomeForm'));?>
+                      <!--<?php echo form_open_multipart('backoffice/inputData', array('class' =>'form-horizontal form-label-left', 'id' => 'AwesomeForm'));?>-->
                       <?php foreach($data as $row) {  ?>
                       <div class="form-group">
                         <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">Foto</label>
@@ -173,7 +173,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button type="submit" class="btn btn-primary">Cancel</button>
                           <button type="submit" class="btn btn-success">Submit</button>
-                          <button type="submit" class="btn btn-success" onclick="location.href='<?php echo base_url('backoffice/update');?>'">Delete</button>
+                          <button type="submit" class="btn btn-success" onclick="location.href="<?php echo base_url('backoffice/update')?>">Delete</button>
                            
                         </div>
                       </div>
