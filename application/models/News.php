@@ -23,7 +23,7 @@ class News extends CI_Model
     }
     public function getNewsFromPage($category_id)
     {
-        $result = $this->db->query("SELECT news_url, news_thumb, fn_pages.`category_id`, fn_pages.`pages_id`, news_title, category_alias,  SUBSTR(news_desc, 1, 200) AS news_desc, fn_news.`news_timestamp` FROM fn_pages, fn_category, fn_news WHERE fn_pages.`category_id` = fn_category.`category_id` AND fn_pages.`news_id` = fn_news.`news_id` AND fn_pages.category_id = '$category_id' ORDER BY fn_news.news_timestamp DESC");
+        $result = $this->db->query("SELECT news_url, news_thumb, fn_pages.`category_id`, fn_pages.`pages_id`, news_title, category_alias, news_desc AS news_desc, fn_news.`news_timestamp` FROM fn_pages, fn_category, fn_news WHERE fn_pages.`category_id` = fn_category.`category_id` AND fn_pages.`news_id` = fn_news.`news_id` AND fn_pages.category_id = '$category_id' ORDER BY fn_news.news_timestamp DESC");
         return $result->result();
     }
     public function getNewsFromArticle($news_url = null)
@@ -78,7 +78,7 @@ class News extends CI_Model
     }
     public function getNewsFromFokusWithUrl($fokus_url = null)
     {
-        $query = "SELECT fn_news.`news_title`, news_url, SUBSTR(news_desc, 1 , 100) AS descs, news_thumb, news_timestamp, category_alias FROM fn_fokus, fn_news, fn_pages, fn_category WHERE fn_fokus.`fokus_id` = fn_news.`fokus_id` AND fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fokus_url = '$fokus_url' ORDER BY fn_news.`news_timestamp` DESC";
+        $query = "SELECT fn_news.`news_title`, news_url, news_desc AS descs, news_thumb, news_timestamp, category_alias FROM fn_fokus, fn_news, fn_pages, fn_category WHERE fn_fokus.`fokus_id` = fn_news.`fokus_id` AND fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fokus_url = '$fokus_url' ORDER BY fn_news.`news_timestamp` DESC";
         return $this->db->query($query)->result();
 
     }
@@ -120,7 +120,7 @@ class News extends CI_Model
         $query = $this->db->query("SELECT
                 fn_news.`news_title`,
                 news_url,
-                SUBSTR(news_desc, 1, 500) AS news_desc2,
+                news_desc AS news_desc2,
                 category_alias,
                 news_thumb,
                 fokus_id,

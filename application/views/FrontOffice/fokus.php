@@ -14,15 +14,15 @@
                             echo '<div class="img-content"><a href=""><img src="'.$value->news_thumb.'"></a></div>';
                         endif;
                         ?>
-                        
+
                         <div class="isi-content">
                             <a href="<?php echo base_url($value->news_url) ?>"><h4><?php echo $value->news_title ?></h4></a>
                             <p>
-                                <?php echo $this->format->stripHTMLtags($value->descs) ?> ...
+                                <?php echo $this->format->stripHTMLtags($value->descs, 0 , 100) ?> ...
                                 <br><br>
                                 <small><?php echo $value->news_timestamp ?> - </small><a href="#"><?php echo $value->category_alias ?></a>
                             </p>
-                        </div>   
+                        </div>
                     </div>
                     <?php } ?>
                 </div>

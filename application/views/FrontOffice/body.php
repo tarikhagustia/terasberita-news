@@ -75,7 +75,7 @@
                           <?php if($dataPopularOne->news_thumb == NULL || $dataPopularOne->news_thumb == ""): ?>
                             <img src="<?php echo base_url() ?>assets/img/bg.jpg">
                           <?php else: ?>
-                            <img src="<?php echo $dataPopularOne->news_thumb ?>">
+                            <img src="<?php echo base_url($dataPopularOne->news_thumb)?>">
                           <?php endif; ?>
 
                             <!-- <small><?php echo $dataPopularOne->news_title ?></small> -->
@@ -84,14 +84,14 @@
                         </div>  <!--/pop-kiri -->
                         <div id="scrolllable-populer">
 
-                        <?php foreach($dataPopular as $rows){
+                        <?php $rows = array(); foreach($dataPopular as $rows){
                         ?>
                         <div class="pop-kanan"><!--pop-kanan-->
                             <div class="list" id="fokus">
                                 <?php if($rows->news_thumb == NULL || $rows->news_thumb == ""): ?>
                                   <img src="<?php echo base_url() ?>assets/img/bg.jpg">
                                 <?php else: ?>
-                                  <img src="<?php echo $rows->news_thumb ?>">
+                                  <img src="<?php echo base_url($rows->news_thumb)?>">
                                 <?php endif; ?>
                                 <p class="des text-justify">
                                 <a class="title" href="<?php echo $rows->news_url ?>"><?php echo $rows->news_title ?></a><br>
@@ -158,13 +158,13 @@
                                  <?php if($rows->news_thumb == NULL || $rows->news_thumb == ''): ?>
                                         <img src="<?php echo base_url() ?>assets/img/bg.jpg">
                                 <?php else: ?>
-                                        <img src="<?php echo $rows->news_thumb ?>">
+                                        <img src="<?php echo base_url($rows->news_thumb) ?>">
                                 <?php endif; ?>
 
                                 <p class="des-news">
                                 <a class="title" href="<?php echo base_url($rows->news_url) ?>"><?php echo $rows->news_title ?></a><br>
                                 <small><?php echo $this->format->date_indonesia($rows->news_timestamp) ?></small><br>
-                                <?php echo $this->format->stripHTMLtags($rows->news_desc) ?>
+                                <?php echo $this->format->stripHTMLtags($rows->news_desc, 0 ,200) ?>
                                 </p>
                             </div>
                         </div><!--/News-Isi-->
