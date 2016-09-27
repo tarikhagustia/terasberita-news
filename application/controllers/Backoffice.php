@@ -25,6 +25,8 @@ class Backoffice extends CI_Controller {
 		$this->load->library('format');
 		$this->load->helper('form');
 		$this->load->library('session');
+		$this->load->library('format');
+		$this->load->model('news');
 		$this->load->library('slim');
 		$this->load->model('back');
 		if (!$this->session->userdata('logged_in')) {
@@ -113,6 +115,25 @@ class Backoffice extends CI_Controller {
 		);
 		$this->load->view('back/index', $page);
 	}
+	public function manage_comment()
+	{
+		$query  = $this->db->query('SELECT fn_news_comment.`comment_id`, full_name, comment_text, news_title, comment_timestamp FROM fn_news_comment, fn_news, bo_user WHERE fn_news_comment.`news_id` = fn_news.`news_id` AND fn_news_comment.`user_id` = bo_user.`id` AND fn_news_comment.`isActive` = FALSE ORDER BY fn_news_comment.`comment_timestamp` DESC LIMIT 20');
+		$dataComment = $query->result();
+		$page = array(
+			"thepage" => $this->load->view('back/manage_comment', array('dataComment' => $dataComment), true)
+		);
+		$this->load->view('back/index', $page);
+	}
+	public function delete($jenis, $id){
+		if ($jenis == 'komentar') {
+			$this->db->delete('fn_news_comment', array('comment_id' => $id));
+			redirect('backoffice/manage_comment');
+		}
+	}
+	public function approve_comment($comment_id) {
+		$this->news->updateData('fn_news_comment', array('isActive' => true), 'comment_id', $comment_id);
+		redirect('backoffice/manage_comment');
+	}
 	public function edite($id)
 	{
 		var_dump($id);
@@ -124,7 +145,7 @@ class Backoffice extends CI_Controller {
 		$this->db->where('fn_pages.news_id', $id);
 		$query = $this->db->get();
 		$data1 = $query->result_array();
-		
+
 		foreach ($data1 as $row) {
         $data2[] = $row['category_id'];
     	}
@@ -134,12 +155,12 @@ class Backoffice extends CI_Controller {
 		$page = array(
 			"thepage" => $this->load->view('back/edite_news', array('data' => $data, 'data3' => $data3), true)
 		);
-		
+
 		$this->load->view('back/index', $page);
 	}
 	public function inputData(){
 		$images = Slim::getImages();
-		
+
         // var_dump($_POST);
         if ($images == false) {
             // inject your own auto crop or fallback script here
@@ -173,8 +194,8 @@ class Backoffice extends CI_Controller {
 		      "news_id"  => $idta
 		     );
 		    }
-		     
-		     $sql2 = $this->db->insert_batch('fn_pages', $result); // fungsi dari codeigniter untuk menyimpan multi array  
+
+		     $sql2 = $this->db->insert_batch('fn_pages', $result); // fungsi dari codeigniter untuk menyimpan multi array
             if ($sql) {
                 redirect('backoffice/index','refresh');
             } else {
@@ -185,6 +206,7 @@ class Backoffice extends CI_Controller {
                 // echo '<img src="' . base_url() . $file['path'] . '" alt=""/>';
         }
 	}
+
 	public function update()
 	{
 		$this->back->updataData();
@@ -193,5 +215,4 @@ class Backoffice extends CI_Controller {
 		);
 		$this->load->view('back/index', $page);
 	}
-
 }

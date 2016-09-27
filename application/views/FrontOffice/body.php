@@ -158,7 +158,7 @@
                                  <?php if($rows->news_thumb == NULL || $rows->news_thumb == ''): ?>
                                         <img src="<?php echo base_url() ?>assets/img/bg.jpg">
                                 <?php else: ?>
-                                        <img src="<?php echo $dataArticle->news_thumb ?>">
+                                        <img src="<?php echo $rows->news_thumb ?>">
                                 <?php endif; ?>
 
                                 <p class="des-news">

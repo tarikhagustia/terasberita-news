@@ -24,7 +24,7 @@
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
             <div class="menu_section">
-                
+
                 <ul class="nav side-menu">
                     <li>
                         <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
@@ -84,7 +84,14 @@
                     <li>
                         <a><i class="fa fa-clone"></i> User Management <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="<?php echo base_url('backoffice/manage_user'); ?>" id="dashboard2" class='' >Manage User</a>
+                            <li><a href="<?php echo base_url('backoffice/manage_user'); ?>" id="" class='' >Manage User</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-clone"></i> Content Management <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="<?php echo base_url('backoffice/manage_comment'); ?>" id="" class='' >Manage Comment</a>
                             </li>
                         </ul>
                     </li>

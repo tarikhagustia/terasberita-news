@@ -53,7 +53,7 @@
                                         </div>
                                     <?php endif; ?>
                                 </div>
-                            </form>   
+                            </form>
                         </div>
                         <?php foreach($dataCommentArticle as $rows): ?>
                             <div class="isi-coment">

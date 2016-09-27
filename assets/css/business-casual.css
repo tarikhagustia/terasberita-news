@@ -867,7 +867,7 @@ h2.title{
     width: 100%;
     overflow: hidden;
         margin:auto;
-        margin-top: 110px;
+        /*margin-top: 110px;*/
 }
 .isi p{
     color: #000;
@@ -882,13 +882,13 @@ h2.title{
 
 .img-header{
     width: 100%;
-    height: 200px;
+    /*height: 200px;*/
     margin-top: 20px;
     margin-bottom: 10px;
 }
 .img-header img{
     width: 100%;
-    height: 300px;
+    /*height: 300px;*/
 }
 .titile_bt{
   color: #fed019;
@@ -1338,7 +1338,7 @@ blockquote{
     .isi-content{
         width: 90%;
     }.box-kanan{display: block;margin-top: 100px;float: left;}
-    
+
     /*KOMENTAR*/
     .colom-kiri{
         width: 100%;
