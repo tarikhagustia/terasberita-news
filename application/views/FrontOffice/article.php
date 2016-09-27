@@ -83,7 +83,7 @@
                             <img src="<?php echo base_url() ?>assets/img/bg.jpg">
                             <p class="des text-justify">
                                 <a class="title" href="<?php echo base_url($rows->news_url) ?>"><?php echo $rows->news_title ?></a><br>
-                                <?php echo $this->format->stripHTMLtags($rows->descriptions, 0, 100) ?>
+                                <?php echo $this->format->date_indonesia($rows->news_timestamp) ?>
                             </p>
                         </div>
                     </div>

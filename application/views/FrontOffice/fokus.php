@@ -41,7 +41,7 @@
                         <?php endif; ?>
                         <p class="des text-justify">
                             <a class="title" href="<?php echo base_url($rows->news_url) ?>"><?php echo $this->format->stripHTMLtags($rows->news_title) ?></a><br>
-                            <?php echo $this->format->stripHTMLtags($rows->news_desc, 0 , 100) ?></p>
+                            <?php echo $this->format->date_indonesia($rows->news_timestamp) ?></p>
                     </div>
                 <?php endforeach; ?>
                     </div><!--/FOK ISI-->

@@ -7,7 +7,7 @@
                 <?php else: ?>
                     <blockquote>Hasil pencarian "<?php echo $this->security->xss_clean($this->input->get('q')) ?>" ditemukan pada <?php echo count($dataSearch) ?> dokumen</blockquote>
                 <?php endif; ?>
-                
+
             </div>
         </div>
     </div>
@@ -34,8 +34,8 @@
                                         <br><br>
                                         <small><?php echo $rows->news_timestamp ?> - </small><a href="#"><?php echo $rows->category_alias ?></a>
                                     </p>
-                                </div>   
-                            </div>  
+                                </div>
+                            </div>
                         <?php endforeach; else: ?>
                         <h3>Tidak ada hasil</h3>
                     <?php endif; ?>
@@ -55,7 +55,7 @@
                             <?php endif; ?>
                             <p class="des text-justify">
                                 <a class="title" href="<?php echo base_url($rows->news_url) ?>"><?php echo $this->format->stripHTMLtags($rows->news_title) ?></a><br>
-                                <?php echo $this->format->stripHTMLtags($rows->news_desc, 0 , 100) ?></p>
+                                <?php echo $this->format->date_indonesia($rows->news_timestamp) ?></p>
                             </div>
                         <?php endforeach; ?>
                     </div><!--/FOK ISI-->
