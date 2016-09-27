@@ -136,10 +136,10 @@ class Backoffice extends CI_Controller {
 	}
 	public function edite($id)
 	{
-		var_dump($id);
+		// var_dump($id);
 		$this->load->model('back','modelbackoffice');
 		$data = $this->modelbackoffice->getDatanews($id, 'news_thumb, news_title, news_desc, user_id, username');
-		var_dump($data);
+		// var_dump($data);
 		$this->db->select('fn_pages.category_id');
 		$this->db->from('fn_pages');
 		$this->db->where('fn_pages.news_id', $id);
@@ -149,11 +149,11 @@ class Backoffice extends CI_Controller {
 		foreach ($data1 as $row) {
         $data2[] = $row['category_id'];
     	}
-    	var_dump($data2);
+    	// var_dump($data2);
     	$data3 = json_encode($data2);
-    	var_dump($data3);
+    	// var_dump($data3);
 		$page = array(
-			"thepage" => $this->load->view('back/edite_news', array('data' => $data, 'data3' => $data3), true)
+			"thepage" => $this->load->view('back/edite_news', array('data' => $data, 'data3' => $data3, 'id' => $id), true)
 		);
 
 		$this->load->view('back/index', $page);
@@ -207,12 +207,49 @@ class Backoffice extends CI_Controller {
         }
 	}
 
-	public function update()
-	{
-		$this->back->updataData();
-		$page = array(
-			"thepage" => $this->load->view('back/manage_brek_news', array(), true)
-		);
-		$this->load->view('back/index', $page);
+	public function managenews()
+	{   var_dump($_POST);
+		$images = Slim::getImages();
+        if ($images == false) {
+            show_404();
+        } else {
+            foreach ($images as $image) {
+                $file = Slim::saveFile($image['output']['data'], $image['input']['name']);
+            }
+            $news_url       = $this->format->seoUrl($this->input->post('jdl-berita'));
+            $jdl_berita     = $this->input->post('jdl-berita');
+            $id     		= $this->session->userdata('id');
+            $idnya     		= $this->input->post('idnya');
+            $tombol     		= $this->input->post('tombol');
+            $name_pen       = $this->input->post('name-pen');
+            $select2	    = $this->input->post('select2');
+            $isi            = $this->input->post('isi');
+            $news_thumb     = $file['path'];
+            $insert1        = array(
+
+            'news_url'       => $news_url,
+            'news_title'     => $jdl_berita,
+            'user_id'     	 => $id,
+            'news_desc'      => $isi,
+            'news_thumb'     => $news_thumb,
+            );
+            $sql = $this->back->insertData('fn_news', $insert1);
+            $idta = $this->db->insert_id(); // Will return the last insert id.
+            $result = array();
+		    foreach($select2 AS $key => $val){
+		     $result[] = array(
+		      "category_id"  => $_POST['select2'][$key],
+		      "news_id"  => $idta
+		     );
+		    }
+
+		     $sql2 = $this->db->insert_batch('fn_pages', $result); // fungsi dari codeigniter untuk menyimpan multi array
+            if ($sql) {
+                redirect('backoffice/index','refresh');
+            } else {
+                show_404();
+            }
+           
+        }
 	}
 }

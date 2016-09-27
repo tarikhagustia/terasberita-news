@@ -282,12 +282,12 @@
           $("#myAwesomeForm").on("submit",function() {
               // alert('SUbmited');
               var data = $('#editor').html();
-                console.log(data);
+                // console.log(data);
                 $('input[name=isi]').val(data);
           });
          $('button[name=ceks]').click(function() {
                 var data = $('#editor').html();
-                console.log(data);
+                // console.log(data);
                 $('input[name=isi]').val(data);
 
             })
