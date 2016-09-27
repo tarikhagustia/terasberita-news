@@ -21,7 +21,7 @@ class Mymodel extends CI_Model {
 		}
 	}
 	public function modelLoginSession($username){
-		$this->db->select('id, username, email, full_name');
+		$this->db->select('id, username, email, full_name, group_id');
 		$this->db->from('bo_user');
 		$this->db->where(array('username' => $username));
 		$query = $this->db->get();

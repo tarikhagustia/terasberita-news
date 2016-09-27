@@ -157,7 +157,7 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('CountDown/index');
 	}
 	public function viewMyArticle($news_url = null){
-
+		
 		$dataArticle = $this->news->getNewsFromArticle($news_url);
 		if(empty($dataArticle)):
 			redirect(base_url());	
@@ -168,6 +168,27 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('FrontOffice/topside', array('title' => $dataArticle->news_title));
 		$this->load->view('FrontOffice/article', array('dataArticle' => $dataArticle, 'dataCommentArticle' => $dataCommentArticle, 'dataPopuler' => $dataPopular, 'dataTerasPeristiwa' => $dataTerasPeristiwa));
 		$this->load->view('FrontOffice/footer');
+		$cekId = $this->news->getData('fn_news', 'news_id', array('news_url' => $news_url));
+		foreach ($cekId as $key => $value) {
+			$news_id = $value->news_id;
+		}
+		$seens_ip = $_SERVER['REMOTE_ADDR'];
+		$cekIp = $this->news->getData('fn_news_seens', 'seens_id', array('news_id' => $news_id, 'seens_ip' => $seens_ip));
+		// Jika blum ada yang liat maka insert
+		if (empty($cekIp)) {
+			if($this->session->userdata('logged_in')):
+				$isLogin = true;
+			else:
+				$isLogin = false;
+			endif;
+			$data = array(
+				'news_id' => $news_id,
+				'seens_ip' => $seens_ip,
+				'seens_comment' => 'Already seens on ip '.$seens_ip,
+				'isLogin' => $isLogin
+			);
+			$this->news->insertData('fn_news_seens', $data);
+		}
 	}
 
 	public function setComment(){

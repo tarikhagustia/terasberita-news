@@ -78,4 +78,8 @@ class Format
         $result = $hariData[$hari - 1 ] . ", " .$tgl . " " . $BulanIndo[(int) $bulan - 1] . " " . $tahun . " pada " .$jam . " WIB";
         return ($result);
     }
+    public function date_periode($date){
+        $d = explode(' - ', $date);
+        return array('date_from' => $d[0], 'date_to' => $d[1]);
+    }
 }

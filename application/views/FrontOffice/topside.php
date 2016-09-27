@@ -129,7 +129,7 @@
                         <li>
                             <a href="#">
                                 <h5>JADILAH BAGIAN DARI KAMI</h5>
-                                <p>Lorem Ipsum dolor sit amet</p>
+                                <p>Indeph , Jujur dan terpercaya</p>
                             </a>
                         </li>
                         <li class="button">
@@ -166,7 +166,7 @@
         <div class="col-md-12">
             <div class="span">
                 <a href="#"><div class="logo"><img src="<?php echo base_url() ?>assets/img/logo/Teras Berita - Logo - Standart.png"></div></a>
-                <a href="#"><div class="img img-ads"><img src="<?php echo base_url() ?>assets/img/mcd.jpg"></div></a>
+                <a href="#"><div class="img img-ads"><img src="<?php echo base_url() ?>assets/img/iklan/1.png"></div></a>
             </div>
         </div>
     </div>
