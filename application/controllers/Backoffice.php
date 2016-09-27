@@ -93,8 +93,9 @@ class Backoffice extends CI_Controller {
 	}
 	public function creat_new_artikel($do = false)
 	{
+		$dataPages = $this->news->getData('fn_category', 'category_id, category_alias', $where = array(1 => 1));
 		$page = array(
-			"thepage" => $this->load->view('back/creat_new_artikel', array(), true)
+			"thepage" => $this->load->view('back/creat_new_artikel', array('dataPages' => $dataPages), true)
 		);
 		$this->load->view('back/index', $page);
 	}

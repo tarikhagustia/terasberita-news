@@ -1,4 +1,4 @@
-    
+
     <link href="<?php echo base_url()?>assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/js/slim-image/slim/slim.min.css" rel="stylesheet">
 <div class="">
@@ -21,7 +21,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Form Design <small>different form elements</small></h2>
+                    <h2>Buat Artikel Baru <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -42,7 +42,7 @@
                   <div class="x_content">
                     <br />
                     <!-- <form action="<?php echo base_url('backoffice/inputData');?>" method="POST" data-parsley-validate class="form-horizontal form-label-left"> -->
-					           
+
                       <?php echo form_open_multipart('backoffice/inputData', array('class' =>'form-horizontal form-label-left', 'id' => 'myAwesomeForm'));?>
 
                       <div class="form-group">
@@ -73,13 +73,9 @@
                         <label class="control-label col-md-2 col-sm-2 col-xs-12">Category</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <select class="select2_multiple form-control" multiple="multiple" name="select2[]">
-                            <option value = '0'>Choose option</option>
-                            <option value = '1'>Teras Sukabumi</option>
-                            <option value = '2'>Teras Nasional</option>
-                            <option value = '3'>Teras Cianjur</option>
-                            <option value = '4'>Teras News</option>
-                            <option value = '5'>Teras Ekomomi</option>
-                            <option value = '6'>Teras Sehat</option>
+                          <?php foreach($dataPages as $rows): ?>
+                            <option value="<?php echo $rows->category_id ?>"><?php echo $rows->category_alias ?></option>
+                          <?php endforeach; ?>
                           </select>
                         </div>
                       </div>
@@ -158,15 +154,15 @@
 							  <!-- <textarea name="editor" id="editor" style="display:none;"></textarea> -->
                 <!-- <textarea class="textarea" name="mytext" placeholder="Enter text ..." style="width: 810px; height: 200px"></textarea> -->
 							  <br />
-							  <div class="ln_solid"></div>
+							  <!-- <div class="ln_solid"></div> -->
 						</div>
                       </div>
                       <div class="ln_solid"></div>
                       <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancel</button>
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
+                          <button type="reset" class="btn btn-primary">Cancel</button>
                           <button type="submit" class="btn btn-success">Submit</button>
-                           
+
                         </div>
                       </div>
 
@@ -177,7 +173,7 @@
             </div>
 </div>
 
-  
+
     <!-- bootstrap-wysiwyg -->
     <script src="<?php echo base_url() ?>assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
     <script src="<?php echo base_url() ?>assets/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
@@ -197,7 +193,7 @@
     <!-- starrr -->
     <script src="<?php echo base_url() ?>assets/vendors/starrr/dist/starrr.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/slim-image/slim/slim.kickstart.min.js"></script>
-	
+
 <script>
       $(document).ready(function() {
 
@@ -275,7 +271,7 @@
       });
     </script>
     <!-- /Autosize -->
-	
+
 	<!-- Select2 -->
     <script>
       $(document).ready(function() {
@@ -298,7 +294,7 @@
         $(".select2_group").select2({});
         $(".select2_multiple").select2({
           maximumSelectionLength: 6,
-          placeholder: "With Max Selection limit 4",
+          placeholder: "Pilih halaman",
           allowClear: true
         });
       });
