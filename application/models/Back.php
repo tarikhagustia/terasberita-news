@@ -10,6 +10,36 @@ class Back extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+	public function insertData($table, $data)
+    {
+        $sql1 = $this->db->insert($table, $data);
+        if ($sql1) {
+            # code...
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function contoh($dmn)
+	{
+		// var_dump($dmn);
+		$this->db->select('*');
+		$this->db->from('fn_news');
+		$this->db->where('User_id', $dmn);
+		// $this->db->limit(1);
+		$query = $this->db->get();
+		return $query->result_array();
+		// echo "$query";
+	}
+	public function getDatanews($dmn, $col)
+	{
+		$this->db->select($col);
+		$this->db->from('fn_news, bo_user');
+		$this->db->where('bo_user.id = fn_news.user_id');
+		$this->db->where('fn_news.news_id', $dmn);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 
 }
 

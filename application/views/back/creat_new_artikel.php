@@ -1,21 +1,6 @@
-<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- bootstrap-wysiwyg -->
-    <link href="../vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
-    <!-- Select2 -->
-    <link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
-    <!-- Switchery -->
-    <link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
-    <!-- starrr -->
-    <link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
-
-    <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    
+    <link href="<?php echo base_url()?>assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/js/slim-image/slim/slim.min.css" rel="stylesheet">
 <div class="">
 
   <div class="page-title">
@@ -56,498 +41,45 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <!-- <form action="<?php echo base_url('backoffice/inputData');?>" method="POST" data-parsley-validate class="form-horizontal form-label-left"> -->
+					           
+                      <?php echo form_open_multipart('backoffice/inputData', array('class' =>'form-horizontal form-label-left', 'id' => 'myAwesomeForm'));?>
 
                       <div class="form-group">
                         <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">Foto</label>
                         <div class="col-md-10 col-sm-10 col-xs-12">
-									  <!-- image cropping -->
-							<div class="container cropper">
-							  <div class="row">
-								<div class="col-md-9">
-								  <div class="img-container">
-									<img id="image" src="assets/images/cropper.jpg" alt="Picture">
-								  </div>
-								</div>
-								<div class="col-md-3">
-								  <div class="docs-preview clearfix">
-									<!--<div class="img-preview preview-lg"></div>-->
-									<div class="img-preview preview-md"></div>
-									<div class="img-preview preview-sm"></div>
-									<div class="img-preview preview-xs"></div>
-								  </div>
-
-								  <div class="docs-data">
-									<div class="input-group input-group-sm">
-									  <label class="input-group-addon" for="dataX">X</label>
-									  <input type="text" class="form-control" id="dataX" placeholder="x">
-									  <span class="input-group-addon">px</span>
-									</div>
-									<div class="input-group input-group-sm">
-									  <label class="input-group-addon" for="dataY">Y</label>
-									  <input type="text" class="form-control" id="dataY" placeholder="y">
-									  <span class="input-group-addon">px</span>
-									</div>
-									<div class="input-group input-group-sm">
-									  <label class="input-group-addon" for="dataWidth">Width</label>
-									  <input type="text" class="form-control" id="dataWidth" placeholder="width">
-									  <span class="input-group-addon">px</span>
-									</div>
-									<div class="input-group input-group-sm">
-									  <label class="input-group-addon" for="dataHeight">Height</label>
-									  <input type="text" class="form-control" id="dataHeight" placeholder="height">
-									  <span class="input-group-addon">px</span>
-									</div>
-									<div class="input-group input-group-sm">
-									  <label class="input-group-addon" for="dataRotate">Rotate</label>
-									  <input type="text" class="form-control" id="dataRotate" placeholder="rotate">
-									  <span class="input-group-addon">deg</span>
-									</div>
-									<div class="input-group input-group-sm">
-									  <label class="input-group-addon" for="dataScaleX">ScaleX</label>
-									  <input type="text" class="form-control" id="dataScaleX" placeholder="scaleX">
-									</div>
-									<div class="input-group input-group-sm">
-									  <label class="input-group-addon" for="dataScaleY">ScaleY</label>
-									  <input type="text" class="form-control" id="dataScaleY" placeholder="scaleY">
-									</div>
-								  </div>
-								</div>
-							  </div>
-							  <div class="row">
-								<div class="col-md-9 docs-buttons">
-								  <!-- <h3 class="page-header">Toolbar:</h3> -->
-								  <div class="btn-group">
-									<button type="button" class="btn btn-primary" data-method="setDragMode" data-option="move" title="Move">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;setDragMode&quot;, &quot;move&quot;)">
-										<span class="fa fa-arrows"></span>
-									  </span>
-									</button>
-									<button type="button" class="btn btn-primary" data-method="setDragMode" data-option="crop" title="Crop">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;setDragMode&quot;, &quot;crop&quot;)">
-										<span class="fa fa-crop"></span>
-									  </span>
-									</button>
-								  </div>
-
-								  <div class="btn-group">
-									<button type="button" class="btn btn-primary" data-method="zoom" data-option="0.1" title="Zoom In">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;zoom&quot;, 0.1)">
-										<span class="fa fa-search-plus"></span>
-									  </span>
-									</button>
-									<button type="button" class="btn btn-primary" data-method="zoom" data-option="-0.1" title="Zoom Out">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;zoom&quot;, -0.1)">
-										<span class="fa fa-search-minus"></span>
-									  </span>
-									</button>
-								  </div>
-
-								  <div class="btn-group">
-									<button type="button" class="btn btn-primary" data-method="move" data-option="-10" data-second-option="0" title="Move Left">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;move&quot;, -10, 0)">
-										<span class="fa fa-arrow-left"></span>
-									  </span>
-									</button>
-									<button type="button" class="btn btn-primary" data-method="move" data-option="10" data-second-option="0" title="Move Right">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;move&quot;, 10, 0)">
-										<span class="fa fa-arrow-right"></span>
-									  </span>
-									</button>
-									<button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="-10" title="Move Up">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;move&quot;, 0, -10)">
-										<span class="fa fa-arrow-up"></span>
-									  </span>
-									</button>
-									<button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="10" title="Move Down">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;move&quot;, 0, 10)">
-										<span class="fa fa-arrow-down"></span>
-									  </span>
-									</button>
-								  </div>
-
-								  <div class="btn-group">
-									<button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;rotate&quot;, -45)">
-										<span class="fa fa-rotate-left"></span>
-									  </span>
-									</button>
-									<button type="button" class="btn btn-primary" data-method="rotate" data-option="45" title="Rotate Right">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;rotate&quot;, 45)">
-										<span class="fa fa-rotate-right"></span>
-									  </span>
-									</button>
-								  </div>
-
-								  <div class="btn-group">
-									<button type="button" class="btn btn-primary" data-method="scaleX" data-option="-1" title="Flip Horizontal">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;scaleX&quot;, -1)">
-										<span class="fa fa-arrows-h"></span>
-									  </span>
-									</button>
-									<button type="button" class="btn btn-primary" data-method="scaleY" data-option="-1" title="Flip Vertical">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;scaleY&quot;, -1)">
-										<span class="fa fa-arrows-v"></span>
-									  </span>
-									</button>
-								  </div>
-
-								  <div class="btn-group">
-									<button type="button" class="btn btn-primary" data-method="crop" title="Crop">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;crop&quot;)">
-										<span class="fa fa-check"></span>
-									  </span>
-									</button>
-									<button type="button" class="btn btn-primary" data-method="clear" title="Clear">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;clear&quot;)">
-										<span class="fa fa-remove"></span>
-									  </span>
-									</button>
-								  </div>
-
-								  <div class="btn-group">
-									<button type="button" class="btn btn-primary" data-method="disable" title="Disable">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;disable&quot;)">
-										<span class="fa fa-lock"></span>
-									  </span>
-									</button>
-									<button type="button" class="btn btn-primary" data-method="enable" title="Enable">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;enable&quot;)">
-										<span class="fa fa-unlock"></span>
-									  </span>
-									</button>
-								  </div>
-
-								  <div class="btn-group">
-									<button type="button" class="btn btn-primary" data-method="reset" title="Reset">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;reset&quot;)">
-										<span class="fa fa-refresh"></span>
-									  </span>
-									</button>
-									<label class="btn btn-primary btn-upload" for="inputImage" title="Upload image file">
-									  <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="Import image with Blob URLs">
-										<span class="fa fa-upload"></span>
-									  </span>
-									</label>
-									<button type="button" class="btn btn-primary" data-method="destroy" title="Destroy">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;destroy&quot;)">
-										<span class="fa fa-power-off"></span>
-									  </span>
-									</button>
-								  </div>
-
-								  <div class="btn-group btn-group-crop">
-									<button type="button" class="btn btn-primary" data-method="getCroppedCanvas">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;getCroppedCanvas&quot;)">
-										Get Cropped Canvas
-									  </span>
-									</button>
-									<button type="button" class="btn btn-primary" data-method="getCroppedCanvas" data-option="{ &quot;width&quot;: 160, &quot;height&quot;: 90 }">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;getCroppedCanvas&quot;, { width: 160, height: 90 })">
-										160&times;90
-									  </span>
-									</button>
-									<button type="button" class="btn btn-primary" data-method="getCroppedCanvas" data-option="{ &quot;width&quot;: 320, &quot;height&quot;: 180 }">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;getCroppedCanvas&quot;, { width: 320, height: 180 })">
-										320&times;180
-									  </span>
-									</button>
-								  </div>
-
-								  <!-- Show the cropped image in modal -->
-								  <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">
-									<div class="modal-dialog">
-									  <div class="modal-content">
-										<div class="modal-header">
-										  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-										  <h4 class="modal-title" id="getCroppedCanvasTitle">Cropped</h4>
-										</div>
-										<div class="modal-body"></div>
-										<div class="modal-footer">
-										  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-										  <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.png">Download</a>
-										</div>
-									  </div>
-									</div>
-								  </div><!-- /.modal -->
-
-								  <button type="button" class="btn btn-primary" data-method="getData" data-option data-target="#putData">
-									<span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;getData&quot;)">
-									  Get Data
-									</span>
-								  </button>
-								  <button type="button" class="btn btn-primary" data-method="setData" data-target="#putData">
-									<span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;setData&quot;, data)">
-									  Set Data
-									</span>
-								  </button>
-								  <button type="button" class="btn btn-primary" data-method="getContainerData" data-option data-target="#putData">
-									<span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;getContainerData&quot;)">
-									  Get Container Data
-									</span>
-								  </button>
-								  <button type="button" class="btn btn-primary" data-method="getImageData" data-option data-target="#putData">
-									<span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;getImageData&quot;)">
-									  Get Image Data
-									</span>
-								  </button>
-								  <button type="button" class="btn btn-primary" data-method="getCanvasData" data-option data-target="#putData">
-									<span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;getCanvasData&quot;)">
-									  Get Canvas Data
-									</span>
-								  </button>
-								  <button type="button" class="btn btn-primary" data-method="setCanvasData" data-target="#putData">
-									<span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;setCanvasData&quot;, data)">
-									  Set Canvas Data
-									</span>
-								  </button>
-								  <button type="button" class="btn btn-primary" data-method="getCropBoxData" data-option data-target="#putData">
-									<span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;getCropBoxData&quot;)">
-									  Get Crop Box Data
-									</span>
-								  </button>
-								  <button type="button" class="btn btn-primary" data-method="setCropBoxData" data-target="#putData">
-									<span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;setCropBoxData&quot;, data)">
-									  Set Crop Box Data
-									</span>
-								  </button>
-								  <button type="button" class="btn btn-primary" data-method="moveTo" data-option="0">
-									<span class="docs-tooltip" data-toggle="tooltip" title="cropper.moveTo(0)">
-									  0,0
-									</span>
-								  </button>
-								  <button type="button" class="btn btn-primary" data-method="zoomTo" data-option="1">
-									<span class="docs-tooltip" data-toggle="tooltip" title="cropper.zoomTo(1)">
-									  100%
-									</span>
-								  </button>
-								  <button type="button" class="btn btn-primary" data-method="rotateTo" data-option="180">
-									<span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotateTo(180)">
-									  180°
-									</span>
-								  </button>
-								  <input type="text" class="form-control" id="putData" placeholder="Get data to here or set data with this value">
-								</div><!-- /.docs-buttons -->
-
-								<div class="col-md-3 docs-toggles">
-								  <!-- <h3 class="page-header">Toggles:</h3> -->
-								  <div class="btn-group btn-group-justified" data-toggle="buttons">
-									<label class="btn btn-primary active">
-									  <input type="radio" class="sr-only" id="aspectRatio0" name="aspectRatio" value="1.7777777777777777">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 16 / 9">
-										16:9
-									  </span>
-									</label>
-									<label class="btn btn-primary">
-									  <input type="radio" class="sr-only" id="aspectRatio1" name="aspectRatio" value="1.3333333333333333">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 4 / 3">
-										4:3
-									  </span>
-									</label>
-									<label class="btn btn-primary">
-									  <input type="radio" class="sr-only" id="aspectRatio2" name="aspectRatio" value="1">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 1 / 1">
-										1:1
-									  </span>
-									</label>
-									<label class="btn btn-primary">
-									  <input type="radio" class="sr-only" id="aspectRatio3" name="aspectRatio" value="0.6666666666666666">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 2 / 3">
-										2:3
-									  </span>
-									</label>
-									<label class="btn btn-primary">
-									  <input type="radio" class="sr-only" id="aspectRatio4" name="aspectRatio" value="NaN">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: NaN">
-										Free
-									  </span>
-									</label>
-								  </div>
-
-								  <div class="btn-group btn-group-justified" data-toggle="buttons">
-									<label class="btn btn-primary active">
-									  <input type="radio" class="sr-only" id="viewMode0" name="viewMode" value="0" checked>
-									  <span class="docs-tooltip" data-toggle="tooltip" title="View Mode 0">
-										VM0
-									  </span>
-									</label>
-									<label class="btn btn-primary">
-									  <input type="radio" class="sr-only" id="viewMode1" name="viewMode" value="1">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="View Mode 1">
-										VM1
-									  </span>
-									</label>
-									<label class="btn btn-primary">
-									  <input type="radio" class="sr-only" id="viewMode2" name="viewMode" value="2">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="View Mode 2">
-										VM2
-									  </span>
-									</label>
-									<label class="btn btn-primary">
-									  <input type="radio" class="sr-only" id="viewMode3" name="viewMode" value="3">
-									  <span class="docs-tooltip" data-toggle="tooltip" title="View Mode 3">
-										VM3
-									  </span>
-									</label>
-								  </div>
-
-								  <div class="dropdown dropup docs-options">
-									<button type="button" class="btn btn-primary btn-block dropdown-toggle" id="toggleOptions" data-toggle="dropdown" aria-expanded="true">
-									  Toggle Options
-									  <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" aria-labelledby="toggleOptions" role="menu">
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="responsive" checked>
-										  responsive
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="restore" checked>
-										  restore
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="checkCrossOrigin" checked>
-										  checkCrossOrigin
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="checkOrientation" checked>
-										  checkOrientation
-										</label>
-									  </li>
-
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="modal" checked>
-										  modal
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="guides" checked>
-										  guides
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="center" checked>
-										  center
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="highlight" checked>
-										  highlight
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="background" checked>
-										  background
-										</label>
-									  </li>
-
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="autoCrop" checked>
-										  autoCrop
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="movable" checked>
-										  movable
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="rotatable" checked>
-										  rotatable
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="scalable" checked>
-										  scalable
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="zoomable" checked>
-										  zoomable
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="zoomOnTouch" checked>
-										  zoomOnTouch
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="zoomOnWheel" checked>
-										  zoomOnWheel
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="cropBoxMovable" checked>
-										  cropBoxMovable
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="cropBoxResizable" checked>
-										  cropBoxResizable
-										</label>
-									  </li>
-									  <li role="presentation">
-										<label class="checkbox-inline">
-										  <input type="checkbox" name="toggleDragModeOnDblclick" checked>
-										  toggleDragModeOnDblclick
-										</label>
-									  </li>
-									</ul>
-								  </div><!-- /.dropdown -->
-
-								  <a class="btn btn-default btn-block" data-toggle="tooltip" href="https://fengyuanchen.github.io/cropperjs" title="Cropper without jQuery">Cropper.js</a>
-
-								</div><!-- /.docs-toggles -->
-							  </div>
-							</div>
-							<!-- /image cropping -->
+            							<div class="slim"
+            								 data-label="Tarik gambar anda kesini"
+            								 accept="image/jpeg"
+            								 data-size="640,640"
+            								 data-ratio="1:1">
+            								<input type="file" name="slim[]" required />
+            							</div>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="last-name">Judul Berita</label>
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="jdl-berita">Judul Berita</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="jdl-berita" name="jdl-berita" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-2 col-sm-2 col-xs-12">Name Penulis</label>
+                        <label for="name-pen" class="control-label col-md-2 col-sm-2 col-xs-12">Name Penulis</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                          <input id="name-pen" class="form-control col-md-7 col-xs-12" type="text" name="name-pen">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-2 col-sm-2 col-xs-12">Category</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="select2_multiple form-control" multiple="multiple">
-                            <option>Choose option</option>
-                            <option>Option one</option>
-                            <option>Option two</option>
-                            <option>Option three</option>
-                            <option>Option four</option>
-                            <option>Option five</option>
-                            <option>Option six</option>
+                          <select class="select2_multiple form-control" multiple="multiple" name="select2[]">
+                            <option value = '0'>Choose option</option>
+                            <option value = '1'>Teras Sukabumi</option>
+                            <option value = '2'>Teras Nasional</option>
+                            <option value = '3'>Teras Cianjur</option>
+                            <option value = '4'>Teras News</option>
+                            <option value = '5'>Teras Ekomomi</option>
+                            <option value = '6'>Teras Sehat</option>
                           </select>
                         </div>
                       </div>
@@ -612,12 +144,19 @@
 							  <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
 							</div>
 							<div class="btn-group">
+							  <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
+							  <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+							</div>
+							<div class="btn-group">
 							  <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
 							  <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
 							</div>
 						  </div>
 						   <div contenteditable="true" class="editor-wrapper placeholderText" id="editor"></div>
-							  <textarea name="descr" id="descr" style="display:none;"></textarea>
+               <!-- <input type="text" name="isi"/> -->
+               <?php echo form_hidden('isi'); ?>
+							  <!-- <textarea name="editor" id="editor" style="display:none;"></textarea> -->
+                <!-- <textarea class="textarea" name="mytext" placeholder="Enter text ..." style="width: 810px; height: 200px"></textarea> -->
 							  <br />
 							  <div class="ln_solid"></div>
 						</div>
@@ -627,6 +166,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button type="submit" class="btn btn-primary">Cancel</button>
                           <button type="submit" class="btn btn-success">Submit</button>
+                           
                         </div>
                       </div>
 
@@ -637,44 +177,35 @@
             </div>
 </div>
 
-<script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="js/moment/moment.min.js"></script>
-    <script src="js/datepicker/daterangepicker.js"></script>
+  
     <!-- bootstrap-wysiwyg -->
-    <script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-    <script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-    <script src="../vendors/google-code-prettify/src/prettify.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendors/google-code-prettify/src/prettify.js"></script>
     <!-- jQuery Tags Input -->
-    <script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
     <!-- Switchery -->
-    <script src="../vendors/switchery/dist/switchery.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendors/switchery/dist/switchery.min.js"></script>
     <!-- Select2 -->
-    <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendors/select2/dist/js/select2.full.min.js"></script>
     <!-- Parsley -->
-    <script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendors/parsleyjs/dist/parsley.min.js"></script>
     <!-- Autosize -->
-    <script src="../vendors/autosize/dist/autosize.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendors/autosize/dist/autosize.min.js"></script>
     <!-- jQuery autocomplete -->
-    <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
     <!-- starrr -->
-    <script src="../vendors/starrr/dist/starrr.js"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendors/starrr/dist/starrr.js"></script>
+	<script src="<?php echo base_url() ?>assets/js/slim-image/slim/slim.kickstart.min.js"></script>
 	
 <script>
       $(document).ready(function() {
+
+         $('button[name=ceks]').click(function() {
+              console.log($('#editor').val());
+
+            })
+
         function initToolbarBootstrapBindings() {
           var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
               'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
@@ -744,16 +275,29 @@
       });
     </script>
     <!-- /Autosize -->
+	
 	<!-- Select2 -->
     <script>
       $(document).ready(function() {
+          $("#myAwesomeForm").on("submit",function() {
+              // alert('SUbmited');
+              var data = $('#editor').html();
+                console.log(data);
+                $('input[name=isi]').val(data);
+          });
+         $('button[name=ceks]').click(function() {
+                var data = $('#editor').html();
+                console.log(data);
+                $('input[name=isi]').val(data);
+
+            })
         $(".select2_single").select2({
           placeholder: "Select a state",
           allowClear: true
         });
         $(".select2_group").select2({});
         $(".select2_multiple").select2({
-          maximumSelectionLength: 4,
+          maximumSelectionLength: 6,
           placeholder: "With Max Selection limit 4",
           allowClear: true
         });

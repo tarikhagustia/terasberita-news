@@ -4,7 +4,7 @@
   <div class="page-title">
     <div class="title_left">
       <h3>
-        Manage Artikel
+        User Manage Artikel
         <small>
           Page rendering in {elapsed_time}
         </small>
@@ -19,7 +19,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Manage <small>users</small></h2>
+          <h2>Tabel <small>Manage</small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -46,24 +46,28 @@
             <table class="table table-striped jambo_table bulk_action">
               <thead>
                 <tr class="headings">
-                  <th>No</th>
-                  <th>Name</th>
-                  <th>Username</th>
-                  <th>Date Create</th>
-                  <th>E - Mail</th>
+                    <th>Id</th>
+                    <th>News Title</th>
+                    <th>News Date Time</th>
+                    <th>News Views</th>
+                    <th>News Edite</th>
+                   <!--  <th>News Delet</th>
+                    <th>Manage Category</th> -->
                 </tr>
               </thead>
 
               <tbody>
-              <tr>
-              
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-             
-              </tr>
+               <?php foreach($data as $row) {  ?>
+                  <tr>
+                      <td><?php echo $row['news_id']; ?></td>
+                      <td><?php echo $row['news_title']; ?></td>
+                      <td><?php echo $row['news_timestamp']; ?></td>
+                      <td><?php echo $row['news_views']; ?></td>
+                      <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Edit</a></td>
+                      <!-- <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Delete</a></td>
+                      <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Manage</a></td> -->
+                  </tr>
+               <?php }  ?>
               </tbody>
             </table>
           </div>

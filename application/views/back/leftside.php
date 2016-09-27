@@ -93,6 +93,7 @@
                         <ul class="nav child_menu">
                             <li><a href="<?php echo base_url('backoffice/creat_new_artikel'); ?>" id="dashboard3" class='' >Creat New Artikel</a></li>
 							<li><a href="<?php echo base_url('backoffice/manage_artikel'); ?>" id="dashboard4" class='' >Manage Artikel</a>
+							<li><a href="<?php echo base_url('backoffice/break_news'); ?>" id="dashboard5" class='' >Manage Breking News</a>
                         </ul>
 					</li>
                 </ul>
