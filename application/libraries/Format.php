@@ -18,6 +18,7 @@ class Format
 
         return "Rp. " . $data;
     }
+
     public function stripHTMLtags($str, $start = null, $end = null)
     {
         $t = preg_replace('/<[^<|>]+?>/', '', htmlspecialchars_decode($str));
@@ -40,22 +41,26 @@ class Format
         $string = preg_replace("/[\s_]/", "-", $string);
         return $string;
     }
-    public function getFirstNameWithEs($name)
-    {
-        // var_dump($name);
-        if ($name != null):
-            $pecah = explode(" ", $name);
-            if (count($pecah > 0)) {
-                # code...
 
-                return array_shift($pecah) . "'s";
-            } else {
-                return null;
-            } else :
-            return null;
-        endif;
+    public function getFirstNameWithEs($name){
+      // var_dump($name);
+        if($name != NULL):
+        $pecah = explode(" ", $name);
+        if (count($pecah > 0)) {
+            # code...
+
+            return array_shift($pecah)."'s";
+        }else{
+            return NULL;
+        }
+      else:
+        return NULL;
+      endif;
+
 
     }
+
+ 
     public function date_indonesia($date, $pukul = false)
     {
         $hariData      = array('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu');

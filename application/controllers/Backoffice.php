@@ -18,12 +18,20 @@ class Backoffice extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->library('format');
+		$this->load->helper('form');
 		$this->load->library('session');
+<<<<<<< HEAD
 		$this->load->library('format');
 		$this->load->model('news');
+=======
+		$this->load->library('slim');
+		$this->load->model('back');
+>>>>>>> ff57643d00499acd7121011487e014ec45cff68b
 		if (!$this->session->userdata('logged_in')) {
 
 			$this->session->set_flashdata('flashSuccess', 'You are not login, Please login first');
@@ -83,6 +91,7 @@ class Backoffice extends CI_Controller {
 		$page = array(
 			"thepage" => $this->load->view('back/manage_user', array('data' => $data), true)
 		);
+		// var_dump($data);
 		$this->load->view('back/index', $page);
 	}
 	public function creat_new_artikel($do = false)
@@ -92,10 +101,20 @@ class Backoffice extends CI_Controller {
 		);
 		$this->load->view('back/index', $page);
 	}
-	public function manage_artikel($do = false)
+	public function manage_artikel()
+	{
+		// $this->load->model('back','modelbackoffice');
+		$data = $this->back->contoh($this->session->userdata('id'));
+		$page = array(
+			"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+		);
+		// var_dump($data);
+		$this->load->view('back/index', $page);
+	}
+	public function break_news($do = false)
 	{
 		$page = array(
-			"thepage" => $this->load->view('back/manage_artikel', array(), true)
+			"thepage" => $this->load->view('back/manage_brek_news', array(), true)
 		);
 		$this->load->view('back/index', $page);
 	}
@@ -117,5 +136,77 @@ class Backoffice extends CI_Controller {
 	public function approve_comment($comment_id) {
 		$this->news->updateData('fn_news_comment', array('isActive' => true), 'comment_id', $comment_id);
 		redirect('backoffice/manage_comment');
+	}
+	public function edite($id)
+	{
+		var_dump($id);
+		$this->load->model('back','modelbackoffice');
+		$data = $this->modelbackoffice->getDatanews($id, 'news_thumb, news_title, news_desc, user_id, username');
+		var_dump($data);
+		$this->db->select('fn_pages.category_id');
+		$this->db->from('fn_pages');
+		$this->db->where('fn_pages.news_id', $id);
+		$query = $this->db->get();
+		$data1 = $query->result_array();
+
+		foreach ($data1 as $row) {
+        $data2[] = $row['category_id'];
+    	}
+    	var_dump($data2);
+    	$data3 = json_encode($data2);
+    	var_dump($data3);
+		$page = array(
+			"thepage" => $this->load->view('back/edite_news', array('data' => $data, 'data3' => $data3), true)
+		);
+
+		$this->load->view('back/index', $page);
+	}
+	public function inputData(){
+		$images = Slim::getImages();
+
+        // var_dump($_POST);
+        if ($images == false) {
+            // inject your own auto crop or fallback script here
+
+            show_404();
+        } else {
+            foreach ($images as $image) {
+                $file = Slim::saveFile($image['output']['data'], $image['input']['name']);
+            }
+            $news_url       = $this->format->seoUrl($this->input->post('jdl-berita'));
+            $jdl_berita     = $this->input->post('jdl-berita');
+            $id     		= $this->session->userdata('id');
+            $name_pen       = $this->input->post('name-pen');
+            $select2	    = $this->input->post('select2');
+            $isi            = $this->input->post('isi');
+            $news_thumb     = $file['path'];
+            $insert1        = array(
+
+            'news_url'       => $news_url,
+            'news_title'     => $jdl_berita,
+            'user_id'     	 => $id,
+            'news_desc'      => $isi,
+            'news_thumb'     => $news_thumb,
+            );
+            $sql = $this->back->insertData('fn_news', $insert1);
+            $idta = $this->db->insert_id(); // Will return the last insert id.
+            $result = array();
+		    foreach($select2 AS $key => $val){
+		     $result[] = array(
+		      "category_id"  => $_POST['select2'][$key],
+		      "news_id"  => $idta
+		     );
+		    }
+
+		     $sql2 = $this->db->insert_batch('fn_pages', $result); // fungsi dari codeigniter untuk menyimpan multi array
+            if ($sql) {
+                redirect('backoffice/index','refresh');
+            } else {
+                show_404();
+            }
+            // var_dump($result);
+            // var_dump($idta);
+                // echo '<img src="' . base_url() . $file['path'] . '" alt=""/>';
+        }
 	}
 }
