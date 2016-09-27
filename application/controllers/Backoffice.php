@@ -25,13 +25,10 @@ class Backoffice extends CI_Controller {
 		$this->load->library('format');
 		$this->load->helper('form');
 		$this->load->library('session');
-<<<<<<< HEAD
 		$this->load->library('format');
 		$this->load->model('news');
-=======
 		$this->load->library('slim');
 		$this->load->model('back');
->>>>>>> ff57643d00499acd7121011487e014ec45cff68b
 		if (!$this->session->userdata('logged_in')) {
 
 			$this->session->set_flashdata('flashSuccess', 'You are not login, Please login first');
