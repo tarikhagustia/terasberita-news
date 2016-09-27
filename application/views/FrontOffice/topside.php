@@ -17,14 +17,24 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="-1">
 
-    <title>Home - Teras Berita </title>
+    <title>
+    <?php
+    if(isset($title)):
+        echo $this->security->xss_clean($title)." - terasberita.co";
+    else:
+        echo "terasberita.co - Indeph, Jujur , Akurat";
+    endif;
+    ?>
+    </title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url() ?>assets/css/business-casual.css" rel="stylesheet">
-    <link rel="icon" type="icon" href="img/logo.png">
+    <link href="<?php echo base_url() ?>assets/css/myawesome.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/login-register.css" rel="stylesheet">
+    <!-- <link rel="icon" type="icon" href="img/logo.png"> -->
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -43,37 +53,107 @@
 </head>
 
 <body>
-
+  <div class="modal fade login" id="loginModal">
+       <div class="modal-dialog login animated">
+           <div class="modal-content">
+              <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                     <h4 class="modal-title">Login dengan</h4>
+                 </div>
+                 <div class="modal-body">
+                     <div class="box">
+                          <div class="content">
+                             <div class="social">
+                                 <a id="facebook_login" class="circle facebook" href="/auth/facebook">
+                                     <i class="fa fa-facebook fa-fw"></i>
+                                 </a>
+                             </div>
+                             <div class="division">
+                                 <div class="line l"></div>
+                                   <span>or</span>
+                                 <div class="line r"></div>
+                             </div>
+                             <div class="error"></div>
+                             <div class="form loginBox">
+                                 <!-- <form method="post" action="/login" accept-charset="UTF-8"> -->
+                                 <?php echo form_open('Auth/checkLoginAjax', array('id' => 'ajaxForm')) ?>
+                                 <input id="username" class="form-control" type="text" placeholder="username" name="username">
+                                 <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                 <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                 </form>
+                             </div>
+                          </div>
+                     </div>
+                     <div class="box">
+                         <div class="content registerBox" style="display:none;">
+                         <?php echo form_open('Auth/checkLoginAjax', array('id' => 'ajaxForm2')) ?>
+                         <div class="error-register"></div>
+                          <div class="form">
+                             <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                             <input id="full_name" class="form-control" type="text" placeholder="Nama Anda" name="full_name">
+                             <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                             <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                             <input class="btn btn-default btn-register" type="button" value="Buat akun" onclick="registerAjax();" name="commit">
+                             </div>
+                         </div>
+                         <?php echo form_close(); ?>
+                     </div>
+                 </div>
+                 <div class="modal-footer">
+                     <div class="forgot login-footer">
+                         <span>Belum punya akun ?
+                              <a href="javascript: showRegisterForm();">Buat akun sekarang</a>
+                         ?</span>
+                     </div>
+                     <div class="forgot register-footer" style="display:none">
+                          <span>Sudah punya akun ?</span>
+                          <a href="javascript: showLoginForm();">Login</a>
+                     </div>
+                 </div>
+           </div>
+       </div>
+   </div>
 <section id="nav-atas">
     <div class="container">
         <div class="col-md-12">
             <div class="span">
                 <div class="kiri">
+                <?php if ($this->session->userdata('logged_in')): ?>
                     <ul>
                         <li>
-                            <a href="">
+                            <h5 class="welcome-message">Selamat Datang, <?php echo $this->session->userdata('full_name'); ?>, <a href="<?php echo base_url('Auth/logout/?redirect='.urlencode(current_url())); ?>">Keluar</a></h5> 
+                        </li>
+                    </ul>
+                <?php else: ?>
+                    <ul>
+                        <li>
+                            <a href="#">
                                 <h5>JADILAH BAGIAN DARI KAMI</h5>
                                 <p>Lorem Ipsum dolor sit amet</p>
                             </a>
                         </li>
                         <li class="button">
-                            <a href=""><button class="brown">Daftar</button></a>
+                            <a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"><button class="brown">Masuk</button></a>
+                            <!-- <a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Log in</a> -->
                         </li>
                         <li class="button">
-                            <a href=""><button class="grey">Masuk</button></a>
+                            <a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();"><button class="grey">Daftar</button></a>
                         </li>
                     </ul>
+                <?php endif; ?>
                 </div>
                 <div class="kanan">
                     <ul>
-                        <li><input placeholder="Cari Berita"></input></li>
+                        <form action="<?php echo base_url('search'); ?>" id="search-form">
+                        <li><input placeholder="Cari Berita" name="q"></input></li>
                         <li class="cari">
-                            <a href=""><img src="<?php echo base_url() ?>assets/img/search.png" class="cari" width="28px"></a>
+                            <a href="#"><img src="<?php echo base_url() ?>assets/img/search.png" class="cari" width="28px"></a>
                         </li>
+                        </form>
                         <li><h5>Follow US :</h5></li>
-                        <li class="sos"><a href=""><img src="<?php echo base_url() ?>assets/img/medsos/fb-1.png"></a></li>
-                        <li class="sos"><a href=""><img src="<?php echo base_url() ?>assets/img/medsos/twit-1.png"></a></li>
-                        <li class="sos"><a href=""><img src="<?php echo base_url() ?>assets/img/medsos/yutube-1.png"></a></li>
+                        <li class="sos"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/fb-1.png"></a></li>
+                        <li class="sos"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/twit-1.png"></a></li>
+                        <li class="sos"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/yutube-1.png"></a></li>
                     </ul>
                 </div>
             </div>
@@ -85,15 +165,16 @@
     <div class="container">
         <div class="col-md-12">
             <div class="span">
-                <a href=""><div class="logo"><img src="<?php echo base_url() ?>assets/img/logo/Teras Berita - Logo - Standart.png"></div></a>
-                <a href=""><div class="img img-ads"><img src="<?php echo base_url() ?>assets/img/mcd.jpg"></div></a>
+                <a href="#"><div class="logo"><img src="<?php echo base_url() ?>assets/img/logo/Teras Berita - Logo - Standart.png"></div></a>
+                <a href="#"><div class="img img-ads"><img src="<?php echo base_url() ?>assets/img/mcd.jpg"></div></a>
             </div>
         </div>
     </div>
 </section>
 
 
-    <!-- Navigation --><div class="col-md-12">
+    <!-- Navigation -->
+    <div class="col-md-12">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -105,31 +186,31 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Teras Berita</a>
+                <a class="navbar-brand" href="index.html"> teras Berita</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" id="navigasi">
                     <li>
-                        <a id="aktiv" href="<?php echo base_url('teras-nasional') ?>">TerasNasional</a>
+                        <a id="<?php if($this->uri->segment(1) == 'teras-nasional'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-nasional') ?>">terasNasional</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-kriminal') ?>">TerasKriminal</a>
+                        <a id="<?php if($this->uri->segment(1) == 'teras-kriminal'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-kriminal') ?>">terasKriminal</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-sukabumi') ?>">TerasSukabumi</a>
+                        <a id = "<?php if($this->uri->segment(1) == 'teras-sukabumi'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-sukabumi') ?>">terasSukabumi</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-cianjur') ?>">TerasCianjur</a>
+                        <a id="<?php if($this->uri->segment(1) == 'teras-cianjur'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-cianjur') ?>">terasCianjur</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-sehat') ?>">TerasSehat</a>
+                        <a id="<?php if($this->uri->segment(1) == 'teras-sehat'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-sehat') ?>">terasSehat</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('teras-ekonomi') ?>">TerasEkonomi</a>
+                        <a id="<?php if($this->uri->segment(1) == 'teras-ekonomi'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-ekonomi') ?>">terasEkonomi</a>
                     </li>
                     <li style="width: 100px;">
-                        <a href="" class="index">INDEX</a>
+                        <a href="#" class="index">INDEX</a>
                     </li>
                 </ul>
             </div></div>

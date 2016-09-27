@@ -17,13 +17,15 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="-1">
 
-    <title>Home - Teras Berita </title>
+    <title>Home - Teras </title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url() ?>assets/css/business-casual.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/myawesome.css" rel="stylesheet">
+    
     <link rel="icon" type="icon" href="img/logo.png">
 
     <!-- Fonts -->

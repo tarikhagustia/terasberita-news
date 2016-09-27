@@ -1,3 +1,3 @@
 <?php
-echo $config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/';
+echo date('w', strtotime('2016-01-01'));
  ?>

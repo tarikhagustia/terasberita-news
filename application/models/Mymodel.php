@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mymodel extends CI_Model {
 
 
-	public function __construct() 
-	{       
+	public function __construct()
+	{
 		parent::__construct();
 		// $this->load->libraries('database');
         // $this->load->libraries('database');
@@ -26,7 +26,7 @@ class Mymodel extends CI_Model {
 		$this->db->where(array('username' => $username));
 		$query = $this->db->get();
 		$hasil = $query->result_array();
-		
+
 		$i = 0;
 		foreach($hasil as $row){
 			$result = $row;
