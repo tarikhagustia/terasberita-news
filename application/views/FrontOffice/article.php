@@ -23,7 +23,7 @@
                                 </div>
                             <?php else: ?>
                                 <div class="img-header">
-                                <img class="img-responsive" src="<?php echo $dataArticle->news_thumb ?>">
+                                <img class="img-responsive" src="<?php echo base_url($dataArticle->news_thumb) ?>">
                                 </div>
                             <?php endif; ?>
                             <div class="isi">
