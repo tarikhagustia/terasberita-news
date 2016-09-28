@@ -185,15 +185,17 @@
                         <div class="komentar"><!--Komentar-->
                             <div class="daftar">
                                 <div class="img-daftar">
-                                    <p>lorem ipsum dolor sit amet</p>
+                                    <p class="text-center" style="margin-left: -20px;">Jadilah bagian dari</p>
                                     <img src="<?php echo base_url() ?>assets/img/logo-bawah.png"></div>
+                                    <?php echo form_open('Auth/checkLoginAjax', array('id' => 'ajaxForm22')); ?>
                                     <ul>
-                                        <li><input placeholder="Nama"></input></li>
-                                        <li><input placeholder="Email"></input></li>
-                                        <li><input placeholder="Password"></input></li>
-                                        <li><input placeholder="Confirmasi Password"></input></li>
-                                        <li><input type="submit" value="Daftar" id="submit"></input></li>
+                                        <li><input placeholder="Nama" name="full_name" type="text" required></input></li>
+                                        <li><input placeholder="Email" name="email" type="email" required></input></li>
+                                        <li><input placeholder="Password" name="password" type="password" required></input></li>
+                                        <li><input placeholder="Confirmasi Password" name="password_confirmation" type="password" required></input></li>
+                                        <li><input type="submit" value="Daftar" id="submit" ></input></li>
                                     </ul>
+                                    <?php echo form_close(); ?>
                                 </div>
                             </div>
                         </div>
@@ -256,3 +258,10 @@
         </div>
     </div></div></div>
 </section>
+<script type="text/javascript">
+$("#ajaxForm22").submit(function( event ) {
+  registerAjaxButtom();
+  event.preventDefault();
+
+});
+</script>

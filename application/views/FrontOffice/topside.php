@@ -49,6 +49,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- jQuery -->
+    <script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -92,7 +97,7 @@
                              <input id="email" class="form-control" type="text" placeholder="Email" name="email">
                              <input id="full_name" class="form-control" type="text" placeholder="Nama Anda" name="full_name">
                              <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                             <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                             <input id="password_confirmation" class="form-control" type="password" placeholder="Ulangi Password" name="password_confirmation">
                              <input class="btn btn-default btn-register" type="button" value="Buat akun" onclick="registerAjax();" name="commit">
                              </div>
                          </div>
@@ -121,7 +126,7 @@
                 <?php if ($this->session->userdata('logged_in')): ?>
                     <ul>
                         <li>
-                            <h5 class="welcome-message">Selamat Datang, <?php echo $this->session->userdata('full_name'); ?>, <a href="<?php echo base_url('Auth/logout/?redirect='.urlencode(current_url())); ?>">Keluar</a></h5> 
+                            <h5 class="welcome-message">Selamat Datang, <?php echo $this->session->userdata('full_name'); ?>, <a href="<?php echo base_url('Auth/logout/?redirect='.urlencode(current_url())); ?>">Keluar</a></h5>
                         </li>
                     </ul>
                 <?php else: ?>

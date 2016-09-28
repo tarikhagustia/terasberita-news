@@ -291,4 +291,11 @@ class Backoffice extends CI_Controller
         	redirect('backoffice/manage_user');
         }
     }
+    public function manage_iklan()
+    {
+        $page       = array(
+            "thepage" => $this->load->view('back/manage_iklan', array(), true),
+        );
+        $this->load->view('back/index', $page);
+    }
 }
