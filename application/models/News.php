@@ -30,6 +30,7 @@ class News extends CI_Model
     {
         $result = $this->db->query("SELECT
                   fn_news.news_id,
+                  news_creator,
                   category_alias,
                   fn_category.category_id,
                   news_title,

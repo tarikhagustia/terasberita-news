@@ -22,6 +22,7 @@ class Auth extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('news');
+		$this->load->library('session');
 		// $this->load->config('email');
 	}
 	public function index()
@@ -68,7 +69,7 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('full_name', 'Nama Anda', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('password_confirmation', 'Password Confirmation', 'required|matches[password]');
-		
+
 
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -89,7 +90,7 @@ class Auth extends CI_Controller {
 				'password' => md5($this->config->item('encryption_key').$this->input->post('password')),
 				'group_id' => 3
 			);
-			$insert = $this->news->insertData('bo_user', $data);	
+			$insert = $this->news->insertData('bo_user', $data);
 			$resonse['valid'] = true;
 			$resonse['msg'] = 'Anda berhasil melakukan registrasi, selamat datang :)';
 			$this->output

@@ -82,13 +82,14 @@ class Backoffice extends CI_Controller
 	}
 	public function manage_user($do = false)
 	{
-		$this->load->model('back','modelbackoffice');
-		$data = $this->modelbackoffice->getData('bo_user', 'username, full_name, date_create, email');
-		$page = array(
-			"thepage" => $this->load->view('back/manage_user', array('data' => $data), true)
-		);
-		// var_dump($data);
-		$this->load->view('back/index', $page);
+    $this->load->model('back', 'modelbackoffice');
+    $data = $this->modelbackoffice->getData('bo_user', 'id, username, full_name, date_create, email');
+    $dataGroup = $this->modelbackoffice->getData('bo_group', 'group_id, group_alias');
+    $page = array(
+        "thepage" => $this->load->view('back/manage_user', array('data' => $data, 'dataGroup' => $dataGroup), true),
+    );
+    // var_dump($data);
+    $this->load->view('back/index', $page);
 	}
 	public function creat_new_artikel($do = false)
 	{
@@ -126,17 +127,25 @@ class Backoffice extends CI_Controller
 	}
 	public function delete($jenis, $id)
   {
-		if ($jenis == 'komentar') {
-			$this->db->delete('fn_news_comment', array('comment_id' => $id));
-			redirect('backoffice/manage_comment');
-		}
+       if ($jenis == 'komentar') {
+           $this->db->delete('fn_news_comment', array('comment_id' => $id));
+           redirect('backoffice/manage_comment');
+       } elseif ($jenis == 'indeph') {
+           $this->db->delete('fn_indeph', array('indeph_id' => $id));
+           $this->session->set_flashdata('status', 'Sukses delete data');
+           redirect('backoffice/manage_indeph');
+       } elseif ($jenis == 'user') {
+           $this->db->delete('bo_user', array('id' => $id));
+           $this->session->set_flashdata('status', 'Sukses delete data');
+           redirect('backoffice/manage_user');
+       }
 	}
 	public function approve_comment($comment_id)
   {
 		$this->news->updateData('fn_news_comment', array('isActive' => true), 'comment_id', $comment_id);
 		redirect('backoffice/manage_comment');
 	}
-	public function edite($id)
+  public function edite($id)
 	{
 		// var_dump($id);
 		$this->load->model('back','modelbackoffice');
@@ -158,6 +167,7 @@ class Backoffice extends CI_Controller
 			"thepage" => $this->load->view('back/edite_news', array('data' => $data, 'data3' => $data3, 'id' => $id), true)
 		);
        $this->load->view('back/index', $page);
+
     }
     public function inputData()
     {
@@ -170,7 +180,7 @@ class Backoffice extends CI_Controller
             show_404();
         } else {
             foreach ($images as $image) {
-                $file = Slim::saveFile($image['output']['data'], $image['input']['name']);
+                $file = Slim::saveFile($image['output']['data'], $this->format->url_dash($image['input']['name']));
             }
             $news_url   = $this->format->seoUrl($this->input->post('jdl-berita'));
             $jdl_berita = $this->input->post('jdl-berita');
@@ -182,6 +192,7 @@ class Backoffice extends CI_Controller
             $insert1    = array(
                 'news_url'   => $news_url,
                 'news_title' => $jdl_berita,
+                'news_creator' => $name_pen,
                 'user_id'    => $id,
                 'news_desc'  => $isi,
                 'news_thumb' => $news_thumb,
@@ -197,7 +208,7 @@ class Backoffice extends CI_Controller
             }
             $sql2 = $this->db->insert_batch('fn_pages', $result); // fungsi dari codeigniter untuk menyimpan multi array
             if ($sql) {
-                redirect('backoffice/index', 'refresh');
+                redirect('backoffice/manage_artikel');
             } else {
                 show_404();
             }
@@ -206,7 +217,132 @@ class Backoffice extends CI_Controller
             // echo '<img src="' . base_url() . $file['path'] . '" alt=""/>';
         }
     }
-	public function managenews()
+	// public function managenews()
+	// {
+	// 	// var_dump($_POST);
+	// 	$images = Slim::getImages();
+  //       if ($images == false) {
+  //           show_404();
+  //       } else {
+  //           foreach ($images as $image) {
+  //               $file = Slim::saveFile($image['output']['data'], $image['input']['name']);
+  //           }
+  //           $news_url       = $this->format->seoUrl($this->input->post('jdl-berita'));
+  //           $jdl_berita     = $this->input->post('jdl-berita');
+  //           $id     		= $this->session->userdata('id');
+  //           $idnya     		= $this->input->post('idnya');
+  //           $tombol     	= $this->input->post('tombol');
+  //           $name_pen       = $this->input->post('name-pen');
+  //           $name_red       = $this->input->post('name-red');
+  //           $select2	    = $this->input->post('select2');
+  //           $isi            = $this->input->post('isi');
+  //           $news_thumb     = $file['path'];
+  //           $data        = array(
+  //
+  //           'news_url'       => $news_url,
+  //           'news_title'     => $jdl_berita,
+  //           'news_creator'   => $name_red,
+  //           'news_desc'      => $isi,
+  //           'news_thumb'     => $news_thumb,
+  //           );
+  //           $where        = array(
+  //
+  //           'news_id'       => $idnya,
+  //           );
+  //           if ($tombol == 'Edit'){
+  //           	$sqlok = $this->back->updataData($where, $data, 'fn_news');
+  //           } else if ($tombol == 'Delet'){
+  //           	$sql = $this->back->deleteData($where, 'fn_news');
+  //           } else {
+  //           	$data = $this->back->contoh($this->session->userdata('id'));
+	// 			$page = array(
+	// 				"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+	// 			);
+	// 			// var_dump($data);
+	// 			$this->load->view('back/index', $page);
+  //           }
+  //           // var_dump($result);
+  //           // var_dump($idta);
+  //           // echo '<img src="' . base_url() . $file['path'] . '" alt=""/>';
+  //       }
+  //   }
+  //
+  //   public function update()
+  //   {
+  //       echo "Ok deal ";
+  //   }
+    public function manage_indeph()
+    {
+        $query = $this->db->query('SELECT
+					  indeph_id,
+					  fn_news.news_id,
+					  news_title,
+					  news_url,
+					  date_from,
+					  date_to
+					FROM
+					  fn_indeph,
+					  fn_news
+					WHERE fn_indeph.`news_id` = fn_news.`news_id`
+					  AND date_from <= NOW()
+					  AND date_to >= NOW()
+					 ORDER BY fn_indeph.`indeph_timestamp` DESC LIMIT 20');
+        $dataIndeph = $query->result();
+        $query      = $this->db->query('SELECT news_id, news_title FROM fn_news ORDER BY news_title ASC');
+        $dataNews   = $query->result();
+        $page       = array(
+            "thepage" => $this->load->view('back/manage_indeph', array('dataIndeph' => $dataIndeph, 'dataNews' => $dataNews), true),
+        );
+        $this->load->view('back/index', $page);
+    }
+    public function insert($type = null)
+    {
+        if ($type == 'indeph') {
+            # code...
+            $pecah = $this->format->date_periode($this->input->post('tanggal'));
+            $data  = array(
+                'news_id'   => $this->input->post('news'),
+                'date_from' => $pecah['date_from'],
+                'date_to'   => $pecah['date_to'],
+            );
+            $this->news->insertData('fn_indeph', $data);
+            $this->session->set_flashdata('status', 'Berhasil diinput');
+            redirect('backoffice/manage_indeph');
+            if ($tombol == 'Edit'){
+            	$sql = $this->back->deleteData($where, 'fn_pages');
+            	$result = array();
+			    foreach($select2 AS $key => $val){
+			    $result[] = array(
+			      "category_id"  => $_POST['select2'][$key],
+			      "news_id"  => $idnya
+			     );
+			    }
+			     $sql2 = $this->db->insert_batch('fn_pages', $result); // fungsi dari codeigniter untuk menyimpan multi array
+            } else if ($tombol == 'Delet'){
+            	$sql = $this->back->deleteData($where, 'fn_pages');
+            } else {
+            	$data = $this->back->contoh($this->session->userdata('id'));
+				$page = array(
+					"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+				);
+				// var_dump($data);
+				$this->load->view('back/index', $page);
+            }
+
+
+
+                $data = $this->back->contoh($this->session->userdata('id'));
+				$page = array(
+					"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+				);
+				// var_dump($data);
+				$this->load->view('back/index', $page);
+
+
+
+        }
+	}
+  public function managenews()
 	{
 		// var_dump($_POST);
 		$images = Slim::getImages();
@@ -250,53 +386,7 @@ class Backoffice extends CI_Controller
 				// var_dump($data);
 				$this->load->view('back/index', $page);
             }
-            // var_dump($result);
-            // var_dump($idta);
-            // echo '<img src="' . base_url() . $file['path'] . '" alt=""/>';
-        }
-    }
 
-    public function update()
-    {
-        echo "Ok deal ";
-    }
-    public function manage_indeph()
-    {
-        $query = $this->db->query('SELECT
-					  indeph_id,
-					  fn_news.news_id,
-					  news_title,
-					  news_url,
-					  date_from,
-					  date_to
-					FROM
-					  fn_indeph,
-					  fn_news
-					WHERE fn_indeph.`news_id` = fn_news.`news_id`
-					  AND date_from <= NOW()
-					  AND date_to >= NOW()
-					 ORDER BY fn_indeph.`indeph_timestamp` DESC LIMIT 20');
-        $dataIndeph = $query->result();
-        $query      = $this->db->query('SELECT news_id, news_title FROM fn_news ORDER BY news_title ASC');
-        $dataNews   = $query->result();
-        $page       = array(
-            "thepage" => $this->load->view('back/manage_indeph', array('dataIndeph' => $dataIndeph, 'dataNews' => $dataNews), true),
-        );
-        $this->load->view('back/index', $page);
-    }
-    public function insert($type = null)
-    {
-        if ($type == 'indeph') {
-            # code...
-            $pecah = $this->format->date_periode($this->input->post('tanggal'));
-            $data  = array(
-                'news_id'   => $this->input->post('news'),
-                'date_from' => $pecah['date_from'],
-                'date_to'   => $pecah['date_to'],
-            );
-            $this->news->insertData('fn_indeph', $data);
-            $this->session->set_flashdata('status', 'Berhasil diinput');
-            redirect('backoffice/manage_indeph');
             if ($tombol == 'Edit'){
             	$sql = $this->back->deleteData($where, 'fn_pages');
             	$result = array();
@@ -416,7 +506,7 @@ class Backoffice extends CI_Controller
     public function delet_fokus($id)
     {
         // var_dump($id);
-        $where        = array(
+        $where = array(
 
             'fokus_id'       => $id,
             );

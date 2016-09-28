@@ -30,11 +30,7 @@
 </section>
 
 
-    <!-- jQuery -->
-    <script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
     <!-- For modal -->
     <script src="<?php echo base_url() ?>assets/js/login-register.js"></script>
     <!-- Script to Activate the Carousel -->

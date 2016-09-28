@@ -14,7 +14,7 @@
 
   <div class="clearfix"></div>
 
-  <div class="row">  
+  <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
@@ -45,8 +45,20 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Pilih Periode <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                         <input type="text" name="tanggal" class="form-control" id="tanggal"></input>
+                          <div class="pull-right" id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                              <i class="glyphicon glyphicon-calendar fa fa-calendar">
+                            </i>
+                            <span>
+                            </span>
+                              <b class="caret">
+                            </b>
+                          </div>
                         </div>
+                      </div>
+                      <div class="form-group">
+
+                          <input id="tanggal" name="tanggal" type="hidden" value="">
+                          </input>
                       </div>
                       <div class="ln_solid"></div>
                       <div class="form-group">
@@ -92,16 +104,29 @@
   </div>
 </div>
     <!-- bootstrap-daterangepicker -->
-    <script src="<?php echo base_url() ?>assets/js/daterange/js/moment.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/daterange/js/moment.js"></script>
     <script src="<?php echo base_url() ?>assets/js/daterange/js/daterangepicker.js"></script>
 <script type="text/javascript">
-$(function() {
-    $('input[name="tanggal"]').daterangepicker({
-      timePicker: true,
+    $(function() {
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY h:mm') + ' - ' + end.format('MMMM D, YYYY h:mm'));
+            $('#tanggal').val(start.format('YYYY-MM-DD h:mm') + ' - ' + end.format('YYYY-MM-DD h:mm'));
+        }
+        cb(moment().subtract(29, 'days'), moment());
+
+        $('#reportrange').daterangepicker({
+            timePicker: true,
             timePicker24Hour: true,
-            locale: {
-                format: 'YYYY-MM-DD H:mm'
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
             }
+        }, cb);
+
     });
-});
 </script>

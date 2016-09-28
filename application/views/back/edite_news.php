@@ -1,4 +1,4 @@
-    
+
 <link href="<?php echo base_url()?>assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
 <link href="<?php echo base_url() ?>assets/js/slim-image/slim/slim.min.css" rel="stylesheet">
 <div class="">
@@ -41,8 +41,8 @@
                   </div>
                   <div class="x_content">
                     <br />
-                   
-                     
+
+
                       <?php echo form_open_multipart('backoffice/managenews', array('class' =>'form-horizontal form-label-left', 'id' => 'AwesomeForm'));?>
                       <?php foreach($data as $row) {  ?>
                       <div class="form-group">
@@ -89,11 +89,11 @@
                             <option value = '5'>Teras Ekomomi</option>
                             <option value = '6'>Teras Sehat</option>
                           </select>
-                          
+
                           <script type='text/javascript'>
                               $('#select2').val(<?php echo $data3 ?>);
                           </script>
-                         
+
                         </div>
                       </div>
                       <div class="form-group">
@@ -165,7 +165,7 @@
                 <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
               </div>
               </div>
-               <div contenteditable="true" class="editor-wrapper placeholderText" id="editor" value="<?php echo $row['news_desc']; ?>"></div>
+               <div contenteditable="true" class="editor-wrapper placeholderText" id="editor"><?php echo $row['news_desc']; ?></div>
                 <!-- <input type="text" name="isi"/>  -->
                <?php echo form_hidden('isi'); ?>
                 <input id="idnya" class="form-control col-md-7 col-xs-12" type="hidden" name="idnya" value="<?php echo $id; ?>">
@@ -191,7 +191,7 @@
             </div>
 </div>
 
-  
+
     <!-- bootstrap-wysiwyg -->
     <script src="<?php echo base_url() ?>assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
     <script src="<?php echo base_url() ?>assets/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
@@ -211,12 +211,12 @@
     <!-- starrr -->
     <script src="<?php echo base_url() ?>assets/vendors/starrr/dist/starrr.js"></script>
   <script src="<?php echo base_url() ?>assets/js/slim-image/slim/slim.kickstart.min.js"></script>
-  
+
 <script>
       $(document).ready(function() {
 
          $('button[name=ceks]').click(function() {
-              console.log($('#editor').val());
+
 
             })
 
@@ -289,7 +289,7 @@
       });
     </script>
     <!-- /Autosize -->
-  
+
   <!-- Select2 -->
     <script>
       $(document).ready(function() {
