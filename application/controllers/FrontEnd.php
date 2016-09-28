@@ -157,10 +157,10 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('CountDown/index');
 	}
 	public function viewMyArticle($news_url = null){
-		
+
 		$dataArticle = $this->news->getNewsFromArticle($news_url);
 		if(empty($dataArticle)):
-			redirect(base_url());	
+			redirect(base_url());
 		endif;
 		$dataCommentArticle = $this->news->getCommentFromArticle($news_url);
 		$dataPopular = $this->news->getPopularNewsByCatgory($dataArticle->category_id, $dataArticle->news_id);
@@ -221,9 +221,9 @@ class FrontEnd extends CI_Controller {
 	public function secureSearch(){
 		$keyword = $this->security->xss_clean($this->input->get('q'));
 		$page = $this->input->get('page');
-		$dataSearch = $this->news->getNewsFromSearch($keyword);
+		$dataSearch = $this->news->getNewsFromSearch($keyword); //GROUP BY fn_news.`news_id`
 		if($keyword == "" || $keyword == null): $dataSearch = array(); endif;
-		$dataPopular = $this->news->getPopularNewsByFokus();		
+		$dataPopular = $this->news->getPopularNewsByFokus();
 		$this->load->view('FrontOffice/topside');
 		$this->load->view('FrontOffice/secureSearch', array('dataSearch' => $dataSearch, 'dataPopular' => $dataPopular));
 		$this->load->view('FrontOffice/footer');

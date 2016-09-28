@@ -55,6 +55,9 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
 
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -171,7 +174,14 @@
         <div class="col-md-12">
             <div class="span">
                 <a href="#"><div class="logo"><img src="<?php echo base_url() ?>assets/img/logo/Teras Berita - Logo - Standart.png"></div></a>
-                <a href="#"><div class="img img-ads"><img src="<?php echo base_url() ?>assets/img/iklan/1.png"></div></a>
+                <?php
+                $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_type' => 'ads'));
+                foreach ($ads as $key => $value) {
+                    # code...
+                    $data[$value->layout_name] = $value->layout_dir;
+                }
+                ?>
+                <a href="#"><div class="img img-ads"><img src="<?php echo base_url($data['header-809x188']) ?>"></div></a>
             </div>
         </div>
     </div>

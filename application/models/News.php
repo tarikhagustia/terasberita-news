@@ -30,6 +30,7 @@ class News extends CI_Model
     {
         $result = $this->db->query("SELECT
                   fn_news.news_id,
+                  news_creator,
                   category_alias,
                   fn_category.category_id,
                   news_title,
@@ -169,16 +170,18 @@ class News extends CI_Model
     }
     public function getPopularNewsByFokus()
     {
-        $query = $this->db->query('SELECT news_timestamp, news_url, news_title, news_desc, news_thumb FROM fn_fokus , fn_news WHERE fn_fokus.`fokus_id` = fn_news.`fokus_id` ORDER BY fn_news.`news_views` DESC LIMIT 0,7');
+        $query = $this->db->query('SELECT news_url, news_title, news_desc, news_thumb FROM fn_fokus , fn_news WHERE fn_fokus.`fokus_id` = fn_news.`fokus_id` ORDER BY fn_news.`news_views` DESC LIMIT 0,7');
+        $data = array();
+
         foreach ($query->result() as $key => $value) {
             # code...
             $data[] = $value;
         }
-        return @$data;
+        return $data;
     }
     public function getNewsFromSearch($keyword, $page = 0)
     {
-        $query = "SELECT news_timestamp, fn_news.`news_id`, news_thumb, news_url, news_title, news_desc, category_alias FROM fn_news, fn_pages, fn_category WHERE fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND news_desc LIKE '%$keyword%'";
+        $query = "SELECT news_timestamp, fn_news.`news_id`, news_thumb, news_url, news_title, news_desc, category_alias FROM fn_news, fn_pages, fn_category WHERE fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND news_desc LIKE '%$keyword%' GROUP BY fn_news.`news_id`";
         return $this->db->query($query)->result();
 
     }

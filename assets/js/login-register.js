@@ -113,10 +113,9 @@ function registerAjaxButtom(){
     })
     .done(function(response) {
          if(response.valid == false){
-            // alert(response.valid_msg);
-            alert(response.valid_msg.replace(/(<([^>]+)>)/ig,""));
+             alert(response.valid_msg.replace(/(<([^>]+)>)/ig,""));
         }else{
-            alert(response.msg);
+             alert(response.msg);
             location.reload();
         }
 

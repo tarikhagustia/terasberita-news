@@ -28,9 +28,6 @@
         </div>
     </div>
 </section>
-
-
-    
     <!-- For modal -->
     <script src="<?php echo base_url() ?>assets/js/login-register.js"></script>
     <!-- Script to Activate the Carousel -->
