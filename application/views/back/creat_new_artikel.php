@@ -64,7 +64,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="name-pen" class="control-label col-md-2 col-sm-2 col-xs-12">Name Penulis</label>
+                        <label for="name-pen" class="control-label col-md-2 col-sm-2 col-xs-12">Name Redaksi</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="name-pen" class="form-control col-md-7 col-xs-12" type="text" name="name-pen">
                         </div>

@@ -29,7 +29,7 @@
                     <li>
                         <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="<?php echo base_url('backoffice/dashboard'); ?>" id="dashboard2" class='' >Dashboard</a>
+                            <li><a href="<?php echo base_url('backoffice/dashboard'); ?>" id="" class='' >Dashboard</a>
                             </li>
                         </ul>
                     </li>
@@ -81,6 +81,7 @@
                             </li>
                         </ul>
                     </li> -->
+                    <?php if($this->session->userdata('group_id') == '1'): ?>
                     <li>
                         <a><i class="fa fa-clone"></i> User Management <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -88,10 +89,13 @@
                             </li>
                         </ul>
                     </li>
+                    <?php endif; ?>
                     <li>
                         <a><i class="fa fa-clone"></i> Content Management <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="<?php echo base_url('backoffice/manage_comment'); ?>" id="" class='' >Manage Comment</a>
+                            </li>
+                            <li><a href="<?php echo base_url('backoffice/manage_indeph'); ?>" id="" class='' >Manage Teras TKP</a>
                             </li>
                         </ul>
                     </li>

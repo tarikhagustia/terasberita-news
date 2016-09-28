@@ -23,11 +23,12 @@ class Back extends CI_Model {
     public function contoh($dmn)
 	{
 		// var_dump($dmn);
-		$this->db->select('*');
-		$this->db->from('fn_news');
+		$this->db->select('fn_news.news_id, fn_news.news_title, fn_news.user_id, fn_news.news_timestamp, fn_news.news_views, fn_news.fokus_id, fn_fokus.fokus_name');
+		$this->db->from('fn_news, fn_fokus');
 		$this->db->where('User_id', $dmn);
-		// $this->db->limit(1);
+		$this->db->where('fn_news.fokus_id = fn_fokus.fokus_id');
 		$query = $this->db->get();
+		// var_dump($this->db->last_query()); 
 		return $query->result_array();
 		// echo "$query";
 	}
@@ -58,6 +59,20 @@ class Back extends CI_Model {
             return false;
         }
     }
+    public function insertFokus($table, $data)
+    {
+        $sql1 = $this->db->insert($table, $data);
+        if ($sql1) {
+            # code...
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function deleteFokus($where,$table){
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
 
 }
 

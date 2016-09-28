@@ -1,36 +1,36 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Backoffice extends CI_Controller {
+class Backoffice extends CI_Controller
+{
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+    /**
+     * Index Page for this controller.
+     *
+     * Maps to the following URL
+     *         http://example.com/index.php/welcome
+     *    - or -
+     *         http://example.com/index.php/welcome/index
+     *    - or -
+     * Since this controller is set as the default controller in
+     * config/routes.php, it's displayed at http://example.com/
+     *
+     * So any other public methods not prefixed with an underscore will
+     * map to /index.php/welcome/<method_name>
+     * @see https://codeigniter.com/user_guide/general/urls.html
+     */
 
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('format');
-		$this->load->helper('form');
-		$this->load->library('session');
-		$this->load->library('format');
-		$this->load->model('news');
-		$this->load->library('slim');
-		$this->load->model('back');
-		if (!$this->session->userdata('logged_in')) {
-
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('format');
+        $this->load->helper('form');
+        $this->load->library('session');
+        $this->load->library('format');
+        $this->load->model('news');
+        $this->load->library('slim');
+        $this->load->model('back');
+        if (!$this->session->userdata('logged_in')) {
 			$this->session->set_flashdata('flashSuccess', 'You are not login, Please login first');
 			// echo $this->session->flashdata('flashSuccess');
 			redirect('auth/index','refresh');
@@ -139,7 +139,7 @@ class Backoffice extends CI_Controller {
 	{
 		// var_dump($id);
 		$this->load->model('back','modelbackoffice');
-		$data = $this->modelbackoffice->getDatanews($id, 'news_thumb, news_title, news_desc, user_id, username');
+		$data = $this->modelbackoffice->getDatanews($id, 'news_thumb, news_title, news_desc, user_id, news_creator, username');
 		// var_dump($data);
 		$this->db->select('fn_pages.category_id');
 		$this->db->from('fn_pages');
@@ -156,11 +156,12 @@ class Backoffice extends CI_Controller {
 		$page = array(
 			"thepage" => $this->load->view('back/edite_news', array('data' => $data, 'data3' => $data3, 'id' => $id), true)
 		);
-
-		$this->load->view('back/index', $page);
-	}
-	public function inputData(){
-		$images = Slim::getImages();
+       $this->load->view('back/index', $page);
+        
+    }
+    public function inputData()
+    {
+        $images = Slim::getImages();
 
         // var_dump($_POST);
         if ($images == false) {
@@ -171,43 +172,43 @@ class Backoffice extends CI_Controller {
             foreach ($images as $image) {
                 $file = Slim::saveFile($image['output']['data'], $image['input']['name']);
             }
-            $news_url       = $this->format->seoUrl($this->input->post('jdl-berita'));
-            $jdl_berita     = $this->input->post('jdl-berita');
-            $id     		= $this->session->userdata('id');
-            $name_pen       = $this->input->post('name-pen');
-            $select2	    = $this->input->post('select2');
-            $isi            = $this->input->post('isi');
-            $news_thumb     = $file['path'];
-            $insert1        = array(
+            $news_url   = $this->format->seoUrl($this->input->post('jdl-berita'));
+            $jdl_berita = $this->input->post('jdl-berita');
+            $id         = $this->session->userdata('id');
+            $name_pen   = $this->input->post('name-pen');
+            $select2    = $this->input->post('select2');
+            $isi        = $this->input->post('isi');
+            $news_thumb = $file['path'];
+            $insert1    = array(
 
-            'news_url'       => $news_url,
-            'news_title'     => $jdl_berita,
-            'user_id'     	 => $id,
-            'news_desc'      => $isi,
-            'news_thumb'     => $news_thumb,
+                'news_url'       => $news_url,
+                'news_title'     => $jdl_berita,
+                'user_id'        => $id,
+                'news_creator'   => $name_pen,
+                'news_desc'      => $isi,
+                'news_thumb'     => $news_thumb,
             );
-            $sql = $this->back->insertData('fn_news', $insert1);
-            $idta = $this->db->insert_id(); // Will return the last insert id.
+            $sql    = $this->back->insertData('fn_news', $insert1);
+            $idta   = $this->db->insert_id(); // Will return the last insert id.
             $result = array();
-		    foreach($select2 AS $key => $val){
-		     $result[] = array(
-		      "category_id"  => $_POST['select2'][$key],
-		      "news_id"  => $idta
-		     );
-		    }
+            foreach ($select2 as $key => $val) {
+                $result[] = array(
+                    "category_id" => $_POST['select2'][$key],
+                    "news_id"     => $idta,
+                );
+            }
 
-		     $sql2 = $this->db->insert_batch('fn_pages', $result); // fungsi dari codeigniter untuk menyimpan multi array
+            $sql2 = $this->db->insert_batch('fn_pages', $result); // fungsi dari codeigniter untuk menyimpan multi array
             if ($sql) {
-                redirect('backoffice/index','refresh');
+                redirect('backoffice/index', 'refresh');
             } else {
                 show_404();
             }
             // var_dump($result);
             // var_dump($idta);
-                // echo '<img src="' . base_url() . $file['path'] . '" alt=""/>';
+            // echo '<img src="' . base_url() . $file['path'] . '" alt=""/>';
         }
-	}
-
+    }
 	public function managenews()
 	{   
 		// var_dump($_POST);
@@ -224,6 +225,7 @@ class Backoffice extends CI_Controller {
             $idnya     		= $this->input->post('idnya');
             $tombol     	= $this->input->post('tombol');
             $name_pen       = $this->input->post('name-pen');
+            $name_red       = $this->input->post('name-red');
             $select2	    = $this->input->post('select2');
             $isi            = $this->input->post('isi');
             $news_thumb     = $file['path'];
@@ -231,6 +233,7 @@ class Backoffice extends CI_Controller {
 
             'news_url'       => $news_url,
             'news_title'     => $jdl_berita,
+            'news_creator'   => $name_red,
             'news_desc'      => $isi,
             'news_thumb'     => $news_thumb,
             );
@@ -287,26 +290,139 @@ class Backoffice extends CI_Controller {
 	}
 	public function brek()
 	{   
-		var_dump($_POST);
-		$idnews     	= $this->input->post('idnews');
-        $single_cal1  	= $this->input->post('single_cal1');
-        $single_cal2    = $this->input->post('single_cal2');
-        $active	    	= $this->input->post('active');
-        $insert1        = array(
-
-            'news_id'       => $idnews,
-            'date_from'     => $single_cal1,
-            'date_to'     	=> $single_cal2,
-            'isActive'      => $active,
-            );
-        $sql = $this->back->insertBrek('fn_news_breaking', $insert1);
-
+        $pecah = $this->format->date_periode($this->input->post('tanggal'));
+        $data1  = array(
+            'news_id'   => $this->input->post('idnews'),
+            'date_from' => $pecah['date_from'],
+            'date_to'   => $pecah['date_to'],
+            'isActive'  => $this->input->post('active'),
+        );
+        $sql = $this->back->insertBrek('fn_news_breaking', $data1);
 		$data = $this->back->contoh($this->session->userdata('id'));
 		$page = array(
 			"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
 		);
 		// var_dump($data);
 		$this->load->view('back/index', $page);
-		
-	}
+    }
+    public function manage_indeph()
+    {
+        $query = $this->db->query('SELECT
+					  indeph_id,
+					  fn_news.news_id,
+					  news_title,
+					  news_url,
+					  date_from,
+					  date_to
+					FROM
+					  fn_indeph,
+					  fn_news
+					WHERE fn_indeph.`news_id` = fn_news.`news_id`
+					  AND date_from <= NOW()
+					  AND date_to >= NOW()
+					 ORDER BY fn_indeph.`indeph_timestamp` DESC LIMIT 20');
+        $dataIndeph = $query->result();
+        $query      = $this->db->query('SELECT news_id, news_title FROM fn_news ORDER BY news_title ASC');
+        $dataNews   = $query->result();
+        $page       = array(
+            "thepage" => $this->load->view('back/manage_indeph', array('dataIndeph' => $dataIndeph, 'dataNews' => $dataNews), true),
+        );
+        $this->load->view('back/index', $page);
+    }
+    public function insert($type = null)
+    {
+        if ($type == 'indeph') {
+            # code...
+            $pecah = $this->format->date_periode($this->input->post('tanggal'));
+            $data  = array(
+                'news_id'   => $this->input->post('news'),
+                'date_from' => $pecah['date_from'],
+                'date_to'   => $pecah['date_to'],
+            );
+            $this->news->insertData('fn_indeph', $data);
+            $this->session->set_flashdata('status', 'Berhasil diinput');
+            redirect('backoffice/manage_indeph');
+
+        }
+    }
+    public function createUsers()
+    {
+        $this->load->library('form_validation');
+        // Validator
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim|is_unique[bo_user.email]');
+        $this->form_validation->set_rules('full_name', 'Nama Anda', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('password_confirmation', 'Password Confirmation', 'required|matches[password]');
+
+        if ($this->form_validation->run() == false) {
+        	$this->session->set_flashdata('error',validation_errors());
+            redirect('backoffice/manage_user');
+            // var_dump(validation_errors());
+        }else{
+        	$this->session->set_flashdata('status','Penambahan user berhasil');
+        	$data = array(
+        		'username' => $this->input->post('email'),
+        		'full_name' => $this->input->post('full_name'),
+        		'email' => $this->input->post('email'),
+        		'password' => md5($this->config->item('encryption_key').$this->input->post('password')),
+        		'group_id' => $this->input->post('akses')
+        	);
+        	$this->news->insertData('bo_user', $data);
+        	redirect('backoffice/manage_user');
+        }
+    }
+    public function fokus_news($id)
+    {
+        $page = array(
+            "thepage" => $this->load->view('back/fokus_news', array('id' => $id), true)
+        );
+        $this->load->view('back/index', $page);
+    }
+    public function creat_fokus()
+    {
+        // var_dump($_POST);
+        $news_url       = $this->format->seoUrl($this->input->post('fokus_name'));
+        $fokus_name     = $this->input->post('fokus_name');
+        $fokus_comen    = $this->input->post('fokus_comen');
+        $id             = $this->input->post('id');
+        $isactive       = $this->input->post('isactive');
+        $insert       = array(
+                'fokus_url'        => $news_url,
+                'fokus_name'       => $fokus_name,
+                'fokus_comment'    => $fokus_comen,
+                'isActive'         => $isactive,
+                );
+        $sql = $this->back->insertFokus('fn_fokus', $insert);
+        $idta   = $this->db->insert_id(); // Will return the last insert id.
+        $data        = array(
+            'fokus_id'       => $idta,
+            );
+            $where        = array(
+            'news_id'       => $id,
+            );
+        $this->db->where($where);
+        $this->db->update('fn_news', $data);
+
+        $data = $this->back->contoh($this->session->userdata('id'));
+        $page = array(
+            "thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+        );
+        // var_dump($data);
+        $this->load->view('back/index', $page);
+    }
+    public function delet_fokus($id)
+    {
+        // var_dump($id);
+        $where        = array(
+
+            'fokus_id'       => $id,
+            );
+        $sql = $this->back->deleteFokus($where, 'fn_fokus');
+        $data = $this->back->contoh($this->session->userdata('id'));
+        $page = array(
+            "thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+        );
+        // var_dump($data);
+        $this->load->view('back/index', $page);
+    }
 }
