@@ -91,7 +91,7 @@ class FrontEnd extends CI_Controller {
 		$aid = 4;
 		$dataNews = $this->news->getNewsFromPage($aid);
 		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne($aid);
-		$dataPopular = $this->news->getPopularNewsByCatgory($aid, $dataPopularOne->news_id);
+		@$dataPopular = $this->news->getPopularNewsByCatgory($aid, $dataPopularOne->news_id);
 		$dataIndeph = $this->news->getIndeph($aid);
 		if(!empty($dataIndeph)):
 			$dataIndephLeft = $this->news->getIndephLeft($dataIndeph->category_id, $dataIndeph->news_id);
