@@ -51,8 +51,8 @@
                     <th>News Date Time</th>
                     <th>News Views</th>
                     <th>News Edite</th>
-                   <!--  <th>News Delet</th>
-                    <th>Manage Category</th> -->
+                    <th>Break News</th>
+                    <!-- <th>Manage Category</th> -->
                 </tr>
               </thead>
 
@@ -64,8 +64,8 @@
                       <td><?php echo $row['news_timestamp']; ?></td>
                       <td><?php echo $row['news_views']; ?></td>
                       <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Edit</a></td>
-                      <!-- <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Delete</a></td>
-                      <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Manage</a></td> -->
+                      <td><a href="<?php echo base_url('backoffice/break_news/')?><?php echo $row['news_id']?>">Break</a></td>
+                      <!-- <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Manage</a></td> -->
                   </tr>
                <?php }  ?>
               </tbody>

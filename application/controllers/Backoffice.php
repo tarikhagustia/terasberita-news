@@ -109,10 +109,10 @@ class Backoffice extends CI_Controller {
 		// var_dump($data);
 		$this->load->view('back/index', $page);
 	}
-	public function break_news($do = false)
+	public function break_news($id)
 	{
 		$page = array(
-			"thepage" => $this->load->view('back/manage_brek_news', array(), true)
+			"thepage" => $this->load->view('back/manage_brek_news', array('id' => $id), true)
 		);
 		$this->load->view('back/index', $page);
 	}
@@ -209,7 +209,8 @@ class Backoffice extends CI_Controller {
 	}
 
 	public function managenews()
-	{   var_dump($_POST);
+	{   
+		// var_dump($_POST);
 		$images = Slim::getImages();
         if ($images == false) {
             show_404();
@@ -221,36 +222,91 @@ class Backoffice extends CI_Controller {
             $jdl_berita     = $this->input->post('jdl-berita');
             $id     		= $this->session->userdata('id');
             $idnya     		= $this->input->post('idnya');
-            $tombol     		= $this->input->post('tombol');
+            $tombol     	= $this->input->post('tombol');
             $name_pen       = $this->input->post('name-pen');
             $select2	    = $this->input->post('select2');
             $isi            = $this->input->post('isi');
             $news_thumb     = $file['path'];
-            $insert1        = array(
+            $data        = array(
 
             'news_url'       => $news_url,
             'news_title'     => $jdl_berita,
-            'user_id'     	 => $id,
             'news_desc'      => $isi,
             'news_thumb'     => $news_thumb,
             );
-            $sql = $this->back->insertData('fn_news', $insert1);
-            $idta = $this->db->insert_id(); // Will return the last insert id.
-            $result = array();
-		    foreach($select2 AS $key => $val){
-		     $result[] = array(
-		      "category_id"  => $_POST['select2'][$key],
-		      "news_id"  => $idta
-		     );
-		    }
+            $where        = array(
 
-		     $sql2 = $this->db->insert_batch('fn_pages', $result); // fungsi dari codeigniter untuk menyimpan multi array
-            if ($sql) {
-                redirect('backoffice/index','refresh');
+            'news_id'       => $idnya,
+            );
+            if ($tombol == 'Edit'){
+            	$sqlok = $this->back->updataData($where, $data, 'fn_news');
+            } else if ($tombol == 'Delet'){
+            	$sql = $this->back->deleteData($where, 'fn_news');
             } else {
-                show_404();
+            	$data = $this->back->contoh($this->session->userdata('id'));
+				$page = array(
+					"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+				);
+				// var_dump($data);
+				$this->load->view('back/index', $page);
+            }
+            
+            if ($tombol == 'Edit'){
+            	$sql = $this->back->deleteData($where, 'fn_pages');
+            	$result = array();
+			    foreach($select2 AS $key => $val){
+			    $result[] = array(
+			      "category_id"  => $_POST['select2'][$key],
+			      "news_id"  => $idnya
+			     );
+			    }
+			     $sql2 = $this->db->insert_batch('fn_pages', $result); // fungsi dari codeigniter untuk menyimpan multi array
+            } else if ($tombol == 'Delet'){
+            	$sql = $this->back->deleteData($where, 'fn_pages');
+            } else {
+            	$data = $this->back->contoh($this->session->userdata('id'));
+				$page = array(
+					"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+				);
+				// var_dump($data);
+				$this->load->view('back/index', $page);
             }
            
+
+            
+                $data = $this->back->contoh($this->session->userdata('id'));
+				$page = array(
+					"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+				);
+				// var_dump($data);
+				$this->load->view('back/index', $page);
+            
+            
+           
         }
+	}
+	public function brek()
+	{   
+		var_dump($_POST);
+		$idnews     	= $this->input->post('idnews');
+        $single_cal1  	= $this->input->post('single_cal1');
+        $single_cal2    = $this->input->post('single_cal2');
+        $active	    	= $this->input->post('active');
+        $insert1        = array(
+
+            'news_id'       => $idnews,
+            'date_from'     => $single_cal1,
+            'date_to'     	=> $single_cal2,
+            'isActive'      => $active,
+            );
+        $sql = $this->back->insertBrek('fn_news_breaking', $insert1);
+
+		$data = $this->back->contoh($this->session->userdata('id'));
+		$page = array(
+			"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+		);
+		// var_dump($data);
+		$this->load->view('back/index', $page);
+		
 	}
 }

@@ -40,10 +40,24 @@ class Back extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array();
 	}
-	public function updataData()
-	{
-		echo "ok deal";
+	public function updataData($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
 	}
+	public function deleteData($where,$table){
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
+	public function insertBrek($table, $data)
+    {
+        $sql1 = $this->db->insert($table, $data);
+        if ($sql1) {
+            # code...
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
 

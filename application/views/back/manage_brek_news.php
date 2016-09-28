@@ -1,8 +1,5 @@
-    
-    <link href="<?php echo base_url()?>assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>assets/js/slim-image/slim/slim.min.css" rel="stylesheet">
+<link href="<?php echo base_url()?>/vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
 <div class="">
-
   <div class="page-title">
     <div class="title_left">
       <h3>
@@ -41,281 +38,263 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <!-- <form action="<?php echo base_url('backoffice/inputData');?>" method="POST" data-parsley-validate class="form-horizontal form-label-left"> -->
+                    
                      
-                      <?php echo form_open_multipart('backoffice/inputData', array('class' =>'form-horizontal form-label-left', 'id' => 'myAwesomeForm'));?>
-                      <div class="form-group">
-                        <div class="table-responsive">
-                          <table class="table table-striped jambo_table bulk_action">
-                            <thead>
-                              <tr class="headings">
-                                <th>Id</th>
-                                <th>News Title</th>
-                                <th>News Date Time</th>
-                                <th>News Views</th>
-                                <th>News Action</th>
-                              </tr>
-                            </thead>
-
-                            <tbody>
-                            <tr>
-                            
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                           
-                            </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
+                      <?php echo form_open_multipart('backoffice/brek', array('class' =>'form-horizontal form-label-left', 'id' => 'myAwesome'));?>
                       
                       <div class="form-group">
                         <label class="control-label col-md-2 col-sm-2 col-xs-12" for="jdl-berita">Artikel Id</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="jdl-berita" name="jdl-berita" required="required" class="form-control col-md-7 col-xs-12">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                          <input type="text" id="jdl-berita" name="idnews" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $id; ?>">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="name-pen" class="control-label col-md-2 col-sm-2 col-xs-12">Date From </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="name-pen" class="form-control col-md-7 col-xs-12" type="text" name="name-pen">
+                          <div class="col-md-6 xdisplay_inputx form-group has-feedback">
+							<input type="text" class="form-control has-feedback-left" id="single_cal1" name="single_cal1"  aria-describedby="inputSuccess2Status">
+							<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+							<span id="inputSuccess2Status" class="sr-only">(success)</span>
+						  </div>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-2 col-xs-12">Category</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="select2_multiple form-control" multiple="multiple" name="select2[]">
-                            <option value = '0'>Choose option</option>
-                            <option value = '1'>Teras Sukabumi</option>
-                            <option value = '2'>Teras Nasional</option>
-                            <option value = '3'>Teras Cianjur</option>
-                            <option value = '4'>Teras News</option>
-                            <option value = '5'>Teras Ekomomi</option>
-                            <option value = '6'>Teras Sehat</option>
-                          </select>
+					  <div class="form-group">
+                        <label for="name-pen" class="control-label col-md-2 col-sm-2 col-xs-12">Date To</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <div class="col-md-6 xdisplay_inputx form-group has-feedback">
+							<input type="text" class="form-control has-feedback-left" id="single_cal2" name="single_cal2"  aria-describedby="inputSuccess2Status">
+							<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+							<span id="inputSuccess2Status" class="sr-only">(success)</span>
+						  </div>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-2 col-xs-12">Isi Berita </label>
-                        <div class="col-md-10 col-sm-10 col-xs-12">
-                          <div class="btn-toolbar editor" data-role="editor-toolbar" data-target="#editor">
-              <div class="btn-group">
-                <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                </ul>
-              </div>
-
-              <div class="btn-group">
-                <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                <li>
-                  <a data-edit="fontSize 5">
-                  <p style="font-size:17px">Huge</p>
-                  </a>
-                </li>
-                <li>
-                  <a data-edit="fontSize 3">
-                  <p style="font-size:14px">Normal</p>
-                  </a>
-                </li>
-                <li>
-                  <a data-edit="fontSize 1">
-                  <p style="font-size:11px">Small</p>
-                  </a>
-                </li>
-                </ul>
-              </div>
-
-              <div class="btn-group">
-                <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
-                <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
-                <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
-                <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
-              </div>
-
-              <div class="btn-group">
-                <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
-                <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>
-                <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
-                <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>
-              </div>
-
-              <div class="btn-group">
-                <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
-                <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
-                <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
-                <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
-              </div>
-
-              <div class="btn-group">
-                <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="fa fa-link"></i></a>
-                <div class="dropdown-menu input-append">
-                <input class="span2" placeholder="URL" type="text" data-edit="createLink" />
-                <button class="btn" type="button">Add</button>
-                </div>
-                <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
-              </div>
-              <div class="btn-group">
-                <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
-                <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
-              </div>
-              <div class="btn-group">
-                <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
-                <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
-              </div>
-              </div>
-               <div contenteditable="true" class="editor-wrapper placeholderText" id="editor"></div>
-               <!-- <input type="text" name="isi"/> -->
-               <?php echo form_hidden('isi'); ?>
-                <!-- <textarea name="editor" id="editor" style="display:none;"></textarea> -->
-                <!-- <textarea class="textarea" name="mytext" placeholder="Enter text ..." style="width: 810px; height: 200px"></textarea> -->
-                <br />
-                <div class="ln_solid"></div>
-            </div>
+					  <div class="form-group">
+                        <label for="name-pen" class="control-label col-md-2 col-sm-2 col-xs-12"></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="name-pen" class="form-control col-md-7 col-xs-12" type="hidden" name="active" value="1">
+                        </div>
+                      </div>
                       </div>
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button type="submit" class="btn btn-primary">Cancel</button>
                           <button type="submit" class="btn btn-success">Submit</button>
-                           
                         </div>
                       </div>
-
                     </form>
                   </div>
                 </div>
               </div>
             </div>
 </div>
-
-  
-    <!-- bootstrap-wysiwyg -->
-    <script src="<?php echo base_url() ?>assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-    <script src="<?php echo base_url() ?>assets/vendors/google-code-prettify/src/prettify.js"></script>
-    <!-- jQuery Tags Input -->
-    <script src="<?php echo base_url() ?>assets/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
-    <!-- Switchery -->
-    <script src="<?php echo base_url() ?>assets/vendors/switchery/dist/switchery.min.js"></script>
-    <!-- Select2 -->
-    <script src="<?php echo base_url() ?>assets/vendors/select2/dist/js/select2.full.min.js"></script>
-    <!-- Parsley -->
-    <script src="<?php echo base_url() ?>assets/vendors/parsleyjs/dist/parsley.min.js"></script>
-    <!-- Autosize -->
-    <script src="<?php echo base_url() ?>assets/vendors/autosize/dist/autosize.min.js"></script>
-    <!-- jQuery autocomplete -->
-    <script src="<?php echo base_url() ?>assets/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
-    <!-- starrr -->
-    <script src="<?php echo base_url() ?>assets/vendors/starrr/dist/starrr.js"></script>
-  <script src="<?php echo base_url() ?>assets/js/slim-image/slim/slim.kickstart.min.js"></script>
-  
-<script>
-      $(document).ready(function() {
-
-         $('button[name=ceks]').click(function() {
-              console.log($('#editor').val());
-
-            })
-
-        function initToolbarBootstrapBindings() {
-          var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
-              'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
-              'Times New Roman', 'Verdana'
-            ],
-            fontTarget = $('[title=Font]').siblings('.dropdown-menu');
-          $.each(fonts, function(idx, fontName) {
-            fontTarget.append($('<li><a data-edit="fontName ' + fontName + '" style="font-family:\'' + fontName + '\'">' + fontName + '</a></li>'));
-          });
-          $('a[title]').tooltip({
-            container: 'body'
-          });
-          $('.dropdown-menu input').click(function() {
-              return false;
-            })
-            .change(function() {
-              $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');
-            })
-            .keydown('esc', function() {
-              this.value = '';
-              $(this).change();
-            });
-
-          $('[data-role=magic-overlay]').each(function() {
-            var overlay = $(this),
-              target = $(overlay.data('target'));
-            overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
-          });
-
-          if ("onwebkitspeechchange" in document.createElement("input")) {
-            var editorOffset = $('#editor').offset();
-
-            $('.voiceBtn').css('position', 'absolute').offset({
-              top: editorOffset.top,
-              left: editorOffset.left + $('#editor').innerWidth() - 35
-            });
-          } else {
-            $('.voiceBtn').hide();
-          }
-        }
-
-        function showErrorAlert(reason, detail) {
-          var msg = '';
-          if (reason === 'unsupported-file-type') {
-            msg = "Unsupported format " + detail;
-          } else {
-            console.log("error uploading file", reason, detail);
-          }
-          $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>' +
-            '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
-        }
-
-        initToolbarBootstrapBindings();
-
-        $('#editor').wysiwyg({
-          fileUploadError: showErrorAlert
-        });
-
-        window.prettyPrint;
-        prettyPrint();
-      });
-    </script>
-  <!-- Autosize -->
+<script src="<?php echo base_url() ?>assets/js/moment/moment.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/datepicker/daterangepicker.js"></script>
+<script src="<?php echo base_url() ?>assets/vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap-daterangepicker -->
     <script>
       $(document).ready(function() {
-        autosize($('.resizable_textarea'));
+        var cb = function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+          $('#reportrange_right span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        };
+
+        var optionSet1 = {
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment(),
+          minDate: '01/01/2012',
+          maxDate: '12/31/2015',
+          dateLimit: {
+            days: 60
+          },
+          showDropdowns: true,
+          showWeekNumbers: true,
+          timePicker: false,
+          timePickerIncrement: 1,
+          timePicker12Hour: true,
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          opens: 'right',
+          buttonClasses: ['btn btn-default'],
+          applyClass: 'btn-small btn-primary',
+          cancelClass: 'btn-small',
+          format: 'YYYY-MM-DD',
+          separator: ' to ',
+          locale: {
+            applyLabel: 'Submit',
+            cancelLabel: 'Clear',
+            fromLabel: 'From',
+            toLabel: 'To',
+            customRangeLabel: 'Custom',
+            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            firstDay: 1
+          }
+        };
+
+        $('#reportrange_right span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+        $('#reportrange_right').daterangepicker(optionSet1, cb);
+
+        $('#reportrange_right').on('show.daterangepicker', function() {
+          console.log("show event fired");
+        });
+        $('#reportrange_right').on('hide.daterangepicker', function() {
+          console.log("hide event fired");
+        });
+        $('#reportrange_right').on('apply.daterangepicker', function(ev, picker) {
+          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+        });
+        $('#reportrange_right').on('cancel.daterangepicker', function(ev, picker) {
+          console.log("cancel event fired");
+        });
+
+        $('#options1').click(function() {
+          $('#reportrange_right').data('daterangepicker').setOptions(optionSet1, cb);
+        });
+
+        $('#options2').click(function() {
+          $('#reportrange_right').data('daterangepicker').setOptions(optionSet2, cb);
+        });
+
+        $('#destroy').click(function() {
+          $('#reportrange_right').data('daterangepicker').remove();
+        });
+
       });
     </script>
-    <!-- /Autosize -->
-  
-  <!-- Select2 -->
+
     <script>
       $(document).ready(function() {
-          $("#myAwesomeForm").on("submit",function() {
-              // alert('SUbmited');
-              var data = $('#editor').html();
-                console.log(data);
-                $('input[name=isi]').val(data);
-          });
-         $('button[name=ceks]').click(function() {
-                var data = $('#editor').html();
-                console.log(data);
-                $('input[name=isi]').val(data);
+        var cb = function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        };
 
-            })
-        $(".select2_single").select2({
-          placeholder: "Select a state",
-          allowClear: true
+        var optionSet1 = {
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment(),
+          minDate: '01/01/2012',
+          maxDate: '12/31/2015',
+          dateLimit: {
+            days: 60
+          },
+          showDropdowns: true,
+          showWeekNumbers: true,
+          timePicker: false,
+          timePickerIncrement: 1,
+          timePicker12Hour: true,
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          opens: 'left',
+          buttonClasses: ['btn btn-default'],
+          applyClass: 'btn-small btn-primary',
+          cancelClass: 'btn-small',
+          format: 'YYYY-MM-DD',
+          separator: ' to ',
+          locale: {
+            applyLabel: 'Submit',
+            cancelLabel: 'Clear',
+            fromLabel: 'From',
+            toLabel: 'To',
+            customRangeLabel: 'Custom',
+            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            firstDay: 1
+          }
+        };
+        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+        $('#reportrange').daterangepicker(optionSet1, cb);
+        $('#reportrange').on('show.daterangepicker', function() {
+          console.log("show event fired");
         });
-        $(".select2_group").select2({});
-        $(".select2_multiple").select2({
-          maximumSelectionLength: 6,
-          placeholder: "With Max Selection limit 4",
-          allowClear: true
+        $('#reportrange').on('hide.daterangepicker', function() {
+          console.log("hide event fired");
+        });
+        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+        });
+        $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+          console.log("cancel event fired");
+        });
+        $('#options1').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+        });
+        $('#options2').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+        });
+        $('#destroy').click(function() {
+          $('#reportrange').data('daterangepicker').remove();
         });
       });
     </script>
-    <!-- /Select2 -->
+
+    <script>
+      $(document).ready(function() {
+        $('#single_cal1').daterangepicker({
+          singleDatePicker: true,
+          calender_style: "picker_1"
+        }, function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+        });
+        $('#single_cal2').daterangepicker({
+          singleDatePicker: true,
+          calender_style: "picker_2"
+        }, function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+        });
+        $('#single_cal3').daterangepicker({
+          singleDatePicker: true,
+          calender_style: "picker_3"
+        }, function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+        });
+        $('#single_cal4').daterangepicker({
+          singleDatePicker: true,
+          calender_style: "picker_4"
+        }, function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $('#reservation').daterangepicker(null, function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+        });
+      });
+    </script>
+    <!-- /bootstrap-daterangepicker -->
+	<!-- Bootstrap Colorpicker -->
+    <script>
+      $(document).ready(function() {
+        $('.demo1').colorpicker();
+        $('.demo2').colorpicker();
+
+        $('#demo_forceformat').colorpicker({
+            format: 'rgba',
+            horizontal: true
+        });
+
+        $('#demo_forceformat3').colorpicker({
+            format: 'rgba',
+        });
+
+        $('.demo-auto').colorpicker();
+      });
+    </script>
+    <!-- /Bootstrap Colorpicker -->
+
