@@ -7,7 +7,7 @@
                 <?php else: ?>
                     <blockquote>Hasil pencarian "<?php echo $this->security->xss_clean($this->input->get('q')) ?>" ditemukan pada <?php echo count($dataSearch) ?> dokumen</blockquote>
                 <?php endif; ?>
-                
+
             </div>
         </div>
     </div>
@@ -25,17 +25,17 @@
                                 <?php if($rows->news_thumb == null || $rows->news_thumb == ""): ?>
                                     <div class="img-content"><a href=""><img src="<?php echo base_url() ?>assets/img/bg.jpg"></a></div>
                                 <?php else: ?>
-                                    <div class="img-content"><a href=""><img src="<?php base_url($rows->news_thumb) ?>"></a></div>
+                                    <div class="img-content"><a href=""><img src="<?php echo base_url($rows->news_thumb) ?>"></a></div>
                                 <?php endif; ?>
                                 <div class="isi-content">
-                                    <a href=""><h4><?php echo $rows->news_title ?></h4></a>
+                                    <a href="<?php echo $rows->news_url ?>"><h4><?php echo $rows->news_title ?></h4></a>
                                     <p class="text-justify">
                                         <?php echo $this->format->stripHTMLtags($rows->news_desc, 0 , 200) ?>
                                         <br><br>
                                         <small><?php echo $rows->news_timestamp ?> - </small><a href="#"><?php echo $rows->category_alias ?></a>
                                     </p>
-                                </div>   
-                            </div>  
+                                </div>
+                            </div>
                         <?php endforeach; else: ?>
                         <h3>Tidak ada hasil</h3>
                     <?php endif; ?>

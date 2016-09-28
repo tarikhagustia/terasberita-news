@@ -101,8 +101,7 @@ class Backoffice extends CI_Controller
 	}
 	public function manage_artikel()
 	{
-		// $this->load->model('back','modelbackoffice');
-		$data = $this->back->contoh($this->session->userdata('id'));
+    $data = $this->back->contoh($this->session->userdata('id'));
 		$page = array(
 			"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
 		);
@@ -505,17 +504,91 @@ class Backoffice extends CI_Controller
     }
     public function delet_fokus($id)
     {
-        // var_dump($id);
-        $where = array(
 
-            'fokus_id'       => $id,
+          // var_dump($id);
+          $data        = array(
+              'fokus_id'     => null,
+              );
+          $where        = array(
+
+              'fokus_id'       => $id,
+              );
+          $sql = $this->back->deleteFokus($where, $data, 'fn_news');
+          $data = $this->back->contoh($this->session->userdata('id'));
+          $page = array(
+              "thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+          );
+          // var_dump($data);
+          $this->load->view('back/index', $page);
+    }
+    public function delet_break($id)
+    {
+        // var_dump($id);
+        $where        = array(
+
+            'news_id'       => $id,
             );
-        $sql = $this->back->deleteFokus($where, 'fn_fokus');
+        $sql = $this->back->deleteBreak($where, 'fn_news_breaking');
         $data = $this->back->contoh($this->session->userdata('id'));
         $page = array(
             "thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
         );
         // var_dump($data);
         $this->load->view('back/index', $page);
+    }
+    public function manage_iklan()
+    {
+        $page = array(
+            "thepage" => $this->load->view('back/manage_iklan', array(), true)
+        );
+        $this->load->view('back/index', $page);
+    }
+    public function upload_iklan()
+    {
+        $area = $this->input->post('area');
+        $config['upload_path']          = 'assets/img/iklan';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 1024;
+        switch ($area) {
+          case 'header-809x188':
+            # code...
+            $config['max_width']            = 820;
+            $config['max_height']           = 190;
+            break;
+          case 'body-532x280':
+            # code...
+            $config['max_width']            = 550; //532
+            $config['max_height']           = 300; //280
+            break;
+          case 'body-532x180':
+              # code...
+            $config['max_width']            = 550;
+            $config['max_height']           = 200;
+            break;
+          default:
+            # code...
+            break;
+        }
+
+
+
+        $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('userfile'))
+        {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('error', $error);
+                redirect('backoffice/manage_iklan');
+        }
+        else
+        {
+                $data = array('upload_data' => $this->upload->data());
+                $layout = array(
+                  'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['orig_name']
+                );
+                $this->news->updateData('fn_layout', $layout, 'layout_name', $area);
+                $this->session->set_flashdata('status', 'Iklan berhasil diupload');
+                redirect('backoffice/manage_iklan');
+
+        }
     }
 }

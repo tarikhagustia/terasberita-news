@@ -64,7 +64,13 @@
                       <td><?php echo $row['news_timestamp']; ?></td>
                       <td><?php echo $row['news_views']; ?></td>
                       <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Edit</a></td>
-                      <td><a href="<?php echo base_url('backoffice/break_news/')?><?php echo $row['news_id']?>">Tambah Break</a></td>
+                      <td>
+                        <?php if($row['date_from'] == null):  ?> 
+                        <a href="<?php echo base_url('backoffice/break_news/')?><?php echo $row['news_id']?>">Tambah Break</a>
+                      <?php else: ?>
+                        <a href="<?php echo base_url('backoffice/delet_break/')?><?php echo $row['news_id']?>"><?php echo substr($row['date_from'],0,10)?></a>
+                      <?php endif; ?>
+                      </td>
                       <td>
                       <?php if($row['fokus_id'] == null):  ?> 
                         <a href="<?php echo base_url('backoffice/fokus_news/')?><?php echo $row['news_id']?>">Tambah Fokus</a>

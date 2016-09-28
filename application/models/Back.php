@@ -21,17 +21,18 @@ class Back extends CI_Model {
         }
     }
 		public function contoh($dmn)
-	{
-		// var_dump($dmn);
-		$this->db->select('fn_news.news_id, fn_news.news_title, fn_news.user_id, fn_news.news_timestamp, fn_news.news_views, fn_news.fokus_id, fn_fokus.fokus_name');
-		$this->db->from('fn_news');
-		$this->db->where('User_id', $dmn);
-		$this->db->join('fn_fokus', 'fn_news.fokus_id = fn_fokus.fokus_id', 'left');
-		$query = $this->db->get();
-		// var_dump($this->db->last_query());
-		return $query->result_array();
-		// echo "$query";
-	}
+		{
+			// var_dump($dmn);
+			$this->db->select('fn_news.news_id, fn_news.news_title, fn_news.user_id, fn_news.news_timestamp, fn_news.news_views, fn_news.fokus_id, fn_fokus.fokus_name, fn_news_breaking.date_from');
+			$this->db->from('fn_news');
+			$this->db->join('fn_fokus', 'fn_news.fokus_id = fn_fokus.fokus_id', 'left');
+			$this->db->join('fn_news_breaking', 'fn_news_breaking.news_id = fn_news.news_id', 'left');
+			// $this->db->where('User_id', $dmn);
+			$query = $this->db->get();
+			// var_dump($this->db->last_query());
+			return $query->result_array();
+			// echo "$query";
+		}
 	public function getDatanews($dmn, $col)
 	{
 		$this->db->select($col);
@@ -72,6 +73,20 @@ class Back extends CI_Model {
     public function deleteFokus($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);
+	}
+	public function deleteBreak($where,$table){
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
+	public function dataFokus($dmn)
+	{
+		// var_dump($dmn);
+		$this->db->select('fn_fokus.fokus_name');
+		$this->db->from('fn_fokus');
+		$query = $this->db->get();
+		// var_dump($this->db->last_query());
+		return $query->result_array();
+		// echo "$query";
 	}
 
 }
