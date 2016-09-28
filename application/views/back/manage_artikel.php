@@ -46,7 +46,6 @@
             <table class="table table-striped jambo_table bulk_action">
               <thead>
                 <tr class="headings">
-                    <th>Id</th>
                     <th>News Title</th>
                     <th>News Date Time</th>
                     <th>News Views</th>
@@ -59,21 +58,20 @@
               <tbody>
                <?php foreach($data as $row) {  ?>
                   <tr>
-                      <td><?php echo $row['news_id']; ?></td>
-                      <td><?php echo $row['news_title']; ?></td>
+                      <td><a href="<?php echo base_url($row['news_url']) ?>" target="_blank"> <?php echo substr($row['news_title'],0,30); ?></a></td>
                       <td><?php echo $row['news_timestamp']; ?></td>
                       <td><?php echo $row['news_views']; ?></td>
                       <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Edit</a></td>
                       <td>
                         <?php if($row['date_from'] == null):  ?> 
-                        <a href="<?php echo base_url('backoffice/break_news/')?><?php echo $row['news_id']?>">Tambah Break</a>
+                        <a href="<?php echo base_url('backoffice/break_news/')?><?php echo $row['news_id']?>"><span class="label label-success" >Jadikan Highligh</span></a>
                       <?php else: ?>
-                        <a href="<?php echo base_url('backoffice/delet_break/')?><?php echo $row['news_id']?>"><?php echo substr($row['date_from'],0,10)?></a>
+                        <a href="<?php echo base_url('backoffice/delet_break/')?><?php echo $row['news_id']?>"><?php echo $row['date_from']. " s/d ".$row['date_to'] ?></a>
                       <?php endif; ?>
                       </td>
                       <td>
                       <?php if($row['fokus_id'] == null):  ?> 
-                        <a href="<?php echo base_url('backoffice/fokus_news/')?><?php echo $row['news_id']?>">Tambah Fokus</a>
+                        <a href="<?php echo base_url('backoffice/fokus_news/')?><?php echo $row['news_id']?>"><span class="label label-success" >Jadikan Fokus</span></a>
                       <?php else: ?>
                         <a href="<?php echo base_url('backoffice/delet_fokus/')?><?php echo $row['fokus_id']?>"><?php echo substr($row['fokus_name'],0,10)?></a>
                       <?php endif; ?>

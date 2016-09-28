@@ -23,7 +23,7 @@ class Back extends CI_Model {
 		public function contoh($dmn)
 		{
 			// var_dump($dmn);
-			$this->db->select('fn_news.news_id, fn_news.news_title, fn_news.user_id, fn_news.news_timestamp, fn_news.news_views, fn_news.fokus_id, fn_fokus.fokus_name, fn_news_breaking.date_from');
+			$this->db->select('fn_news_breaking.date_to, news_url, fn_news.news_id, fn_news.news_title, fn_news.user_id, fn_news.news_timestamp, fn_news.news_views, fn_news.fokus_id, fn_fokus.fokus_name, fn_news_breaking.date_from');
 			$this->db->from('fn_news');
 			$this->db->join('fn_fokus', 'fn_news.fokus_id = fn_fokus.fokus_id', 'left');
 			$this->db->join('fn_news_breaking', 'fn_news_breaking.news_id = fn_news.news_id', 'left');

@@ -430,12 +430,11 @@ class Backoffice extends CI_Controller
             'isActive'  => $this->input->post('active'),
         );
         $sql = $this->back->insertBrek('fn_news_breaking', $data1);
-		$data = $this->back->contoh($this->session->userdata('id'));
-		$page = array(
-			"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
-		);
-		// var_dump($data);
-		$this->load->view('back/index', $page);
+		    if($sql):
+          redirect('backoffice/manage_artikel');
+        else:
+          redirect('backoffice/index');
+        endif;
     }
     public function createUsers()
     {
