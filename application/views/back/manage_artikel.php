@@ -51,8 +51,8 @@
                     <th>News Date Time</th>
                     <th>News Views</th>
                     <th>News Edite</th>
-                   <!--  <th>News Delet</th>
-                    <th>Manage Category</th> -->
+                    <th>Break News</th>
+                    <th>Fokus News</th>
                 </tr>
               </thead>
 
@@ -64,8 +64,14 @@
                       <td><?php echo $row['news_timestamp']; ?></td>
                       <td><?php echo $row['news_views']; ?></td>
                       <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Edit</a></td>
-                      <!-- <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Delete</a></td>
-                      <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Manage</a></td> -->
+                      <td><a href="<?php echo base_url('backoffice/break_news/')?><?php echo $row['news_id']?>">Tambah Break</a></td>
+                      <td>
+                      <?php if($row['fokus_id'] == null):  ?> 
+                        <a href="<?php echo base_url('backoffice/fokus_news/')?><?php echo $row['news_id']?>">Tambah Fokus</a>
+                      <?php else: ?>
+                        <a href="<?php echo base_url('backoffice/delet_fokus/')?><?php echo $row['fokus_id']?>"><?php echo substr($row['fokus_name'],0,10)?></a>
+                      <?php endif; ?>
+                      </td>
                   </tr>
                <?php }  ?>
               </tbody>
