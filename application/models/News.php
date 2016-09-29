@@ -57,11 +57,12 @@ class News extends CI_Model
     public function getPopularNewsByCatgory($category_id, $news_id)
     {
         $query = $this->db->query('SELECT news_timestamp, category_alias, news_url, fn_news.news_id, fn_category.category_id, news_title, news_desc AS descriptions, news_thumb FROM fn_news, fn_pages, fn_category WHERE fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fn_category.category_id = "' . $category_id . '" AND fn_news.news_id != "' . $news_id . '" ORDER BY news_views DESC');
+        $data = array();
         foreach ($query->result() as $key => $value) {
             # code...
             $data[] = $value;
         }
-        return @$data;
+        return $data;
     }
     public function getPopularNewsByCatgoryOnlyOne($category_id)
     {

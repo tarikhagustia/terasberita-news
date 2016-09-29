@@ -45,11 +45,12 @@ class FrontEnd extends CI_Controller {
 		endif;
 		$dataTerasPeristiwa = $this->news->getTerasPeristiwa($aid);
 		$dataBreakingNews = $this->news->getBreakingNews($aid);
+		$dataBreakingNewsLeft = array();
 		if(!empty($dataBreakingNews)):
 			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
 		endif;
 		$this->load->view('FrontOffice/topside');
-		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
+		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => $dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
 	public function terasSukabumi(){

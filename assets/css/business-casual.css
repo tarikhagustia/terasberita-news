@@ -1257,7 +1257,7 @@ blockquote{
     }
 
     .img-responsive{
-        /*width: 100px;*/
+        width: 100%;
     }
     p.des-news a{
         font-size: 11px;

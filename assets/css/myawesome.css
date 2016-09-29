@@ -68,7 +68,7 @@
 	width: 100%;
 }
 .m_peristiwa{
-	height: 500px;
+	height: auto;
 	width: 100%;
 	background-color: #985703;
 }
@@ -86,7 +86,7 @@
 	color: #fff;
 }
 .m_news_feed{
-	height: 500px;
+	max-height: 500px;
 	width: 100%;
 }
 .m_feed_judul{
@@ -111,4 +111,7 @@
 }
 .m_fedd_title {
 	font-size: 15px;
+}
+.m_judul {
+	color: #006666 !important;
 }

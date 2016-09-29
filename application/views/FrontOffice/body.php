@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div id="no-responsive" class="hidden-xs">
 <section id="berita">
     <div class="container">
         <?php if($dataBreakingNews): ?>
@@ -89,7 +89,7 @@
                         </div>  <!--/pop-kiri -->
                         <div id="scrolllable-populer">
 
-                        <?php $rows = array(); foreach($dataPopular as $rows){
+                        <?php foreach($dataPopular as $rows){
                         ?>
                         <div class="pop-kanan"><!--pop-kanan-->
                             <div class="list" id="fokus">
@@ -142,7 +142,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                </div>
                 </div>
 
             </div>
@@ -209,63 +209,78 @@
         </div>
     </div>
 </section>
-
-
-
-<section id="populer-responsive">
-    <div class="container">
-        <div class="col-md-12">
-            <div class="span">
-                <div class="col-md-6 col-md-12 col-md-12">
-                    <div class="title-populer"><h5>NEWS FEED</h5></div>
-                    <div class="news-responsive">
-                         <div class="news-isi">
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small></p>
-                            </div>
-                         <div class="news-isi">
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small></p>
-                            </div>
-                        </div>
-                         <div class="news-isi">
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small></p>
-                            </div>
-                        </div>
-                         <div class="news-isi">
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small></p>
-                            </div>
-                        </div>
-                         <div class="news-isi">
-                            <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
-                                <p class="des-news">
-                                <a class="title" href="">Use as many boxes as you boxes as you</a><br>
-                                <small>Yesterday | 10 Maret 2016 pukul 04.00</small></p>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
+</div>
+<!-- Responsive -->
+<div class="clearfix">
+</div>
+<div id="not-visible" class="visible-xs">
+<?php if($dataBreakingNews): ?>
+  <div id="m_breaking" class="container " style="background-image: url(<?php echo base_url($dataBreakingNews->news_thumb) ?>); ">
+    <!-- <selction id="m_breaking"> -->
+    <!-- </selction> -->
+  </div>
+  <div class="pembatas">
+    <h5 class="m_judul"><a href="<?php echo $dataBreakingNews->news_url ?>"><?php echo $dataBreakingNews->news_title ?></a></h5>
+    <p>
+      <?php echo $dataBreakingNews->category_alias. " | ".$this->format->date_indonesia($dataBreakingNews->news_timestamp) ?>
+    </p>
+  </div>
+  <div class="gap">
+<?php endif; ?>
+  </div>
+  <!-- <div class="container"> -->
+  <img class="img-ads-header" src="<?php echo base_url($data['header-809x188']) ?>" />
+  <!-- </div> -->
+  <div class="gap">
+  </div>
+<?php if($dataIndeph): ?>
+  <div class="m_peristiwa">
+    <div class="m_peristiwa_judul">
+      Teras Kejadian Perkara
+    </div>
+    <div class="gap"></div>
+    <img class="img-responsive" src="<?php echo base_url($dataIndeph->news_thumb) ?>" />
+    <div class="gap"></div>
+    <div class="m_peristiwa_judul">
+      <h5><a href="<?php echo base_url($dataIndeph->news_url) ?>"><?php echo $dataIndeph->news_title ?></a></h5>
+      <p class="text-justify">
+        <?php echo $this->format->stripHTMLtags($dataIndeph->news_desc, 0 , 150); ?>
+      </p>
     </div>
   </div>
+  <div class="gap">
+<?php endif; ?>
+  </div>
+  <?php if($dataNews): ?>
+  <div class="m_news_feed">
+    <div class="m_feed_judul">
+      News Feeds
+    </div>
+    <div class="container">
+    <?php foreach($dataNews as $rows): ?>
+      <div class="m_fedd_isi">
+        <div class="row">
+          <div class="col-xs-4">
+            <!-- <img class="img-responsive" src="<?php echo base_url('assets/img/bg.jpg') ?>" /> -->
+            <div class="img-feed" style="background-image: url(<?php echo base_url($rows->news_thumb) ?>); "></div>
+          </div>
+          <div class="col-xs-8" style="padding-left: 20px;">
+            <span class="m_fedd_title"><a href=""><?php echo $rows->news_title ?></a></span>
+            <div class="gap">
+            </div>
+            <p>
+               <?php echo $this->format->date_indonesia($rows->news_timestamp) ?>
+            </p>
+          </div>
+        </div>
+      </div>
+  <?php endforeach; ?>
+    </div>
+  </div>
+<?php endif; ?>
+  <div class="clearfix"></div>
 </div>
-</div>
-</section>
+
 <script type="text/javascript">
 $("#ajaxForm22").submit(function( event ) {
   registerAjaxButtom();
