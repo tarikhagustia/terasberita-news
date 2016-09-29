@@ -265,7 +265,7 @@
             <div class="img-feed" style="background-image: url(<?php echo base_url($rows->news_thumb) ?>); "></div>
           </div>
           <div class="col-xs-8" style="padding-left: 20px;">
-            <span class="m_fedd_title"><a href=""><?php echo $rows->news_title ?></a></span>
+            <span class="m_fedd_title"><a href="<?php echo $rows->news_url ?>"><?php echo $rows->news_title ?></a></span>
             <div class="gap">
             </div>
             <p>

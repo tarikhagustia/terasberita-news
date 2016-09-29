@@ -126,7 +126,7 @@
   <div class="box-deskripsi">
     <small><?php echo $this->format->date_indonesia($dataArticle->news_timestamp); ?></small>
     <h4 class="title"><?php echo $dataArticle->category_alias ?></h4>
-    <h2 class="title"><?php echo $dataArticle->news_desc ?></h2>
+    <h2 class="title"><?php echo $dataArticle->news_title ?></h2>
     <small><?php if($dataArticle->news_creator != null): echo $dataArticle->news_creator ;else: echo "Tim teras"; endif; ?> - <?php echo $dataArticle->category_alias ?></small>
     <div class="des">
         <?php if($dataArticle->news_thumb == NULL || $dataArticle->news_thumb == ''): ?>
