@@ -27,6 +27,7 @@ class Back extends CI_Model {
 			$this->db->from('fn_news');
 			$this->db->join('fn_fokus', 'fn_news.fokus_id = fn_fokus.fokus_id', 'left');
 			$this->db->join('fn_news_breaking', 'fn_news_breaking.news_id = fn_news.news_id', 'left');
+			$this->db->order_by('fn_news.news_timestamp', 'ASC');
 			// $this->db->where('User_id', $dmn);
 			$query = $this->db->get();
 			// var_dump($this->db->last_query());
@@ -70,10 +71,11 @@ class Back extends CI_Model {
             return false;
         }
     }
-    public function deleteFokus($where,$table){
-		$this->db->where($where);
-		$this->db->delete($table);
-	}
+		public function deleteFokus($where,$data,$table){
+				$this->db->where($where);
+				$this->db->update($table,$data);
+				// var_dump($this->db->last_query());
+			}
 	public function deleteBreak($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);

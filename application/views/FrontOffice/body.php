@@ -1,3 +1,4 @@
+<div class="wrapper">
 <section id="berita">
     <div class="container">
         <?php if($dataBreakingNews): ?>
@@ -11,19 +12,22 @@
                       <div class="col-md-8">
                       <?php if($dataBreakingNews): ?>
                       <?php if($dataBreakingNews->news_thumb == NULL || $dataBreakingNews->news_thumb == ""): ?>
-                        <div id="breakingnews" style="background-image: url(<?php echo base_url() ?>assets/img/bg.jpg);width: auto;height: 300px;">
+                        <div id="breakingnews" style="background-image: url(<?php echo base_url() ?>assets/img/bg.jpg);width: auto;height: 300px;-webkit-background-size: cover;-moz-background-size: cover;">
                         <?php else: ?>
-                          <div id="breakingnews" style="background-image: url(<?php echo base_url($dataBreakingNews->news_thumb) ?>);width: auto;height: 300px;">
+                          <div id="breakingnews" style="background-image: url(<?php echo base_url($dataBreakingNews->news_thumb) ?>);width: auto;height: 300px;-webkit-background-size: cover;-moz-background-size: cover;">
                         <?php endif; ?>
-                          <div class="text-berita"><!--TextBeritaSlideshow -->
-                              <h5 class="judul"><?php echo $dataBreakingNews->category_alias ?></h5>
-                              <p class="banner text-justify"><?php echo $this->format->stripHTMLtags($dataBreakingNews->news_desc2, 0, 100) ?></p>
-                              <p class="date"><?php echo $this->format->date_indonesia($dataBreakingNews->news_timestamp); ?></p>
-                          </div>
                         </div>
 
                       </div>
                       <div class="col-md-4">
+                        <h5 class="subjudul"><?php echo $dataBreakingNews->category_alias ?></h5>
+                        <p class="subisi text-justify">
+                          <?php echo $this->format->stripHTMLtags($dataBreakingNews->news_desc2, 0, 100) ?>...
+                        </p>
+                        <p class="subtanggal">
+                          <?php echo $this->format->date_indonesia($dataBreakingNews->news_timestamp); ?>
+                        </p>
+                        <?php if(!empty($dataBreakingNewsLeft)): ?>
                         <div class="titile_bt">Berita Terkait</div>
                         <?php foreach($dataBreakingNewsLeft as $rows): ?>
                         <article class="article_terkait">
@@ -32,6 +36,7 @@
                            </a>
                          </article>
                        <?php endforeach; ?>
+                     <?php endif; ?>
                       </div>
                     <?php endif; ?>
                     </div>
@@ -256,7 +261,10 @@
                 </div>
             </div>
         </div>
-    </div></div></div>
+    </div>
+  </div>
+</div>
+</div>
 </section>
 <script type="text/javascript">
 $("#ajaxForm22").submit(function( event ) {

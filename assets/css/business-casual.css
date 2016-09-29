@@ -1178,7 +1178,7 @@ blockquote{
         float: left;
     }
     a.title{
-        font-size: 10px;
+        font-size: 15px;
     }
     p.des{
         width: 145px;
@@ -1257,7 +1257,7 @@ blockquote{
     }
 
     .img-responsive{
-        width: 100px;
+        /*width: 100px;*/
     }
     p.des-news a{
         font-size: 11px;

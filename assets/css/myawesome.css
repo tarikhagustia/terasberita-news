@@ -1,6 +1,6 @@
-.profileImage { 
+.profileImage {
 	font-family: "Open Sans";
-  float: left; 
+  float: left;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -13,9 +13,9 @@
   margin-left: -10px;
   /*margin: 20px 0;*/
 }
-.profilepicture { 
+.profilepicture {
   font-family: "Open Sans";
-  float: left; 
+  float: left;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -30,4 +30,85 @@
 .welcome-message {
   margin-top: 16px;
   color: yellow;
+}
+.subjudul {
+	background-color:#036266;
+	padding: 10px;
+	color: #fff;
+
+}
+.subisi {
+	font-size: 12px;
+}
+.subtanggal{
+	color: #fff;
+	font-size: 10px;
+}
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+#m_breaking {
+	height: 200px;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-op-background-size: cover;
+}
+.pembatas {
+	padding: 10px;
+	max-height: 200px;
+	background-color: #985703;
+}
+.gap {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.img-ads-header {
+	width: 100%;
+}
+.m_peristiwa{
+	height: 500px;
+	width: 100%;
+	background-color: #985703;
+}
+.m_peristiwa_judul{
+	padding: 5px;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	margin: 0 auto;
+}
+.m_peristiwa_judul p {
+	padding: 5px;
+	text-align: center;
+	font-style: italic;
+	color: #fff;
+}
+.m_news_feed{
+	height: 500px;
+	width: 100%;
+}
+.m_feed_judul{
+	/*box-shadow: 10px;*/
+	padding: 5px;
+	background-color: #985703;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	margin: 0 auto;
+}
+.m_fedd_isi {
+	margin-top: 10px;
+	border-bottom: 0.5px solid;
+	padding-bottom: 5px;
+}
+.img-feed {
+	height: 100px;
+	width: 100px;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+}
+.m_fedd_title {
+	font-size: 15px;
 }

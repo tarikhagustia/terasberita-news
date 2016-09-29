@@ -23,6 +23,7 @@ class Auth extends CI_Controller {
 		parent::__construct();
 		$this->load->model('news');
 		$this->load->library('session');
+		$this->load->library('facebook');
 		// $this->load->config('email');
 	}
 	public function index()
@@ -160,5 +161,40 @@ class Auth extends CI_Controller {
     	else:
     		redirect(urldecode($redirect));
     	endif;
+	}
+	public function facebook(){
+		$this->load->model('mymodel');
+		// Check if user is logged in
+		if ($this->facebook->is_authenticated())
+		{
+			// User logged in, get user details
+			$user = $this->facebook->request('get', '/me?fields=id,name,email');
+			if (!isset($user['error']))
+			{
+				$data = $user;
+			}
+			// Inert Data
+			$data_users = array(
+				'username' => $data['email'],
+				'full_name' => $data['name'],
+				'email' => $data['email'],
+				'group_id' => 3,
+				'password' => '405e9bc94b09ffd77a7e26c1c9156c1f'
+			);
+			$cekusers = $this->news->getData('bo_user', 'id', array('username' => $data['email']));
+		if(count($cekusers) <= 0):
+			$lakukan = $this->news->insertData('bo_user', $data_users);
+		else:
+			$lakukan = true;
+		endif;
+			if($lakukan):
+				$data = $this->mymodel->modelLoginSession($data['email']);
+				$this->session->set_userdata($data);
+				redirect('', 'refresh');
+			else:
+				echo "Facebook login gagal, akses tidak dapat dilanjutkan";
+			endif;
+		}
+
 	}
 }

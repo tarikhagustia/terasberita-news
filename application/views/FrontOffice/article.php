@@ -5,16 +5,22 @@
                 <div class="col-sm-6">
                     <div class="box-deskripsi">
                         <!-- <p class="title"><small>Teras Berita / Fokus / Lorem Ipsum</small></p> -->
-                        <div class="kanan">
+                        <!-- <div class="kanan">
                             <ul><li><small>Follow Teras Berita :</small></li>
                                 <li class="follow-us"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/fb-2.png"></a></li>
                                 <li class="follow-us"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/twit-2.jpg"></a></li>
                                 <li class="follow-us"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/yutube-2.png"></a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <small><?php echo $this->format->date_indonesia($dataArticle->news_timestamp) ?></small>
                         <h4 class="title"><?php echo $dataArticle->category_alias ?></h4>
                         <h2 class="title"><?php echo $dataArticle->news_title ?></h2>
+                        <div
+                          class="fb-like"
+                          data-share="true"
+                          data-width="450"
+                          data-show-faces="true">
+                        </div>
                         <small><?php if($dataArticle->news_creator != null): echo $dataArticle->news_creator ;else: echo "Tim teras"; endif; ?> - <?php echo $dataArticle->category_alias ?></small>
                         <div class="des">
                             <?php if($dataArticle->news_thumb == NULL || $dataArticle->news_thumb == ''): ?>

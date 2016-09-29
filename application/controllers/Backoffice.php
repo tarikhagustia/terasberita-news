@@ -464,10 +464,12 @@ class Backoffice extends CI_Controller
     }
     public function fokus_news($id)
     {
-        $page = array(
-            "thepage" => $this->load->view('back/fokus_news', array('id' => $id), true)
-        );
-        $this->load->view('back/index', $page);
+      // var_dump($id);
+      $data = $this->back->dataFokus($id);
+      $page = array(
+          "thepage" => $this->load->view('back/fokus_news', array('data' => $data, 'id' => $id), true)
+      );
+      $this->load->view('back/index', $page);
     }
     public function creat_fokus()
     {
@@ -504,21 +506,21 @@ class Backoffice extends CI_Controller
     public function delet_fokus($id)
     {
 
-          // var_dump($id);
-          $data        = array(
-              'fokus_id'     => null,
-              );
-          $where        = array(
-
-              'fokus_id'       => $id,
-              );
-          $sql = $this->back->deleteFokus($where, $data, 'fn_news');
-          $data = $this->back->contoh($this->session->userdata('id'));
-          $page = array(
-              "thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+      // var_dump($id);
+      $data        = array(
+          'fokus_id'     => null,
           );
-          // var_dump($data);
-          $this->load->view('back/index', $page);
+      $where        = array(
+
+          'fokus_id'       => $id,
+          );
+      $sql = $this->back->deleteFokus($where, $data, 'fn_news');
+      $data = $this->back->contoh($this->session->userdata('id'));
+      $page = array(
+          "thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+      );
+      // var_dump($data);
+      $this->load->view('back/index', $page);
     }
     public function delet_break($id)
     {

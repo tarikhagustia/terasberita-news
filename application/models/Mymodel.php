@@ -28,6 +28,7 @@ class Mymodel extends CI_Model {
 		$hasil = $query->result_array();
 
 		$i = 0;
+		$result = array();
 		foreach($hasil as $row){
 			$result = $row;
 			$result['logged_in'] = TRUE;

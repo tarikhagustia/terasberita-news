@@ -38,10 +38,10 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    
-                     
+
+
                       <?php echo form_open_multipart('backoffice/brek', array('class' =>'form-horizontal form-label-left', 'id' => 'myAwesome'));?>
-                      
+
                       <div class="form-group">
                       <input type="hidden" id="jdl-berita" name="idnews" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $id; ?>">
                         <label for="name-pen" class="control-label col-md-2 col-sm-2 col-xs-12">Date From </label>
@@ -52,14 +52,14 @@
 					  <div class="form-group">
                         <label for="name-pen" class="control-label col-md-2 col-sm-2 col-xs-12"></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="name-pen" class="form-control col-md-7 col-xs-12" type="hidden" name="active" value="1">
+                          <input id="name-pen" class="form-control col-md-7 col-xs-12" type="hidden" name="active" value="1" required>
                         </div>
                       </div>
                       </div>
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
-                          <button type="submit" class="btn btn-primary">Cancel</button>
+                          <button type="reset" class="btn btn-primary">Cancel</button>
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>

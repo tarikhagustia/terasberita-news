@@ -38,10 +38,10 @@
           </div>
           <div class="x_content">
             <br />
-            
-             
+
+
               <?php echo form_open_multipart('backoffice/creat_fokus', array('class' =>'form-horizontal form-label-left', 'id' => 'myAwesome'));?>
-              
+
               <div class="form-group">
                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="jdl-berita">Fokus Name</label>
                 <div class="col-md-3 col-sm-6 col-xs-12">
@@ -50,12 +50,6 @@
                       <option value="<?php echo $row['fokus_name'];?>"><?php echo $row['fokus_name'];?></option>
                     <?php endforeach; ?>
                   </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="jdl-berita">Fokus Comen</label>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                  <input type="text" id="jdl-berita" name="fokus_comen" required="required" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
               <div class="form-group">
@@ -71,7 +65,7 @@
                 </div>
               </div>
               </div>
-              
+
               <div class="form-group">
                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                   <button type="submit" class="btn btn-primary">Cancel</button>
@@ -107,10 +101,10 @@
           </div>
           <div class="x_content">
             <br />
-            
-             
+
+
               <?php echo form_open_multipart('backoffice/creat_fokus', array('class' =>'form-horizontal form-label-left', 'id' => 'myAwesome'));?>
-              
+
               <div class="form-group">
                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="jdl-berita">Fokus Name</label>
                 <div class="col-md-3 col-sm-6 col-xs-12">
@@ -136,7 +130,7 @@
                 </div>
               </div>
               </div>
-              
+
               <div class="form-group">
                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                   <button type="submit" class="btn btn-primary">Cancel</button>
@@ -149,4 +143,3 @@
       </div>
     </div>
 </div>
-

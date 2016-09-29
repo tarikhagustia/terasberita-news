@@ -25,6 +25,7 @@ class FrontEnd extends CI_Controller {
 		$this->load->library('format');
 		$this->load->library('encrypt');
 		$this->load->library('session');
+		$this->load->library('facebook');
 	}
 	public function index()
 	{

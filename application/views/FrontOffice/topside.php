@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -72,7 +72,7 @@
                      <div class="box">
                           <div class="content">
                              <div class="social">
-                                 <a id="facebook_login" class="circle facebook" href="/auth/facebook">
+                                 <a id="facebook_login" class="circle facebook" href="<?php echo $this->facebook->login_url(); ?>">
                                      <i class="fa fa-facebook fa-fw"></i>
                                  </a>
                              </div>
