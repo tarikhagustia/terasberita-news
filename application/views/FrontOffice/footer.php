@@ -14,11 +14,11 @@
                     </li>
                     <li class="line"></li>
                     <li class="copyright" id="respon">Copyright &copy 2016 <a href="<?php echo base_url(); ?>">terasberita.co</a>. All Reserved.
-                    <a href="#" id="res">Redaksi</a>
-                    <a href="#" id="res">Pedoman Media Siber</a>
+                    <a href="<?php echo base_url('redaksi') ?>" id="res">Redaksi</a>
+                    <a href="<?php echo base_url('pedoman-media-siber') ?>" id="res">Pedoman Media Siber</a>
                     <a href="#" id="res">Karir</a>
                     <a href="#" id="res">Kotak Pos</a>
-                    <a href="#" id="res">Privacy Polisi</a>
+                    <a href="<?php echo base_url('privacy-policy') ?>" id="res">Privacy Polisi</a>
                     <a href="#" id="res">Disclaimer</a>
                     </li>
                 </ul>

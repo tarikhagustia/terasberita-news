@@ -167,7 +167,7 @@ a button.grey:hover{
     float: left;
 }
 .img img{
-    /*width: 450px;*/
+    width: 600px;
     height: 130px;
     float: right;
     margin-right: 5px;
