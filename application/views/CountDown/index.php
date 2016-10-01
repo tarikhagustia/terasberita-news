@@ -41,7 +41,7 @@
     </div>
     <script src="<?php echo base_url() ?>assets/js/jquery.countdown/jquery.countdown.min.js"></script>
 <script type="text/javascript">
-  $('#getting-started').countdown('2016/10/01', function(event) {
+  $('#getting-started').countdown('2016/10/02', function(event) {
     $(this).html(event.strftime('%w minggu %d hari dan %H:%M:%S lagi'));
   });
 </script>

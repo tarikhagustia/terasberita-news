@@ -190,8 +190,9 @@ a button.grey:hover{
 
 .navbar-nav {
     /*text-transform: uppercase;*/
-    font-weight: 400;
-    letter-spacing: 3px;
+    /*font-weight: 1000;*/
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 .img-full {

@@ -15,7 +15,7 @@
                             </div> -->
                             <small><?php echo $this->format->date_indonesia($dataArticle->news_timestamp) ?></small>
                             <h4 class="title"><?php echo $dataArticle->category_alias ?></h4>
-                            <h2 class="title"><?php echo $dataArticle->news_title ?></h2>
+                            <h2 class="title-article"><?php echo $dataArticle->news_title ?></h2>
                             <div
                               class="fb-like"
                               data-share="true"
@@ -87,7 +87,7 @@
                     <?php foreach($dataPopuler as $rows): ?>
                         <div class="fok-isi">
                             <div class="list">
-                                <img src="<?php echo base_url() ?>assets/img/bg.jpg">
+                                <img src="<?php echo base_url($rows->news_thumb) ?>">
                                 <p class="des text-justify">
                                     <a class="title" href="<?php echo base_url($rows->news_url) ?>"><?php echo $rows->news_title ?></a><br>
                                     <?php echo $this->format->date_indonesia($rows->news_timestamp) ?>
@@ -126,7 +126,7 @@
   <div class="box-deskripsi">
     <small><?php echo $this->format->date_indonesia($dataArticle->news_timestamp); ?></small>
     <h4 class="title"><?php echo $dataArticle->category_alias ?></h4>
-    <h2 class="title"><?php echo $dataArticle->news_title ?></h2>
+    <h2 class="title-article"><?php echo $dataArticle->news_title ?></h2>
     <small><?php if($dataArticle->news_creator != null): echo $dataArticle->news_creator ;else: echo "Tim teras"; endif; ?> - <?php echo $dataArticle->category_alias ?></small>
     <div class="des">
         <?php if($dataArticle->news_thumb == NULL || $dataArticle->news_thumb == ''): ?>
@@ -183,5 +183,7 @@
                             <?php endforeach; ?>
                         </div>
   </section>
-</div>
+  </div>
+  </div>
+
 

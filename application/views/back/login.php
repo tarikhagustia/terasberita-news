@@ -49,7 +49,7 @@
 								<br />
 								<div>
 									<h1><i class="fa fa-gear" style="font-size: 26px;"></i> terasberita.co</h1>
-									<p>terasberita.co - Powered by <a href="#"> Allblue IT</a></p>
+									<p>terasberita.co - Powered by <a href="<?php echo $this->config->item('hash_key_url') ?>"><?php echo $this->config->item('hash_key') ?></a></p>
 								</div>
 							</div>
 						<?php echo form_close();  ?>

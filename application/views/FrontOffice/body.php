@@ -147,7 +147,6 @@
 
             </div>
         </div>
-    </div>
 </section>
 <?php endif; ?>
 <section id="news">
@@ -210,6 +209,7 @@
     </div>
 </section>
 </div>
+</div>
 <!-- Responsive -->
 <div class="clearfix">
 </div>
@@ -226,8 +226,9 @@
     </p>
   </div>
   <div class="gap">
-<?php endif; ?>
   </div>
+<?php endif; ?>
+  
   <!-- <div class="container"> -->
   <img class="img-ads-header" src="<?php echo base_url($data['header-809x188']) ?>" />
   <!-- </div> -->
@@ -248,9 +249,8 @@
       </p>
     </div>
   </div>
-  <div class="gap">
+  <div class="gap"></div>
 <?php endif; ?>
-  </div>
   <?php if($dataNews): ?>
   <div class="m_news_feed">
     <div class="m_feed_judul">

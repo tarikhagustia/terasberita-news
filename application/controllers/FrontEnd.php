@@ -170,27 +170,27 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('FrontOffice/topside', array('title' => $dataArticle->news_title));
 		$this->load->view('FrontOffice/article', array('dataArticle' => $dataArticle, 'dataCommentArticle' => $dataCommentArticle, 'dataPopuler' => $dataPopular, 'dataTerasPeristiwa' => $dataTerasPeristiwa));
 		$this->load->view('FrontOffice/footer');
-		$cekId = $this->news->getData('fn_news', 'news_id', array('news_url' => $news_url));
-		foreach ($cekId as $key => $value) {
-			$news_id = $value->news_id;
-		}
-		$seens_ip = $_SERVER['REMOTE_ADDR'];
-		$cekIp = $this->news->getData('fn_news_seens', 'seens_id', array('news_id' => $news_id, 'seens_ip' => $seens_ip));
-		// Jika blum ada yang liat maka insert
-		if (empty($cekIp)) {
-			if($this->session->userdata('logged_in')):
-				$isLogin = true;
-			else:
-				$isLogin = false;
-			endif;
-			$data = array(
-				'news_id' => $news_id,
-				'seens_ip' => $seens_ip,
-				'seens_comment' => 'Already seens on ip '.$seens_ip,
-				'isLogin' => $isLogin
-			);
-			$this->news->insertData('fn_news_seens', $data);
-		}
+		// $cekId = $this->news->getData('fn_news', 'news_id', array('news_url' => $news_url));
+		// foreach ($cekId as $key => $value) {
+		// 	$news_id = $value->news_id;
+		// }
+		// $seens_ip = $_SERVER['REMOTE_ADDR'];
+		// $cekIp = $this->news->getData('fn_news_seens', 'seens_id', array('news_id' => $news_id, 'seens_ip' => $seens_ip));
+		// // Jika blum ada yang liat maka insert
+		// if (empty($cekIp)) {
+		// 	if($this->session->userdata('logged_in')):
+		// 		$isLogin = true;
+		// 	else:
+		// 		$isLogin = false;
+		// 	endif;
+		// 	$data = array(
+		// 		'news_id' => $news_id,
+		// 		'seens_ip' => $seens_ip,
+		// 		'seens_comment' => 'Already seens on ip '.$seens_ip,
+		// 		'isLogin' => $isLogin
+		// 	);
+		// 	$this->news->insertData('fn_news_seens', $data);
+		// }
 	}
 
 	public function setComment(){
@@ -230,5 +230,24 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('FrontOffice/secureSearch', array('dataSearch' => $dataSearch, 'dataPopular' => $dataPopular));
 		$this->load->view('FrontOffice/footer');
 	}
-
+	public function customOnly()
+	{
+		$aid = 2;
+		$dataNews = $this->news->getNewsFromPage($aid);
+		$dataPopularOne = $this->news->getPopularNewsByCatgoryOnlyOne($aid);
+		$dataPopular = $this->news->getPopularNewsByCatgory($aid, $dataPopularOne->news_id);
+		$dataIndeph = $this->news->getIndeph($aid);
+		if(!empty($dataIndeph)):
+			$dataIndephLeft = $this->news->getIndephLeft($dataIndeph->category_id, $dataIndeph->news_id);
+		endif;
+		$dataTerasPeristiwa = $this->news->getTerasPeristiwa($aid);
+		$dataBreakingNews = $this->news->getBreakingNews($aid);
+		$dataBreakingNewsLeft = array();
+		if(!empty($dataBreakingNews)):
+			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
+		endif;
+		$this->load->view('custom/topside');
+		$this->load->view('custom/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => $dataBreakingNewsLeft));
+		$this->load->view('custom/footer');
+	}
 }

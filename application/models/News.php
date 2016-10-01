@@ -75,12 +75,12 @@ class News extends CI_Model
     }
     public function getTerasPeristiwa($category_id = null)
     {
-        $query = $this->db->query("SELECT fokus_comment, fn_fokus.`fokus_id`, fokus_url, fokus_name FROM fn_fokus, fn_news, fn_pages, fn_category WHERE fn_news.news_id = fn_pages.news_id AND fn_pages.category_id = fn_category.category_id AND fn_fokus.`fokus_id` = fn_news.`fokus_id` AND fn_category.category_id = '$category_id' GROUP BY fn_fokus.`fokus_id` ORDER BY fn_fokus.fokus_timestamp DESC LIMIT 0,10");
+        $query = $this->db->query("SELECT fokus_comment, fn_fokus.`fokus_id`, fokus_url, fokus_name FROM fn_fokus, fn_news, fn_pages, fn_category WHERE fn_news.news_id = fn_pages.news_id AND fn_pages.category_id = fn_category.category_id AND fn_fokus.`fokus_id` = fn_news.`fokus_id` GROUP BY fn_fokus.`fokus_id` ORDER BY fn_fokus.fokus_timestamp DESC LIMIT 0,10");
         return $query->result();
     }
     public function getNewsFromFokusWithUrl($fokus_url = null)
     {
-        $query = "SELECT fn_news.`news_title`, news_url, news_desc AS descs, news_thumb, news_timestamp, category_alias FROM fn_fokus, fn_news, fn_pages, fn_category WHERE fn_fokus.`fokus_id` = fn_news.`fokus_id` AND fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fokus_url = '$fokus_url' ORDER BY fn_news.`news_timestamp` DESC";
+        $query = "SELECT fn_news.`news_title`, news_url, news_desc AS descs, news_thumb, news_timestamp, category_alias FROM fn_fokus, fn_news, fn_pages, fn_category WHERE fn_fokus.`fokus_id` = fn_news.`fokus_id` AND fn_news.`news_id` = fn_pages.`news_id` AND fn_pages.`category_id` = fn_category.`category_id` AND fokus_url = '$fokus_url' GROUP BY fn_news.`news_id` ORDER BY fn_news.`news_timestamp` DESC";
         return $this->db->query($query)->result();
 
     }
@@ -114,7 +114,7 @@ class News extends CI_Model
     }
     public function getIndephLeft($category_id, $news_id)
     {
-        $query = $this->db->query("SELECT fn_news.`news_url`, news_title FROM fn_pages, fn_news WHERE fn_pages.`news_id` = fn_news.`news_id` AND fn_pages.`category_id` = '$category_id' AND fn_news.news_id != '$news_id' ORDER BY pages_timestamp DESC LIMIT 0,3");
+        $query = $this->db->query("SELECT fn_news.news_thumb, fn_news.`news_url`, news_title FROM fn_pages, fn_news WHERE fn_pages.`news_id` = fn_news.`news_id` AND fn_pages.`category_id` = '$category_id' AND fn_news.news_id != '$news_id' ORDER BY pages_timestamp DESC LIMIT 0,3");
         return $query->result();
     }
     public function getBreakingNews($category_id)

@@ -86,7 +86,7 @@ class Format
         $bulan = substr($date, 5, 2); // memisahkan format bulan menggunakan substring
         $tgl   = substr($date, 8, 2); // memisahkan format tanggal menggunakan substring
         $jam  = date('H:i', strtotime($date));
-        $result = $hariData[$hari - 1 ] . ", " .$tgl . " " . $BulanIndo[(int) $bulan - 1] . " " . $tahun . " pada " .$jam . " WIB";
+        $result = ucfirst($hariData[$hari - 1 ]) . ", " .$tgl . " " . $BulanIndo[(int) $bulan - 1] . " " . $tahun . " pada " .$jam . " WIB";
         return ($result);
     }
     public function date_periode($date){

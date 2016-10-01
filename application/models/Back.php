@@ -84,7 +84,7 @@ class Back extends CI_Model {
 	public function dataFokus($dmn)
 	{
 		// var_dump($dmn);
-		$this->db->select('fn_fokus.fokus_name');
+		$this->db->select('fn_fokus.fokus_name, fn_fokus.fokus_id');
 		$this->db->from('fn_fokus');
 		$query = $this->db->get();
 		// var_dump($this->db->last_query());

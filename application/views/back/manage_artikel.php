@@ -40,7 +40,11 @@
 
         <div class="x_content">
 
-          
+          <?php if($this->session->flashdata()): ?>
+            <div class="alert alert-success">
+            <?php echo $this->session->flashdata('status'); ?>
+            </div>
+          <?php endif; ?>
 
           <div class="table-responsive">
             <table class="table table-striped jambo_table bulk_action">

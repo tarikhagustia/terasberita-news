@@ -30,10 +30,13 @@ class Backoffice extends CI_Controller
         $this->load->library('slim');
         $this->load->model('back');
         if (!$this->session->userdata('logged_in')) {
-			$this->session->set_flashdata('flashSuccess', 'You are not login, Please login first');
-			// echo $this->session->flashdata('flashSuccess');
-			redirect('auth/index','refresh');
-		}
+			     $this->session->set_flashdata('flashSuccess', 'You are not login, Please login first');
+			     redirect('auth/index','refresh');
+		    }
+        if ($this->session->userdata('group_id') == 3) {
+           $this->session->set_flashdata('flashSuccess', 'You dont have any access to this page');
+           redirect('auth/index','refresh');
+        }
 	}
 	public function index()
 	{
@@ -349,7 +352,7 @@ class Backoffice extends CI_Controller
             show_404();
         } else {
             foreach ($images as $image) {
-                $file = Slim::saveFile($image['output']['data'], $image['input']['name']);
+                $file = Slim::saveFile($image['output']['data'], $this->format->url_dash($image['input']['name']));
             }
             $news_url       = $this->format->seoUrl($this->input->post('jdl-berita'));
             $jdl_berita     = $this->input->post('jdl-berita');
@@ -502,6 +505,25 @@ class Backoffice extends CI_Controller
         );
         // var_dump($data);
         $this->load->view('back/index', $page);
+    }
+    public function creat_fokus_byid()
+    {
+      // var_dump($_POST);
+       // fokus_name
+      $fokus_name = $this->input->post('fokus_name');
+      $news_id = $this->input->post('id');
+      $data = array(
+        'fokus_id' => $fokus_name
+      );
+      $this->db->where('news_id', $news_id);
+      $do = $this->db->update('fn_news',$data);
+      if($do):
+        $this->session->set_flashdata('status', 'Artikel sudah input ke Peristiwa');
+        // var_dump($this->db->last_query());
+        redirect('backoffice/manage_artikel');
+      else:
+        show_404();
+      endif;
     }
     public function delet_fokus($id)
     {

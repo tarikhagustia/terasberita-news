@@ -40,14 +40,14 @@
             <br />
 
 
-              <?php echo form_open_multipart('backoffice/creat_fokus', array('class' =>'form-horizontal form-label-left', 'id' => 'myAwesome'));?>
+              <?php echo form_open_multipart('backoffice/creat_fokus_byid', array('class' =>'form-horizontal form-label-left', 'id' => 'myAwesome'));?>
 
               <div class="form-group">
                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="jdl-berita">Fokus Name</label>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                   <select class="form-control col-md-7 col-xs-12" name="fokus_name">
                     <?php foreach($data as $row): ?>
-                      <option value="<?php echo $row['fokus_name'];?>"><?php echo $row['fokus_name'];?></option>
+                      <option value="<?php echo $row['fokus_id'];?>"><?php echo $row['fokus_name'];?></option>
                     <?php endforeach; ?>
                   </select>
                 </div>

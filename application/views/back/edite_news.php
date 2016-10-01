@@ -52,7 +52,7 @@
                              data-label="Tarik gambar anda kesini"
                              accept="image/jpeg"
                              data-size="640,640"
-                             data-ratio="1:1"
+                             data-ratio="16:9"
                              >
                             <img src="<?php echo base_url($row['news_thumb']) ?>" alt=""/>
                             <input type="file" name="slim[]" required/>

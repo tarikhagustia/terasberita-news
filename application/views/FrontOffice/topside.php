@@ -5,13 +5,13 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0">
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="description" content="Indeph Jujur Akurat">
     <meta name="keywords" content="Indeph, jujur, akurat, beita, Berita sukabumi, harian sukabumi, Kriminal sukabumi">
-    <meta name="author" content="SiCoId Cabinet Management System">
+    <meta name="author" content="terasberita.co">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">

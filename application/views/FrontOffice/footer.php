@@ -18,7 +18,7 @@
                     <a href="<?php echo base_url('pedoman-media-siber') ?>" id="res">Pedoman Media Siber</a>
                     <a href="#" id="res">Karir</a>
                     <a href="#" id="res">Kotak Pos</a>
-                    <a href="<?php echo base_url('privacy-policy') ?>" id="res">Privacy Polisi</a>
+                    <a href="<?php echo base_url('privacy-policy') ?>" id="res">Privacy Policy</a>
                     <a href="#" id="res">Disclaimer</a>
                     </li>
                 </ul>

@@ -11,7 +11,7 @@
                         if($value->news_thumb == NULL || $value->news_thumb == ""):
                             echo '<div class="img-content"><a href="'.base_url($value->news_url).'"><img src="'.base_url().'assets/img/bg.jpg"></a></div>';
                         else:
-                            echo '<div class="img-content"><a href=""><img src="'.$value->news_thumb.'"></a></div>';
+                            echo '<div class="img-content"><a href=""><img src="'.base_url($value->news_thumb).'"></a></div>';
                         endif;
                         ?>
 
