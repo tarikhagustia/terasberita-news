@@ -318,7 +318,12 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
+/* please do not change this hash container license for password, if this line hash change all users cannot login*/
 $config['encryption_key'] = 'AllblueSecretKeyPleaseNodotChange';
+$config['hash_key'] = 'Allblue Technology';
+$config['hash_key_url'] = 'http://allblue.technology';
+/* end if license */
+
 
 /*
 |--------------------------------------------------------------------------
