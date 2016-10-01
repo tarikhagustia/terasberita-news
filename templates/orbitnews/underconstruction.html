@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<title>Next Planet</title>
+
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/underconstruction.css" type="text/css" media="screen">
+	
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="underconstruction-container">
+		<div id="logo">
+			<a href="index.html"><img alt="" src="images/logo.png"></a>
+		</div>
+		<div id="content">
+			<h1 id="underconstruction-title">Our website is underconstruction</h1>
+			<div id="countdown-container">
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.countdown.js"></script>
+
+	<script type="text/javascript">
+		$(function () {
+			var date_end = new Date(2013, 12-1, 28); //date(year, month - 1, day)
+			$('#countdown-container').countdown({until: date_end, format: 'DHMS'});
+		});
+	</script>
+
+</body>
+</html>

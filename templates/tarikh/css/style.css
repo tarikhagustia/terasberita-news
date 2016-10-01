@@ -1,0 +1,28 @@
+body {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background: #dedede no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.img-logo {
+	max-height: 150px;
+	margin: 0 auto;
+}
+.gap {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#konten-1 {
+	height: 300px;
+	background-color: red;
+}
+#news-highlight {
+	background-color: yellow;
+	height: 300px;
+}
+#peristiwa {
+	background-color: yellow;
+	height: 300px;
+}
