@@ -1,3 +1,11 @@
+/*
+author	: Allblue Technology;
+website : www.allblue.technology;
+color pallet
+cokelat :a35811;
+hijau : #036266;
+*/
+
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     background: #dedede no-repeat center center fixed;
@@ -23,6 +31,61 @@ body {
 	height: 300px;
 }
 #peristiwa {
-	background-color: yellow;
-	height: 300px;
+	background-color: white;
+	/*height: 100%;*/
+	/*margin-left: 10px;*/
+	/*height: 300px;*/
+}
+#breaking-news {
+	background-color: #a35811;
+}
+h4.title {
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+}
+.title {
+	font-weight: bold;
+	line-height: auto;
+	text-decoration: none;
+}
+.title > a {
+	text-decoration: none;
+	/*color: red !important;*/
+}
+a:hover{
+	color: #e0d3ce !important;
+}
+.title-white{
+	color: white;
+	font-weight: bold;
+	line-height: auto;
+}
+.title-black{
+	color: black !important;
+	font-weight: bold;
+	line-height: auto;
+}
+.title-page {
+	color: white !important;
+	padding: 10px;
+	background-color: #036266;
+}
+.padding {
+	padding: 10px;
+}
+.title-layout {
+	background-color: #a35811;	
+}
+.title-utama {
+
+}
+/* Bootraps equal high
+link : http://getbootstrap.com.vn/examples/equal-height-columns/;
+*/
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
 }

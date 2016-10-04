@@ -5,24 +5,36 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php if(isset($dataArticle)):
+    ?>
+    <meta property="fb:app_id"        content="199212920500045" /> 
+    <meta property="og:image"         content="<?php echo base_url($dataArticle->news_thumb); ?>" />
+    <meta property="og:site_name"     content="terasberita.co"/>
+    <meta property="og:description"   content="<?php echo $this->format->stripHTMLtags($dataArticle->news_desc, 0 , 100); ?>" />
+    <meta property="og:url"           content="<?php echo current_url(); ?>" />
+    <meta property="og:type"          content="article" />
+    <meta property="og:title"         content="<?php echo $dataArticle->news_title ?>" />
+    
+    <meta name="language" content="id" />
+    <meta name="title" content="<?php echo $dataArticle->news_title ?>" />
+    <meta name="description" content="<?php echo $this->format->stripHTMLtags($dataArticle->news_desc, 0 , 100); ?>" />
+    <meta name="keywords" content="<?php echo $this->format->stripHTMLtags($dataArticle->news_desc, 0 , 100); ?>" />
+    <link rel="image_src" href="<?php echo base_url($dataArticle->news_thumb); ?>"/>
+    <meta name="news_keywords" content="<?php echo $this->format->stripHTMLtags($dataArticle->news_desc, 0 , 100); ?>" />
+    <link rel="canonical" href="<?php echo current_url(); ?>">
+    <?php else: ?>
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="description" content="Indeph Jujur Akurat">
-    <meta name="keywords" content="Indeph, jujur, akurat, beita, Berita sukabumi, harian sukabumi, Kriminal sukabumi">
-    <meta name="author" content="terasberita.co">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Cache-Control" content="no-cache">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
-
+    <meta name="description" content="Indepth Jujur Akurat">
+    <meta name="keywords" content="Indepth, jujur, akurat, beita, Berita sukabumi, harian sukabumi, Kriminal sukabumi">
+    <?php endif; ?>
+    
     <title>
     <?php
     if(isset($title)):
         echo $this->security->xss_clean($title)." - terasberita.co";
     else:
-        echo "terasberita.co - Indeph, Jujur , Akurat";
+        echo "terasberita.co - Indepth, Jujur , Akurat";
     endif;
     ?>
     </title>
@@ -34,7 +46,7 @@
     <link href="<?php echo base_url() ?>assets/css/business-casual.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/myawesome.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/login-register.css" rel="stylesheet">
-    <!-- <link rel="icon" type="icon" href="img/logo.png"> -->
+    <link rel="icon" type="icon" href="<?php echo base_url() ?>assets/img/logo.png">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -123,8 +135,7 @@
    </div>
 <section id="nav-atas">
     <div class="container">
-        <div class="col-md-12">
-            <div class="span">
+        <div class="col-md-6">
                 <div class="kiri">
                 <?php if ($this->session->userdata('logged_in')): ?>
                     <ul>
@@ -137,7 +148,7 @@
                         <li>
                             <a href="#">
                                 <h5>JADILAH BAGIAN DARI KAMI</h5>
-                                <p>Indeph , Jujur dan terpercaya</p>
+                                <p>Indepth , Jujur dan terpercaya</p>
                             </a>
                         </li>
                         <li class="button">
@@ -150,19 +161,31 @@
                     </ul>
                 <?php endif; ?>
                 </div>
+            </div>
+            <div class="col-md-6 col-xs-6">
                 <div class="kanan">
-                    <ul>
-                        <form action="<?php echo base_url('search'); ?>" id="search-form">
-                        <li><input placeholder="Cari Berita" name="q"></input></li>
-                        <li class="cari">
-                            <a href="#"><img src="<?php echo base_url() ?>assets/img/search.png" class="cari" width="28px"></a>
-                        </li>
-                        </form>
-                        <li><h5>Follow US :</h5></li>
-                        <li class="sos"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/fb-1.png"></a></li>
-                        <li class="sos"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/twit-1.png"></a></li>
-                        <li class="sos"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/yutube-1.png"></a></li>
-                    </ul>
+                    <div class="col-md-6 col-xs-8">
+                        <div class="form">
+                            <form action="<?php echo base_url('search'); ?>" id="search-form">
+                                <div class="input">
+                                    <input placeholder="Cari Berita" name="q" />
+                                </div>
+                                <div class="cari">
+                                    <button><img src="<?php echo base_url() ?>assets/img/search.png" class="cari" width="28px"></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="follow">
+                                <h6>Follow US :</h6>
+                            <ul>
+                                <li><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/fb-1.png"></a></li>
+                                <li><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/twit-1.png"></a></li>
+                                <li><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/yutube-1.png"></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -171,9 +194,15 @@
 
 <section id="nav-tengah">
     <div class="container">
-        <div class="col-md-12">
-            <div class="span">
-                <a href="#"><div class="logo"><img src="<?php echo base_url() ?>assets/img/logo/Teras Berita - Logo - Standart.png"></div></a>
+        <div class="col-md-6">
+            <div class="logo">
+                <?php if(isset($dataLogo)): ?>
+                <a href="#"><img class="img-responsive" src="<?php echo base_url($dataLogo->logo) ?>"></a>
+                <?php else: ?>
+                <a href="#"><img src="<?php echo base_url('assets/img/logo/Teras Berita - Logo - Standart.png') ?>"></a>
+                <?php endif; ?>
+            </div>
+        </div>
                 <?php
                 $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_type' => 'ads'));
                 foreach ($ads as $key => $value) {
@@ -181,7 +210,9 @@
                     $data[$value->layout_name] = $value->layout_dir;
                 }
                 ?>
-                <a href="#"><div class="img img-ads"><img src="<?php echo base_url($data['header-809x188']) ?>"></div></a>
+        <div class="col-md-6">
+            <div class="iklan hidden-xs">
+                <a href="#"><img src="<?php echo base_url($data['header-809x188']) ?>"></a>
             </div>
         </div>
     </div>
@@ -189,7 +220,6 @@
 
 
     <!-- Navigation -->
-    <div class="col-md-12">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -224,12 +254,13 @@
                     <li>
                         <a id="<?php if($this->uri->segment(1) == 'teras-ekonomi'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-ekonomi') ?>">terasEkonomi</a>
                     </li>
-                    <li style="width: 100px;">
-                        <a href="#" class="index">INDEX</a>
+                    <li class="index">
+                        <a href="#" style="margin-right: 0px;">INDEX</a>
                     </li>
                 </ul>
-            </div></div>
+            </div>
+        </div>
             <!-- /.navbar-collapse -->
-        </div></nav>
+    </div>
         <!-- /.container -->
-    </nav>
+</nav>

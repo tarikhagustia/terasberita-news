@@ -2,17 +2,9 @@
     <section id="deskripsi-berita">
         <div class="container">
             <div class="row">
-                <div class="box">
-                    <div class="col-sm-6">
+                <div class="col-md-12">
+                    <div class="col-sm-8">
                         <div class="box-deskripsi">
-                            <!-- <p class="title"><small>Teras Berita / Fokus / Lorem Ipsum</small></p> -->
-                            <!-- <div class="kanan">
-                                <ul><li><small>Follow Teras Berita :</small></li>
-                                    <li class="follow-us"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/fb-2.png"></a></li>
-                                    <li class="follow-us"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/twit-2.jpg"></a></li>
-                                    <li class="follow-us"><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/yutube-2.png"></a></li>
-                                </ul>
-                            </div> -->
                             <small><?php echo $this->format->date_indonesia($dataArticle->news_timestamp) ?></small>
                             <h4 class="title"><?php echo $dataArticle->category_alias ?></h4>
                             <h2 class="title-article"><?php echo $dataArticle->news_title ?></h2>
@@ -22,6 +14,7 @@
                               data-width="450"
                               data-show-faces="true">
                             </div>
+                            <br/>
                             <small><?php if($dataArticle->news_creator != null): echo $dataArticle->news_creator ;else: echo "Tim teras"; endif; ?> - <?php echo $dataArticle->category_alias ?></small>
                             <div class="des">
                                 <?php if($dataArticle->news_thumb == NULL || $dataArticle->news_thumb == ''): ?>
@@ -82,33 +75,42 @@
 
                     </div>
                 </div><!--BOX BERITA-->
+                <div class="col-md-4">
                 <div class="fokus"><!--populer-->
                     <div class="title-populer"><h5>Populer</h5></div>
                     <?php foreach($dataPopuler as $rows): ?>
                         <div class="fok-isi">
                             <div class="list">
-                                <img src="<?php echo base_url($rows->news_thumb) ?>">
-                                <p class="des text-justify">
-                                    <a class="title" href="<?php echo base_url($rows->news_url) ?>"><?php echo $rows->news_title ?></a><br>
-                                    <?php echo $this->format->date_indonesia($rows->news_timestamp) ?>
-                                </p>
+                                <div class="col-md-4 col-xs-4">
+                                    <img src="<?php echo base_url($rows->news_thumb) ?>">
+                                </div>
+                                <div class="col-md-8 col-xs-8">
+                                    <p class="desc text-justify">
+                                        <a class="title" href="<?php echo base_url($rows->news_url) ?>"><?php echo $rows->news_title ?></a><br>
+                                        <?php echo $this->format->date_indonesia($rows->news_timestamp) ?>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-                <div class="fokus" style="margin-top: 20px;"><!--FOKUS-->
+                <div class="fokus" style="margin-top: 200px;" hidden="true"><!--FOKUS-->
                     <div class="title-populer"><h5>terasPeristiwa</h5></div>
                     <div id="scrolllable-fokus"><!--SCROLLLABLE-->
                         <?php foreach($dataTerasPeristiwa as $key => $rows){ ?>
                         <div class="fok-isi"><!--FOK ISI-->
                             <div class="list">
-                                <div class="profileImage"><?php echo $key+1; ?></div>
-                                <p class="des">
+                                <div class="col-md-4 col-xs-4">
+                                <div class="profileImage" style="margin: auto;"><?php echo $key+1; ?>
+                                </div>
+                                </div>
+                                <div class="col-md-8 col-xs-8">
+                                <p class="des text-justify">
                                     <a class="title" href="<?php echo base_url('teras-peristiwa/'.$rows->fokus_url); ?>"><?php echo $rows->fokus_name; ?></a>
                                     <br>
                                     <a href="<?php echo base_url('teras-peristiwa/'.$rows->fokus_url); ?>"><?php echo $rows->fokus_comment; ?></a>
-                                </p>
-                            </div>
+                                    </p>
+                                </div>
                         </div><!--/FOK ISI-->
 
                         <?php } ?>
@@ -127,6 +129,13 @@
     <small><?php echo $this->format->date_indonesia($dataArticle->news_timestamp); ?></small>
     <h4 class="title"><?php echo $dataArticle->category_alias ?></h4>
     <h2 class="title-article"><?php echo $dataArticle->news_title ?></h2>
+    <div
+      class="fb-like"
+      data-share="true"
+      data-width="450"
+      data-show-faces="true">
+    </div>
+    <br/>
     <small><?php if($dataArticle->news_creator != null): echo $dataArticle->news_creator ;else: echo "Tim teras"; endif; ?> - <?php echo $dataArticle->category_alias ?></small>
     <div class="des">
         <?php if($dataArticle->news_thumb == NULL || $dataArticle->news_thumb == ''): ?>

@@ -448,9 +448,10 @@ class Backoffice extends CI_Controller
     public function createUsers()
     {
         $this->load->library('form_validation');
+        $this->load->helper('security');
         // Validator
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim|is_unique[bo_user.email]');
-        $this->form_validation->set_rules('full_name', 'Nama Anda', 'required');
+        $this->form_validation->set_rules('full_name', 'Nama Anda', 'required|trim|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('password_confirmation', 'Password Confirmation', 'required|matches[password]');
 
@@ -462,7 +463,7 @@ class Backoffice extends CI_Controller
         	$this->session->set_flashdata('status','Penambahan user berhasil');
         	$data = array(
         		'username' => $this->input->post('email'),
-        		'full_name' => $this->input->post('full_name'),
+        		'full_name' => $this->security->xss_clean($this->input->post('full_name')),
         		'email' => $this->input->post('email'),
         		'password' => md5($this->config->item('encryption_key').$this->input->post('password')),
         		'group_id' => $this->input->post('akses')

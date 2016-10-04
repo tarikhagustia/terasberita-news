@@ -62,6 +62,5 @@ $route['teras-peristiwa/(:any)'] = 'FrontEnd/terasPeristiwa/$1';
 $route['backoffice'] = 'Backoffice';
 $route['example'] = 'Example';
 $route['search'] = 'FrontEnd/secureSearch';
-$route['awesome'] = 'FrontEnd/customOnly';
 $route['(:any)'] = 'FrontEnd/viewMyArticle/$1';
 

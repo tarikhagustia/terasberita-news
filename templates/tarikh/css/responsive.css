@@ -11,3 +11,8 @@
         position:fixed;
 	}
 }
+@media only screen and (max-width : 767px) {
+  .box {
+    height: auto !important;
+  } 
+}

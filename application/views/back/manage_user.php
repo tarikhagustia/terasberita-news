@@ -115,7 +115,7 @@
               <?php $i=1; foreach($data as $row) {  ?>
               <tr>
                   <td><?php echo $i; ?></td>
-                  <td><?php echo $row['full_name']; ?></td>
+                  <td><?php echo $this->security->xss_clean($row['full_name']); ?></td>
                   <td><?php echo $row['username']; ?></td>
                   <td><?php echo $row['date_create']; ?></td>
                   <td><?php echo $row['email']; ?></td>

@@ -49,7 +49,12 @@ class FrontEnd extends CI_Controller {
 		if(!empty($dataBreakingNews)):
 			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
 		endif;
-		$this->load->view('FrontOffice/topside');
+		$dataLogo = $this->news->getData('fn_category', 'logo' , array('category_id' => $aid));
+		foreach ($dataLogo as $key => $value) {
+			# code...
+			$dataLogo = $value;
+		}
+		$this->load->view('FrontOffice/topside', array('dataLogo' => $dataLogo));
 		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => $dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
@@ -67,7 +72,12 @@ class FrontEnd extends CI_Controller {
 		if(!empty($dataBreakingNews)):
 			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
 		endif;
-		$this->load->view('FrontOffice/topside');
+		$dataLogo = $this->news->getData('fn_category', 'logo' , array('category_id' => $aid));
+		foreach ($dataLogo as $key => $value) {
+			# code...
+			$dataLogo = $value;
+		}
+		$this->load->view('FrontOffice/topside', array('dataLogo' => $dataLogo));
 		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
@@ -85,7 +95,12 @@ class FrontEnd extends CI_Controller {
 		if(!empty($dataBreakingNews)):
 			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
 		endif;
-		$this->load->view('FrontOffice/topside');
+		$dataLogo = $this->news->getData('fn_category', 'logo' , array('category_id' => $aid));
+		foreach ($dataLogo as $key => $value) {
+			# code...
+			$dataLogo = $value;
+		}
+		$this->load->view('FrontOffice/topside', array('dataLogo' => $dataLogo));
 		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
@@ -103,7 +118,12 @@ class FrontEnd extends CI_Controller {
 		if(!empty($dataBreakingNews)):
 			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
 		endif;
-		$this->load->view('FrontOffice/topside');
+		$dataLogo = $this->news->getData('fn_category', 'logo' , array('category_id' => $aid));
+		foreach ($dataLogo as $key => $value) {
+			# code...
+			$dataLogo = $value;
+		}
+		$this->load->view('FrontOffice/topside', array('dataLogo' => $dataLogo));
 		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
@@ -121,7 +141,12 @@ class FrontEnd extends CI_Controller {
 		if(!empty($dataBreakingNews)):
 			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
 		endif;
-		$this->load->view('FrontOffice/topside');
+		$dataLogo = $this->news->getData('fn_category', 'logo' , array('category_id' => $aid));
+		foreach ($dataLogo as $key => $value) {
+			# code...
+			$dataLogo = $value;
+		}
+		$this->load->view('FrontOffice/topside', array('dataLogo' => $dataLogo));
 		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
@@ -139,7 +164,12 @@ class FrontEnd extends CI_Controller {
 		if(!empty($dataBreakingNews)):
 			$dataBreakingNewsLeft = $this->news->getBreakingLeft($dataBreakingNews->fokus_id, $dataBreakingNews->news_id);
 		endif;
-		$this->load->view('FrontOffice/topside');
+		$dataLogo = $this->news->getData('fn_category', 'logo' , array('category_id' => $aid));
+		foreach ($dataLogo as $key => $value) {
+			# code...
+			$dataLogo = $value;
+		}
+		$this->load->view('FrontOffice/topside', array('dataLogo' => $dataLogo));
 		$this->load->view('FrontOffice/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => @$dataBreakingNewsLeft));
 		$this->load->view('FrontOffice/footer');
 	}
@@ -167,7 +197,7 @@ class FrontEnd extends CI_Controller {
 		$dataCommentArticle = $this->news->getCommentFromArticle($news_url);
 		$dataPopular = $this->news->getPopularNewsByCatgory($dataArticle->category_id, $dataArticle->news_id);
 		$dataTerasPeristiwa = $this->news->getTerasPeristiwa($dataArticle->category_id);
-		$this->load->view('FrontOffice/topside', array('title' => $dataArticle->news_title));
+		$this->load->view('FrontOffice/topside', array('title' => $dataArticle->news_title, 'dataArticle' => $dataArticle));
 		$this->load->view('FrontOffice/article', array('dataArticle' => $dataArticle, 'dataCommentArticle' => $dataCommentArticle, 'dataPopuler' => $dataPopular, 'dataTerasPeristiwa' => $dataTerasPeristiwa));
 		$this->load->view('FrontOffice/footer');
 		// $cekId = $this->news->getData('fn_news', 'news_id', array('news_url' => $news_url));

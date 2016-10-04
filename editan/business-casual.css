@@ -1,0 +1,1469 @@
+/*!
+ * Start Bootstrap - Business Casual (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background: #dedede no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+a:hover{color: #333333;text-decoration: underline;}
+a,a img:hover{text-decoration:;color: #000;transition: 1s;}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-family: "Open Sans","Sans","sans-serif",opensans,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #000;
+}
+
+hr {
+    max-width: 400px;
+    border-color: #999999;
+}
+
+/*---NAv ATAS--*/
+#nav-atas{
+    width: 100%;
+    overflow: hidden;   
+    position: fixed;
+    background-color: #036266;
+    z-index: 999999;
+}
+.kiri{
+    width: auto;
+    height: 50px;
+        float: left;
+        
+}
+.kiri h5{
+    color: #000;
+}
+.kiri ul li{
+    float: left;
+    display: block;
+}
+.kiri ul li p{
+    float: right;
+    color: #fff;
+    margin-top: -10px;
+}
+ul li.button{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+a button{
+    color: #fff;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+}
+button{
+    border: none;
+    border-radius: 5px;
+}
+a button.brown{
+    background-color: #985703;
+}
+a button.grey{
+    background-color: #576266;
+}
+a button.brown:hover{
+    background-color: #a46205;
+    color: #fff;
+}
+a button.grey:hover{
+    background-color: grey;
+    color: #fff;
+}
+.kanan{
+    width: 110%;
+    overflow: hidden;
+    float: left;
+    padding-top: 10px;
+    z-index: 999999;
+}
+.form{
+    width: 100%;
+    overflow: hidden;
+}
+    .input{
+        width: 87%;
+        height: 28px;
+        float: left;
+        margin-bottom: 10px;
+    }
+    .input input{
+        width: 100%;
+        height: 28px;
+        float: left;
+        border: 0px;
+    }
+    .cari{
+        width: 13%;
+        height: 28px;
+        float: left;
+    }
+    .cari button{
+        background: grey;
+        width: 100%;
+        height: 28px;
+        padding: 0px;
+        border: 0px;
+        border-radius: 0px;
+        float: left;
+    }
+    .cari button img{
+        width: 100%;
+    }
+    .cari button:hover{
+        background: #666;
+    }
+    /*
+    .cari img{
+        background-color: grey;
+        float: left;
+        margin-right: 10px;
+    }*/
+
+.follow{
+    width: 100%;
+    height: 10px;
+    margin-top: 0px;
+    padding-left: 10px;
+}
+.follow h6{
+    color: #fff;
+    float: left;
+    margin-top: -0px;
+}
+.follow ul li{
+    display: block;
+    float: left;
+}
+.follow ul li img{
+    width: 30px;
+    margin-left: 5px;
+    margin-top: -16px;
+}
+/*--Tengah--*/
+
+#nav-tengah{
+    width: 100%;
+    height: 230px;
+    padding-top: 70px;
+}
+.span{
+    width: 100%;
+    height: 80px;
+}
+.logo,.iklan{
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    float: left;
+}
+.logo img{
+    /*width:500px;*/
+    height: 150px;
+}
+.img{
+    width: 50%;
+    height: 130px;
+    float: left;
+}
+.img img{
+    width: 600px;
+    height: 130px;
+    float: right;
+    margin-right: 5px;
+}
+.iklan img{
+    width: 100%;
+}
+
+#navigasi{
+    width: 100%;
+}
+
+.brand,
+.address-bar {
+    display: none;
+}
+
+.navbar-brand {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.navbar-nav {
+    /*text-transform: uppercase;*/
+    /*font-weight: 1000;*/
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.img-full {
+    min-width: 100%;
+}
+
+.brand-before,
+.brand-name {
+    text-transform: capitalize;
+}
+
+.brand-before {
+    margin: 15px 0;
+}
+
+.brand-name {
+    margin: 0;
+    font-size: 4em;
+}
+
+.tagline-divider {
+    margin: 15px auto 3px;
+    max-width: 250px;
+    border-color: #999999;
+}
+.box {
+    margin-bottom: 20px;
+    padding: 30px 15px;
+    width: 98%;
+}
+.box-berita {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding: 30px 15px;
+    background: #985703;
+}
+
+.intro-text {
+    text-transform: uppercase;
+    font-size: 1.25em;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.img-border {
+    float: none;
+    margin: 0 auto 0;
+    border: #999999 solid 1px;
+}
+
+.img-left {
+    float: none;
+    margin: 0 auto 0;
+}
+
+footer {
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+}
+
+footer p {
+    margin: 0;
+    padding: 50px 0;
+}
+
+@media screen and (min-width:768px) {
+    .brand {
+        display: inherit;
+        margin: 0;
+        padding: 30px 0 10px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 5em;
+        font-weight: 700;
+        line-height: normal;
+        color: #fff;
+    }
+
+    .top-divider {
+        margin-top: 0;
+    }
+
+    .img-left {
+        float: left;
+        margin-right: 25px;
+    }
+
+    .address-bar {
+        display: inherit;
+        margin: 0;
+        padding: 0 0 40px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        text-transform: uppercase;
+        font-size: 1.25em;
+        font-weight: 400;
+        letter-spacing: 3px;
+        color: #fff;
+    }
+
+    .navbar {
+        border-radius: 0;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 30px;
+        color: #fff;
+    }
+
+    .navbar-header {
+        display: none;
+    }
+
+    .navbar {
+        min-height: 0;
+    }
+
+    .navbar-default {
+        border: none;
+        background: #fff;
+        background: transparent;
+    }
+
+    .nav ul li a {
+        color: #fff;
+        border-right: 1px solid;
+    }
+    .navbar-nav li a{
+        background-color: #985703;
+        padding: 20px 22px;
+        margin-right: 5px;
+        margin-bottom: 20px;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .navbar-nav {
+        display: table;
+        float: none;
+        margin: 0 auto;
+        table-layout: fixed;
+        font-size: 1.25em;
+    }
+    .teras-nasional{
+        background-color: #036266;
+    }
+    a#aktiv{
+        color: #fff;
+        border: 1px solid #ccc;
+        background-color: #036266;
+    }
+    a#aktiv:hover{
+        background-color: transparent;
+    }
+    .index{
+        width: 110px;
+        text-align: center;
+        margin-right: 0px;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .box:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+h5.title{
+    margin-top: -10px;
+    padding-bottom: 10px;
+    font-family:sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    font-weight: 700;
+        color: #fff;
+
+}
+#slider{
+    margin-top: 1000px;
+}
+
+
+
+
+
+
+/*--BERITA--*/
+
+.text-berita{
+    /*width: 300px;
+    height: 0;
+    z-index: 9999;
+    position: relative;
+    top: -100px;
+    color: #fff;*/
+
+    width: 300px;
+    height: 0;
+    z-index: 9999;
+    position: relative;
+    top: 200px;
+    color: #fff;
+}
+.judul{
+    width: 180px;
+    height: 30px;
+    position: relative;
+    left: 20px;
+    top: -50px;
+    padding: 5px 10px 10px 10px;
+    background-color: #985409;
+    font-size: 15px;
+}
+.banner{
+    position: relative;
+    top:-40px;
+    left: 20px;
+    color: #fff;
+}
+.date{
+    position: relative;
+    top:-40px;
+    left: 20px;
+    font-size: 10px;
+    color: #fff;
+}
+/*--FOKUS--*/
+
+.fokus{
+    width: 100%;
+    overflow: hidden;   
+    padding-bottom: 15px;
+    float: right;
+    background-color: #fff;
+}
+
+.fok-isi{
+    width: 100%;
+    padding-top: 10px;
+}
+#fokus{
+    border-bottom: 1px solid #000;
+}
+.list img{
+    width: 100%;
+    height: 60px;
+}
+.desc a:hover{
+    text-decoration: underline;
+}
+.desc{
+    width: 100%;
+    float: left;
+    color: #000;
+    margin-left: -20px;
+    margin-bottom: 10px;
+            font-size: 10px;
+            
+}
+a.title{
+    color: blue;
+    font-size: 15px;
+}
+
+
+
+
+
+
+/*--Populer--*/
+
+
+#populer-responsive{display: none;}
+
+#populer{
+    width: 100%;
+    padding: 0px 0 30px 0;
+    margin:auto;
+}
+
+.populer{
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.title-populer{
+    width: 100%;
+    height: 40px;
+    padding-top: 1px;
+    padding-left: 15px;
+    background-color: #985409;
+    color: #fff;
+}
+.pop-kiri{
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    padding-left: 10px;
+}
+.pop-kiri h5{
+    color: #000;
+}
+.pop-kiri h5:hover{
+    padding-left: 20px;
+    color: #333333;
+    transition: 1s;
+    text-decoration: none;
+}
+.pop-kiri img{
+    width: 100%;
+    height: 120px;
+    margin-top: 10px;
+}
+.pop-kanan{
+    width: 100%;
+    float: right;
+    margin-top: 20px;
+}
+.list{
+    width: 100%;
+    float: right;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.list img{
+    width: 100%;
+    height: 60px;
+    float: left;
+}
+p.des{
+    width: 100%;
+    float: left;
+    color: #000;
+    margin-bottom: 10px;
+            font-size: 10px;
+}
+p.des a.title{
+    color: #000;
+    font-size: 13px;
+}
+
+/*----Peristiwa--*/
+.peristiwa{
+    width: 49%;
+    height: 400px;
+}
+.atas img{
+    width: 100px;
+}
+
+
+/*----News--*/
+#berita{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+    margin:auto;    
+}
+#news{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+    margin:auto;
+}
+
+.kir{
+    width: 100%;
+    height: 100px;
+}
+.news-isi{
+    width: 100%;
+    float: left;
+    padding-top: 10px;
+}
+.news-isi img{
+    width: 100%;
+    height: 120px;
+}
+.list{
+    width: 100%;
+    border-bottom: none;
+    padding-bottom: 10px;
+}
+.des-news a:hover{
+    text-decoration: underline;
+}
+.des-news{
+    width: 100%;
+    float: right;
+    color: #036266;
+    margin-bottom: 10px;
+            font-size: 12px;
+}
+a.title{
+    color: #323333;
+    font-size: 15px;
+    font-weight: 500;
+}
+small{
+    color: grey;
+}
+#box-kanan{
+    background-color: transparent;
+}
+.iklan img{
+    width: 100%;
+    height: 180px;
+}
+#kfc{
+    height: 280px;
+    margin-bottom: 10px;
+}
+img#kfc{
+    width: 100%;
+}
+
+.komentar{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 80px;
+    margin-top: 10px;
+    background-color: #985703;
+}
+    .img-daftar{
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
+        position: relative;
+        top: 40px;
+        margin: auto;
+        border-right: 2px solid #fff;
+        
+    }
+    .img-daftar img{
+        width: 100%;
+        height: auto;
+        padding:0px 20px;
+        margin: auto;
+        text-align: center;
+        float: left;
+    }
+    .img-daftar p{
+        color: #fff;
+    }
+    .form-daftar{
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        top: 40px;
+    }
+    .form-daftar ul li{
+        display: block;
+    }
+    .form-daftar ul li input{
+        width: 100%;
+        height: 36px;
+            float: left;
+            padding: 5px;
+            margin-bottom: 6px;
+            margin-left: -39px;
+        color: #fff;
+        background: #036266;
+        border: 0px;
+        border-radius: 5px;
+
+    }
+    #submit{
+        width: 100%;
+        background: transparent;
+        border: 1px solid #fff;
+    }
+    #submit:hover{
+        transition: 1s;
+        background-color: #fff;
+        color: #000;
+    }
+
+    /*
+.logo-daftar{
+    width: 100px;
+    height: 100px;
+    border-right: 10px solid #fff;
+    float: right;
+}
+
+
+/*--Footer--*/
+#footer{
+    width: 100%;
+    overflow: hidden;
+    background-color: #036266;
+}
+.footer{
+    margin-top: 12px;
+}
+.logo-bawah{
+    width: 200px;
+}
+.logo-bawah img{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left:10px;
+    float: left;
+}
+
+.footer-kanan{
+    width: 90%;
+    height: 100px;
+    float: right;
+}
+.footer-kanan ul li{
+    display: block;
+}
+.medsos{
+    padding-top: 10px;
+    float: right;
+}
+.medsos a img{
+    width: 30px;
+    margin-right: 10px;
+    padding: 0px;
+}
+.line{
+    padding-bottom:50px;
+    border-bottom: 1px solid #fff;
+}
+.copyright{
+    width: 100%;
+    margin-top: 10px;
+    color: #fff;
+}
+.copyright a{
+    color: #fff;
+    font-size: 13px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.copyright ul li{
+    display: none;
+    float: left;
+}
+.copyright a:hover{
+    text-decoration: underline;
+}
+
+.link{
+    float: right;
+    margin-right: 140px;
+}
+
+.box-kiri{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
+    float: left;
+}
+.box-kanan{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
+    background-color: #985703;
+    float: right;
+}
+.img-peristiwa{
+    width: 90%;
+    height: 220px;
+    margin:auto;
+    z-index: 99999;
+}
+.img-peristiwa img{
+    width: 100%;
+    height: 200px;
+    margin:auto;
+}
+.isi-peristiwa{
+    width: 90%;
+    height: 200px;
+    margin: auto;
+}
+.title-peristiwa h5{
+    color: #fff;
+    font-size: 12px;
+}
+.title-peristiwa h5 a:hover{
+    color: #fff;
+    padding-left: 20px;
+    transition: 1s;
+}
+.isi-kiri{
+    padding-top: 10px;
+    width: 100%;
+    float: left;
+}
+.isi-kiri h5{
+    color: red;
+}
+
+.isi-kanan{
+    width: 100%;
+    height: 130px;
+    float: left;
+    padding-left: 10px;
+    margin-top: 30px;
+    border-left: 2px solid #fff;
+}
+
+.des p,.des ul li{
+    color: #fff;
+    font-size: 12px;
+}
+.des ul li a{
+    color: #fff;
+}
+#des{
+    margin-left: -20px;
+    float: left;
+}
+
+
+
+
+
+#scrolllable-fokus{
+border: 1px solid #f8f8f8;
+padding: 15px;
+overflow: auto;
+width: 100%;
+height: 410px;
+background-color: white;
+}
+#scrolllable-populer{
+border: 1px solid #fff;
+overflow: auto;
+width: 100%;
+height: 420px;
+margin-left: 30px;
+float: right;
+}
+#scrolllable-news{
+border: 1px solid #fff;
+padding: 15px;
+overflow: auto;
+width: 100%;
+height: 750px;
+background-color: white;
+}
+
+#scroll-atas{
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    z-index: 999999;
+}
+#scroll-atas a{
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#menu-responsive{
+    display: none;}
+
+
+/*--profil-contact--*/
+#profil-contact{
+    width: 400px;
+    height: 220px;
+    float: right;
+}
+
+/*--Lanjutan Fokus--*/
+
+#deskripsi-berita{
+    width: 100%;
+    overflow:hidden;
+    padding-bottom: 50px;
+}
+.box-deskripsi{
+    width: 100%;
+    overflow: hidden;
+    padding: 30px 15px;
+    background: #f8f8f8;
+}
+.title small{
+    color: #ccc;
+    font-size: 20px;
+}
+h2.title{
+    color: #036266;
+}
+
+.follow-us img{
+    width: 25px;
+    height: 25px;
+    position: relative;
+    left: 10px;
+    margin-top: -20px;
+}
+.follow-us a img{
+    margin-right: 10px;
+}
+
+.isi{
+    width: 100%;
+    overflow: hidden;
+        margin:auto;
+        /*margin-top: 110px;*/
+}
+.isi p{
+    color: #000;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+.isi a{
+    font-weight: bold;
+    color: blue;
+
+}
+
+.img-header{
+    width: 100%;
+    /*height: 200px;*/
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.img-header img{
+    width: 100%;
+    /*height: 300px;*/
+}
+.titile_bt{
+  color: #fed019;
+font-weight: bold;
+}
+.article_terkait{
+  padding: 10px;
+}
+
+
+
+
+/*--BERITA--*/
+.coment{
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 50px;
+}
+.box-coment{
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #ccc;
+}
+.line-atas{
+    width: 100%;
+    height: 30px;
+    margin-top: -10px;
+    background-color: #4c4c4c;
+    color: #fff;
+}
+.line-atas h5{
+    line-height: 30px;
+    padding-left: 20px;
+}
+textarea{
+    width: 100%;
+    height: 200px;
+    border: none;
+    padding: 10px;
+    border: none;
+    font-size: 1.5em;
+}
+.line-bawah{
+    width: 100%;
+    overflow: hidden;
+    background-color: #d2d2d2;
+    color: #fff;
+}
+.colom-kiri{
+    width: 50%;
+    overflow: hidden;
+    float: left;
+}
+.colom-kiri ul li{
+    float: left;
+    display: block;
+    line-height: 40px;
+    margin-right: 10px;
+}
+.colom-kiri ul li img{
+    width: 25px;
+    height: 25px;
+    margin-top: -5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.colom-kanan{
+    width: 50%;
+    height: 40px;
+    float: right;
+}
+.colom-kanan input{
+    width: 50%;
+    height: 90%;
+    background-color: #999999;
+    margin-top: 2px;
+    float: right;
+    border: 1px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+.colom-kanan input:hover{
+    background-color: #777777;
+}
+
+
+.line-navigasi{
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    color: #ccc;
+    border-bottom: 2px solid #ccc;
+    box-shadow: 0px 5px 0px #ccc;
+}
+.line-navigasi a{
+    line-height: 40px;
+    padding-left: 10px;
+    font-size: 1em;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+.line-navigasi a:hover{
+    color: #0000ff;
+    transition: 0s;
+}
+
+.isi-coment{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.img-coment{
+    width: 10%;
+    overflow: hidden;
+    float: left;
+}
+.img-coment img{
+    width: 100%;
+}
+.des-coment{
+    width: 90%;
+    overflow: hidden;
+    padding-left: 10px;
+}
+p.pengirim a{
+    color: #0000cc;
+}
+
+
+
+
+
+/*--Search--*/
+#pencarian{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 150px;
+}
+.nav-pencarian{
+    width: 100%;
+    overflow: hidden;
+}
+.search input{
+    width: 63%;
+    height: 40px;float: left;
+}
+.search button{
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+    border-radius: 0px;
+}
+.search img{
+    width: 100%;
+    height: 40px;
+}
+.notif{
+    width: 100%;
+    overflow: hidden;
+}
+blockquote{
+    border: none;
+}
+.navigasi{
+    width: 67%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #000;
+}
+.navigasi a{
+    padding-left: 10px;
+    font-weight: bold;
+}
+.box-detail{
+    width: 30%;
+    overflow: hidden;
+    float: right;
+    background-color: #fff;
+}
+.box-hasil{
+    width: 140%;
+    overflow: hidden;
+    float: left;
+    padding: 20px 15px;
+    background-color:#fff;
+}
+.detail{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.detail h5{
+    text-align: center;
+}
+.detail h6{
+    width: 120px;
+    height:25px;
+    line-height: 25px;
+    color: #fff;
+    background-color: #aaa;
+}
+.detail ul li{
+    display: block;
+}
+.detail ul li input{
+    width: 30%;
+}
+.nav-content{
+    width: 100%;
+    overflow: hidden;
+}
+.img-content{
+    width: 40%;
+    height: 150px;
+    float: left;
+}
+.img-content img{
+    width: 92%;
+    height: 150px;
+}
+.isi-content{
+    width:95%;
+    padding-bottom: 20px;
+}
+
+
+
+
+/*--RESPONSIVE--*/
+@media (max-width: 768px) {
+     #pencarian{
+        width: 100%;
+        position: relative;
+        top: -25px;
+        left: -10px;
+    }
+    #nav-atas{
+        width: 100%;
+        height: 70px;
+        position: absolute;
+        margin-top: 450px;
+    }
+    .navbar{
+        background-color: #006666;
+        position: fixed;
+        width: 100%;
+        margin-top: -230px;
+        border: 1px solid #006666;
+        z-index: 999999;
+    }
+
+    .navbar-header{
+        position: relative;
+        width: 90px;
+        color:#fff;
+    }
+    .navbar-brand
+    ,.kiri
+    ,.kanan
+    ,.fokus
+    ,#populer
+    ,#news{
+        display: none;
+    }
+
+    /*--FOKUS--*/
+    #scrolllable-fokus{
+        width: 100%;
+    }
+    .fokus{
+        display: block;
+        width: 100%;
+        float: left;
+        margin-top: 20px;
+    }
+    .list{
+        position:relative;
+    }
+    .list img{
+        float: left;
+    }
+    a.title{
+        font-size: 15px;
+    }
+    p.des{
+        width: 145px;
+        font-size: 8px;
+        margin: 0px;
+        margin-left: 10px;
+        float: left;
+    }
+    .container{
+        width: 100%;
+    }
+
+    .logo{
+        width: 100%;
+        height: auto;
+        margin: auto;
+        margin-top: -25px;
+        margin-bottom: 20px;
+    }
+    .logo img{
+        width: 100%;
+        float: left;
+    }
+    h5.title{
+        font-size: 15px;
+    }
+    .img{
+        width: 100%;
+        position: relative;
+        top: 350px;
+        margin: auto;
+    }
+    .img img{
+        width: 100%;
+    }
+    .box-berita{
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin:auto;
+        margin-top: -70px;
+        padding-left: 20px
+        padding-bottom: 20px;
+    }
+    .text-berita{
+        display: none;
+        /*width: 100%;*/
+    }
+    .img-ads{
+      display: none;
+    }
+    .title-populer{
+        width: 100%;
+    }
+    #populer-responsive{
+        width: 122%;
+        position: relative;
+        top: 150px;
+        left: -60px;
+        padding-left: 10px;
+        display: none;
+        margin: 0 auto;
+    }
+    .news-isi{
+        box-shadow: none;
+        margin-top: 10px;
+    }
+    .news-responsive{
+        width: 100%;
+        height: 100px;
+        margin-left: 30px;
+    }
+    #populer-responsive img{
+        width: 35%;
+        height: 70px;
+    }
+
+    .img-responsive{
+        width: 100%;
+    }
+    p.des-news a{
+        font-size: 11px;
+    }
+    p.des-news{
+        width: 129px;
+        box-shadow: none;
+        position: relative;
+        font-size: 10px;
+        float: right;
+    }
+    .iklan{
+        display: block;
+    }
+    .box-kanan{
+        display: none;
+    }
+    #footer{
+        width: 100%;
+        height: 450px;
+        margin-top: 20px;
+    }
+    .footer-kanan{
+        width: 100%;
+        padding-left: 0;
+        margin-left: -50px;
+        position: relative;
+        float: left;
+    }
+    .medsos{
+        float: right;
+    }
+    #link{
+        display: none;
+    }
+    .copyright ul li{
+        display: none;
+
+    }
+    #res{
+        width: 150px;
+        margin-left: 20px;
+        margin-top: 10px;
+        display: list-item;
+        display: block;
+        position: relative;
+    }
+    #res a{
+        width: 300px;
+        height: 200px;
+        margin-top: 10px;
+        float: left;
+    }
+    a#res:hover{
+        text-decoration: underline;
+    }
+
+
+    #berita-kontak{
+        display: block;
+    }
+    #contact{
+        margin-top: 100px;
+    }
+    img#profil-contact{
+        width: 100%;
+    }
+
+    .box-deskripsi{
+        width: 100%;
+    }
+    .nav-content{
+        width: 90%;
+    }
+    .profilepicture {
+        display: none;
+    }
+    .isi-content{
+        width: 90%;
+    }
+    .box-kanan{
+        display: block;
+        margin-top: 100px;
+        float: left;
+    }
+
+    /*KOMENTAR*/
+    .colom-kiri{
+        width: 100%;
+    }
+    .colom-kiri ul{
+        width: 80%;
+        height: 10px;
+        margin: auto;
+    }
+    .colom-kiri ul li{
+        padding: 0px;
+        margin: auto;
+    }
+    .colom-kiri ul li img{
+        margin: 2px;
+    }
+    .colom-kanan{
+        width: 100%;
+    }
+    .colom-kanan input{
+        width: 100%;
+    }
+    .line-navigasi{
+        font-weight: 0;
+        width: 100%;
+    }
+    .line-navigasi a{
+        float: left;
+    }
+    #pencarian{
+        width: 100%;
+        position: relative;
+        top: -25px;
+        left: -10px;
+    }
+    .notif{
+        width: 100%;
+    }
+    .box-detail{
+        display: none;
+    }
+    .nav-content{
+        width: 90%;
+    }
+    .isi-content{
+        width: 90%;
+    }
+    .box-kanan{
+        display: block;
+        margin-top: 100px;
+        float: left;
+    }
+}
