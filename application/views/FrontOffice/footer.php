@@ -19,7 +19,7 @@
                     <a href="#" id="res">Karir</a>
                     <a href="#" id="res">Kotak Pos</a>
                     <a href="<?php echo base_url('privacy-policy') ?>" id="res">privacy policy</a>
-                    <a href="<?php echo base_url('disclaimer') ?>" id="res">Disclaimer</a>disclaimer
+                    <a href="<?php echo base_url('disclaimer') ?>" id="res">Disclaimer</a>
                     </li>
                 </ul>
             </div>

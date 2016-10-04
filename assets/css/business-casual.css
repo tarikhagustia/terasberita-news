@@ -7,13 +7,11 @@
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     background: #dedede no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
 a:hover{color: #333333;text-decoration: underline;}
-a,a img:hover{text-decoration:;color: #000;transition: 1s;}
+a,a img:hover{text-decoration:;color: #000;-webkit-transition: 1s;transition: 1s;}
 
 h1,
 h2,
@@ -50,7 +48,7 @@ hr {
     width: auto;
     height: 50px;
         float: left;
-        
+
 }
 .kiri h5{
     color: #000;
@@ -349,7 +347,7 @@ footer p {
         border-right: 1px solid;
     }
 
-    
+
     .navbar-nav li{
         width: 158px;
     }
@@ -460,7 +458,7 @@ h5.title{
 
 .fokus{
     width: 100%;
-    overflow: hidden;   
+    overflow: hidden;
     padding-bottom: 15px;
     float: right;
     background-color: #fff;
@@ -487,7 +485,7 @@ h5.title{
     margin-left: -20px;
     margin-bottom: 10px;
             font-size: 10px;
-            
+
 }
 a.title{
     color: blue;
@@ -538,6 +536,7 @@ a.title{
 .pop-kiri h5:hover{
     padding-left: 20px;
     color: #333333;
+    -webkit-transition: 1s;
     transition: 1s;
     text-decoration: none;
 }
@@ -591,7 +590,7 @@ p.des a.title{
     overflow: hidden;
     padding-bottom: 50px;
     margin-bottom: 20px;
-    margin:auto;    
+    margin:auto;
 }
 #news{
     width: 100%;
@@ -667,7 +666,7 @@ img#kfc{
         top: 40px;
         margin: auto;
         border-right: 2px solid #fff;
-        
+
     }
     .img-daftar img{
         width: 100%;
@@ -708,6 +707,7 @@ img#kfc{
         border: 1px solid #fff;
     }
     #submit:hover{
+        -webkit-transition: 1s;
         transition: 1s;
         background-color: #fff;
         color: #000;
@@ -823,6 +823,7 @@ img#kfc{
 .title-peristiwa h5 a:hover{
     color: #fff;
     padding-left: 20px;
+    -webkit-transition: 1s;
     transition: 1s;
 }
 .isi-kiri{
@@ -1069,6 +1070,7 @@ textarea{
 }
 .line-navigasi a:hover{
     color: #0000ff;
+    -webkit-transition: 0s;
     transition: 0s;
 }
 
@@ -1296,8 +1298,8 @@ blockquote{
         overflow: hidden;
         margin:auto;
         margin-top: -70px;
-        padding-left: 20px
-        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-bottom: 20px
     }
     .text-berita{
         display: none;

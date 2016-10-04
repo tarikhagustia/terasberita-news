@@ -37,6 +37,7 @@ class Backoffice extends CI_Controller
            $this->session->set_flashdata('flashSuccess', 'You dont have any access to this page');
            redirect('auth/index','refresh');
         }
+        date_default_timezone_set('Asia/Jakarta');
 	}
 	public function index()
 	{
@@ -218,6 +219,7 @@ class Backoffice extends CI_Controller
             $sql2 = $this->db->insert_batch('fn_pages', $result); // fungsi dari codeigniter untuk menyimpan multi array
             if ($sql) {
                 redirect('backoffice/manage_artikel');
+                // var_dump($insert1);
             } else {
                 show_404();
             }
