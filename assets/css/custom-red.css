@@ -203,10 +203,10 @@ transform:rotate(360deg);
 	margin-bottom: 10px;
 }
 .main-title {
-	border-left: solid 2px #006666;
+	border-left: solid 2px #e74c3c;
 	position: relative;
 	z-index: 1;
-	background-color: #985703;
+	background-color: #8a6d3b;
 	float: left;
 	margin: 0 5px;
 	text-align: center;
@@ -225,7 +225,7 @@ transform:rotate(360deg);
 	display: block;
 	position: absolute;
 	left: -8px;
-	border-left: solid 4px #006666;
+	border-left: solid 4px #e74c3c;
 	width: auto;
 	margin-top: 0;
 	min-height: 100%;
@@ -510,7 +510,6 @@ blockquote p {
 	border-bottom: 1px solid #ecf0f1;
 	padding-top: 15px;
 	padding-bottom: 15px;
-	background-color: #006666;
 }
 .header-toolbar a {
 	color: #78899b;
@@ -710,7 +709,7 @@ blockquote p {
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
-	background: url('../images/general/logo-red.png') no-repeat;
+	background: url('../images/logo/general.png') no-repeat;
 	background-size: 100%;
 	padding: 0;
 }
@@ -740,7 +739,7 @@ blockquote p {
 	margin-bottom: 0;
 }
 .navbar-inverse {
-	background-color: #985703;
+	background-color: #3d566e;
 	border-top: none;
 	border-bottom: 3px solid #e74c3c;
 	border-right: none;
@@ -767,9 +766,8 @@ blockquote p {
 	border-right: none;
 }
 .navbar-inverse .navbar-nav li.active a, .navbar-inverse .navbar-nav li.active a:hover, .navbar-inverse .navbar-nav li.active a:focus {
-	/*background: none;*/
-	background-color: #006666;
-	color: #fff;
+	background: none;
+	color: #e74c3c;
 }
 .navbar-inverse .navbar-toggle, .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
 	border: none;
@@ -1957,7 +1955,7 @@ table-bordered th, .table-bordered td {
 	border-bottom: none;
 }
 .nav-tabs.nav-justified li.active a, .nav-tabs.nav-justified li.active a:hover, .nav-tabs.nav-justified li.active a:focus {
-	background: #985703 !important;
+	background: #e74c3c !important;
 	border: none;
 }
 #comments p {
@@ -2092,7 +2090,7 @@ footer .top-sec {
 	padding-bottom: 20px;
 }
 footer .btm-sec {
-	background-color: #fff;
+	background-color: #007d76;
 }
 footer .f-title {
 	color: #fff;
@@ -2203,14 +2201,14 @@ footer .stars {
 .btm-sec {
 	padding-top: 20px;
 	padding-bottom: 0;
-	color: #3d566e;
+	color: beige;
 }
 .btm-sec .list-inline li a {
 	padding-right: 4px;
 	padding-left: 4px;
 	text-transform: uppercase;
 	font-size: 12px;
-	color: #3d566e;
+	color: beige;
 }
 .btm-sec .list-inline li a:hover {
 	color: #e74c3c;

@@ -120,15 +120,31 @@
 	max-height: 188px;
 }
 h2.title-article {
-	text-transform: none !important;
+	text-transform: none !important; 
 	color: #036266;
+    font-size: 1.7em;
 }
 .title-breaking {
-	text-transform: none !important;
+	text-transform: none !important; 
+}
+.title-breaking > a {
+	text-transform: none !important; 
+	text-decoration: none !important;
 }
 a.title {
 	color: #323333;
-    font-size: 15px !important;
+    font-size: 12px !important;
     font-weight: bold !important;
     font-family: "Open Sans" !important;
+    text-decoration: none !important;
+}
+a.title:hover {
+	color: red !important;
+}
+a:hover {
+	text-decoration: none !important;
+}
+.peristiwa-ttile {
+	height: 50px;
+	margin: auto;
 }

@@ -7,11 +7,13 @@
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     background: #dedede no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
-a:hover{color: #fff;text-decoration: none;}
-a,a img:hover{text-decoration:;color: #000;-webkit-transition: 1s;transition: 1s;}
+a:hover{color: #333333;text-decoration: underline;}
+a,a img:hover{text-decoration:;color: #000;transition: 1s;}
 
 h1,
 h2,
@@ -39,15 +41,16 @@ hr {
 /*---NAv ATAS--*/
 #nav-atas{
     width: 100%;
-    height:50px;
+    overflow: hidden;
     position: fixed;
     background-color: #036266;
     z-index: 999999;
 }
 .kiri{
-    width: 50%;
+    width: auto;
     height: 50px;
         float: left;
+        
 }
 .kiri h5{
     color: #000;
@@ -92,52 +95,74 @@ a button.grey:hover{
     color: #fff;
 }
 .kanan{
-    width: 44.5%;
-    height: 50px;
-    float: right;
+    width: 110%;
+    overflow: hidden;
+    float: left;
+    padding-top: 10px;
     z-index: 999999;
 }
-.kanan ul li{
-    float: left;
-    display: block;
+.form{
+    width: 100%;
+    overflow: hidden;
 }
-.kanan ul li a img{
-    width: 27px;
-    height: 27px;
-    position: relative;
-    right: 20px;
-    top: 10px;
-}
-.kanan ul li h5{
-    font-family: sans-serif;
-    color: #fff;
-    margin-top: 16px;
-}
-.kanan ul li input{
-    width: 170px;
-    height: 27px;
-    border: none;
-    position: relative;
-    top: 10px;
-    padding: 5px;
-}
-.cari img{
-    margin-left: 20px;
-    background-color: grey;
-}
-.kanan ul li a img:hover{
-    background-color: #ccc;
-}
-.sos img{
-    width: 40px;
-    height: 40px;
-    position: relative;
-    left: 20px;
-}
-.sos a img{
+    .input{
+        width: 87%;
+        height: 28px;
+        float: left;
+        margin-bottom: 10px;
+    }
+    .input input{
+        width: 100%;
+        height: 28px;
+        float: left;
+        border: 0px;
+    }
+    .cari{
+        width: 13%;
+        height: 28px;
+        float: left;
+    }
+    .cari button{
+        background: grey;
+        width: 100%;
+        height: 28px;
+        padding: 0px;
+        border: 0px;
+        border-radius: 0px;
+        float: left;
+    }
+    .cari button img{
+        width: 100%;
+    }
+    .cari button:hover{
+        background: #666;
+    }
+    /*
+    .cari img{
+        background-color: grey;
+        float: left;
+        margin-right: 10px;
+    }*/
+
+.follow{
+    width: 100%;
+    height: 10px;
     margin-top: 0px;
-    border-radius: 50%;
-    margin-right: 10px;
+    padding-left: 10px;
+}
+.follow h6{
+    color: #fff;
+    float: left;
+    margin-top: -0px;
+}
+.follow ul li{
+    display: block;
+    float: left;
+}
+.follow ul li img{
+    width: 30px;
+    margin-left: 5px;
+    margin-top: -16px;
 }
 /*--Tengah--*/
 
@@ -150,9 +175,10 @@ a button.grey:hover{
     width: 100%;
     height: 80px;
 }
-.logo{
-    width: 50%;
-    height: 130px;
+.logo,.iklan{
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
     float: left;
 }
 .logo img{
@@ -169,6 +195,9 @@ a button.grey:hover{
     height: 130px;
     float: right;
     margin-right: 5px;
+}
+.iklan img{
+    width: 100%;
 }
 
 #navigasi{
@@ -190,7 +219,7 @@ a button.grey:hover{
     /*text-transform: uppercase;*/
     /*font-weight: 1000;*/
     font-weight: bold;
-    letter-spacing: 2px;
+    /*letter-spacing: 2px;*/
 }
 
 .img-full {
@@ -222,8 +251,9 @@ a button.grey:hover{
     width: 98%;
 }
 .box-berita {
-    width: 140%;
-    height: 460px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
     padding: 30px 15px;
     background: #985703;
 }
@@ -319,11 +349,19 @@ footer p {
         border-right: 1px solid;
     }
 
-    .navbar-nav>li>a {
-        line-height: normal;
+    
+    .navbar-nav li{
+        width: 158px;
+    }
+
+
+    .navbar-nav li a{
         background-color: #985703;
-        margin-right:5px;
-        font-size: 12px;
+        margin-right: 5px;
+        margin-bottom: 20px;
+        font-size: 15px;
+        font-weight: 700;
+        text-align:center;
     }
 
     .navbar-nav {
@@ -345,8 +383,9 @@ footer p {
         background-color: transparent;
     }
     .index{
-        width: 145px;
+        width: 110px;
         text-align: center;
+        margin-right: 0px;
     }
 }
 
@@ -379,9 +418,6 @@ h5.title{
 
 /*--BERITA--*/
 
-#berita-kontak{
-    display: none;
-}
 .text-berita{
     /*width: 300px;
     height: 0;
@@ -423,34 +459,35 @@ h5.title{
 /*--FOKUS--*/
 
 .fokus{
-    width: 30%;
-    overflow: hidden;
-    padding-bottom: 10px;
+    width: 100%;
+    overflow: hidden;   
+    padding-bottom: 15px;
     float: right;
-    background-color: #fff;left: 5px;position: relative;
+    background-color: #fff;
 }
 
 .fok-isi{
-    width: 260px;
+    width: 100%;
     padding-top: 10px;
-    margin-left: 20px;
 }
 #fokus{
     border-bottom: 1px solid #000;
 }
 .list img{
-    width: 60px;
+    width: 100%;
     height: 60px;
 }
-.des a:hover{
+.desc a:hover{
     text-decoration: underline;
 }
-p.des{
-    width: 190px;
-    float: right;
+.desc{
+    width: 100%;
+    float: left;
     color: #000;
+    margin-left: -20px;
     margin-bottom: 10px;
             font-size: 10px;
+            
 }
 a.title{
     color: blue;
@@ -475,6 +512,8 @@ a.title{
 
 .populer{
     width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 10;
     overflow: hidden;
     background-color: white;
 }
@@ -488,10 +527,19 @@ a.title{
     color: #fff;
 }
 .pop-kiri{
-    width: 45%;
-    height: 420px;
+    width: 100%;
+    overflow: hidden;
     float: left;
     padding-left: 10px;
+}
+.pop-kiri h5{
+    color: #000;
+}
+.pop-kiri h5:hover{
+    padding-left: 20px;
+    color: #333333;
+    transition: 1s;
+    text-decoration: none;
 }
 .pop-kiri img{
     width: 100%;
@@ -499,29 +547,32 @@ a.title{
     margin-top: 10px;
 }
 .pop-kanan{
-    width: 260px;
+    width: 100%;
     float: right;
-    margin-top: 10px;
-}
-.pop-kanan img{
-    width: 60px;
-    height: 60px;
+    margin-top: 20px;
 }
 .list{
-    width: 100%;float: right;
+    width: 100%;
+    float: right;
     border-bottom: 1px solid #000;
     padding-bottom: 10px;
+    padding-top: 10px;
+}
+.list img{
+    width: 100%;
+    height: 60px;
+    float: left;
 }
 p.des{
-    width: 190px;
-    float: right;
+    width: 100%;
+    float: left;
     color: #000;
     margin-bottom: 10px;
             font-size: 10px;
 }
-a.title{
-    color: blue;
-    font-size: 15px;
+p.des a.title{
+    color: #000;
+    font-size: 13px;
 }
 
 /*----Peristiwa--*/
@@ -535,9 +586,18 @@ a.title{
 
 
 /*----News--*/
+#berita{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+    margin:auto;    
+}
 #news{
-    width: 90%;
-    height: 800px;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
     margin:auto;
 }
 
@@ -551,7 +611,7 @@ a.title{
     padding-top: 10px;
 }
 .news-isi img{
-    width: 120px;
+    width: 100%;
     height: 120px;
 }
 .list{
@@ -559,9 +619,11 @@ a.title{
     border-bottom: none;
     padding-bottom: 10px;
 }
-.des-news a:hover{text-decoration: underline;}
-p.des-news{
-    width: 350px;
+.des-news a:hover{
+    text-decoration: underline;
+}
+.des-news{
+    width: 100%;
     float: right;
     color: #036266;
     margin-bottom: 10px;
@@ -580,71 +642,78 @@ small{
 }
 .iklan img{
     width: 100%;
-    height: 180px;
+    /*height: 180px;*/
 }
 #kfc{
     height: 280px;
     margin-bottom: 10px;
 }
+img#kfc{
+    width: 100%;
+}
 
 .komentar{
     width: 100%;
-    height: 300px;
-    position: relative;
-    top: 20px;
+    overflow: hidden;
+    padding-bottom: 80px;
+    margin-top: 10px;
     background-color: #985703;
 }
-.komentar img{
-    width: 150px;
-    height: 150px;
-    float: left;
-}
     .img-daftar{
-        width: 180px;
-        height: 180px;
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
         position: relative;
-        top: 60px;
-        left: 60px;
-        float: left;
+        top: 40px;
+        margin: auto;
         border-right: 2px solid #fff;
+        
+    }
+    .img-daftar img{
+        width: 100%;
+        height: auto;
+        padding:0px 20px;
+        margin: auto;
+        text-align: center;
+        float: left;
     }
     .img-daftar p{
         color: #fff;
     }
-    .daftar{
+    .form-daftar{
         width: 100%;
-        height: 250px;
+        overflow: hidden;
+        position: relative;
+        top: 40px;
     }
-    .daftar ul li{
-        margin-left: 160px;
+    .form-daftar ul li{
         display: block;
     }
-    .daftar ul li input{
-        width: 200px;
-        height: 30px;
-        background-color: #036266;
+    .form-daftar ul li input{
+        width: 100%;
+        height: 36px;
+            float: left;
+            padding: 5px;
+            margin-bottom: 6px;
+            margin-left: -39px;
         color: #fff;
-        position: relative;
-        top: 60px;
-        left: 70px;
-            padding: 3px;
-            margin-bottom: 10px;
-            border: none;
-            border-radius: 5px;
+        background: #036266;
+        border: 0px;
+        border-radius: 5px;
+
     }
     #submit{
-        float: left;
+        width: 100%;
+        background: transparent;
         border: 1px solid #fff;
-        border-radius: 5px;
-        padding: 0px;
-        background-color: transparent;
     }
     #submit:hover{
-        -webkit-transition: 1s;
         transition: 1s;
         background-color: #fff;
         color: #000;
     }
+
+    /*
 .logo-daftar{
     width: 100px;
     height: 100px;
@@ -719,13 +788,15 @@ small{
 }
 
 .box-kiri{
-    width: 49%;
-    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
     float: left;
 }
 .box-kanan{
-    width: 48%;
+    width: 100%;
     overflow: hidden;
+    padding-bottom: 20px;
     background-color: #985703;
     float: right;
 }
@@ -749,18 +820,25 @@ small{
     color: #fff;
     font-size: 12px;
 }
-
+.title-peristiwa h5 a:hover{
+    color: #fff;
+    padding-left: 20px;
+    transition: 1s;
+}
 .isi-kiri{
     padding-top: 10px;
-    width: 57%;
+    width: 100%;
     float: left;
+}
+.isi-kiri h5{
+    color: red;
 }
 
 .isi-kanan{
-    width: 40%;
+    width: 100%;
     height: 130px;
-    float: right;
-    padding-left: 15px;
+    float: left;
+    padding-left: 10px;
     margin-top: 30px;
     border-left: 2px solid #fff;
 }
@@ -778,9 +856,6 @@ small{
 }
 
 
-
-
-
 #scrolllable-fokus{
 border: 1px solid #f8f8f8;
 padding: 15px;
@@ -791,24 +866,22 @@ background-color: white;
 }
 #scrolllable-populer{
 border: 1px solid #fff;
-padding: 15px;
 overflow: auto;
-width: 54%;
-height: 410px;
+width: 100%;
+height: 420px;
+margin-left: 30px;
 float: right;
-background-color: white;
 }
 #scrolllable-news{
 border: 1px solid #fff;
 padding: 15px;
 overflow: auto;
 width: 100%;
-height: 730px;
+height: 750px;
 background-color: white;
 }
 
 #scroll-atas{
-    background-color: red;
     width: 30px;
     height: 30px;
     position: fixed;
@@ -837,9 +910,10 @@ background-color: white;
 #deskripsi-berita{
     width: 100%;
     overflow:hidden;
+    padding-bottom: 50px;
 }
 .box-deskripsi{
-    width: 140%;
+    width: 100%;
     overflow: hidden;
     padding: 30px 15px;
     background: #f8f8f8;
@@ -995,7 +1069,6 @@ textarea{
 }
 .line-navigasi a:hover{
     color: #0000ff;
-    -webkit-transition: 0s;
     transition: 0s;
 }
 
@@ -1135,17 +1208,17 @@ blockquote{
     }
     #nav-atas{
         width: 100%;
-        position: relative;
-        top: 180px;
-        z-index: 99999;
+        height: 55px;
+        position: absolute;
+        display: none;
+        margin-top: 457px;
     }
     .navbar{
         background-color: #006666;
         position: fixed;
         width: 100%;
-        margin-top: -280px;
-        margin-left: -15px;
-        border: none;
+        margin-top: -230px;
+        border: 1px solid #006666;
         z-index: 999999;
     }
 
@@ -1164,7 +1237,9 @@ blockquote{
     }
 
     /*--FOKUS--*/
-    #scrolllable-fokus{width: 100%;}
+    #scrolllable-fokus{
+        width: 100%;
+    }
     .fokus{
         display: block;
         width: 100%;
@@ -1173,7 +1248,6 @@ blockquote{
     }
     .list{
         position:relative;
-        left: -10px;
     }
     .list img{
         float: left;
@@ -1194,14 +1268,15 @@ blockquote{
 
     .logo{
         width: 100%;
-        height: 0px;
+        position: absolute;
+        height: auto;
         margin: auto;
+        margin-top: -25px;
+        margin-bottom: 20px;
     }
     .logo img{
         width: 100%;
         float: left;
-        margin-left: -2px;
-        margin-top: -70px;
     }
     h5.title{
         font-size: 15px;
@@ -1218,11 +1293,11 @@ blockquote{
     .box-berita{
         position: relative;
         width: 100%;
-        height: auto;
+        overflow: hidden;
         margin:auto;
         margin-top: -70px;
-        padding-left: 20px;
-        padding-bottom: 20px
+        padding-left: 20px
+        padding-bottom: 20px;
     }
     .text-berita{
         display: none;
@@ -1271,7 +1346,7 @@ blockquote{
         float: right;
     }
     .iklan{
-        display: none;
+        display: block;
     }
     .box-kanan{
         display: none;
@@ -1338,7 +1413,12 @@ blockquote{
     }
     .isi-content{
         width: 90%;
-    }.box-kanan{display: block;margin-top: 100px;float: left;}
+    }
+    .box-kanan{
+        display: block;
+        margin-top: 100px;
+        float: left;
+    }
 
     /*KOMENTAR*/
     .colom-kiri{
@@ -1386,5 +1466,10 @@ blockquote{
     }
     .isi-content{
         width: 90%;
-    }.box-kanan{display: block;margin-top: 100px;float: left;}
+    }
+    .box-kanan{
+        display: block;
+        margin-top: 100px;
+        float: left;
+    }
 }
