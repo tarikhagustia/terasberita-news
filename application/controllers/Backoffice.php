@@ -158,15 +158,21 @@ class Backoffice extends CI_Controller
 		$this->db->where('fn_pages.news_id', $id);
 		$query = $this->db->get();
 		$data1 = $query->result_array();
-
+    $dataCategory = $this->news->getData('fn_category', 'category_id, category_alias');
 		foreach ($data1 as $row) {
         $data2[] = $row['category_id'];
     	}
     	// var_dump($data2);
     	$data3 = json_encode($data2);
     	// var_dump($data3);
+    $datas = array(
+      'data' => $data,
+      'data3' => $data3,
+      'id' => $id,
+      'categorys' => $dataCategory
+    );
 		$page = array(
-			"thepage" => $this->load->view('back/edite_news', array('data' => $data, 'data3' => $data3, 'id' => $id), true)
+			"thepage" => $this->load->view('back/edite_news', $datas, true)
 		);
        $this->load->view('back/index', $page);
 

@@ -81,13 +81,9 @@
                         <label class="control-label col-md-2 col-sm-2 col-xs-12">Category</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <select class="select2_multiple form-control" multiple="multiple" name="select2[]" id='select2'>
-                            <option value="">Choose option</option>
-                            <option value = '1'>Teras Sukabumi</option>
-                            <option value = '2'>Teras Nasional</option>
-                            <option value = '3'>Teras Cianjur</option>
-                            <option value = '4'>Teras News</option>
-                            <option value = '5'>Teras Ekomomi</option>
-                            <option value = '6'>Teras Sehat</option>
+                            <?php foreach($categorys as $rows): ?>
+                              <option value="<?php echo $rows->category_id ?>"><?php echo $rows->category_alias ?></option>
+                            <?php endforeach; ?>
                           </select>
 
                           <script type='text/javascript'>
