@@ -202,6 +202,7 @@ class Backoffice extends CI_Controller
                 'news_title' => $jdl_berita,
                 'news_creator' => $name_pen,
                 'user_id'    => $id,
+                'news_timestamp' => date('Y-m-d H:i'),
                 'news_desc'  => $isi,
                 'news_thumb' => $news_thumb,
             );
