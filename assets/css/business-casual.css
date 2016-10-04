@@ -7,13 +7,11 @@
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     background: #dedede no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
 a:hover{color: #fff;text-decoration: none;}
-a,a img:hover{text-decoration:;color: #000;transition: 1s;}
+a,a img:hover{text-decoration:;color: #000;-webkit-transition: 1s;transition: 1s;}
 
 h1,
 h2,
@@ -642,6 +640,7 @@ small{
         background-color: transparent;
     }
     #submit:hover{
+        -webkit-transition: 1s;
         transition: 1s;
         background-color: #fff;
         color: #000;
@@ -996,6 +995,7 @@ textarea{
 }
 .line-navigasi a:hover{
     color: #0000ff;
+    -webkit-transition: 0s;
     transition: 0s;
 }
 
@@ -1221,8 +1221,8 @@ blockquote{
         height: auto;
         margin:auto;
         margin-top: -70px;
-        padding-left: 20px
-        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-bottom: 20px
     }
     .text-berita{
         display: none;
