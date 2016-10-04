@@ -5,8 +5,10 @@
                 <div class="col-md-12">
                     <div class="col-sm-8">
                         <div class="box-deskripsi">
+                            <?php if($dataArticle->category_id != '7'): ?>
                             <small><?php echo $this->format->date_indonesia($dataArticle->news_timestamp) ?></small>
                             <h4 class="title"><?php echo $dataArticle->category_alias ?></h4>
+                          <?php endif; ?>
                             <h2 class="title-article"><?php echo $dataArticle->news_title ?></h2>
                             <div
                               class="fb-like"
@@ -15,8 +17,11 @@
                               data-show-faces="true">
                             </div>
                             <br/>
+                            <?php if($dataArticle->category_id != '7'): ?>
                             <small><?php if($dataArticle->news_creator != null): echo $dataArticle->news_creator ;else: echo "Tim teras"; endif; ?> - <?php echo $dataArticle->category_alias ?></small>
+                            <?php endif; ?>
                             <div class="des">
+                                <?php if($dataArticle->category_id != '7'): ?>
                                 <?php if($dataArticle->news_thumb == NULL || $dataArticle->news_thumb == ''): ?>
                                     <div class="img-header">
                                     <img class="img-responsive" src="<?php echo base_url() ?>assets/img/bg.jpg">
@@ -25,6 +30,7 @@
                                     <div class="img-header">
                                     <img class="img-responsive" src="<?php echo base_url($dataArticle->news_thumb) ?>">
                                     </div>
+                                <?php endif; ?>
                                 <?php endif; ?>
                                 <div class="isi">
                                     <p>
@@ -194,5 +200,3 @@
   </section>
   </div>
   </div>
-
-
