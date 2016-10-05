@@ -145,6 +145,50 @@ a:hover {
 	text-decoration: none !important;
 }
 .peristiwa-ttile {
-	height: 50px;
+	height: 30px;
 	margin: auto;
+}
+.menu-mobile {
+	height: 50px;
+	background-color: #0c5447;
+	padding-top: 5px;
+	margin-bottom: 10px;
+}
+.menu-mobile a {
+		background-color: #985703;
+		height: 100%;
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 0;
+		border-left: 1px solid #e9f2e1;
+		border-right: 1px solid #e9f2e1;
+}
+.cokelat {
+
+}
+.padding {
+	padding: 5px !important;
+}
+#fokus-list h1 {
+
+	background-color: black !important;
+}
+.box_txt h2 {
+    font-size: 16px;
+}
+.tgl {
+    color: #878787;
+    display: inline-block;
+    margin: 5px 0 0;
+}
+#fokus-list {
+	background-color: white;
+}
+.list_artikel_fokus {
+	margin-bottom: 10px;
 }

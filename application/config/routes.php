@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'FrontEnd/mainteance';
+$route['default_controller'] = 'FrontEnd/terasNasional';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['teras-sukabumi'] = 'FrontEnd/terasSukabumi';
@@ -62,5 +62,5 @@ $route['teras-peristiwa/(:any)'] = 'FrontEnd/terasPeristiwa/$1';
 $route['backoffice'] = 'Backoffice';
 $route['example'] = 'Example';
 $route['search'] = 'FrontEnd/secureSearch';
+$route['fokus'] = 'FrontEnd/fokus';
 $route['(:any)'] = 'FrontEnd/viewMyArticle/$1';
-

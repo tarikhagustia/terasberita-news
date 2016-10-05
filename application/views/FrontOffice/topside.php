@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php if(isset($dataArticle)):
     ?>
-    <meta property="fb:app_id"        content="199212920500045" /> 
+    <meta property="fb:app_id"        content="199212920500045" />
     <meta property="og:image"         content="<?php echo base_url($dataArticle->news_thumb); ?>" />
     <meta property="og:site_name"     content="terasberita.co"/>
     <meta property="og:description"   content="<?php echo $this->format->stripHTMLtags($dataArticle->news_desc, 0 , 100); ?>" />
     <meta property="og:url"           content="<?php echo current_url(); ?>" />
     <meta property="og:type"          content="article" />
     <meta property="og:title"         content="<?php echo $dataArticle->news_title ?>" />
-    
+
     <meta name="language" content="id" />
     <meta name="title" content="<?php echo $dataArticle->news_title ?>" />
     <meta name="description" content="<?php echo $this->format->stripHTMLtags($dataArticle->news_desc, 0 , 100); ?>" />
@@ -28,7 +28,7 @@
     <meta name="description" content="Indepth Jujur Akurat">
     <meta name="keywords" content="Indepth, jujur, akurat, beita, Berita sukabumi, harian sukabumi, Kriminal sukabumi">
     <?php endif; ?>
-    
+
     <title>
     <?php
     if(isset($title)):
@@ -263,4 +263,14 @@
             <!-- /.navbar-collapse -->
     </div>
         <!-- /.container -->
-</nav>
+    </nav>
+<section id="responsive-nav" class="visible-xs">
+  <div class="menu-mobile">
+    <div class="container cokelat">
+        <a href="<?php echo base_url('fokus'); ?>">Fokus</a>
+        <a href="#">Terpopuler</a>
+        <a href="#">Indeks</a>
+        <div class="clearfix"></div>
+    </div>
+  </div>
+</section>

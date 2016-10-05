@@ -280,4 +280,15 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('custom/body', array('dataNews' => $dataNews, 'dataPopular' => $dataPopular, 'dataPopularOne' => $dataPopularOne, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'dataIndeph' => $dataIndeph, 'dataIndephLeft' => @$dataIndephLeft, 'dataBreakingNews' => $dataBreakingNews, 'dataBreakingNewsLeft' => $dataBreakingNewsLeft));
 		$this->load->view('custom/footer');
 	}
+	public function fokus()
+	{
+		$query = $this->db->query('SELECT fn_fokus.`fokus_name`, fokus_url, fn_fokus.`fokus_id`, news_title, news_url, news_timestamp FROM fn_fokus, fn_news WHERE fn_news.`fokus_id` = fn_fokus.`fokus_id`ORDER BY fn_news.`news_timestamp` DESC ')->result();
+		foreach($query as $key => $rows):
+			$data[$rows->fokus_name][] = $rows;
+		endforeach;
+
+		$this->load->view('FrontOffice/topside');
+		$this->load->view('FrontOffice/fokus_mobile', array('dataFokus' => $data));
+		$this->load->view('FrontOffice/footer');
+	}
 }
