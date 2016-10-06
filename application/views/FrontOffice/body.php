@@ -57,7 +57,7 @@
                             			<a class="title" href="<?php echo base_url('teras-peristiwa/'.$rows->fokus_url); ?>"><?php echo $rows->fokus_name; ?></a>
                             		<p style="font-size: 10px"><?php echo $rows->fokus_comment; ?></p>
                             		</div>
-                            		
+
                             	</div>
                             </div>
                             <?php } ?>
@@ -94,8 +94,8 @@
                               <p class="text-justify"><?php echo $this->format->stripHTMLtags($dataPopularOne->descriptions, 0 , 150) ?></p>
                           </div>  <!--/pop-kiri -->
                         </div>  <!--/col-md-6-->
- 
-                        <div class="col-md-6" style="padding: 0px;"> 
+
+                        <div class="col-md-6" style="padding: 0px;">
                       <div id="scrolllable-populer">
                           <div class="pop-kanan"><!--pop-kanan-->
                         	<?php foreach($dataPopular as $rows){
@@ -114,7 +114,7 @@
                                 <?php echo $rows->category_alias . " | " . $this->format->date_indonesia($rows->news_timestamp) ?></p>
                               </div>
                             </div>
-                        
+
                         <?php } ?>
                         </div>
                       </div>
@@ -230,7 +230,7 @@
                     </div>
                 </div>
             </div>
-       </div> 
+       </div>
   </section>
 </div>
 </div>
@@ -252,7 +252,7 @@
   <div class="gap">
   </div>
 <?php endif; ?>
-  
+
   <!-- <div class="container"> -->
   <img class="img-ads-header" src="<?php echo base_url($data['header-809x188']) ?>" />
   <!-- </div> -->
@@ -280,26 +280,29 @@
     <div class="m_feed_judul">
       News Feeds
     </div>
-    <div class="container">
-    <?php foreach($dataNews as $rows): ?>
-      <div class="m_fedd_isi">
-        <div class="row">
-          <div class="col-xs-4">
-            <!-- <img class="img-responsive" src="<?php echo base_url('assets/img/bg.jpg') ?>" /> -->
-            <div class="img-feed" style="background-image: url(<?php echo base_url($rows->news_thumb) ?>); "></div>
-          </div>
-          <div class="col-xs-8" style="padding-left: 20px;">
-            <span class="m_fedd_title"><a href="<?php echo $rows->news_url ?>"><?php echo $rows->news_title ?></a></span>
-            <div class="gap">
+    <div class="row">
+      <div class="col-xs-12">
+        <?php foreach($dataNews as $rows): ?>
+          <div class="m_fedd_isi">
+            <div class="row">
+              <div class="col-xs-4">
+                <!-- <img class="img-responsive" src="<?php echo base_url('assets/img/bg.jpg') ?>" /> -->
+                <div class="img-feed" style="background-image: url(<?php echo base_url($rows->news_thumb) ?>); "></div>
+              </div>
+              <div class="col-xs-8" style="padding-left: 20px;">
+                <span class="m_fedd_title"><a href="<?php echo $rows->news_url ?>"><?php echo $rows->news_title ?></a></span>
+                <div class="gap">
+                </div>
+                <p>
+                   <?php echo $this->format->date_indonesia($rows->news_timestamp) ?>
+                </p>
+              </div>
             </div>
-            <p>
-               <?php echo $this->format->date_indonesia($rows->news_timestamp) ?>
-            </p>
           </div>
-        </div>
+      <?php endforeach; ?>
       </div>
-  <?php endforeach; ?>
     </div>
+
   </div>
 <?php endif; ?>
   <div class="clearfix"></div>
