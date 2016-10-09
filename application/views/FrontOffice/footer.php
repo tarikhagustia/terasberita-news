@@ -1,4 +1,3 @@
-
 <section id="footer">
     <div class="container">
         <div class="col-md-12">
@@ -18,7 +17,7 @@
                     <a href="<?php echo base_url('pedoman-pemberitaan-media-siber') ?>" id="res">Pedoman Media Siber</a>
                     <a href="#" id="res">Karir</a>
                     <a href="#" id="res">Kotak Pos</a>
-                    <a href="<?php echo base_url('privacy-policy') ?>" id="res">privacy policy</a>
+                    <a href="<?php echo base_url('privacy-policy') ?>" id="res">Privacy Policy</a>
                     <a href="<?php echo base_url('disclaimer') ?>" id="res">Disclaimer</a>
                     </li>
                 </ul>

@@ -65,4 +65,6 @@ $route['search'] = 'FrontEnd/secureSearch';
 $route['fokus'] = 'FrontEnd/fokus';
 $route['populer'] = 'FrontEnd/populer';
 $route['populer/(:any)'] = 'FrontEnd/populer/$1';
+$route['arsip'] = 'FrontEnd/indeks_mobile';
+$route['arsip/cari'] = 'FrontEnd/indeks_mobile/cari';
 $route['(:any)'] = 'FrontEnd/viewMyArticle/$1';

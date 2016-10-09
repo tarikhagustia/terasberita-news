@@ -180,7 +180,7 @@
                         <div class="follow">
                                 <h6>Follow US :</h6>
                             <ul>
-                                <li><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/fb-1.png"></a></li>
+                                <li><a href="http://facebook.com/terasberita.co/"><img src="<?php echo base_url() ?>assets/img/medsos/fb-1.png"></a></li>
                                 <li><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/twit-1.png"></a></li>
                                 <li><a href="#"><img src="<?php echo base_url() ?>assets/img/medsos/yutube-1.png"></a></li>
                             </ul>
@@ -269,7 +269,7 @@
     <div class="container cokelat">
         <a href="<?php echo base_url('fokus'); ?>">Fokus</a>
         <a href="<?php echo base_url('populer'); ?>">Terpopuler</a>
-        <a href="#">Indeks</a>
+        <a href="<?php echo base_url('arsip'); ?>">Indeks</a>
         <div class="clearfix"></div>
     </div>
   </div>

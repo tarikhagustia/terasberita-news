@@ -195,3 +195,24 @@ a:hover {
 .title-mobile {
 	font-size: 25px;
 }
+.indeks_date {
+    /* padding: 5px 10px; */
+    background: #e4e4e4;
+    border-bottom: 1px solid #c4c4c4;
+    text-align: center;
+}
+.indeks_date .select select {
+    width: 30%;
+    border: 1px solid #ccc;
+    height: 25px;
+}
+.indeks_date .btn {
+    /*float: right;*/
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 50px;
+    border: 0;
+    background: #0d2b7d;
+    color: #fff;
+    height: 25px;
+}

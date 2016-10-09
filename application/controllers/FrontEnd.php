@@ -200,27 +200,27 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('FrontOffice/topside', array('title' => $dataArticle->news_title, 'dataArticle' => $dataArticle));
 		$this->load->view('FrontOffice/article', array('dataArticle' => $dataArticle, 'dataCommentArticle' => $dataCommentArticle, 'dataPopuler' => $dataPopular, 'dataTerasPeristiwa' => $dataTerasPeristiwa));
 		$this->load->view('FrontOffice/footer');
-		// $cekId = $this->news->getData('fn_news', 'news_id', array('news_url' => $news_url));
-		// foreach ($cekId as $key => $value) {
-		// 	$news_id = $value->news_id;
-		// }
-		// $seens_ip = $_SERVER['REMOTE_ADDR'];
-		// $cekIp = $this->news->getData('fn_news_seens', 'seens_id', array('news_id' => $news_id, 'seens_ip' => $seens_ip));
-		// // Jika blum ada yang liat maka insert
-		// if (empty($cekIp)) {
-		// 	if($this->session->userdata('logged_in')):
-		// 		$isLogin = true;
-		// 	else:
-		// 		$isLogin = false;
-		// 	endif;
-		// 	$data = array(
-		// 		'news_id' => $news_id,
-		// 		'seens_ip' => $seens_ip,
-		// 		'seens_comment' => 'Already seens on ip '.$seens_ip,
-		// 		'isLogin' => $isLogin
-		// 	);
-		// 	$this->news->insertData('fn_news_seens', $data);
-		// }
+		$cekId = $this->news->getData('fn_news', 'news_id', array('news_url' => $news_url));
+		foreach ($cekId as $key => $value) {
+			$news_id = $value->news_id;
+		}
+		$seens_ip = $_SERVER['REMOTE_ADDR'];
+		$cekIp = $this->news->getData('fn_news_seens', 'seens_id', array('news_id' => $news_id, 'seens_ip' => $seens_ip));
+		// Jika blum ada yang liat maka insert
+		if (empty($cekIp)) {
+			if($this->session->userdata('logged_in')):
+				$isLogin = true;
+			else:
+				$isLogin = false;
+			endif;
+			$data = array(
+				'news_id' => $news_id,
+				'seens_ip' => $seens_ip,
+				'seens_comment' => 'Already seens on ip '.$seens_ip,
+				'isLogin' => $isLogin
+			);
+			$this->news->insertData('fn_news_seens', $data);
+		}
 	}
 
 	public function setComment(){
@@ -321,5 +321,46 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('FrontOffice/topside');
 		$this->load->view('FrontOffice/populer_mobile', array('dataNews' => $get, 'dataLast' => $data, 'kanals' => $kanals));
 		$this->load->view('FrontOffice/footer');
+	}
+	public function indeks_mobile($keyword = null)
+	{
+
+		$tglnya = $this->input->get('tgl');
+		$bln = $this->input->get('bln');
+		$thn = $this->input->get('thn');
+
+		// get tanggal
+		for ($i=1; $i <= 31 ; $i++) { 
+			# code...
+			$hitung = strlen($i);
+			if($hitung < 2):
+				$i = '0'.$i;
+			endif;
+			$tgl[] = $i;
+		}
+		// Get Bulan
+		$bulan  = ['januari', 'februari', 'maret', 'april', 'mei', 'juni', 'juli', 'agustus', 'september', 'oktober', 'november','desember'];
+
+		$tahun = [date('Y', time())];
+		$tanggal = [
+			'tanggal' => $tgl,
+			'bulan' => $bulan,
+			'tahun' => $tahun
+		];
+		// Get berita terbaru
+		$this->db->select('news_url, news_title, news_thumb, news_timestamp');
+		$this->db->from('fn_news');
+
+		if($keyword != null):
+			$this->db->where('LEFT(news_timestamp,10)', $thn.'-'.$bln.'-'.$tglnya);
+		endif;
+
+
+		$this->db->order_by('news_timestamp', 'DESC');
+		$this->db->limit(10);
+		$dataNews = $this->db->get()->result();
+		$this->load->view('FrontOffice/topside');
+		$this->load->view('FrontOffice/indeks_mobile', array('dataTanggal' => $tanggal, 'dataNews' => $dataNews));
+		$this->load->view('FrontOffice/footer');	
 	}
 }
