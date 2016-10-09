@@ -295,8 +295,6 @@ class Backoffice extends CI_Controller
 					  fn_indeph,
 					  fn_news
 					WHERE fn_indeph.`news_id` = fn_news.`news_id`
-					  AND date_from <= NOW()
-					  AND date_to >= NOW()
 					 ORDER BY fn_indeph.`indeph_timestamp` DESC LIMIT 20');
         $dataIndeph = $query->result();
         $query      = $this->db->query('SELECT news_id, news_title FROM fn_news ORDER BY news_title ASC');

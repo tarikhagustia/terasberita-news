@@ -291,4 +291,35 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('FrontOffice/fokus_mobile', array('dataFokus' => $data));
 		$this->load->view('FrontOffice/footer');
 	}
+	public function populer($kanal = null)
+	{
+		$this->db->select('news_url, news_title, news_timestamp, news_thumb');
+		$this->db->from('fn_news');
+		$this->db->join('fn_pages', 'fn_news.news_id = fn_pages.news_id', 'left');
+		$this->db->join('fn_category', 'fn_pages.category_id = fn_category.category_id', 'left');
+		if($kanal != null):
+			$this->db->where('fn_category.category_name', $kanal);
+		endif;
+		$this->db->group_by('fn_news.news_id');
+		$this->db->order_by('news_views', 'DESC');
+		$this->db->limit('20');
+		$get = $this->db->get()->result();
+		// Get last News
+		$this->db->select('news_timestamp');
+		$this->db->from('fn_news');
+		$this->db->order_by('news_timestamp', 'DESC');
+		$this->db->limit(1);
+		$data = $this->db->get()->result();
+
+		// Get Kanals
+		$this->db->select('category_name, category_alias');
+		$this->db->from('fn_category');
+		$this->db->where('category_id !=', 7);
+		$this->db->order_by('category_alias', 'ASC');
+		$kanals = $this->db->get()->result();
+
+		$this->load->view('FrontOffice/topside');
+		$this->load->view('FrontOffice/populer_mobile', array('dataNews' => $get, 'dataLast' => $data, 'kanals' => $kanals));
+		$this->load->view('FrontOffice/footer');
+	}
 }

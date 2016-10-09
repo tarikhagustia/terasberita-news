@@ -63,4 +63,6 @@ $route['backoffice'] = 'Backoffice';
 $route['example'] = 'Example';
 $route['search'] = 'FrontEnd/secureSearch';
 $route['fokus'] = 'FrontEnd/fokus';
+$route['populer'] = 'FrontEnd/populer';
+$route['populer/(:any)'] = 'FrontEnd/populer/$1';
 $route['(:any)'] = 'FrontEnd/viewMyArticle/$1';

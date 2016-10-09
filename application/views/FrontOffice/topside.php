@@ -268,7 +268,7 @@
   <div class="menu-mobile">
     <div class="container cokelat">
         <a href="<?php echo base_url('fokus'); ?>">Fokus</a>
-        <a href="#">Terpopuler</a>
+        <a href="<?php echo base_url('populer'); ?>">Terpopuler</a>
         <a href="#">Indeks</a>
         <div class="clearfix"></div>
     </div>
