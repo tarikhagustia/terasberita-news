@@ -330,7 +330,7 @@ class FrontEnd extends CI_Controller {
 		$thn = $this->input->get('thn');
 
 		// get tanggal
-		for ($i=1; $i <= 31 ; $i++) { 
+		for ($i=1; $i <= 31 ; $i++) {
 			# code...
 			$hitung = strlen($i);
 			if($hitung < 2):
@@ -357,10 +357,11 @@ class FrontEnd extends CI_Controller {
 
 
 		$this->db->order_by('news_timestamp', 'DESC');
-		$this->db->limit(10);
+		$this->db->limit(20);
+
 		$dataNews = $this->db->get()->result();
 		$this->load->view('FrontOffice/topside');
 		$this->load->view('FrontOffice/indeks_mobile', array('dataTanggal' => $tanggal, 'dataNews' => $dataNews));
-		$this->load->view('FrontOffice/footer');	
+		$this->load->view('FrontOffice/footer');
 	}
 }
