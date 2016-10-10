@@ -10,8 +10,10 @@
     <form class="" action="#" method="get">
       <div class="form-group">
         <select name="kanal" class="form-control">
+        <option value="" selected>Pilih kanal</option>
         <?php foreach($kanals as $rows): ?>
-          <option value="<?php echo $rows->category_name ?>"><?php echo $rows->category_alias ?></option>
+
+          <option value="<?php echo $rows->category_name ?>" <?php if($this->uri->segment(2) == $rows->category_name ): echo "selected"; endif; ?>><?php echo $rows->category_alias ?></option>
         <?php endforeach; ?>
         </select>
       </div>
