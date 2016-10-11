@@ -1,6 +1,6 @@
 <section id="indeks_mobile">
 	<div class="indeks_date">
-		<form name="sortdate" method="get" action="cari">
+		<form name="sortdate" method="get" action="<?php echo base_url('arsip/cari') ?>">
 			<div class="select">
 				<select name="tgl" id="tgl">
 				<?php foreach($dataTanggal['tanggal'] as $key => $rows): ?>
@@ -28,7 +28,6 @@
 				</select>
 				<input type="submit" value="GO" class="btn">
 			</div>
-			
 		</form>
 		<div class="clearfix"></div>
 	</div>
