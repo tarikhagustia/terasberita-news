@@ -152,7 +152,7 @@ class Backoffice extends CI_Controller
 	{
 		// var_dump($id);
 		$this->load->model('back','modelbackoffice');
-		$data = $this->modelbackoffice->getDatanews($id, 'news_thumb, news_title, news_desc, user_id, news_creator, username');
+		$data = $this->modelbackoffice->getDatanews($id, 'news_thumb, news_title, news_desc, user_id, news_creator, username, caption');
 		// var_dump($data);
 		$this->db->select('fn_pages.category_id');
 		$this->db->from('fn_pages');
@@ -192,6 +192,7 @@ class Backoffice extends CI_Controller
                 $file = Slim::saveFile($image['output']['data'], $this->format->url_dash($image['input']['name']));
             }
             $news_url   = $this->format->seoUrl($this->input->post('jdl-berita'));
+            $caption    = $this->input->post('caption');
             $jdl_berita = $this->input->post('jdl-berita');
             $id         = $this->session->userdata('id');
             $name_pen   = $this->input->post('name-pen');
@@ -200,6 +201,7 @@ class Backoffice extends CI_Controller
             $news_thumb = $file['path'];
             $insert1    = array(
                 'news_url'   => $news_url,
+                'caption'   => $caption,
                 'news_title' => $jdl_berita,
                 'news_creator' => $name_pen,
                 'user_id'    => $id,
@@ -362,6 +364,7 @@ class Backoffice extends CI_Controller
                 $file = Slim::saveFile($image['output']['data'], $this->format->url_dash($image['input']['name']));
             }
             $news_url       = $this->format->seoUrl($this->input->post('jdl-berita'));
+			$caption   	    = $this->input->post('caption');
             $jdl_berita     = $this->input->post('jdl-berita');
             $id     		= $this->session->userdata('id');
             $idnya     		= $this->input->post('idnya');
@@ -374,6 +377,7 @@ class Backoffice extends CI_Controller
             $data        = array(
 
             'news_url'       => $news_url,
+            'caption'        => $caption,
             'news_title'     => $jdl_berita,
             'news_creator'   => $name_red,
             'news_desc'      => $isi,

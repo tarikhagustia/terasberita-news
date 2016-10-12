@@ -58,6 +58,12 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="caption">Caption</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="caption" name="caption" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+					  <div class="form-group">
                         <label class="control-label col-md-2 col-sm-2 col-xs-12" for="jdl-berita">Judul Berita</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="jdl-berita" name="jdl-berita" required="required" class="form-control col-md-7 col-xs-12">
