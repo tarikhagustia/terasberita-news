@@ -87,7 +87,12 @@ class Backoffice extends CI_Controller
 	public function manage_user($do = false)
 	{
     $this->load->model('back', 'modelbackoffice');
-    $data = $this->modelbackoffice->getData('bo_user', 'id, username, full_name, date_create, email');
+    // $data = $this->modelbackoffice->getData('bo_user', 'id, username, full_name, date_create, email');
+    $this->db->select('id, username, full_name, date_create, email, group_alias');
+    $this->db->from('bo_user');
+    $this->db->join('bo_group', 'bo_user.group_id = bo_group.group_id');
+    $this->db->order_by('date_create', 'DESC');
+    $data = $this->db->get()->result_array();
     $dataGroup = $this->modelbackoffice->getData('bo_group', 'group_id, group_alias');
     $page = array(
         "thepage" => $this->load->view('back/manage_user', array('data' => $data, 'dataGroup' => $dataGroup), true),

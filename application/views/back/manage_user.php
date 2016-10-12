@@ -104,6 +104,7 @@
                   <th>No</th>
                   <th>Name</th>
                   <th>Username</th>
+                  <th>Akses Level</th>
                   <th>Date Create</th>
                   <th>E - Mail</th>
                   <th>Tindakan</th>
@@ -117,6 +118,7 @@
                   <td><?php echo $i; ?></td>
                   <td><?php echo $this->security->xss_clean($row['full_name']); ?></td>
                   <td><?php echo $row['username']; ?></td>
+                  <td><?php echo $row['group_alias']; ?></td>
                   <td><?php echo $row['date_create']; ?></td>
                   <td><?php echo $row['email']; ?></td>
                   <td><?php if($row['username'] != 'theprogrammer'): ?><a href="<?php echo base_url('backoffice/delete/user/'.$row["id"]) ?>">Hapus</a><?php endif; ?></td>

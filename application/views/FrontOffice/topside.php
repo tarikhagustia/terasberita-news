@@ -255,7 +255,7 @@
                         <a id="<?php if($this->uri->segment(1) == 'teras-ekonomi'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-ekonomi') ?>">terasEkonomi</a>
                     </li>
                     <li class="index">
-                        <a href="#" style="margin-right: 0px;">INDEX</a>
+                        <a id="<?php if($this->uri->segment(1) == 'teras-islami'): echo 'aktiv'; endif; ?>" href="<?php echo base_url('teras-islami') ?>" target="_blank">terasIslami</a>
                     </li>
                 </ul>
             </div>
