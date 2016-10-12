@@ -28,7 +28,10 @@
                                     </div>
                                 <?php else: ?>
                                     <div class="img-header">
-                                    <img class="img-responsive" src="<?php echo base_url($dataArticle->news_thumb) ?>">
+                                    <figure>
+                                      <img class="img-responsive" src="<?php echo base_url($dataArticle->news_thumb) ?>"/>
+                                      <figcaption class="text-italic"><em><?php echo $dataArticle->caption; ?></em></figcaption>
+                                    </figure>
                                     </div>
                                 <?php endif; ?>
                                 <?php endif; ?>
@@ -149,9 +152,12 @@
             <img class="img-responsive" src="<?php echo base_url() ?>assets/img/bg.jpg">
             </div>
         <?php else: ?>
-            <div class="img-header">
-            <img class="img-responsive" src="<?php echo base_url($dataArticle->news_thumb) ?>">
-            </div>
+          <div class="img-header">
+          <figure>
+            <img class="img-responsive" src="<?php echo base_url($dataArticle->news_thumb) ?>"/>
+            <figcaption class="text-italic"><em><?php echo $dataArticle->caption; ?></em></figcaption>
+          </figure>
+          </div>
         <?php endif; ?>
         <div class="isi">
             <p>
