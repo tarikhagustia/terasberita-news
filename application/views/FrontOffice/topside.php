@@ -204,15 +204,31 @@
             </div>
         </div>
                 <?php
-                $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_type' => 'ads'));
+                $this->db->select('category_name');
+                $this->db->from('fn_category');
+                $data = $this->db->get()->result_array();
+                if($this->uri->segment(1) == null):
+                  $segment = 'teras-nasional';
+                elseif(!in_array($this->uri->segment(1), $data)):
+                  $segment = 'artikel';
+                else:
+                  $segment = $this->uri->segment(1);
+
+                endif;
+                          //  ($user['permissions'] == 'admin') ? true : false;
+                $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_name' => 'header-809x188', 'layout_location' => $segment));
+                $data = array();
                 foreach ($ads as $key => $value) {
-                    # code...
                     $data[$value->layout_name] = $value->layout_dir;
                 }
                 ?>
         <div class="col-md-6">
             <div class="iklan hidden-xs">
+              <?php if(!empty($data)): ?>
                 <a href="#"><img src="<?php echo base_url($data['header-809x188']) ?>"></a>
+              <?php else: ?>
+                <a href="#"><img src="<?php echo base_url('assets/img/iklan/images1.jpg') ?>"></a>
+              <?php endif; ?>
             </div>
         </div>
     </div>

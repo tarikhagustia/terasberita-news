@@ -198,14 +198,31 @@
             <div class="box-kanan" id="box-kanan"><!--Box-Kanan-->
                 <div class="iklan">
                         <?php
-                        $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_type' => 'ads'));
+                        $this->db->select('category_name');
+                        $this->db->from('fn_category');
+                        $data = $this->db->get()->result_array();
+                        if($this->uri->segment(1) == null):
+                          $segment = 'teras-nasional';
+                        elseif(!in_array($this->uri->segment(1), $data)):
+                          $segment = 'artikel';
+                        else:
+                          $segment = $this->uri->segment(1);
+
+                        endif;
+                                  //  ($user['permissions'] == 'admin') ? true : false;
+                        $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_name' => 'body-532x280', 'layout_name' => '532x180', 'layout_location' => $segment));
+                        $data = array();
                         foreach ($ads as $key => $value) {
-                            # code...
                             $data[$value->layout_name] = $value->layout_dir;
                         }
+                        if(empty($data)):
                         ?>
+                        <img id="kfc" src="<?php echo base_url('assets/img/iklan/images1.jpg') ?>">
+                        <img id="kupon" src="<?php echo base_url('assets/img/iklan/images1.jpg') ?>">
+                      <?php else: ?>
                         <img id="kfc" src="<?php echo base_url($data['body-532x280']) ?>">
                         <img id="kupon" src="<?php echo base_url($data['body-532x180']) ?>">
+                      <?php endif; ?>
 
                         <div class="komentar"><!--Komentar-->
                               <div class="col-md-6">
@@ -253,9 +270,11 @@
   </div>
 <?php endif; ?>
 
-  <!-- <div class="container"> -->
-  <img class="img-ads-header" src="<?php echo base_url($data['header-809x188']) ?>" />
-  <!-- </div> -->
+<?php if(!empty($data)): ?>
+<img class="img-ads-header" src="<?php echo base_url($data['header-809x188']) ?>" />
+<?php else: ?>
+<img class="img-ads-header" src="<?php echo base_url('assets/img/iklan/images1.jpg') ?>" />
+<?php endif;?>
   <div class="gap">
   </div>
 <?php if($dataIndeph): ?>
