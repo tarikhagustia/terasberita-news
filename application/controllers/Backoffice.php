@@ -585,50 +585,50 @@ class Backoffice extends CI_Controller
     }
     public function upload_iklan()
     {
-        $area = $this->input->post('area');
+        $width = $this->input->post('width');
+        $height = $this->input->post('height');
+        $halaman = $this->input->post('select2');
         $config['upload_path']          = 'assets/img/iklan';
-        $config['allowed_types']        = 'gif|jpg|png';
+        $config['allowed_types']        = 'gif|jpg';
         $config['max_size']             = 1024;
-        switch ($area) {
-          case 'header-809x188':
-            # code...
-            $config['max_width']            = 820;
-            $config['max_height']           = 190;
-            break;
-          case 'body-532x280':
-            # code...
-            $config['max_width']            = 550; //532
-            $config['max_height']           = 300; //280
-            break;
-          case 'body-532x180':
-              # code...
-            $config['max_width']            = 550;
-            $config['max_height']           = 200;
-            break;
-          default:
-            # code...
-            break;
-        }
-
-
+        $config['max_width']            = $width;
+        $config['max_height']           = $height;
 
         $this->load->library('upload', $config);
         if ( ! $this->upload->do_upload('userfile'))
         {
-                $error = array('error' => $this->upload->display_errors());
-                $this->session->set_flashdata('error', $error);
-                redirect('backoffice/manage_iklan');
+          $error = array('error' => $this->upload->display_errors());
+          $this->session->set_flashdata('error', $error['error']);
+          redirect('backoffice/'.$this->input->post('from'));
         }
         else
         {
-                $data = array('upload_data' => $this->upload->data());
-                $layout = array(
-                  'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['orig_name']
-                );
-                $this->news->updateData('fn_layout', $layout, 'layout_name', $area);
-                $this->session->set_flashdata('status', 'Iklan berhasil diupload');
-                redirect('backoffice/manage_iklan');
+          $data = array('upload_data' => $this->upload->data());
+          // var_dump($data);
+          foreach ($halaman as $key => $value) {
+            # code...
+            $layout = array(
+              'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['orig_name']
+            );
+            $this->news->updateData('fn_layout', $layout, 'layout_id', $value);
+          }
+
+          $this->session->set_flashdata('status', 'Iklan berhasil diupload');
+          redirect('backoffice/'.$this->input->post('from'));
 
         }
+    }
+    // Ads
+    public function ads_leaderboard()
+    {
+      // Select data
+      $this->db->select('*');
+      $this->db->from('fn_layout');
+      $this->db->where('layout_name', 'header-809x188');
+      $result = $this->db->get()->result();
+      $page = array(
+          "thepage" => $this->load->view('back/ads_leaderboard', array('dataPages' => $result), true)
+      );
+      $this->load->view('back/index', $page);
     }
 }

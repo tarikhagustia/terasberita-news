@@ -100,9 +100,11 @@
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-clone"></i> Layout Management <span class="fa fa-chevron-down"></span></a>
+                        <a><i class="fa fa-clone"></i> Ads Management <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="<?php echo base_url('backoffice/manage_iklan'); ?>" id="" class='' >Manage Ads</a>
+                            </li>
+                            <li><a href="<?php echo base_url('backoffice/ads_leaderboard'); ?>" id="" class='' >Leader Board</a>
                             </li>
                         </ul>
                     </li>
