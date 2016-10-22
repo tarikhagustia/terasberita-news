@@ -589,10 +589,12 @@ class Backoffice extends CI_Controller
         $height = $this->input->post('height');
         $halaman = $this->input->post('select2');
         $config['upload_path']          = 'assets/img/iklan';
-        $config['allowed_types']        = 'gif|jpg';
+        $config['allowed_types']        = 'gif|jpg|png';
         $config['max_size']             = 1024;
         $config['max_width']            = $width;
         $config['max_height']           = $height;
+        $config['encrypt_name']         = true;
+
 
         $this->load->library('upload', $config);
         if ( ! $this->upload->do_upload('userfile'))
@@ -604,11 +606,10 @@ class Backoffice extends CI_Controller
         else
         {
           $data = array('upload_data' => $this->upload->data());
-          // var_dump($data);
           foreach ($halaman as $key => $value) {
             # code...
             $layout = array(
-              'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['orig_name']
+              'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['file_name']
             );
             $this->news->updateData('fn_layout', $layout, 'layout_id', $value);
           }
@@ -628,6 +629,30 @@ class Backoffice extends CI_Controller
       $result = $this->db->get()->result();
       $page = array(
           "thepage" => $this->load->view('back/ads_leaderboard', array('dataPages' => $result), true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function ads_category_a()
+    {
+      // Select data
+      $this->db->select('*');
+      $this->db->from('fn_layout');
+      $this->db->where('layout_name', 'body-532x280');
+      $result = $this->db->get()->result();
+      $page = array(
+          "thepage" => $this->load->view('back/ads_category_a', array('dataPages' => $result), true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function ads_category_b()
+    {
+      // Select data
+      $this->db->select('*');
+      $this->db->from('fn_layout');
+      $this->db->where('layout_name', 'body-532x180');
+      $result = $this->db->get()->result();
+      $page = array(
+          "thepage" => $this->load->view('back/ads_category_b', array('dataPages' => $result), true)
       );
       $this->load->view('back/index', $page);
     }

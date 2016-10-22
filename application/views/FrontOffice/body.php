@@ -201,16 +201,26 @@
                         $this->db->select('category_name');
                         $this->db->from('fn_category');
                         $data = $this->db->get()->result_array();
+                        $data_array = array();
+                        foreach ($data as $key => $value) {
+                          $data_array[] = $value['category_name'];
+                        }
                         if($this->uri->segment(1) == null):
                           $segment = 'teras-nasional';
-                        elseif(!in_array($this->uri->segment(1), $data)):
+                        elseif(!in_array($this->uri->segment(1), $data_array)):
                           $segment = 'artikel';
                         else:
                           $segment = $this->uri->segment(1);
 
                         endif;
                                   //  ($user['permissions'] == 'admin') ? true : false;
-                        $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_name' => 'body-532x280', 'layout_name' => '532x180', 'layout_location' => $segment));
+                        // $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_location' => $segment));
+                        $this->db->select('layout_name, layout_type, layout_dir');
+                        $this->db->from('fn_layout');
+                        $this->db->where_in('layout_name', array('body-532x280','body-532x180'));
+                        $this->db->where('layout_location',$segment );
+                        $ads = $this->db->get()->result();
+
                         $data = array();
                         foreach ($ads as $key => $value) {
                             $data[$value->layout_name] = $value->layout_dir;
@@ -269,7 +279,29 @@
   <div class="gap">
   </div>
 <?php endif; ?>
+<?php
+$this->db->select('category_name');
+$this->db->from('fn_category');
+$data = $this->db->get()->result_array();
+$data_array = array();
+foreach ($data as $key => $value) {
+  $data_array[] = $value['category_name'];
+}
+if($this->uri->segment(1) == null):
+  $segment = 'teras-nasional';
+elseif(!in_array($this->uri->segment(1), $data_array)):
+  $segment = 'artikel';
+else:
+  $segment = $this->uri->segment(1);
 
+endif;
+          //  ($user['permissions'] == 'admin') ? true : false;
+$ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_name' => 'header-809x188', 'layout_location' => $segment));
+$data = array();
+foreach ($ads as $key => $value) {
+    $data[$value->layout_name] = $value->layout_dir;
+}
+?>
 <?php if(!empty($data)): ?>
 <img class="img-ads-header" src="<?php echo base_url($data['header-809x188']) ?>" />
 <?php else: ?>
