@@ -39,9 +39,9 @@
           <br/>
           <?php echo form_open_multipart('backoffice/upload_iklan', array('name' => 'ci_form')); ?>
           <?php
-          echo form_hidden('width', 809+50);
-          echo form_hidden('height', 188+50);
-          echo form_hidden('from', 'ads_leaderboard');
+          echo form_hidden('width', 532+50);
+          echo form_hidden('height', 180+50);
+          echo form_hidden('from', 'ads_category_b');
           ?>
           <div class="form-group">
             <div class="row">
@@ -64,7 +64,7 @@
               </div>
               <div class="col-md-9">
                 <input type="file" name="userfile" a size="20" />
-                <small>Hannya bisa file JPG / GIF dengan ukuran Maxsimal <strong>809x188</strong> Px</small>
+                <small>Hannya bisa file JPG / GIF dengan ukuran Maxsimal <strong>532x180</strong> Px</small>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@
           <?php echo form_close(); ?>
           <br/>
           <legend>Penempatan </legend>
-          <img src="<?php echo base_url('assets/images/ads/leaderboard.png') ?>" class="img-responsive" />
+          <img src="<?php echo base_url('assets/images/ads/ads_category_a.png') ?>" class="img-responsive" />
         </div>
     </div>
   </div>

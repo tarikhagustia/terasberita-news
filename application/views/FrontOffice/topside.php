@@ -25,8 +25,25 @@
     <link rel="canonical" href="<?php echo current_url(); ?>">
     <?php else: ?>
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="description" content="Indepth Jujur Akurat">
-    <meta name="keywords" content="Indepth, jujur, akurat, beita, Berita sukabumi, harian sukabumi, Kriminal sukabumi">
+    <meta name="language" content="id" />
+    <meta name="title" content="terasberita.co - Indepth, Jujur , Akurat"/>
+    <meta name="description" content="Indepth Jujur Akurat" />
+    <meta name="keywords" content="Sukabumi, sukabumi, terasberita, teras berita, sukabumi kabupaten, sukabumi kota, sukabumi selatan, berita sukabumi, berita, berita sukabumi terbaru, berita sukabumi hari ini, berita populer, berita sukabumi populer, bisnis, politik , ekonomi, hukum, kriminal, kasus, populer, peristiwa, kontroversi, investigasi, indonesia, daerah, nasional, internasional, dunia, jabar, jawa barat" />
+    <meta name="news_keywords" content="Sukabumi, sukabumi, terasberita, teras berita, sukabumi kabupaten, sukabumi kota, sukabumi selatan, berita sukabumi, berita, berita sukabumi terbaru, berita sukabumi hari ini, berita populer, berita sukabumi populer, bisnis, politik , ekonomi, hukum, kriminal, kasus, populer, peristiwa, kontroversi, investigasi, indonesia, daerah, nasional, internasional, dunia, jabar, jawa barat, bocah sd mati, bocah sd mading, mading" />
+    <meta name="classification" content="Sukabumi, sukabumi, terasberita, teras berita, sukabumi kabupaten, sukabumi kota, sukabumi selatan, berita sukabumi, berita, berita sukabumi terbaru, berita sukabumi hari ini, berita populer, berita sukabumi populer, bisnis, politik , ekonomi, hukum, kriminal, kasus, populer, peristiwa, kontroversi, investigasi, indonesia, daerah, nasional, internasional, dunia, jabar, jawa barat" />
+    <meta http-equiv="refresh" content="800" />
+    <meta name="distribution" content="Global" />
+    <meta name="rating" content="General" />
+    <meta name="robots" content="index, follow" />
+    <meta content='all' name='robots'/>
+    <meta content='index, follow' name='robots'/>
+    <meta content='index, follow' name='yahoobot'/>
+    <meta name="revisit-after" content="2 days" />
+    <meta name="creator" content="terasberita.co - Indepth, Jujur , Akurat" />
+    <meta name="publisher" content="Solusi Digital Untuk Bisnis Anda Allblue Technology" />
+    <meta name="copyright" content="Copyright &copy; 2016 terasberita.co"/>
+    <meta name="author" content="terasberita.co"/>
+    <meta name="email" content="cs@terasberita.co"/>
     <?php endif; ?>
 
     <title>
@@ -207,9 +224,13 @@
                 $this->db->select('category_name');
                 $this->db->from('fn_category');
                 $data = $this->db->get()->result_array();
+                $data_array = array();
+                foreach ($data as $key => $value) {
+                  $data_array[] = $value['category_name'];
+                }
                 if($this->uri->segment(1) == null):
                   $segment = 'teras-nasional';
-                elseif(!in_array($this->uri->segment(1), $data)):
+                elseif(!in_array($this->uri->segment(1), $data_array)):
                   $segment = 'artikel';
                 else:
                   $segment = $this->uri->segment(1);
