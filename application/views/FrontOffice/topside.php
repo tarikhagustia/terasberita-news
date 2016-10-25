@@ -2,7 +2,13 @@
 <html lang="en">
 
 <head>
-
+    <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "pub-1161473705566559",
+    enable_page_level_ads: true
+    });
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; user-scalabel=0;">
