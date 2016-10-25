@@ -1,3 +1,44 @@
+<!-- Modal -->
+<style>
+.modal-dialog {
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+}
+.relative{
+
+    position:absolute;
+   top:0px;
+   right:100px;
+}
+.badge1 {
+   position:relative;
+}
+.badge1[data-badge]:after {
+   content:attr(data-badge);
+   position:absolute;
+   top:-10px;
+   right:-10px;
+   font-size:.7em;
+   background:green;
+   color:white;
+   width:18px;height:18px;
+   text-align:center;
+   line-height:18px;
+   border-radius:50%;
+   box-shadow:0 0 1px #333;
+}
+</style>
+<div id="myModal" class="modal fade" role="dialog" data-backdrop="static" >
+  <div class="modal-dialog">
+  <div class="row">
+    <div class="col-md-12">
+      <img src="<?php echo base_url('assets/img/iklan/500x350.png') ?>" class="popup img-responsive center-block" align="center"/>
+      <!-- <h1 class="relative">&times;</h1> -->
+      <span class="relative close" data-dismiss="modal" hidden>&times; close</span>
+    </div>
+  </div>
+  </div>
+</div>
 <div id="no-resposive" class="hidden-xs">
     <section id="deskripsi-berita">
         <div class="container">
@@ -206,3 +247,22 @@
   </section>
   </div>
   </div>
+<script>
+$(document).ready(function(){
+  // Kalo misal user udah lat iklan, iklan jangan ditampilin lagi broth
+  if(localStorage.getItem('popState') != 'shown'){
+        $('#myModal').modal({
+          show: 'true',
+          backdrop: 'static',
+          keyboard: true
+        })
+        setTimeout(function(){
+          $('.relative').show();
+        }, 3000);
+        localStorage.setItem('popState','shown')
+  }else{
+
+  }
+
+});
+</script>
