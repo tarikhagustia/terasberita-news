@@ -189,16 +189,22 @@ class FrontEnd extends CI_Controller {
 		$this->load->view('CountDown/index');
 	}
 	public function viewMyArticle($news_url = null){
+		// Iklan Popup
 
 		$dataArticle = $this->news->getNewsFromArticle($news_url);
 		if(empty($dataArticle)):
 			redirect(base_url());
 		endif;
+		$popup = $this->db->get_where('fn_ads_popup', array('news_id' => $dataArticle->news_id));
+		$popups = false;
+		foreach ($popup->result() as $key => $value) {
+			$popups = $value;
+		}
 		$dataCommentArticle = $this->news->getCommentFromArticle($news_url);
 		$dataPopular = $this->news->getPopularNewsByCatgory($dataArticle->category_id, $dataArticle->news_id);
 		$dataTerasPeristiwa = $this->news->getTerasPeristiwa($dataArticle->category_id);
 		$this->load->view('FrontOffice/topside', array('title' => $dataArticle->news_title, 'dataArticle' => $dataArticle));
-		$this->load->view('FrontOffice/article', array('dataArticle' => $dataArticle, 'dataCommentArticle' => $dataCommentArticle, 'dataPopuler' => $dataPopular, 'dataTerasPeristiwa' => $dataTerasPeristiwa));
+		$this->load->view('FrontOffice/article', array('dataArticle' => $dataArticle, 'dataCommentArticle' => $dataCommentArticle, 'dataPopuler' => $dataPopular, 'dataTerasPeristiwa' => $dataTerasPeristiwa, 'popups' => $popups));
 		$this->load->view('FrontOffice/footer');
 		$cekId = $this->news->getData('fn_news', 'news_id', array('news_url' => $news_url));
 		foreach ($cekId as $key => $value) {

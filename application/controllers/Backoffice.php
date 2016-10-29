@@ -656,4 +656,75 @@ class Backoffice extends CI_Controller
       );
       $this->load->view('back/index', $page);
     }
+    public function ads_popup_article()
+    {
+      // Select data
+      $this->db->select('fn_ads_popup.*, news_title');
+      $this->db->from('fn_ads_popup');
+      $this->db->join('fn_news', 'fn_ads_popup.news_id = fn_news.news_id');
+      $this->db->order_by('created_at', 'DESC');
+      $get = $this->db->get()->result();
+      $page = array(
+          "thepage" => $this->load->view('back/iklan/popup_article', array('datas' => $get), true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function ads_popup_article_input()
+    {
+      var_dump($_POST);
+
+      $width = $this->input->post('width');
+      $height = $this->input->post('height');
+      $halaman = $this->input->post('select2');
+      $config['upload_path']          = 'assets/img/iklan';
+      $config['allowed_types']        = 'gif|jpg|png';
+      $config['max_size']             = 512;
+      $config['max_width']            = 510;
+      $config['max_height']           = 360;
+      $config['min_width']            = 490;
+      $config['min_height']           = 340;
+      $config['encrypt_name']         = true;
+      // 500x350
+
+
+      $this->load->library('upload', $config);
+      if ( ! $this->upload->do_upload('userfile'))
+      {
+        $error = array('error' => $this->upload->display_errors());
+        $this->session->set_flashdata('error', $error['error']);
+        redirect('backoffice/ads_popup_article');
+      }
+      else
+      {
+        $data = array('upload_data' => $this->upload->data());
+        $news_list = $this->input->post('news_list');
+        $alt = $this->input->post('alt');
+        $link = $this->input->post('link');
+        $created_at = date('Y-m-d H:i:s');
+
+        foreach ($news_list as $key => $value) {
+          $this->db->delete('fn_ads_popup', array('news_id' => $value));
+          $data = array(
+            'popup_alt' => $alt,
+            'popup_img' => $config['upload_path'] ."/".$data['upload_data']['file_name'],
+            'popup_link'  => $link,
+            'created_at'  => $created_at,
+            'news_id' => $value,
+          );
+          $this->db->replace('fn_ads_popup', $data);
+          $this->session->set_flashdata('error', 'Iklan sudah disimpan');
+          redirect('backoffice/ads_popup_article');
+        }
+      }
+    }
+    public function ads_popup_article_delete($popup_id = null)
+    {
+      $do = $this->db->delete('fn_ads_popup', array('popup_id' => $popup_id));
+      if($do):
+        $this->session->set_flashdata('error', 'Berhasil Menghapus data');
+      else:
+        $this->session->set_flashdata('error', 'Gagal Menghapus data');
+      endif;
+      redirect('backoffice/ads_popup_article');
+    }
 }
