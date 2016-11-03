@@ -677,7 +677,7 @@ class Backoffice extends CI_Controller
       $height = $this->input->post('height');
       $halaman = $this->input->post('select2');
       $config['upload_path']          = 'assets/img/iklan';
-      $config['allowed_types']        = 'gif|jpg|png';
+      $config['allowed_types']        = 'gif|jpg|png|jpeg';
       $config['max_size']             = 512;
       $config['max_width']            = 510;
       $config['max_height']           = 360;
