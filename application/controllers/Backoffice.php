@@ -671,8 +671,6 @@ class Backoffice extends CI_Controller
     }
     public function ads_popup_article_input()
     {
-      var_dump($_POST);
-
       $width = $this->input->post('width');
       $height = $this->input->post('height');
       $halaman = $this->input->post('select2');
