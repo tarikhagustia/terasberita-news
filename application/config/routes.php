@@ -68,4 +68,5 @@ $route['populer'] = 'FrontEnd/populer';
 $route['populer/(:any)'] = 'FrontEnd/populer/$1';
 $route['arsip'] = 'FrontEnd/indeks_mobile';
 $route['arsip/cari'] = 'FrontEnd/indeks_mobile/cari';
+$route['awesome'] = 'FrontEnd/customOnly';
 $route['(:any)'] = 'FrontEnd/viewMyArticle/$1';
