@@ -23,8 +23,16 @@ class News extends CI_Model
     }
     public function getNewsFromPage($category_id)
     {
-        $result = $this->db->query("SELECT news_url, news_thumb, fn_pages.`category_id`, fn_pages.`pages_id`, news_title, category_alias, news_desc AS news_desc, fn_news.`news_timestamp` FROM fn_pages, fn_category, fn_news WHERE fn_pages.`category_id` = fn_category.`category_id` AND fn_pages.`news_id` = fn_news.`news_id` AND fn_pages.category_id = '$category_id' ORDER BY fn_news.news_timestamp DESC");
-        return $result->result();
+        $this->db->select('news_url, news_thumb, fn_pages.`category_id`, fn_pages.`pages_id`, news_title, category_alias, news_desc AS news_desc, fn_news.`news_timestamp`');
+        $this->db->from('fn_pages');
+        $this->db->join('fn_category', 'fn_pages.category_id = fn_category.category_id');
+        $this->db->join('fn_news', 'fn_pages.news_id = fn_news.news_id');
+        $this->db->where('fn_pages.category_id', $category_id);
+        $this->db->order_by('fn_news.news_timestamp');
+        $this->db->limit(10);
+        $get = $this->db->get();
+        // $result = $this->db->query("SELECT news_url, news_thumb, fn_pages.`category_id`, fn_pages.`pages_id`, news_title, category_alias, news_desc AS news_desc, fn_news.`news_timestamp` FROM fn_pages, fn_category, fn_news WHERE fn_pages.`category_id` = fn_category.`category_id` AND fn_pages.`news_id` = fn_news.`news_id` AND fn_pages.category_id = '$category_id' ORDER BY fn_news.news_timestamp DESC");
+        return $get->result();
     }
     public function getNewsFromArticle($news_url = null)
     {
