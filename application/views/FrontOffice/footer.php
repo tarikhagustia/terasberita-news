@@ -29,6 +29,7 @@
 </section>
     <!-- For modal -->
     <script src="<?php echo base_url() ?>assets/js/login-register.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/jquery.unveil.js"></script>
     <!-- Script to Activate the Carousel -->
     <script>
     jQuery(document).ready(function($) {
@@ -36,7 +37,7 @@
         jQuery('.cari').click(function(event) {
             $('#search-form').submit();
         });
-
+        $("img[class=lazy]").unveil();
     });
 
     $('.carousel').carousel({
