@@ -67,12 +67,14 @@
                 <?php if($dataArticle->category_id != '7'): ?>
                   <?php if($dataArticle->news_thumb == NULL || $dataArticle->news_thumb == ''): ?>
                     <div class="img-header">
-                      <img class="img-responsive" src="<?php echo base_url() ?>assets/img/bg.jpg">
+                      <img class="img-responsive lazy" data-src="<?php echo base_url() ?>assets/img/bg.jpg">
                     </div>
                   <?php else: ?>
                     <div class="img-header">
+
                       <figure>
-                        <img class="img-responsive" src="<?php echo base_url($dataArticle->news_thumb) ?>"/>
+                        <img class="img-responsive lazy" data-src="<?php echo base_url($dataArticle->news_thumb) ?>" alt="" />
+                        <!-- <img class="img-responsive lazy" src="<?php echo base_url($dataArticle->news_thumb) ?>"/> -->
                         <figcaption class="text-italic"><em><?php echo $dataArticle->caption; ?></em></figcaption>
                       </figure>
                     </div>
@@ -134,7 +136,7 @@
                 <div class="fok-isi">
                   <div class="list">
                     <div class="col-md-4 col-xs-4">
-                      <img src="<?php echo base_url($rows->news_thumb) ?>">
+                      <img class="lazy" data-src="<?php echo base_url($rows->news_thumb) ?>">
                     </div>
                     <div class="col-md-8 col-xs-8">
                       <p class="desc text-justify">
@@ -192,12 +194,12 @@
             <div class="des">
               <?php if($dataArticle->news_thumb == NULL || $dataArticle->news_thumb == ''): ?>
                 <div class="img-header">
-                  <img class="img-responsive" src="<?php echo base_url() ?>assets/img/bg.jpg">
+                  <img class="img-responsive lazy" data-src="<?php echo base_url() ?>assets/img/bg.jpg">
                 </div>
               <?php else: ?>
                 <div class="img-header">
                   <figure>
-                    <img class="img-responsive" src="<?php echo base_url($dataArticle->news_thumb) ?>"/>
+                    <img class="img-responsive lazy" data-src="<?php echo base_url($dataArticle->news_thumb) ?>"/>
                     <figcaption class="text-italic"><em><?php echo $dataArticle->caption; ?></em></figcaption>
                   </figure>
                 </div>

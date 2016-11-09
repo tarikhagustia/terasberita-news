@@ -37,7 +37,7 @@
         jQuery('.cari').click(function(event) {
             $('#search-form').submit();
         });
-        $("img[class=lazy]").unveil();
+        $(".lazy").unveil();
     });
 
     $('.carousel').carousel({
