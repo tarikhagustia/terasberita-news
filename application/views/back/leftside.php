@@ -33,59 +33,24 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- <li>
-                        <a><i class="fa fa-edit"></i> Hotel <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="form.html">Manage Hotel</a>
-                            </li>
-                            <li><a href="form_advanced.html">Manage Room Rate</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a><i class="fa fa-desktop"></i> Corporate <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="general_elements.html">Manage Corporate</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a><i class="fa fa-table"></i> Reservasion <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li>
-                                <a href="tables.html">Manage Room Reservasion</a>
-                            </li>
-                             <li>
-                                <a href="tables.html">Manage Bidding</a>
-                            </li>
-                            <li>
-                                <a href="tables.html">Manage Meeting & Event Request</a>
-                            </li>
-                            <li>
-                                <a href="tables.html">Manage group request</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a><i class="fa fa-bar-chart-o"></i> Report <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="chartjs.html">Chart JS</a>
-                            </li>
-                            <li><a href="chartjs2.html">Chart JS2</a>
-                            </li>
-                            <li><a href="morisjs.html">Moris JS</a>
-                            </li>
-                            <li><a href="echarts.html">ECharts </a>
-                            </li>
-                            <li><a href="other_charts.html">Other Charts </a>
-                            </li>
-                        </ul>
-                    </li> -->
                     <?php if($this->session->userdata('group_id') == '1'): ?>
                     <li>
                         <a><i class="fa fa-clone"></i> User Management <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="<?php echo base_url('backoffice/manage_user'); ?>" id="" class='' >Manage User</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-clone"></i> Ads Management <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="<?php echo base_url('backoffice/ads_leaderboard'); ?>" id="" class='' >Leader Board</a>
+                            </li>
+                            <li><a href="<?php echo base_url('backoffice/ads_category_a'); ?>" id="" class='' >Category Page A</a>
+                            </li>
+                            <li><a href="<?php echo base_url('backoffice/ads_category_b'); ?>" id="" class='' >Category Page B</a>
+                            </li>
+                            <li><a href="<?php echo base_url('backoffice/ads_popup_article'); ?>" id="" class='' >Pop Ads By Article</a>
                             </li>
                         </ul>
                     </li>
@@ -99,13 +64,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a><i class="fa fa-clone"></i> Layout Management <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="<?php echo base_url('backoffice/manage_iklan'); ?>" id="" class='' >Manage Ads</a>
-                            </li>
-                        </ul>
-                    </li>
+
                     <li>
                         <a><i class="fa fa-edit"></i> Artikel Management <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">

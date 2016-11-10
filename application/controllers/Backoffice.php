@@ -645,50 +645,144 @@ class Backoffice extends CI_Controller
     }
     public function upload_iklan()
     {
-        $area = $this->input->post('area');
+        $width = $this->input->post('width');
+        $height = $this->input->post('height');
+        $halaman = $this->input->post('select2');
         $config['upload_path']          = 'assets/img/iklan';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['max_size']             = 1024;
-        switch ($area) {
-          case 'header-809x188':
-            # code...
-            $config['max_width']            = 820;
-            $config['max_height']           = 190;
-            break;
-          case 'body-532x280':
-            # code...
-            $config['max_width']            = 550; //532
-            $config['max_height']           = 300; //280
-            break;
-          case 'body-532x180':
-              # code...
-            $config['max_width']            = 550;
-            $config['max_height']           = 200;
-            break;
-          default:
-            # code...
-            break;
-        }
-
+        $config['max_width']            = $width;
+        $config['max_height']           = $height;
+        $config['encrypt_name']         = true;
 
 
         $this->load->library('upload', $config);
         if ( ! $this->upload->do_upload('userfile'))
         {
-                $error = array('error' => $this->upload->display_errors());
-                $this->session->set_flashdata('error', $error);
-                redirect('backoffice/manage_iklan');
+          $error = array('error' => $this->upload->display_errors());
+          $this->session->set_flashdata('error', $error['error']);
+          redirect('backoffice/'.$this->input->post('from'));
         }
         else
         {
-                $data = array('upload_data' => $this->upload->data());
-                $layout = array(
-                  'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['orig_name']
-                );
-                $this->news->updateData('fn_layout', $layout, 'layout_name', $area);
-                $this->session->set_flashdata('status', 'Iklan berhasil diupload');
-                redirect('backoffice/manage_iklan');
+          $data = array('upload_data' => $this->upload->data());
+          foreach ($halaman as $key => $value) {
+            # code...
+            $layout = array(
+              'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['file_name']
+            );
+            $this->news->updateData('fn_layout', $layout, 'layout_id', $value);
+          }
+
+          $this->session->set_flashdata('status', 'Iklan berhasil diupload');
+          redirect('backoffice/'.$this->input->post('from'));
 
         }
+    }
+    // Ads
+    public function ads_leaderboard()
+    {
+      // Select data
+      $this->db->select('*');
+      $this->db->from('fn_layout');
+      $this->db->where('layout_name', 'header-809x188');
+      $result = $this->db->get()->result();
+      $page = array(
+          "thepage" => $this->load->view('back/ads_leaderboard', array('dataPages' => $result), true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function ads_category_a()
+    {
+      // Select data
+      $this->db->select('*');
+      $this->db->from('fn_layout');
+      $this->db->where('layout_name', 'body-532x280');
+      $result = $this->db->get()->result();
+      $page = array(
+          "thepage" => $this->load->view('back/ads_category_a', array('dataPages' => $result), true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function ads_category_b()
+    {
+      // Select data
+      $this->db->select('*');
+      $this->db->from('fn_layout');
+      $this->db->where('layout_name', 'body-532x180');
+      $result = $this->db->get()->result();
+      $page = array(
+          "thepage" => $this->load->view('back/ads_category_b', array('dataPages' => $result), true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function ads_popup_article()
+    {
+      // Select data
+      $this->db->select('fn_ads_popup.*, news_title');
+      $this->db->from('fn_ads_popup');
+      $this->db->join('fn_news', 'fn_ads_popup.news_id = fn_news.news_id');
+      $this->db->order_by('created_at', 'DESC');
+      $get = $this->db->get()->result();
+      $page = array(
+          "thepage" => $this->load->view('back/iklan/popup_article', array('datas' => $get), true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function ads_popup_article_input()
+    {
+      $width = $this->input->post('width');
+      $height = $this->input->post('height');
+      $halaman = $this->input->post('select2');
+      $config['upload_path']          = 'assets/img/iklan';
+      $config['allowed_types']        = 'gif|jpg|png|jpeg';
+      $config['max_size']             = 512;
+      $config['max_width']            = 510;
+      $config['max_height']           = 360;
+      $config['min_width']            = 490;
+      $config['min_height']           = 340;
+      $config['encrypt_name']         = true;
+      // 500x350
+
+
+      $this->load->library('upload', $config);
+      if ( ! $this->upload->do_upload('userfile'))
+      {
+        $error = array('error' => $this->upload->display_errors());
+        $this->session->set_flashdata('error', $error['error']);
+        redirect('backoffice/ads_popup_article');
+      }
+      else
+      {
+        $data = array('upload_data' => $this->upload->data());
+        $news_list = $this->input->post('news_list');
+        $alt = $this->input->post('alt');
+        $link = $this->input->post('link');
+        $created_at = date('Y-m-d H:i:s');
+
+        foreach ($news_list as $key => $value) {
+          $this->db->delete('fn_ads_popup', array('news_id' => $value));
+          $data = array(
+            'popup_alt' => $alt,
+            'popup_img' => $config['upload_path'] ."/".$data['upload_data']['file_name'],
+            'popup_link'  => $link,
+            'created_at'  => $created_at,
+            'news_id' => $value,
+          );
+          $this->db->replace('fn_ads_popup', $data);
+          $this->session->set_flashdata('error', 'Iklan sudah disimpan');
+          redirect('backoffice/ads_popup_article');
+        }
+      }
+    }
+    public function ads_popup_article_delete($popup_id = null)
+    {
+      $do = $this->db->delete('fn_ads_popup', array('popup_id' => $popup_id));
+      if($do):
+        $this->session->set_flashdata('error', 'Berhasil Menghapus data');
+      else:
+        $this->session->set_flashdata('error', 'Gagal Menghapus data');
+      endif;
+      redirect('backoffice/ads_popup_article');
     }
 }

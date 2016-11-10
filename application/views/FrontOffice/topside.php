@@ -2,7 +2,13 @@
 <html lang="en">
 
 <head>
-
+    <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "pub-1161473705566559",
+    enable_page_level_ads: true
+    });
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; user-scalabel=0;">
@@ -25,8 +31,25 @@
     <link rel="canonical" href="<?php echo current_url(); ?>">
     <?php else: ?>
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="description" content="Indepth Jujur Akurat">
-    <meta name="keywords" content="Indepth, jujur, akurat, beita, Berita sukabumi, harian sukabumi, Kriminal sukabumi">
+    <meta name="language" content="id" />
+    <meta name="title" content="terasberita.co - Indepth, Jujur , Akurat"/>
+    <meta name="description" content="Indepth Jujur Akurat" />
+    <meta name="keywords" content="Sukabumi, sukabumi, terasberita, teras berita, sukabumi kabupaten, sukabumi kota, sukabumi selatan, berita sukabumi, berita, berita sukabumi terbaru, berita sukabumi hari ini, berita populer, berita sukabumi populer, bisnis, politik , ekonomi, hukum, kriminal, kasus, populer, peristiwa, kontroversi, investigasi, indonesia, daerah, nasional, internasional, dunia, jabar, jawa barat" />
+    <meta name="news_keywords" content="Sukabumi, sukabumi, terasberita, teras berita, sukabumi kabupaten, sukabumi kota, sukabumi selatan, berita sukabumi, berita, berita sukabumi terbaru, berita sukabumi hari ini, berita populer, berita sukabumi populer, bisnis, politik , ekonomi, hukum, kriminal, kasus, populer, peristiwa, kontroversi, investigasi, indonesia, daerah, nasional, internasional, dunia, jabar, jawa barat, bocah sd mati, bocah sd mading, mading" />
+    <meta name="classification" content="Sukabumi, sukabumi, terasberita, teras berita, sukabumi kabupaten, sukabumi kota, sukabumi selatan, berita sukabumi, berita, berita sukabumi terbaru, berita sukabumi hari ini, berita populer, berita sukabumi populer, bisnis, politik , ekonomi, hukum, kriminal, kasus, populer, peristiwa, kontroversi, investigasi, indonesia, daerah, nasional, internasional, dunia, jabar, jawa barat" />
+    <meta http-equiv="refresh" content="800" />
+    <meta name="distribution" content="Global" />
+    <meta name="rating" content="General" />
+    <meta name="robots" content="index, follow" />
+    <meta content='all' name='robots'/>
+    <meta content='index, follow' name='robots'/>
+    <meta content='index, follow' name='yahoobot'/>
+    <meta name="revisit-after" content="2 days" />
+    <meta name="creator" content="terasberita.co - Indepth, Jujur , Akurat" />
+    <meta name="publisher" content="Solusi Digital Untuk Bisnis Anda Allblue Technology" />
+    <meta name="copyright" content="Copyright &copy; 2016 terasberita.co"/>
+    <meta name="author" content="terasberita.co"/>
+    <meta name="email" content="cs@terasberita.co"/>
     <?php endif; ?>
 
     <title>
@@ -204,15 +227,35 @@
             </div>
         </div>
                 <?php
-                $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_type' => 'ads'));
+                $this->db->select('category_name');
+                $this->db->from('fn_category');
+                $data = $this->db->get()->result_array();
+                $data_array = array();
+                foreach ($data as $key => $value) {
+                  $data_array[] = $value['category_name'];
+                }
+                if($this->uri->segment(1) == null):
+                  $segment = 'teras-nasional';
+                elseif(!in_array($this->uri->segment(1), $data_array)):
+                  $segment = 'artikel';
+                else:
+                  $segment = $this->uri->segment(1);
+
+                endif;
+                          //  ($user['permissions'] == 'admin') ? true : false;
+                $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_name' => 'header-809x188', 'layout_location' => $segment));
+                $data = array();
                 foreach ($ads as $key => $value) {
-                    # code...
                     $data[$value->layout_name] = $value->layout_dir;
                 }
                 ?>
         <div class="col-md-6">
             <div class="iklan hidden-xs">
+              <?php if(!empty($data)): ?>
                 <a href="#"><img src="<?php echo base_url($data['header-809x188']) ?>"></a>
+              <?php else: ?>
+                <a href="#"><img src="<?php echo base_url('assets/img/iklan/images1.jpg') ?>"></a>
+              <?php endif; ?>
             </div>
         </div>
     </div>

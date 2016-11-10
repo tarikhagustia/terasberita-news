@@ -84,9 +84,9 @@
                         <div class="col-md-6">
                           <div class="pop-kiri"><!--pop-kiri -->
                             <?php if($dataPopularOne->news_thumb == NULL || $dataPopularOne->news_thumb == ""): ?>
-                              <img src="<?php echo base_url() ?>assets/img/bg.jpg">
+                              <img class="lazy" data-src="<?php echo base_url() ?>assets/img/bg.jpg">
                             <?php else: ?>
-                              <img src="<?php echo base_url($dataPopularOne->news_thumb)?>">
+                              <img class="lazy" data-src="<?php echo base_url($dataPopularOne->news_thumb)?>">
                             <?php endif; ?>
 
                               <!-- <small><?php echo $dataPopularOne->news_title ?></small> -->
@@ -103,9 +103,9 @@
                             <div class="list" id="fokus">
                               <div class="col-md-4">
                                 <?php if($rows->news_thumb == NULL || $rows->news_thumb == ""): ?>
-                                  <img src="<?php echo base_url() ?>assets/img/bg.jpg">
+                                  <img class="lazy" data-src="<?php echo base_url() ?>assets/img/bg.jpg">
                                 <?php else: ?>
-                                  <img src="<?php echo base_url($rows->news_thumb)?>">
+                                  <img class="lazy" data-src="<?php echo base_url($rows->news_thumb)?>">
                                 <?php endif; ?>
                               </div>
                               <div class="col-md-8">
@@ -129,9 +129,9 @@
                         <?php
 
                         if($dataIndeph->news_thumb == NULL):
-                            echo "<img class='img-responsive img-full' src='".base_url()."assets/img/slide-1.jpg' alt=''>";
+                            echo "<img class='lazy' data-class='img-responsive img-full' src='".base_url()."assets/img/slide-1.jpg' alt=''>";
                         else:
-                            echo "<img class='img-responsive img-full' src='".base_url($dataIndeph->news_thumb)."' alt=''>";
+                            echo "<img class='lazy' data-class='img-responsive img-full' src='".base_url($dataIndeph->news_thumb)."' alt=''>";
                         endif;
 
                         ?>
@@ -177,9 +177,9 @@
                             <div class="list">
                             <div class="col-md-4">
                                  <?php if($rows->news_thumb == NULL || $rows->news_thumb == ''): ?>
-                                        <img src="<?php echo base_url() ?>assets/img/bg.jpg">
+                                        <img class="lazy" data-src="<?php echo base_url() ?>assets/img/bg.jpg">
                                 <?php else: ?>
-                                        <img src="<?php echo base_url($rows->news_thumb) ?>">
+                                        <img class="lazy" data-src="<?php echo base_url($rows->news_thumb) ?>">
                                 <?php endif; ?>
                             </div>
                             <div class="col-md-8">
@@ -198,20 +198,47 @@
             <div class="box-kanan" id="box-kanan"><!--Box-Kanan-->
                 <div class="iklan">
                         <?php
-                        $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_type' => 'ads'));
+                        $this->db->select('category_name');
+                        $this->db->from('fn_category');
+                        $data = $this->db->get()->result_array();
+                        $data_array = array();
+                        foreach ($data as $key => $value) {
+                          $data_array[] = $value['category_name'];
+                        }
+                        if($this->uri->segment(1) == null):
+                          $segment = 'teras-nasional';
+                        elseif(!in_array($this->uri->segment(1), $data_array)):
+                          $segment = 'artikel';
+                        else:
+                          $segment = $this->uri->segment(1);
+
+                        endif;
+                                  //  ($user['permissions'] == 'admin') ? true : false;
+                        // $ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_location' => $segment));
+                        $this->db->select('layout_name, layout_type, layout_dir');
+                        $this->db->from('fn_layout');
+                        $this->db->where_in('layout_name', array('body-532x280','body-532x180'));
+                        $this->db->where('layout_location',$segment );
+                        $ads = $this->db->get()->result();
+
+                        $data = array();
                         foreach ($ads as $key => $value) {
-                            # code...
                             $data[$value->layout_name] = $value->layout_dir;
                         }
+                        if(empty($data)):
                         ?>
-                        <img id="kfc" src="<?php echo base_url($data['body-532x280']) ?>">
-                        <img id="kupon" src="<?php echo base_url($data['body-532x180']) ?>">
+                        <img id="kfc" class="lazy" data-src="<?php echo base_url('assets/img/iklan/images1.jpg') ?>">
+                        <img id="kupon" class="lazy" data-src="<?php echo base_url('assets/img/iklan/images1.jpg') ?>">
+                      <?php else: ?>
+                        <img id="kfc" class="lazy" data-src="<?php echo base_url($data['body-532x280']) ?>">
+                        <img id="kupon" class="lazy" data-src="<?php echo base_url($data['body-532x180']) ?>">
+                      <?php endif; ?>
 
                         <div class="komentar"><!--Komentar-->
                               <div class="col-md-6">
                                 <div class="img-daftar">
                                     <p class="text-center" style="margin-left: -20px;">Jadilah bagian dari</p>
-                                    <img src="<?php echo base_url() ?>assets/img/logo-bawah.png">
+                                    <img class="lazy" data-src="<?php echo base_url() ?>assets/img/logo-bawah.png">
                                 </div>
                                     <?php echo form_open('Auth/checkLoginAjax', array('id' => 'ajaxForm22')); ?>
                               </div>
@@ -252,10 +279,34 @@
   <div class="gap">
   </div>
 <?php endif; ?>
+<?php
+$this->db->select('category_name');
+$this->db->from('fn_category');
+$data = $this->db->get()->result_array();
+$data_array = array();
+foreach ($data as $key => $value) {
+  $data_array[] = $value['category_name'];
+}
+if($this->uri->segment(1) == null):
+  $segment = 'teras-nasional';
+elseif(!in_array($this->uri->segment(1), $data_array)):
+  $segment = 'artikel';
+else:
+  $segment = $this->uri->segment(1);
 
-  <!-- <div class="container"> -->
-  <img class="img-ads-header" src="<?php echo base_url($data['header-809x188']) ?>" />
-  <!-- </div> -->
+endif;
+          //  ($user['permissions'] == 'admin') ? true : false;
+$ads = $this->news->getData('fn_layout', 'layout_name, layout_type, layout_dir', array('layout_name' => 'header-809x188', 'layout_location' => $segment));
+$data = array();
+foreach ($ads as $key => $value) {
+    $data[$value->layout_name] = $value->layout_dir;
+}
+?>
+<?php if(!empty($data)): ?>
+<img class="img-ads-header lazy" data-src="<?php echo base_url($data['header-809x188']) ?>" />
+<?php else: ?>
+<img class="img-ads-header lazy" data-src="<?php echo base_url('assets/img/iklan/images1.jpg') ?>" />
+<?php endif;?>
   <div class="gap">
   </div>
 <?php if($dataIndeph): ?>
@@ -264,7 +315,7 @@
       Teras Kejadian Perkara
     </div>
     <div class="gap"></div>
-    <img class="img-responsive" src="<?php echo base_url($dataIndeph->news_thumb) ?>" />
+    <img class="img-responsive lazy" data-src="<?php echo base_url($dataIndeph->news_thumb) ?>" />
     <div class="gap"></div>
     <div class="m_peristiwa_judul">
       <h5><a href="<?php echo base_url($dataIndeph->news_url) ?>"><?php echo $dataIndeph->news_title ?></a></h5>
