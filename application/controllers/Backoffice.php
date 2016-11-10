@@ -29,6 +29,7 @@ class Backoffice extends CI_Controller
         $this->load->model('news');
         $this->load->library('slim');
         $this->load->model('back');
+		
         if (!$this->session->userdata('logged_in')) {
 			     $this->session->set_flashdata('flashSuccess', 'You are not login, Please login first');
 			     redirect('auth/index','refresh');
@@ -108,13 +109,72 @@ class Backoffice extends CI_Controller
 		);
 		$this->load->view('back/index', $page);
 	}
-	public function manage_artikel()
+	public function manage_artikel($id=Null)
 	{
-    $data = $this->back->contoh($this->session->userdata('id'));
+		//mengambil data di tabel mydata pada database
+		$mydata = $this->db->get('fn_news');
+		
+	
+		//konfigurasi untuk pagination
+		$config['base_url'] = site_url().'backoffice/manage_artikel';
+		$config['total_rows'] = $mydata->num_rows();
+		$config['per_page'] = '10';
+		$config['first_page'] = 'First';
+		$config['last_page'] = 'Last';
+		$config['next_page'] = '&laquo;';
+		$config['prev_page'] = '&raquo;';
+    	$config['use_page_numbers']  = TRUE;
+		
+		$config['full_tag_open'] = '<div><ul class="pagination">';
+		$config['full_tag_close'] = '</ul></div>';
+		 
+		$config['first_link'] = '&laquo; First';
+		$config['first_tag_open'] = '<li class="prev page">';
+		$config['first_tag_close'] = '</li>';
+		 
+		$config['last_link'] = 'Last &raquo;';
+		$config['last_tag_open'] = '<li class="next page">';
+		$config['last_tag_close'] = '</li>';
+		 
+		$config['next_link'] = 'Next &rarr;';
+		$config['next_tag_open'] = '<li class="next page">';
+		$config['next_tag_close'] = '</li>';
+		 
+		$config['prev_link'] = '&larr; Previous';
+		$config['prev_tag_open'] = '<li class="prev page">';
+		$config['prev_tag_close'] = '</li>';
+		 
+		$config['cur_tag_open'] = '<li class="active"><a href="">';
+		$config['cur_tag_close'] = '</a></li>';
+		 
+		$config['num_tag_open'] = '<li class="page">';
+		$config['num_tag_close'] = '</li>';
+		//inisialisasi/apply config
+		$this->pagination->initialize($config);
+
+		//buat pagination
+		$paging = $this->pagination->create_links();
+
+		//$offset saya kondisikan seperti ini karena diatas $id saya set ke NULL
+		//jadi kalau $offset yang pertama tidak saya set ke 0, maka akan error
+		if($id){
+			$offset = ($id - 1) * $config['per_page'];
+		}else{
+			$offset = 0;
+		}
+
+		// $data['query'] = $this->pagination_model->getMyData($config['per_page'], $offset);
+		$data = $this->back->contoh($this->session->userdata('id'), $config['per_page'], $offset);
+		// $data['number'] = $offset+1;
+
+		// $this->load->view('manage_artikel', $data);
+	
 		$page = array(
-			"thepage" => $this->load->view('back/manage_artikel', array('data' => $data), true)
+			"thepage" => $this->load->view('back/manage_artikel', array('data' => $data, 'paging' => $paging), true)
 		);
-		// var_dump($data);
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
 		$this->load->view('back/index', $page);
 	}
 	public function break_news($id)

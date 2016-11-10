@@ -20,7 +20,7 @@ class Back extends CI_Model {
             return false;
         }
     }
-		public function contoh($dmn)
+		public function contoh($dmn, $num, $offset)
 		{
 			// var_dump($dmn);
 			$this->db->select('fn_news_breaking.date_to, news_url, fn_news.news_id, fn_news.news_title, fn_news.user_id, fn_news.news_timestamp, fn_news.news_views, fn_news.fokus_id, fn_fokus.fokus_name, fn_news_breaking.date_from');
@@ -28,7 +28,7 @@ class Back extends CI_Model {
 			$this->db->join('fn_fokus', 'fn_news.fokus_id = fn_fokus.fokus_id', 'left');
 			$this->db->join('fn_news_breaking', 'fn_news_breaking.news_id = fn_news.news_id', 'left');
 			$this->db->order_by('fn_news.news_timestamp', 'DESC');
-			$this->db->limit(200);
+			$this->db->limit($num, $offset);
 			// $this->db->where('User_id', $dmn);
 			$query = $this->db->get();
 			// var_dump($this->db->last_query());

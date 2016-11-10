@@ -84,6 +84,7 @@
                <?php }  ?>
               </tbody>
             </table>
+			<?php echo $paging;?>
           </div>
         </div>
       </div>
