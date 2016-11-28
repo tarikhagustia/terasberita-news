@@ -230,7 +230,7 @@ class Auth extends CI_Controller
       $this->db->where('username', $asli);
       $get = $this->db->get()->result();
       if(count($get) > 0):
-        $this->db->update('bo_user', ['is_active' => false], ['username' => $asli]);        
+        $this->db->update('bo_user', ['is_active' => true], ['username' => $asli]);
         echo "Berhasil Mengaktifkan akun anda, silahkan tunggu halaman akan dialihkan";
         // sleep(2);
         // redirect('/');
