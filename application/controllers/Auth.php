@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends CI_Controller
+class Auth extends MY_Controller
 {
     /**
      * Index Page for this controller.
@@ -28,6 +28,8 @@ class Auth extends CI_Controller
         $this->load->library('facebook');
         $this->load->config('mailer');
         $this->load->library('encrypt');
+        $this->load->library('form_validation');
+        $this->form_validation->CI =& $this;
         // $this->load->config('email');
     }
     public function index()
@@ -42,7 +44,7 @@ class Auth extends CI_Controller
     {
         $this->load->library('session');
         $this->load->model('mymodel');
-        $this->load->library('form_validation');
+
         // Validator
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|callback_verfiyUser');
@@ -69,7 +71,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('password_confirmation', 'Password Confirmation', 'required|matches[password]');
 
-        if ($this->form_validation->run() == false) {
+        if ($this->form_validation->run($this) == false) {
             $resonse['valid'] = false;
             $resonse['valid_msg'] = validation_errors();
             $resonse['msg'] = '';
@@ -230,7 +232,7 @@ class Auth extends CI_Controller
       $this->db->where('username', $asli);
       $get = $this->db->get()->result();
       if(count($get) > 0):
-        $this->db->update('bo_user', ['is_active' => false], ['username' => $asli]);        
+        $this->db->update('bo_user', ['is_active' => false], ['username' => $asli]);
         echo "Berhasil Mengaktifkan akun anda, silahkan tunggu halaman akan dialihkan";
         // sleep(2);
         // redirect('/');
