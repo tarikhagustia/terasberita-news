@@ -2,7 +2,7 @@
 
 [Master Stylesheet]
 
-Project: GLOBALNEWS - News & magazine theme 
+Project: GLOBALNEWS - News & magazine theme
 Version: 1.0
 Author : Webyzona.com
 
@@ -17,7 +17,7 @@ Author : Webyzona.com
    - 1-6 BREADCRUMB
    - 1-7 SUB INFO
    - 1-8 MODAL BOX
-   
+
 2. TYPOGRAPHY
    - 2-1 LINKS
    - 2-2 HEADERS
@@ -32,21 +32,21 @@ Author : Webyzona.com
    - 4-2 TIME AND DATE
    - 4-3 WEATHER
    - 4-4 SITE LOGO
-   
+
 5. NAVIGATION
    - 5-1 PARENT NAVIGATION
    - 5-2 CHILD NAVIGATION
-   
+
 6. SEARCH
 
 7. HOT NEWS
-	
+
 8. BANNER AND OWL CAROUSEL
 	- 8-1 OWL CAROUSEL PROGRESS BAR
 	- 8-2 OWL CAROUSEL CONTROLS
     - 8-2 OVERLAY ON IMAGES
 	- 8-2 OWL CAROUSEL SYNC
-	
+
 9. LEFT COLUMN
 	- 9-1 BUSINESS SECTION
 	- 9-2 SCIENCE AND TRAVEL
@@ -58,7 +58,7 @@ Author : Webyzona.com
 	- 9-8 FAQs
 	- 9-9 CONTACT
 	-9-10 HOME-2
-	
+
 10-MID COLUMN
 
 11.RIGHT COLUMN
@@ -198,7 +198,7 @@ transform:rotate(360deg);
 }
 /*1-4 ANY TOPIC TITLE*/
 .main-title-outer {
-	border-bottom: 1px solid #ededed;
+	border-bottom: 1px solid red;
 	width: 100%;
 	margin-bottom: 10px;
 }
@@ -206,7 +206,7 @@ transform:rotate(360deg);
 	border-left: solid 2px #006666;
 	position: relative;
 	z-index: 1;
-	background-color: #985703;
+	background-color: #066;
 	float: left;
 	margin: 0 5px;
 	text-align: center;
@@ -225,7 +225,7 @@ transform:rotate(360deg);
 	display: block;
 	position: absolute;
 	left: -8px;
-	border-left: solid 4px #006666;
+	border-left: solid 4px #e74c3c;
 	width: auto;
 	margin-top: 0;
 	min-height: 100%;
@@ -740,7 +740,7 @@ blockquote p {
 	margin-bottom: 0;
 }
 .navbar-inverse {
-	background-color: #985703;
+	background-color: #066;
 	border-top: none;
 	border-bottom: 3px solid #e74c3c;
 	border-right: none;
