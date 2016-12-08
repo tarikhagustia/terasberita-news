@@ -5,6 +5,7 @@ class Berita extends BeritaController
   {
     parent::__construct();
     $this->load->model('berita_m');
+    $this->load->library('format');
   }
   public function get_feed($kanal_name)
   {

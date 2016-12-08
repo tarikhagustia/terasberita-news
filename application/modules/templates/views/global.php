@@ -16,7 +16,9 @@
 <!-- animation styles -->
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/css-global/animate.css" />
 <!-- custom styles -->
-<link href="<?php echo base_url() ?>assets/css-global/custom-red.css" rel="stylesheet" id="style">
+<link href="<?php echo base_url() ?>assets/css/custom-red.css" rel="stylesheet" id="style">
+<!-- teras style -->
+<link href="<?php echo base_url() ?>assets/css/teras.css" rel="stylesheet" />
 <!-- owl carousel styles-->
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/css-global/owl.carousel.css">
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/css-global/owl.transitions.css">
@@ -30,24 +32,6 @@
     <![endif]-->
 </head>
 <body>
-<!-- preloader start -->
-<!-- <div id="preloader">
-  <div id="status"></div>
-</div> -->
-<!-- preloader end -->
-<!-- style switcher start -->
-<div class="switcher" style="left:-50px;"> <a id="switch-panel" class="hide-panel"> <i class="ion-gear-a"></i> </a>
-  <div id="switcher">
-    <ul class="colors-list">
-      <li><a href="#" class="red" id="custom-red"></a></li>
-      <li><a href="#" class="green" id="custom-green"></a></li>
-      <li><a href="#" class="purple" id="custom-purple"></a></li>
-      <li><a href="#" class="blue" id="custom-blue"></a></li>
-    </ul>
-  </div>
-</div>
-<!-- style switcher end -->
-<!-- wrapper start -->
 <div class="wrapper">
   <!-- header toolbar start -->
   <div class="header-toolbar">
@@ -100,12 +84,14 @@
               <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav main-nav ">
                   <!-- <li class="active"><a href="javascript:void(0)">business</a></li> -->
+                  <li><a href="javascript:void(0)">Home</a></li>
                   <li><a href="javascript:void(0)">terasNasional</a></li>
-                  <li><a href="javascript:void(0)">terasKriminal</a></li>
-                  <li><a href="javascript:void(0)">terasSukabumi</a></li>
-                  <li><a href="javascript:void(0)">terasCianjur</a></li>
-                  <li><a href="javascript:void(0)">terasSehat</a></li>
-                  <li><a href="javascript:void(0)">terasEkonomi</a></li>
+                  <li><a href="javascript:void(0)">terasNusantara</a></li>
+                  <li><a href="javascript:void(0)">terasHuKrim</a></li>
+                  <li><a href="javascript:void(0)">Sosok</a></li>
+                  <li><a href="javascript:void(0)">Wisata / Kuliner</a></li>
+                  <li><a href="javascript:void(0)">terasTKP</a></li>
+                  <li><a href="javascript:void(0)">terasOtonomi</a></li>
                 </ul>
               </div>
             </div>
@@ -130,7 +116,7 @@
   <!-- sticky header end -->
   <!-- top sec start -->
 
-  <div class="container ">
+  <div class="container" id="fixedscrool">
     <!-- Start of view -->
     <?php $this->load->view($content); ?>
     <!-- end of view -->
