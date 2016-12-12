@@ -812,4 +812,29 @@ class Backoffice extends MY_Controller
         return true;
       endif;
     }
+    public function manage_breaking_home()
+    {
+      $this->db->select('news_title, breaking.created_at')->from('fn_news')
+      ->join('breaking', 'fn_news.news_id = breaking.news_id');
+
+      $get = $this->db->get();
+      $data = $get->result();
+      $page = array(
+          "thepage" => $this->load->view('back/manage_breaking_home', ['data' => $data] , true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function manage_breaking_home_add()
+    {
+      $news_list = $this->input->post('news_list');
+        $this->db->query('DELETE FROM breaking');
+        foreach($news_list as $rows):
+        $data = [
+          'news_id' => $rows,
+          'created_at' => date('Y-m-d H:i:s')
+        ];
+        $this->db->insert('breaking' , $data);
+        endforeach;
+        redirect('backoffice/manage_breaking_home');
+    }
 }

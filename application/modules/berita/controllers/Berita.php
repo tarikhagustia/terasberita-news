@@ -18,9 +18,10 @@ class Berita extends BeritaController
     $data['list'] = $this->berita_m->get_feed($kanal_name);
     return $this->load->view('feeds_v', $data , true);
   }
-  public function get_breaking()
+  public function get_breaking($kanal = null)
   {
-    return $this->load->view('breaking_v', [] , true);
+    $data['list'] = $this->berita_m->get_breaking($kanal);
+    return $this->load->view('breaking_v', $data , true);
   }
   public function get_breaking_terkait()
   {

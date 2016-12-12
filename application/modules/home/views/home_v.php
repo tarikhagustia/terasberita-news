@@ -1,37 +1,6 @@
 <div class="row" id="FixedDiv">
   <div class="col-sm-9">
-    <div id="sync1" class="owl-carousel">
-    <div class="box item">
-      <a href="#">
-        <div class="carousel-caption">Republican budget leader Paul Ryan faces key test in fiscal talks</div>
-        <img class="img-responsive" src="<?php echo base_url() ?>assets/images/business/business-main.jpg" width="1600" height="972"alt=""/>
-        <div class="overlay"></div>
-        <div class="overlay-info">
-          <div class="cat">
-            <p class="cat-data"><span class="ion-model-s"></span>lifestyle</p>
-          </div>
-          <div class="info">
-            <p><span class="ion-android-data"></span>Dec 16 2014<span class="ion-chatbubbles"></span>351</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="box item">
-      <a href="#">
-        <div class="carousel-caption">Republican budget leader Paul Ryan faces key test in fiscal talks</div>
-        <img class="img-responsive" src="<?php echo base_url() ?>assets/images/banner-slider/slide-img-1.jpg" width="1600" height="972" alt=""/>
-        <div class="overlay"></div>
-        <div class="overlay-info">
-          <div class="cat">
-            <p class="cat-data"><span class="ion-model-s"></span>lifestyle</p>
-          </div>
-          <div class="info">
-            <p><span class="ion-android-data"></span>Dec 16 2014<span class="ion-chatbubbles"></span>351</p>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
+    <?php echo modules::run('berita/get_breaking') ?>
   </div>
   <div class="col-sm-7">
     <div class="main-title full" style="margin-bottom: 2px;">AKTUALITAS</div>

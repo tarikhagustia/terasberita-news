@@ -1,10 +1,19 @@
-<div class="topic"> <a href="#"><img class="img-thumbnail" src="<?= base_url() ?>/assets/images/business/business-main.jpg" width="600" height="398" alt=""/>
-  <h3>Famous artist share his tracks for free</h3>
-  <div class="text-danger sub-info-bordered">
-    <div class="time"><span class="ion-android-data icon"></span>Dec 9 2014</div>
-    <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
-
+<div id="sync1" class="owl-carousel">
+<?php foreach ($list as $key => $value): ?>
+  <div class="box item">
+    <a href="<?php echo base_url($value->news_url) ?>">
+      <div class="carousel-caption"><?php echo $value->news_title ?></div>
+      <img class="img-responsive" src="<?php echo base_url($value->news_thumb) ?>" width="1600" height="972" alt="<?php echo $value->news_title ?>"/>
+      <div class="overlay"></div>
+      <div class="overlay-info">
+        <div class="cat">
+          <p class="cat-data"><span class="ion-model-s"></span>BRAKING NEWS</p>
+        </div>
+        <div class="info">
+          <p><span class="ion-android-data"></span><?php echo $this->format->date_indonesia($value->news_timestamp) ?></p>
+        </div>
+      </div>
+    </a>
   </div>
-  </a>
-  <p>Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>
+<?php endforeach; ?>
 </div>
