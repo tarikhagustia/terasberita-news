@@ -38,8 +38,6 @@
           <?php endif; ?>
           <br/>
           <?php echo form_open_multipart('backoffice/ads_popup_article_input', array('name' => 'ci_form')); ?>
-          <?php
-          ?>
           <div class="form-group">
             <div class="row">
               <div class="col-md-3">

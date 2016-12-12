@@ -23,6 +23,7 @@ class Backoffice extends MY_Controller
     {
         parent::__construct();
         $this->load->library('format');
+        $this->load->library('form_validation');
         $this->load->helper('form');
         $this->load->library('session');
         $this->load->library('format');
@@ -42,7 +43,10 @@ class Backoffice extends MY_Controller
 	}
 	public function index()
 	{
-    echo "string";
+    $page = array(
+			"thepage" => $this->load->view('back/dashboard', array(), true)
+		);
+		$this->load->view('back/index', $page);
 	}
 	public function dashboard()
 	{
@@ -762,5 +766,50 @@ class Backoffice extends MY_Controller
         $this->session->set_flashdata('error', 'Gagal Menghapus data');
       endif;
       redirect('backoffice/ads_popup_article');
+    }
+    public function manage_peoplesay()
+    {
+      $this->db->select('news_title, peoplesay.created_at')->from('fn_news')
+      ->join('peoplesay', 'fn_news.news_id = peoplesay.news_id');
+
+      $get = $this->db->get();
+      $data = $get->result();
+      $page = array(
+          "thepage" => $this->load->view('back/manage_peoplesay', ['data' => $data] , true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function manage_peoplesay_add()
+    {
+      $news_list = $this->input->post('news_list');
+      $this->form_validation->set_rules('news_list' , 'Daftar artikel' , 'callback_check_article');
+      if($this->form_validation->run($this) == false):
+        $page = array(
+            "thepage" => $this->load->view('back/manage_peoplesay', array() , true)
+        );
+        $this->load->view('back/index', $page);
+      else:
+        $this->db->query('DELETE FROM peoplesay');
+        foreach($news_list as $rows):
+        $data = [
+          'news_id' => $rows,
+          'created_at' => date('Y-m-d H:i:s')
+        ];
+        $this->db->insert('peoplesay' , $data);
+
+        endforeach;
+        redirect('backoffice/manage_peoplesay');
+      endif;
+
+    }
+    public function check_article()
+    {
+      $news_list = $this->input->post('news_list');
+      if(count($news_list) < 3):
+        $this->form_validation->set_message('check_article' , 'Harus 3 Artikel yang diinput');
+        return false;
+      else:
+        return true;
+      endif;
     }
 }

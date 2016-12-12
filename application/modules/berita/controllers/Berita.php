@@ -12,11 +12,10 @@ class Berita extends BeritaController
     // $kanal_name = 1;
     // return $this->berita_m->get_feed($kanal_name);
   }
-  public function get_feeds()
+  public function get_feeds($kanal = null)
   {
-    $kanal_name = 'teras-nasional';
+    $kanal_name = $kanal;
     $data['list'] = $this->berita_m->get_feed($kanal_name);
-    // var_dump($data['list']);
     return $this->load->view('feeds_v', $data , true);
   }
   public function get_breaking()
@@ -27,17 +26,24 @@ class Berita extends BeritaController
   {
     return $this->load->view('breaking_terkait_v', [] , true);
   }
-  public function get_tkp()
+  public function get_tkp($kanal = null)
   {
-    return $this->load->view('tkp_v', [] , true);
+    $data['list'] = $this->berita_m->get_tkp($kanal);
+    return $this->load->view('tkp_v', $data , true);
   }
   public function get_peristiwa()
   {
     return $this->load->view('peristiwa_v', [] , true);
   }
-  public function get_popular()
+  public function get_popular($kanal = null)
   {
-    return $this->load->view('popular_v', [] , true);
+    $data['list'] = $this->berita_m->get_popular($kanal);
+    return $this->load->view('popular_v', $data , true);
+  }
+  public function get_peoplesay($kanal = null)
+  {
+    $data['list'] = $this->berita_m->get_peoplesay($kanal);
+    return $this->load->view('peoplesay_v', $data , true);
   }
 }
  ?>

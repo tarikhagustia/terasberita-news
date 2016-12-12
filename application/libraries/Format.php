@@ -31,6 +31,19 @@ class Format
         endif;
         return $t;
     }
+    public function text_only($str, $start = null, $end = null)
+    {
+
+        $str = strip_tags($str);
+        $t = preg_replace('/<[^<|>]+?>/', '', htmlspecialchars_decode($str));
+        $t = htmlentities($t, ENT_QUOTES, "UTF-8");
+        if ($start == null && $end == null):
+        else:
+            $t = substr($t, $start, $end);
+        endif;
+        $pecah = explode('.', $t);
+        return $pecah[0];
+    }
     public function seoUrl($string)
     {
         //Lower case everything
@@ -81,7 +94,7 @@ class Format
             "April", "Mei", "Juni",
             "Juli", "Agustus", "September",
             "Oktober", "November", "Desember");
-        
+
         // var_dump($date_creatae);
         $hari = date('w', strtotime($date));
         // var_dump($hari);
@@ -90,7 +103,7 @@ class Format
         $tgl   = substr($date, 8, 2); // memisahkan format tanggal menggunakan substring
         $jam  = date('H:i', strtotime($date));
         $result = ucfirst($hariData[$hari]) . ", " .$tgl . " " . $BulanIndo[(int) $bulan - 1] . " " . $tahun . " pada " .$jam . " WIB";
-        
+
         return $result;
     }
     public function date_periode($date){
