@@ -68,6 +68,9 @@
                             <li>
                               <a href="<?php echo base_url('backoffice/manage_breaking_home'); ?>" id="" class='' >Breaking News Home</a>
                             </li>
+                            <li>
+                              <a href="<?php echo base_url('backoffice/manage_aktualitas'); ?>" id="" class='' >Aktualitas</a>
+                            </li>
                         </ul>
                     </li>
 

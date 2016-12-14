@@ -29,7 +29,7 @@ class Auth extends MY_Controller
         $this->load->config('mailer');
         $this->load->library('encrypt');
         $this->load->library('form_validation');
-        $this->form_validation->CI =& $this;
+        // $this->form_validation->CI =& $this;
         // $this->load->config('email');
     }
     public function index()
@@ -49,7 +49,7 @@ class Auth extends MY_Controller
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|callback_verfiyUser');
 
-        if ($this->form_validation->run() == false) {
+        if ($this->form_validation->run($this) == false) {
             $this->load->view('back/login');
         } else {
             $data = $this->mymodel->modelLoginSession($this->input->post('username'));
@@ -115,7 +115,7 @@ class Auth extends MY_Controller
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|callback_verfiyUser');
 
-        if ($this->form_validation->run() == false) {
+        if ($this->form_validation->run($this) == false) {
             $resonse['valid'] = false;
             $resonse['valid_msg'] = validation_errors();
             $resonse['msg'] = '';

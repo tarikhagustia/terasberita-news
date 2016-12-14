@@ -69,5 +69,13 @@ class Berita_m extends CI_Model
     $get = $this->db->get()->result();
     return $get;
   }
+
+  public function get_aktualitas($kanal)
+  {
+    $this->db->select('news_title, news_url, news_thumb, news_desc')->from('fn_news')
+    ->join('aktualitas', 'fn_news.news_id = aktualitas.news_id');
+    $get = $this->db->get()->row();
+    return $get;
+  }
 }
  ?>

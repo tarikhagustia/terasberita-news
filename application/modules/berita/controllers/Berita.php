@@ -46,5 +46,10 @@ class Berita extends BeritaController
     $data['list'] = $this->berita_m->get_peoplesay($kanal);
     return $this->load->view('peoplesay_v', $data , true);
   }
+  public function get_aktualitas($kanal = null)
+  {
+    $data['list'] = $this->berita_m->get_aktualitas($kanal);
+    return $this->load->view('aktualitas_v', $data , true);
+  }
 }
  ?>
