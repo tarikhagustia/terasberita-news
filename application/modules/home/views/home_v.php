@@ -35,13 +35,7 @@
   </div>
   <div class="col-sm-7">
     <div class="main-title full" style="margin-bottom: 2px;">AKTUALITAS</div>
-    <div class="bordered" id="aktualitas">
-      <img src="<?php echo base_url() ?>assets/images/business/business-main.jpg" alt=""  class="img-responsive"/>
-      <h4>Pesawat milik TNI AL Terpeleset di</h4>
-      <p>
-        Sukabumi, Pesawat terpeleset di bla bla bla bla
-      </p>
-    </div>
+    <?php echo modules::run('berita/get_aktualitas'); ?>
   </div>
   <hr/>
 </div>
