@@ -812,4 +812,27 @@ class Backoffice extends MY_Controller
         return true;
       endif;
     }
+    public function manage_aktualitas()
+    {
+      $this->db->select('news_title')->from('fn_news')
+      ->join('aktualitas', 'fn_news.news_id = aktualitas.news_id');
+      $get = $this->db->get();
+      $data = $get->result();
+      $page = array(
+          "thepage" => $this->load->view('back/manage_aktualitas', ['data' => $data] , true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function manage_aktualitas_add()
+    {
+      $news_list = $this->input->post('news_list');
+      $this->db->query('DELETE FROM aktualitas');
+      foreach ($news_list as $key => $value) {
+        $data = [
+          'news_id' => $value
+        ];
+        $this->db->insert('aktualitas' , $data);
+      }
+      redirect('backoffice/manage_aktualitas');
+    }
 }

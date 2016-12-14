@@ -65,6 +65,9 @@
                             <li>
                               <a href="<?php echo base_url('backoffice/manage_peoplesay'); ?>" id="" class='' >Apa kata mereka</a>
                             </li>
+                            <li>
+                              <a href="<?php echo base_url('backoffice/manage_aktualitas'); ?>" id="" class='' >Aktualitas</a>
+                            </li>
                         </ul>
                     </li>
 
