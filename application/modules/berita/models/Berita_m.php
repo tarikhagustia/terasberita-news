@@ -19,6 +19,7 @@ class Berita_m extends CI_Model
       $this->db->where('fn_category.category_name', $category_name);
     endif;
     $this->db->order_by('fn_news.news_timestamp', 'DESC');
+    $this->db->group_by('fn_category.category_id');
     $this->db->limit(20);
     $get = $this->db->get()->result();
     return $get;
