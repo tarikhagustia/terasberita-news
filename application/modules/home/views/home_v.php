@@ -76,54 +76,7 @@
         <h3 class="main-title-dash"><span>WISATA & KULINER</span></h3>
         <div class="row">
           <div id="owl-lifestyle" class="owl-carousel owl-theme lifestyle pull-left">
-            <div class="item topic"> <a href="#"> <img class="img-thumbnail" src="<?php echo base_url() ?>assets/images/lifestyle/lifestyle-slide-1.jpg" width="300" height="132" alt=""/>
-              <h4>Etiam rhoncus. Maecenas tempus, tellus eget condimentum</h4>
-              <div class="text-danger sub-info-bordered remove-borders">
-                <div class="time"><span class="ion-android-data icon"></span>Dec 9 2014</div>
-                <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
-                <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
-              </div>
-              </a> </div>
-            <div class="item topic"> <a href="#"> <img class="img-thumbnail" src="<?php echo base_url() ?>assets/images/lifestyle/lifestyle-slide-2.jpg" width="300" height="132" alt=""/>
-              <h4>Etiam rhoncus. Maecenas tempus, tellus eget condimentum</h4>
-              <div class="text-danger sub-info-bordered remove-borders">
-                <div class="time"><span class="ion-android-data icon"></span>Dec 9 2014</div>
-                <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
-                <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
-              </div>
-              </a> </div>
-            <div class="item topic"> <a href="#"> <img class="img-thumbnail" src="<?php echo base_url() ?>assets/images/lifestyle/lifestyle-slide-3.jpg" width="300" height="132" alt=""/>
-              <h4>Etiam rhoncus. Maecenas tempus, tellus eget condimentum</h4>
-              <div class="text-danger sub-info-bordered remove-borders">
-                <div class="time"><span class="ion-android-data icon"></span>Dec 9 2014</div>
-                <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
-                <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
-              </div>
-              </a> </div>
-            <div class="item topic"> <a href="#"> <img class="img-thumbnail" src="<?php echo base_url() ?>assets/images/lifestyle/lifestyle-slide-1.jpg" width="300" height="132" alt=""/>
-              <h4>Etiam rhoncus. Maecenas tempus, tellus eget condimentum</h4>
-              <div class="text-danger sub-info-bordered remove-borders">
-                <div class="time"><span class="ion-android-data icon"></span>Dec 9 2014</div>
-                <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
-                <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
-              </div>
-              </a> </div>
-            <div class="item topic"> <a href="#"> <img class="img-thumbnail" src="<?php echo base_url() ?>assets/images/lifestyle/lifestyle-slide-2.jpg" width="300" height="132" alt=""/>
-              <h4>Etiam rhoncus. Maecenas tempus, tellus eget condimentum</h4>
-              <div class="text-danger sub-info-bordered remove-borders">
-                <div class="time"><span class="ion-android-data icon"></span>Dec 9 2014</div>
-                <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
-                <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
-              </div>
-              </a> </div>
-            <div class="item topic"> <a href="#"> <img class="img-thumbnail" src="<?php echo base_url() ?>assets/images/lifestyle/lifestyle-slide-3.jpg" width="300" height="132" alt=""/>
-              <h4>Etiam rhoncus. Maecenas tempus, tellus eget condimentum</h4>
-              <div class="text-danger sub-info-bordered remove-borders">
-                <div class="time"><span class="ion-android-data icon"></span>Dec 9 2014</div>
-                <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
-                <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
-              </div>
-              </a> </div>
+            <?php echo modules::run('berita/get_wiskul') ?>
           </div>
         </div>
       </div>

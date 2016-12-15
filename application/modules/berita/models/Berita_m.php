@@ -77,5 +77,17 @@ class Berita_m extends CI_Model
     $get = $this->db->get()->row();
     return $get;
   }
+  public function get_wiskul()
+  {
+    $this->db->select('news_title, news_url, news_thumb, news_timestamp')
+    ->from('fn_category')
+    ->join('fn_pages', 'fn_pages.category_id = fn_category.category_id')
+    ->join('fn_news', 'fn_pages.news_id = fn_news.news_id')
+    ->where('category_name', 'wisata-kuliner')
+    ->order_by('news_timestamp', 'DESC')
+    ->limit(6);
+    $get = $this->db->get()->result();
+    return $get;
+  }
 }
  ?>

@@ -51,5 +51,10 @@ class Berita extends BeritaController
     $data['list'] = $this->berita_m->get_aktualitas($kanal);
     return $this->load->view('aktualitas_v', $data , true);
   }
+  public function get_wiskul()
+  {
+    $data['list'] = $this->berita_m->get_wiskul();
+    return $this->load->view('wiskul_v', $data , true);
+  }
 }
  ?>
