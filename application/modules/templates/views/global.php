@@ -4,7 +4,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Teras berita</title>
+<?php
+echo modules::run('meta/print', is_article(), article_url());
+echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasberita.co</title>" : "<title>terasberita.co - Indepth, Jujur , Akurat</title>";
+?>
+
 <link rel="shortcut icon" href="<?php echo base_url() ?>assets/images/favicon.ico" type="<?php echo base_url() ?>assets/image/x-icon">
 <link rel="icon" href="<?php echo base_url() ?>assets/images/favicon.ico" type="<?php echo base_url() ?>assets/image/x-icon">
 <!-- bootstrap styles-->
@@ -249,6 +253,7 @@
 <script src="<?= base_url() ?>/assets/js/enquire.js"></script>
 <!--custom functions-->
 <script src="<?= base_url() ?>/assets/js/custom-fun.js"></script>
+<?php echo put_headers(); ?>
 </body>
 
 </html>
