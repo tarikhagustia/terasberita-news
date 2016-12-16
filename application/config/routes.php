@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 // $route['backoffice'] = 'backoffice';
 $route['home'] = 'home';
+$route['sitemaps\.xml'] = 'sitemaps';
 $route['(:any)'] = 'artikel/view_detail/$1';
 // $route['teras-sukabumi'] = 'FrontEnd/terasSukabumi';
 // $route['teras-cianjur'] = 'FrontEnd/terasCianjur';

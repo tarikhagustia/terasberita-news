@@ -5,7 +5,7 @@ class Meta extends BeritaController
   {
       parent::__construct();
   }
-  public function print($is_article = false, $news_url = null)
+  public function show($is_article = false, $news_url = null)
   {
     if($is_article == true):
       $this->db->select('*')->from('fn_news')

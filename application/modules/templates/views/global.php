@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php
-echo modules::run('meta/print', is_article(), article_url());
+echo modules::run('meta/show', is_article(), article_url());
 echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasberita.co</title>" : "<title>terasberita.co - Indepth, Jujur , Akurat</title>";
 ?>
 
