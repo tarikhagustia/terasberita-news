@@ -31,12 +31,16 @@ class Berita_m extends CI_Model
     $this->db->join('fn_pages', 'fn_news.news_id = fn_pages.news_id');
     $this->db->join('fn_category', 'fn_pages.category_id = fn_category.category_id');
     if($kanal != null):
-      $this->db->where('fn_category.category_name', $category_name);
+      $this->db->where('fn_category.category_name', $kanal);
     endif;
+    $this->db->where('DATEDIFF(CURDATE(), news_timestamp) <=', 7);
+    $this->db->where('news_views >=', 150);
     $this->db->group_by('fn_news.news_id');
     $this->db->order_by('fn_news.news_views', 'DESC');
     $this->db->limit(6);
     $get = $this->db->get()->result();
+    // var_dump($this->db->last_query());
+    // die();
     return $get;
   }
   public function get_tkp($kanal)
