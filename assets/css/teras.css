@@ -1,23 +1,41 @@
 /*Teras CSS*/
+
 .main-title.full {
-  width: 100%;
+    width: 100%;
 }
+
 .batas {
-  margin-top: 5px;
-  margin-bottom: : 5px;
+    margin-top: 5px;
+    margin-bottom: : 5px;
 }
+
 h3.main-title-dash {
-  width:100%;
-  color: #e74c3c;
-  text-align: right;
-  border-bottom: 1px solid #e74c3c;
-  line-height:0.1em;
-  margin:10px 0 20px;
+    width: 100%;
+    color: #e74c3c;
+    text-align: right;
+    border-bottom: 1px solid #e74c3c;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
 }
+
 h3 span {
-  background:#fff;
-  padding:0 10px;
+    background: #fff;
+    padding: 0 10px;
 }
+
 .bordered.tebal {
-  border: solid 1px black;
+    border: solid 1px black;
+}
+
+.breaking-info {
+    background-color: red;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    text-transform: capitalize;
+}
+.breaking-title {
+  background-color: red !important;
 }

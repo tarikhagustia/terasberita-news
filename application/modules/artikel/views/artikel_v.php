@@ -3,6 +3,62 @@
 set_config('meta_article', true);
 
  ?>
+<!-- popup -->
+<?php if ($popups): ?>
+<style media="screen">
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: visible;
+  opacity: 1;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 80px auto;
+  padding: 0px;
+  background: #fff;
+  border-radius: 5px;
+  max-width: 640px;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+</style>
+<div id="popup1" class="overlay">
+	<div class="popup">
+    <div class="row">
+      <div class="col-sm-16">
+        <a class="close" href="#">&times;</a>
+        <a href="<?php echo $popups->popup_link ?>" target="_blank">
+          <img class="img-responsive" src="<?php echo base_url($popups->popup_img) ?>" alt="<?php echo $popups->popup_alt ?>" />
+        </a>
+      </div>
+    </div>
+	</div>
+</div>
+<?php endif; ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -45,6 +101,17 @@ set_config('meta_article', true);
                   </div>
                 </div>
               </div>
+              <div class="col-sm-16">
+                <div id="vc-feelback-main" data-access-token="8bccc0c22efcfed0d36b71eff420babf" data-display-type="4"></div>
+
+                <script>
+                (function() {
+                var v = document.createElement('script'); v.async = true;
+                v.src = "http://assets-prod.vicomi.com/vicomi.js";
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(v, s);
+                })();
+                </script>
+              </div>
               <div class="col-sm-16 comments-area">
                 <div class="main-title-outer pull-left">
                   <div class="main-title">Komentar</div>
@@ -72,7 +139,10 @@ set_config('meta_article', true);
             <div class="col-sm-16 bt-space">
               <div class="main-title-outer pull-left">
                 <div class="main-title full">Popular news</div>
-                <?php echo modules::run('berita/get_popular'); ?>
+                <ul class="list-unstyled">
+                  <?php echo modules::run('berita/get_popular'); ?>
+
+                </ul>
               </div>
             </div>
             <!-- flicker imgs end -->

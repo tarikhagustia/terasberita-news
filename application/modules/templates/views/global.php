@@ -9,12 +9,12 @@ echo modules::run('meta/show', is_article(), article_url());
 echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasberita.co</title>" : "<title>terasberita.co - Indepth, Jujur , Akurat</title>";
 ?>
 
-<link rel="shortcut icon" href="<?php echo base_url() ?>assets/images/favicon.ico" type="<?php echo base_url() ?>assets/image/x-icon">
-<link rel="icon" href="<?php echo base_url() ?>assets/images/favicon.ico" type="<?php echo base_url() ?>assets/image/x-icon">
+<link rel="shortcut icon" href="<?php echo base_url('assets/faicon.png') ?>" type="image/x-icon">
+<link rel="icon" href="<?php echo base_url('assets/faicon.png') ?>" type="image/x-icon">
 <!-- bootstrap styles-->
 <link href="<?php echo base_url() ?>assets/css-global/bootstrap.min.css" rel="stylesheet">
 <!-- google font -->
-<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'> -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
 <!-- ionicons font -->
 <link href="<?php echo base_url() ?>assets/css-global/ionicons.min.css" rel="stylesheet">
 <!-- animation styles -->
@@ -46,15 +46,14 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
             <div class="col-sm-8 col-xs-16">
               <ul id="inline-popups" class="list-inline">
                 <li class="hidden-xs"><a href="#">advertisement</a></li>
-                <li><a class="open-popup-link" href="#log-in" data-effect="mfp-zoom-in">log in</a></li>
-                <li><a class="open-popup-link" href="#create-account" data-effect="mfp-zoom-in">create account</a></li>
-                <li><a  href="#">About</a></li>
+                <!-- <li><a class="open-popup-link" href="#log-in" data-effect="mfp-zoom-in">log in</a></li>
+                <li><a class="open-popup-link" href="#create-account" data-effect="mfp-zoom-in">create account</a></li> -->
+                <li class="hidden-xs"><a  href="#">About</a></li>
               </ul>
             </div>
             <div class="col-xs-16 col-sm-8">
               <div class="row">
-                <div id="weather" class="col-xs-16 col-sm-8 col-lg-9"></div>
-                <div id="time-date" class="col-xs-16 col-sm-8 col-lg-7"></div>
+                <div id="time-date" class="col-xs-16 col-sm-16 col-lg-16"></div>
               </div>
             </div>
           </div>
@@ -69,8 +68,16 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
     <!-- header start -->
     <div class="container header">
       <div class="row">
-        <div class="col-sm-5 col-md-5"><a class="navbar-brand" href="index-2.html">globalnews</a></div>
-        <div class="col-sm-11 col-md-11 hidden-xs text-right"><img src="<?= base_url() ?>/assets/images/ads/468-60-ad.gif" width="468" height="60" alt=""/></div>
+        <div class="col-lg-6 col-sm-5 col-md-5 col-xs-16">
+          <div class="logo" align="center">
+            <a href="#" class="">
+              <img class="img-responsive" src="<?php echo base_url('assets/images/logo/logo-teras2.png') ?>" width="300" height="80">
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-10 col-sm-11 col-xs-16 col-md-11 col-lg-11" align="right">
+          <img class="img-responsive" src="<?= base_url('assets/images/ads/680x80.jpg') ?>" width="680" height="80" alt=""/>
+        </div>
       </div>
     </div>
     <!-- header end -->
@@ -88,14 +95,14 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
               <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav main-nav ">
                   <!-- <li class="active"><a href="javascript:void(0)">business</a></li> -->
-                  <li><a href="javascript:void(0)">Home</a></li>
-                  <li><a href="javascript:void(0)">terasNasional</a></li>
-                  <li><a href="javascript:void(0)">terasNusantara</a></li>
-                  <li><a href="javascript:void(0)">terasHuKrim</a></li>
-                  <li><a href="javascript:void(0)">Sosok</a></li>
-                  <li><a href="javascript:void(0)">Wisata / Kuliner</a></li>
-                  <li><a href="javascript:void(0)">terasTKP</a></li>
-                  <li><a href="javascript:void(0)">terasOtonomi</a></li>
+                  <li><a href="<?= base_url(); ?>">Home</a></li>
+                  <li><a href="<?= base_url('teras-nasional'); ?>">terasNasional</a></li>
+                  <li><a href="<?= base_url('teras-nusantara'); ?>">terasNusantara</a></li>
+                  <li><a href="<?= base_url('teras-hukrim'); ?>">terasHuKrim</a></li>
+                  <li><a href="<?= base_url('sosok'); ?>">Sosok</a></li>
+                  <li><a href="<?= base_url('wisata-kuliner'); ?>">Wisata / Kuliner</a></li>
+                  <li><a href="<?= base_url('teras-tkp'); ?>">terasTKP</a></li>
+                  <li><a href="<?= base_url('teras-otonomi'); ?>">terasOtonomi</a></li>
                 </ul>
               </div>
             </div>
@@ -106,8 +113,8 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
 
         <div class="search-container ">
           <div class="container">
-            <form action="#" method="" role="search">
-              <input id="search-bar" placeholder="Type & Hit Enter.." autocomplete="off">
+            <form action="<?= base_url('search') ?>" method="get" role="search">
+              <input id="search-bar" placeholder="Ketik & Tekan Enter" autocomplete="off" name="q">
             </form>
           </div>
         </div>
@@ -133,14 +140,12 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
             <div class="row">
               <div class="col-sm-10 col-xs-16 f-nav " >
                 <ul class="list-inline ">
-                  <li> <a href="#"> Home </a> </li>
-                  <li> <a href="#"> Business </a> </li>
-                  <li> <a href="#"> Science </a> </li>
-                  <li> <a href="#"> Lifestyle </a> </li>
-                  <li> <a href="#"> Politics </a> </li>
-                  <li> <a href="#"> Sport </a> </li>
-                  <li> <a href="#">short codes</a> </li>
-                  <li> <a href="#"> Contact </a> </li>
+                  <li> <a href="#"> Redaksi </a> </li>
+                  <li> <a href="#"> Pedoman Media Siber </a> </li>
+                  <li> <a href="#"> Karir </a> </li>
+                  <li> <a href="#"> Kotak Pos </a> </li>
+                  <li> <a href="#"> Privacy Policy </a> </li>
+                  <li> <a href="#"> Disclaimer </a> </li>
                 </ul>
               </div>
               <div class="col-sm-6 col-xs-16 copyrights text-right " >© 2016 terasberita.co</div>

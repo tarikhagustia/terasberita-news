@@ -860,4 +860,28 @@ class Backoffice extends MY_Controller
       }
       redirect('backoffice/manage_aktualitas');
     }
+    public function penelusuran()
+    {
+
+      $this->db->select('news_title')->from('fn_news')
+      ->join('penelusuran', 'fn_news.news_id = penelusuran.news_id');
+      $get = $this->db->get();
+      $data = $get->result();
+      $page = array(
+          "thepage" => $this->load->view('back/manage_penelusuran', ['data' => $data] , true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function penelusuran_add()
+    {
+      $news_list = $this->input->post('news_list');
+      $this->db->query('DELETE FROM penelusuran');
+      foreach ($news_list as $key => $value) {
+        $data = [
+          'news_id' => $value
+        ];
+        $this->db->insert('penelusuran' , $data);
+      }
+      redirect('backoffice/penelusuran');
+    }
 }

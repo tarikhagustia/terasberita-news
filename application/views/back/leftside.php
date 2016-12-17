@@ -73,6 +73,14 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a><i class="fa fa-clone"></i> Teras Penelurusan <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>
+                              <a href="<?php echo base_url('backoffice/penelusuran'); ?>" id="" class='' >Manage Teras Penelurusan</a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <li>
                         <a><i class="fa fa-edit"></i> Artikel Management <span class="fa fa-chevron-down"></span></a>

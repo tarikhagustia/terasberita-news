@@ -61,7 +61,4 @@
       <div class="fb-page" data-href="https://www.facebook.com/terasmediatama" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/terasmediatama" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/terasmediatama">terasberita.co</a></blockquote></div>
     </div>
   </div>
-  <div class="col-sm-16">
-    <img class="img-responsive" src="<?php echo base_url('assets/images/ads/728-90-ad.gif') ?>" alt="" height="90" width="728">
-  </div>
 </div>

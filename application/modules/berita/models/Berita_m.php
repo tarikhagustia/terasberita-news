@@ -30,7 +30,7 @@ class Berita_m extends CI_Model
     $this->db->from('fn_news');
     $this->db->join('fn_pages', 'fn_news.news_id = fn_pages.news_id');
     $this->db->join('fn_category', 'fn_pages.category_id = fn_category.category_id');
-    if($category_name != null):
+    if($kanal != null):
       $this->db->where('fn_category.category_name', $category_name);
     endif;
     $this->db->group_by('fn_news.news_id');
@@ -78,9 +78,12 @@ class Berita_m extends CI_Model
       // ->where('date_from <=', date('Y-m-d H:i:s'))
       // ->where('date_to >=', date('Y-m-d H:i:s'))
       ->where('fn_news_breaking.isActive', true)
+      ->where('fn_category.category_name', $kanal)
       ->order_by('breaking_timestamp', 'DESC')
       ->limit(1);
       $get = $this->db->get()->row();
+      // var_dump($get);
+      // die();
       return $get;
     endif;
   }
@@ -114,6 +117,13 @@ class Berita_m extends CI_Model
     ->order_by('fokus_timestamp', 'DESC')
     ->limit(10);
     $get = $this->db->get()->result();
+    return $get;
+  }
+  public function get_penelusuran()
+  {
+    $this->db->select('news_title, news_url, news_desc')->from('penelusuran')
+    ->join('fn_news', 'penelusuran.news_id = fn_news.news_id');
+    $get = $this->db->get()->row();
     return $get;
   }
 }
