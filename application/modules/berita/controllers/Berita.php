@@ -20,8 +20,13 @@ class Berita extends BeritaController
   }
   public function get_breaking($kanal = null)
   {
-    $data['list'] = $this->berita_m->get_breaking($kanal);
-    return $this->load->view('breaking_v', $data , true);
+    if($kanal == null):
+      $data['list'] = $this->berita_m->get_breaking($kanal);
+      return $this->load->view('breaking_v', $data , true);
+    else:
+      $data['list'] = $this->berita_m->get_breaking($kanal);
+      return $this->load->view('breaking_kanal', $data , true);
+    endif;
   }
   public function get_breaking_terkait()
   {
@@ -34,7 +39,8 @@ class Berita extends BeritaController
   }
   public function get_peristiwa()
   {
-    return $this->load->view('peristiwa_v', [] , true);
+    $data['list'] = $this->berita_m->get_peristiwa();
+    return $this->load->view('peristiwa_v', $data , true);
   }
   public function get_popular($kanal = null)
   {

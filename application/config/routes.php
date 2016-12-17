@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 // $route['backoffice'] = 'backoffice';
 $route['home'] = 'home';
 $route['sitemaps\.xml'] = 'sitemaps';
+$route['teras-nasional'] = 'kanal/show_kanal/teras-nasional';
 $route['(:any)'] = 'artikel/view_detail/$1';
 // $route['teras-sukabumi'] = 'FrontEnd/terasSukabumi';
 // $route['teras-cianjur'] = 'FrontEnd/terasCianjur';
