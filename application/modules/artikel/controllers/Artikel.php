@@ -21,7 +21,35 @@ class Artikel extends BeritaController
       $popups = $value;
     }
     $data['popups'] = $popups;
+    $this->set_viewer($news_url);
     $this->templates->get_news_templates($data);
+
+  }
+  public function set_viewer($news_url)
+  {
+    $this->db->select('news_id')->from('fn_news')
+    ->where('news_url', $news_url);
+    $news_id = $this->db->get()->row()->news_id;
+    $seens_ip = $_SERVER['REMOTE_ADDR'];
+
+    $this->db->select('seens_id')->from('fn_news_seens')
+    ->where('news_id', $news_id)
+    ->where('seens_ip', $seens_ip);
+    $cekIp = $this->db->get()->result();
+  		// Jika blum ada yang liat maka insert
+		if (empty($cekIp)) {
+			if($this->session->userdata('logged_in')):
+				$isLogin = true;
+			else:
+				$isLogin = false;
+			endif;
+			$data = array(
+				'news_id' => $news_id,
+				'seens_ip' => $seens_ip,
+				'seens_comment' => 'Already seens on ip '.$seens_ip,
+				'isLogin' => $isLogin
+			);
+			$this->db->insert('fn_news_seens', $data);
+    }
   }
 }
-?>
