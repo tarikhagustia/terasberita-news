@@ -1,3 +1,4 @@
+
 <?php
 // $this->config->set_item('meta_article', true);
 set_config('meta_article', true);
@@ -68,7 +69,7 @@ set_config('meta_article', true);
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
-<div class="row ">
+<div class="row">
       <!-- left sec Start -->
       <div class="col-md-11 col-sm-11">
         <div class="row">
@@ -91,8 +92,17 @@ set_config('meta_article', true);
                       <div class="comments"><span class="ion-eye icon"></span><?= $article->news_views ?></div>
                     </div>
                     <div id="shared">
+                      <span class='st_facebook_hcount' displayText='Facebook'></span>
+                      <span class='st_whatsapp_hcount' displayText='WhatsApp'></span>
+                      <span class='st__hcount' displayText=''></span>
+                      <span class='st_twitter_hcount' displayText='Tweet'></span>
+                      <span class='st_linkedin_hcount' displayText='LinkedIn'></span>
+                      <span class='st_pinterest_hcount' displayText='Pinterest'></span>
+                      <span class='st_email_hcount' displayText='Email'></span>
+                      <!-- AddToAny END -->
                       <div class="fb-like" data-href="https://facebook.com/terasmediatama" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
                     </div>
+                    <br>
                   <article>
                     <!-- start article -->
                     <?php echo $article->news_desc ?>
@@ -116,11 +126,13 @@ set_config('meta_article', true);
                 <div class="main-title-outer pull-left">
                   <div class="main-title">Komentar</div>
                 </div>
-                <div class="opinion pull-left">
-                  <!-- FACEBOOK COMMENT -->
-                  <div class="fb-comments" data-href="<?php echo current_url(); ?>" data-width="800"></div>
-                  <!-- END FACEBOOK COMMENT -->
+                <div class="row">
+                  <div class="col-xs-16 col-sm-16 col-md-16">
+                    <div class="fb-comments" data-href="<?php echo current_url(); ?>"  data-num-posts="2" data-width="100%" mobile="auto-detect"></div>
+                  </div>
                 </div>
+                  <!-- FACEBOOK COMMENT -->
+                  <!-- END FACEBOOK COMMENT -->
               </div>
             </div>
           </div>
@@ -151,6 +163,3 @@ set_config('meta_article', true);
       </div>
       <!-- Right Sec End -->
     </div>
-<?php
-add_js('//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58529b13a43d24da');
- ?>
