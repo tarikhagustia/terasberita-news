@@ -93,19 +93,30 @@ class Backoffice extends MY_Controller
 	}
 	public function manage_artikel($id=Null)
 	{
+    for ($i=0; $i < 12 ; $i++) {
+      $tanggal[] = date('Y') . "-" . ($i+1);
+    }
+
+
+    $id = $this->input->get('page');
 		//mengambil data di tabel mydata pada database
 		$mydata = $this->db->get('fn_news');
-
+    $bulan = $this->input->get('bulan');
+    $news_creator = $this->input->get('creator');
 
 		//konfigurasi untuk pagination
 		$config['base_url'] = site_url().'backoffice/manage_artikel';
 		$config['total_rows'] = $mydata->num_rows();
 		$config['per_page'] = '10';
+    $config['enable_query_strings'] = true;
+    $config['page_query_string'] = true;
+    $config['query_string_segment'] = 'page';
+    $config['reuse_query_string'] = true;
 		$config['first_page'] = 'First';
 		$config['last_page'] = 'Last';
 		$config['next_page'] = '&laquo;';
 		$config['prev_page'] = '&raquo;';
-    	$config['use_page_numbers']  = TRUE;
+    $config['use_page_numbers']  = TRUE;
 
 		$config['full_tag_open'] = '<div><ul class="pagination">';
 		$config['full_tag_close'] = '</ul></div>';
@@ -144,15 +155,14 @@ class Backoffice extends MY_Controller
 		}else{
 			$offset = 0;
 		}
-
 		// $data['query'] = $this->pagination_model->getMyData($config['per_page'], $offset);
-		$data = $this->back->contoh($this->session->userdata('id'), $config['per_page'], $offset);
+		$data = $this->back->contoh($this->session->userdata('id'), $config['per_page'], $offset, $bulan , $news_creator);
 		// $data['number'] = $offset+1;
 
 		// $this->load->view('manage_artikel', $data);
 
 		$page = array(
-			"thepage" => $this->load->view('back/manage_artikel', array('data' => $data, 'paging' => $paging), true)
+			"thepage" => $this->load->view('back/manage_artikel', array('data' => $data, 'paging' => $paging, 'tanggal' => $tanggal), true)
 		);
 		// echo '<pre>';
 		// print_r($data);

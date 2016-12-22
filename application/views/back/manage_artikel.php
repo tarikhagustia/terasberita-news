@@ -15,7 +15,7 @@
 
   <div class="clearfix"></div>
 
-  <div class="row">  
+  <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
@@ -45,13 +45,28 @@
             <?php echo $this->session->flashdata('status'); ?>
             </div>
           <?php endif; ?>
-
+          <div class="filter">
+            <form class="form-inline" method="get">
+                  <div class="form-group">
+                    <select class="form-control" name="bulan">
+                      <?php foreach ($tanggal as $key => $value): ?>
+                        <option value="<?= $value ?>"><?= $value ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="creator" class="form-control" placeholder="Ketik nama ">
+                  </div>
+                  <button type="submit" class="btn btn-default">Filter</button>
+                </form>
+          </div>
           <div class="table-responsive">
             <table class="table table-striped jambo_table bulk_action">
               <thead>
                 <tr class="headings">
                     <th>News Title</th>
                     <th>News Date Time</th>
+                    <th>Author</th>
                     <th>News Views</th>
                     <th>News Edite</th>
                     <th>Break News</th>
@@ -64,17 +79,18 @@
                   <tr>
                       <td><a href="<?php echo base_url($row['news_url']) ?>" target="_blank"> <?php echo substr($row['news_title'],0,30); ?></a></td>
                       <td><?php echo $row['news_timestamp']; ?></td>
+                      <td><?php echo $row['news_creator']; ?></td>
                       <td><?php echo $row['news_views']; ?></td>
                       <td><a href="<?php echo base_url('backoffice/edite/')?><?php echo $row['news_id']?>">Edit</a></td>
                       <td>
-                        <?php if($row['date_from'] == null):  ?> 
+                        <?php if($row['date_from'] == null):  ?>
                         <a href="<?php echo base_url('backoffice/break_news/')?><?php echo $row['news_id']?>"><span class="label label-success" >Jadikan Highligh</span></a>
                       <?php else: ?>
                         <a href="<?php echo base_url('backoffice/delet_break/')?><?php echo $row['news_id']?>"><?php echo $row['date_from']. " s/d ".$row['date_to'] ?></a>
                       <?php endif; ?>
                       </td>
                       <td>
-                      <?php if($row['fokus_id'] == null):  ?> 
+                      <?php if($row['fokus_id'] == null):  ?>
                         <a href="<?php echo base_url('backoffice/fokus_news/')?><?php echo $row['news_id']?>"><span class="label label-success" >Jadikan Fokus</span></a>
                       <?php else: ?>
                         <a href="<?php echo base_url('backoffice/delet_fokus/')?><?php echo $row['fokus_id']?>"><?php echo substr($row['fokus_name'],0,10)?></a>
