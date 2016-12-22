@@ -5,7 +5,14 @@
   <loc><?php echo base_url();?></loc>
   <priority>1.0</priority>
   </url>
-
+  <url>
+    <loc><?php echo base_url('teras-nasional');?></loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc><?php echo base_url('teras-nusantara');?></loc>
+    <priority>1.0</priority>
+  </url>
   <?php foreach($data as $url) { ?>
   <url>
   <loc><?php echo base_url($url->news_url)?></loc>

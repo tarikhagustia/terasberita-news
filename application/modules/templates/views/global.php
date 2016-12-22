@@ -34,6 +34,9 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" id="st_insights_js" src="http://w.sharethis.com/button/buttons.js?publisher=0cf5317e-eefd-4ac9-a44b-2b54019f7aca"></script>
+<script type="text/javascript">stLight.options({publisher: "0cf5317e-eefd-4ac9-a44b-2b54019f7aca", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 </head>
 <body>
 <div class="wrapper">
