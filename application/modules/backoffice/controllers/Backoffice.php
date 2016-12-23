@@ -94,7 +94,10 @@ class Backoffice extends MY_Controller
 	public function manage_artikel($id=Null)
 	{
     for ($i=0; $i < 12 ; $i++) {
-      $tanggal[] = date('Y') . "-" . ($i+1);
+      $tgl = date('Y') . "-" . ($i+1);
+      $date = date_create($tgl);
+      $tgl = date_format($date , 'Y-m');
+      $tanggal[] = $tgl;
     }
 
 

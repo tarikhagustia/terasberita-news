@@ -28,6 +28,7 @@ class Back extends CI_Model {
 			$this->db->join('fn_fokus', 'fn_news.fokus_id = fn_fokus.fokus_id', 'left');
 			$this->db->join('fn_news_breaking', 'fn_news_breaking.news_id = fn_news.news_id', 'left');
 			if($bulan != null && $creator != null):
+				$this->db->where("LEFT(fn_news.news_timestamp, 7) =", $bulan);
 				$this->db->like('fn_news.news_creator', $creator);
 			endif;
 			$this->db->order_by('fn_news.news_timestamp', 'DESC');

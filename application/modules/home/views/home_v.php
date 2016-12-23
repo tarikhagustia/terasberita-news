@@ -64,7 +64,7 @@
       </div>
       <div class="col-sm-8">
         <div class="">
-          <img  width="100%" src="<?php echo base_url() ?>assets/images/ads/350x250.png" alt="" class="img-responsive" />
+          <img  width="100%" src="<?php echo base_url($penelusuran_img->news_thumb) ?>" alt="" class="img-responsive"/>
         </div>
       </div>
     </div>
