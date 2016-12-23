@@ -39,8 +39,8 @@
           <br/>
           <?php echo form_open_multipart('backoffice/upload_iklan', array('name' => 'ci_form')); ?>
           <?php
-          echo form_hidden('width', 809+50);
-          echo form_hidden('height', 188+50);
+          echo form_hidden('width', 680+10);
+          echo form_hidden('height', 80+10);
           echo form_hidden('from', 'ads_leaderboard');
           ?>
           <div class="form-group">
@@ -60,11 +60,32 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-3">
+                Link
+              </div>
+              <div class="col-md-9">
+                <input type="text" class="form-control" name="link" placeholder="http://google.com" value="">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-3">
+                Alt
+              </div>
+              <div class="col-md-9">
+                <input type="text" class="form-control" name="alt" placeholder="Iklan dari teras berita" value="" required>
+                <span class="help-text">Alt menjelaskan tentang deskripsi iklan,</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-3">
                 File gambar
               </div>
               <div class="col-md-9">
                 <input type="file" name="userfile" a size="20" />
-                <small>Hannya bisa file JPG / GIF dengan ukuran Maxsimal <strong>809x188</strong> Px</small>
+                <small>Hannya bisa file JPG / GIF dengan ukuran Maxsimal <strong>680x80</strong> Px</small>
               </div>
             </div>
           </div>

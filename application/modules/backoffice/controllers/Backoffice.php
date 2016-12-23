@@ -642,6 +642,8 @@ class Backoffice extends MY_Controller
     {
         $width = $this->input->post('width');
         $height = $this->input->post('height');
+        $link = $this->input->post('link');
+        $alt = $this->input->post('alt');
         $halaman = $this->input->post('select2');
         $config['upload_path']          = 'assets/img/iklan';
         $config['allowed_types']        = 'gif|jpg|png';
@@ -664,7 +666,9 @@ class Backoffice extends MY_Controller
           foreach ($halaman as $key => $value) {
             # code...
             $layout = array(
-              'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['file_name']
+              'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['file_name'],
+              'alt' => $alt,
+              'link' => $link
             );
             $this->news->updateData('fn_layout', $layout, 'layout_id', $value);
           }
@@ -677,10 +681,11 @@ class Backoffice extends MY_Controller
     // Ads
     public function ads_leaderboard()
     {
+      // 680 x 80
       // Select data
       $this->db->select('*');
       $this->db->from('fn_layout');
-      $this->db->where('layout_name', 'header-809x188');
+      $this->db->where('layout_name', 'LA');
       $result = $this->db->get()->result();
       $page = array(
           "thepage" => $this->load->view('back/ads_leaderboard', array('dataPages' => $result), true)

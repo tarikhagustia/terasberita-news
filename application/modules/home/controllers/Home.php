@@ -9,6 +9,7 @@ class Home extends BeritaController
   public function index()
   {
     $data['content'] = 'home/home_v';
+    $data['kanal'] = 'home';
     $data['utama'] = [];
     $data['feed'] = $this->berita->get_feed(1);
     $data['penelusuran_img'] = $this->home_m->penelusuran_img();

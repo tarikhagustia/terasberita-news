@@ -46,12 +46,17 @@ set_config('meta_article', true);
 .popup .close:hover {
   color: #06D85F;
 }
+.close:target {
+  visibility: hidden;
+  opacity: 1;
+}
+
 </style>
 <div id="popup1" class="overlay">
-	<div class="popup">
+	<div class="popup" id="kkk">
     <div class="row">
       <div class="col-sm-16">
-        <a class="close" href="#">&times;</a>
+        <a class="close" href="#popup1">&times;</a>
         <a href="<?php echo $popups->popup_link ?>" target="_blank">
           <img class="img-responsive" src="<?php echo base_url($popups->popup_img) ?>" alt="<?php echo $popups->popup_alt ?>" />
         </a>
@@ -163,3 +168,6 @@ set_config('meta_article', true);
       </div>
       <!-- Right Sec End -->
     </div>
+<script type="text/javascript">
+
+</script>
