@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="col-sm-6">
-    <img src="<?php echo base_url() ?>assets/images/ads/336-280-ad.gif" class="img-responsive" width="100%"/>
+    <?php echo modules::run('ads/get_kaa', $kanal); ?>
   </div>
   <hr/>
 </div>

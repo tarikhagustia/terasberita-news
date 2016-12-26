@@ -85,7 +85,7 @@
               </div>
               <div class="col-md-9">
                 <input type="file" name="userfile" a size="20" />
-                <small>Hannya bisa file JPG / GIF dengan ukuran Maxsimal <strong>680x80</strong> Px</small>
+                <small>Hannya bisa file JPG / GIF dengan ukuran Maxsimal <strong>336x280</strong> Px</small>
               </div>
             </div>
           </div>

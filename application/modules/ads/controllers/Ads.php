@@ -21,5 +21,10 @@ class Ads extends BeritaController
     $data = $this->ads_m->get_hab()->row();
     return $this->load->view('hab_v', $data, true);
   }
+  public function get_kaa($kanal = null)
+  {
+    $data = $this->ads_m->get_kaa($kanal);
+    return $this->load->view('kaa_v', $data, true);
+  }
 }
  ?>

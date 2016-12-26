@@ -19,5 +19,10 @@ class Ads_m extends CI_Model
     $query = $this->db->get_where('fn_layout', ['layout_name' => 'HAB']);
     return $query;
   }
+  public function get_kaa($kanal)
+  {
+    $query = $this->db->get_where('fn_layout', ['layout_name' => 'KAA', 'layout_location' => $kanal]);
+    return $query->row();
+  }
 }
  ?>
