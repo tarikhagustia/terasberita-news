@@ -8,6 +8,17 @@ set_config('meta_article', true);
 <?php if ($popups): ?>
 <style media="screen">
 
+/*.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: visible;
+  opacity: 1;
+}*/
 .overlay {
   position: fixed;
   top: 0;
@@ -20,48 +31,60 @@ set_config('meta_article', true);
   opacity: 1;
 }
 .overlay:target {
-  visibility: visible;
-  opacity: 1;
+  visibility: hidden;
+  opacity: 0;
 }
-
+/*.close:target {
+  visibility: hidden;
+  opacity: 0;
+}*/
 .popup {
-  margin: 80px auto;
+  margin: 100px auto;
+  /*margin-top: 100px;*/
   padding: 0px;
-  background: #fff;
+  /*background: #fff;*/
   border-radius: 5px;
-  max-width: 640px;
+  /*max-width: 640px;*/
   position: relative;
   transition: all 5s ease-in-out;
 }
 .popup .close {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
+  top: -20px;
+  right: -15px;
+  /*transition: all 200ms;*/
+  font-size: 40px;
+  /*font-weight: bold;*/
   text-decoration: none;
-  color: #333;
+  color: #06D85F;
 }
 .popup .close:hover {
   color: #06D85F;
 }
-.close:target {
-  visibility: hidden;
-  opacity: 1;
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
 }
 
 </style>
 <div id="popup1" class="overlay">
-	<div class="popup" id="kkk">
-    <div class="row">
-      <div class="col-sm-16">
-        <a class="close" href="#popup1">&times;</a>
-        <a href="<?php echo $popups->popup_link ?>" target="_blank">
-          <img class="img-responsive" src="<?php echo base_url($popups->popup_img) ?>" alt="<?php echo $popups->popup_alt ?>" />
-        </a>
+  <div class="row">
+        <div class="col-sm-6 col-sm-offset-5">
+          <div class="popup" id="kkk">
+            <a class="close" href="#popup1">&times;</a>
+            <a href="<?php echo $popups->popup_link ?>" target="_blank">
+              <img class="img-responsive" src="<?php echo base_url($popups->popup_img) ?>" alt="<?php echo $popups->popup_alt ?>" />
+            </a>
+          </div>
       </div>
-    </div>
 	</div>
 </div>
 <?php endif; ?>
@@ -150,7 +173,7 @@ set_config('meta_article', true);
         <div class="bordered">
           <div class="row ">
             <div class="col-sm-16 bt-space">
-              <img class="img-responsive" src="<?php echo base_url() ?>assets/images/ads/336-280-ad.gif" width="336" height="280" alt=""/> <a href="#" class="sponsored">sponsored advert</a>
+              <?php echo modules::run('ads/get_kaa', 'artikel') ?>
             </div>
             <!-- flicker imgs start -->
             <div class="col-sm-16 bt-space">

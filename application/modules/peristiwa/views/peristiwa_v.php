@@ -32,7 +32,7 @@
            <div class="main-title-outer pull-left">
              <div class="main-title full">Popular news</div>
              <ul class="list-unstyled">
-               <?php modules::run('berita/get_popular') ?>
+               <?php echo modules::run('berita/get_popular'); ?>
              </ul>
            </div>
          </div>

@@ -26,5 +26,10 @@ class Ads extends BeritaController
     $data = $this->ads_m->get_kaa($kanal);
     return $this->load->view('kaa_v', $data, true);
   }
+  public function get_nf($type = 'NFA')
+  {
+    $data = $this->ads_m->get_nf($type);
+    return $this->load->view('kaa_v', $data, true);
+  }
 }
  ?>

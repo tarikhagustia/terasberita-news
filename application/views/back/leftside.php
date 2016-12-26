@@ -50,12 +50,11 @@
                             </li>
                             <li><a href="<?php echo base_url('backoffice/kanal_ads'); ?>"> Kanal ads</a>
                             </li>
-                            <!-- <li><a href="<?php echo base_url('backoffice/ads_category_a'); ?>" id="" class='' >Category Page A</a>
-                            </li>
-                            <li><a href="<?php echo base_url('backoffice/ads_category_b'); ?>" id="" class='' >Category Page B</a>
-                            </li>
                             <li><a href="<?php echo base_url('backoffice/ads_popup_article'); ?>" id="" class='' >Pop Ads By Article</a>
-                            </li> -->
+                            </li>
+                            <li>
+                              <a href="<?php echo base_url('backoffice/news_feed_ads'); ?>" > News Feeds Ads </a>
+                            </li>
                         </ul>
                     </li>
                     <?php endif; ?>

@@ -103,9 +103,15 @@ class Backoffice extends MY_Controller
 
     $id = $this->input->get('page');
 		//mengambil data di tabel mydata pada database
-		$mydata = $this->db->get('fn_news');
     $bulan = $this->input->get('bulan');
     $news_creator = $this->input->get('creator');
+    $this->db->select('news_title');
+    $this->db->from('fn_news');
+    if ($bulan != NULL && $news_creator != NULL) {
+      $this->db->where('LEFT(news_timestamp, 7) =', $bulan);
+      $this->db->like('news_creator', $news_creator);
+    }
+		$mydata = $this->db->get();
 
 		//konfigurasi untuk pagination
 		$config['base_url'] = site_url().'backoffice/manage_artikel';
@@ -953,5 +959,43 @@ class Backoffice extends MY_Controller
           "thepage" => $this->load->view('back/kanal_ads', array('dataPages' => $result), true)
       );
       $this->load->view('back/index', $page);
+    }
+    public function news_feed_ads()
+    {
+      $page = array(
+          "thepage" => $this->load->view('back/news_feed_ads', [], true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function news_feed_ads_add()
+    {
+      $link = $this->input->post('link');
+      $alt = $this->input->post('alt');
+      $layout_name = $this->input->post('layout_name');
+      $config['upload_path']          = 'assets/img/iklan';
+      $config['allowed_types']        = 'gif|jpg|png';
+      $config['max_size']             = 1024;
+      $config['encrypt_name']         = true;
+
+
+      $this->load->library('upload', $config);
+      if (!$this->upload->do_upload('userfile'))
+      {
+        $error = array('error' => $this->upload->display_errors());
+        $this->session->set_flashdata('error', $error['error']);
+        redirect('backoffice/news_feed_ads');
+      }
+      else
+      {
+        $data = array('upload_data' => $this->upload->data());
+        $layout = array(
+          'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['file_name'],
+          'alt' => $alt,
+          'link' => $link
+        );
+        $this->news->updateData('fn_layout', $layout, 'layout_name', $layout_name);
+        $this->session->set_flashdata('status', 'Iklan berhasil diupload');
+        redirect('backoffice/news_feed_ads');
+      }
     }
 }
