@@ -46,12 +46,16 @@
                         <ul class="nav child_menu">
                             <li><a href="<?php echo base_url('backoffice/ads_leaderboard'); ?>" id="" class='' >Leader Board</a>
                             </li>
-                            <li><a href="<?php echo base_url('backoffice/ads_category_a'); ?>" id="" class='' >Category Page A</a>
+                            <li><a href="<?php echo base_url('backoffice/home_ads'); ?>"> Home Ads</a>
+                            </li>
+                            <li><a href="<?php echo base_url('backoffice/kanal_ads'); ?>"> Kanal ads</a>
+                            </li>
+                            <!-- <li><a href="<?php echo base_url('backoffice/ads_category_a'); ?>" id="" class='' >Category Page A</a>
                             </li>
                             <li><a href="<?php echo base_url('backoffice/ads_category_b'); ?>" id="" class='' >Category Page B</a>
                             </li>
                             <li><a href="<?php echo base_url('backoffice/ads_popup_article'); ?>" id="" class='' >Pop Ads By Article</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
                     <?php endif; ?>

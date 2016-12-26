@@ -9,5 +9,15 @@ class Ads_m extends CI_Model
     $get = $this->db->get()->row();
     return $get;
   }
+  public function get_haa()
+  {
+    $query = $this->db->get_where('fn_layout', ['layout_name' => 'HAA']);
+    return $query;
+  }
+  public function get_hab()
+  {
+    $query = $this->db->get_where('fn_layout', ['layout_name' => 'HAB']);
+    return $query;
+  }
 }
  ?>

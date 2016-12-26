@@ -11,5 +11,15 @@ class Ads extends BeritaController
     $data = $this->ads_m->get_leaderboard($kanal);
     return $this->load->view('leaderboard_v', $data, true);
   }
+  public function get_haa()
+  {
+    $data = $this->ads_m->get_haa()->row();
+    return $this->load->view('haa_v', $data, true);
+  }
+  public function get_hab()
+  {
+    $data = $this->ads_m->get_hab()->row();
+    return $this->load->view('hab_v', $data, true);
+  }
 }
  ?>
