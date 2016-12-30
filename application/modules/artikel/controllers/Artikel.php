@@ -21,6 +21,7 @@ class Artikel extends BeritaController
       $popups = $value;
     }
     $data['popups'] = $popups;
+    $data['kanal'] = 'home';
     $this->set_viewer($news_url);
     $this->templates->get_news_templates($data);
 

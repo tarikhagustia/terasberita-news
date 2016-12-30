@@ -87,7 +87,9 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
           </div>
         </div>
         <div class="col-lg-10 col-sm-11 col-xs-16 col-md-11 col-lg-11" align="right">
-          <img class="img-responsive" src="<?= base_url('assets/images/ads/680x80.jpg') ?>" width="680" height="80" alt=""/>
+          <!-- leaderboard start -->
+          <?= modules::run('ads/get_leaderboard', (isset($kanal)) ? $kanal : "home"); ?>
+          <!-- loaderboard end -->
         </div>
       </div>
     </div>

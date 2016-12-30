@@ -10,7 +10,7 @@
 </div>
 <div class="row">
   <div class="col-sm-5" >
-      <img src="<?php echo base_url() ?>assets/images/ads/336-280-ad.gif" class="img-responsive" width="100%"/>
+      <?php echo modules::run('ads/get_haa'); ?>
       <div class="batas"></div>
       <div class="main-title full">apa kata mereka</div>
       <div class="bordered" id="mereka">
@@ -51,7 +51,7 @@
 </div>
 <div class="row" style="margin-top: 10px;">
   <div class="col-sm-5">
-    <img src="<?php echo base_url() ?>assets/images/ads/320x550.png" alt="" class="img-responsive"/>
+  <?php echo modules::run('ads/get_hab'); ?>
   </div>
   <div class="col-sm-11">
     <div class="row">
@@ -64,7 +64,7 @@
       </div>
       <div class="col-sm-8">
         <div class="">
-          <img  width="100%" src="<?php echo base_url() ?>assets/images/ads/350x250.png" alt="" class="img-responsive" />
+          <img  width="100%" src="<?php echo base_url($penelusuran_img->news_thumb) ?>" alt="" class="img-responsive"/>
         </div>
       </div>
     </div>

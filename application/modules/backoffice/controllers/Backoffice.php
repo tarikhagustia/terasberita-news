@@ -93,19 +93,39 @@ class Backoffice extends MY_Controller
 	}
 	public function manage_artikel($id=Null)
 	{
-		//mengambil data di tabel mydata pada database
-		$mydata = $this->db->get('fn_news');
+    for ($i=0; $i < 12 ; $i++) {
+      $tgl = date('Y') . "-" . ($i+1);
+      $date = date_create($tgl);
+      $tgl = date_format($date , 'Y-m');
+      $tanggal[] = $tgl;
+    }
 
+
+    $id = $this->input->get('page');
+		//mengambil data di tabel mydata pada database
+    $bulan = $this->input->get('bulan');
+    $news_creator = $this->input->get('creator');
+    $this->db->select('news_title');
+    $this->db->from('fn_news');
+    if ($bulan != NULL && $news_creator != NULL) {
+      $this->db->where('LEFT(news_timestamp, 7) =', $bulan);
+      $this->db->like('news_creator', $news_creator);
+    }
+		$mydata = $this->db->get();
 
 		//konfigurasi untuk pagination
 		$config['base_url'] = site_url().'backoffice/manage_artikel';
 		$config['total_rows'] = $mydata->num_rows();
 		$config['per_page'] = '10';
+    $config['enable_query_strings'] = true;
+    $config['page_query_string'] = true;
+    $config['query_string_segment'] = 'page';
+    $config['reuse_query_string'] = true;
 		$config['first_page'] = 'First';
 		$config['last_page'] = 'Last';
 		$config['next_page'] = '&laquo;';
 		$config['prev_page'] = '&raquo;';
-    	$config['use_page_numbers']  = TRUE;
+    $config['use_page_numbers']  = TRUE;
 
 		$config['full_tag_open'] = '<div><ul class="pagination">';
 		$config['full_tag_close'] = '</ul></div>';
@@ -144,15 +164,14 @@ class Backoffice extends MY_Controller
 		}else{
 			$offset = 0;
 		}
-
 		// $data['query'] = $this->pagination_model->getMyData($config['per_page'], $offset);
-		$data = $this->back->contoh($this->session->userdata('id'), $config['per_page'], $offset);
+		$data = $this->back->contoh($this->session->userdata('id'), $config['per_page'], $offset, $bulan , $news_creator);
 		// $data['number'] = $offset+1;
 
 		// $this->load->view('manage_artikel', $data);
 
 		$page = array(
-			"thepage" => $this->load->view('back/manage_artikel', array('data' => $data, 'paging' => $paging), true)
+			"thepage" => $this->load->view('back/manage_artikel', array('data' => $data, 'paging' => $paging, 'tanggal' => $tanggal), true)
 		);
 		// echo '<pre>';
 		// print_r($data);
@@ -629,6 +648,8 @@ class Backoffice extends MY_Controller
     {
         $width = $this->input->post('width');
         $height = $this->input->post('height');
+        $link = $this->input->post('link');
+        $alt = $this->input->post('alt');
         $halaman = $this->input->post('select2');
         $config['upload_path']          = 'assets/img/iklan';
         $config['allowed_types']        = 'gif|jpg|png';
@@ -651,7 +672,9 @@ class Backoffice extends MY_Controller
           foreach ($halaman as $key => $value) {
             # code...
             $layout = array(
-              'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['file_name']
+              'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['file_name'],
+              'alt' => $alt,
+              'link' => $link
             );
             $this->news->updateData('fn_layout', $layout, 'layout_id', $value);
           }
@@ -664,10 +687,11 @@ class Backoffice extends MY_Controller
     // Ads
     public function ads_leaderboard()
     {
+      // 680 x 80
       // Select data
       $this->db->select('*');
       $this->db->from('fn_layout');
-      $this->db->where('layout_name', 'header-809x188');
+      $this->db->where('layout_name', 'LA');
       $result = $this->db->get()->result();
       $page = array(
           "thepage" => $this->load->view('back/ads_leaderboard', array('dataPages' => $result), true)
@@ -883,5 +907,95 @@ class Backoffice extends MY_Controller
         $this->db->insert('penelusuran' , $data);
       }
       redirect('backoffice/penelusuran');
+    }
+    // Ads
+    public function home_ads()
+    {
+      $page = array(
+          "thepage" => $this->load->view('back/home_ads', [], true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function home_ads_add()
+    {
+      $link = $this->input->post('link');
+      $alt = $this->input->post('alt');
+      $layout_name = $this->input->post('layout_name');
+      $config['upload_path']          = 'assets/img/iklan';
+      $config['allowed_types']        = 'gif|jpg|png';
+      $config['max_size']             = 1024;
+      $config['encrypt_name']         = true;
+
+
+      $this->load->library('upload', $config);
+      if (!$this->upload->do_upload('userfile'))
+      {
+        $error = array('error' => $this->upload->display_errors());
+        $this->session->set_flashdata('error', $error['error']);
+        redirect('backoffice/home_ads');
+      }
+      else
+      {
+        $data = array('upload_data' => $this->upload->data());
+        $layout = array(
+          'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['file_name'],
+          'alt' => $alt,
+          'link' => $link
+        );
+        $this->news->updateData('fn_layout', $layout, 'layout_name', $layout_name);
+        $this->session->set_flashdata('status', 'Iklan berhasil diupload');
+        redirect('backoffice/home_ads');
+      }
+    }
+    public function kanal_ads()
+    {
+      // 680 x 80
+      // Select data
+      $this->db->select('*');
+      $this->db->from('fn_layout');
+      $this->db->where('layout_name', 'KAA');
+      $result = $this->db->get()->result();
+      $page = array(
+          "thepage" => $this->load->view('back/kanal_ads', array('dataPages' => $result), true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function news_feed_ads()
+    {
+      $page = array(
+          "thepage" => $this->load->view('back/news_feed_ads', [], true)
+      );
+      $this->load->view('back/index', $page);
+    }
+    public function news_feed_ads_add()
+    {
+      $link = $this->input->post('link');
+      $alt = $this->input->post('alt');
+      $layout_name = $this->input->post('layout_name');
+      $config['upload_path']          = 'assets/img/iklan';
+      $config['allowed_types']        = 'gif|jpg|png';
+      $config['max_size']             = 1024;
+      $config['encrypt_name']         = true;
+
+
+      $this->load->library('upload', $config);
+      if (!$this->upload->do_upload('userfile'))
+      {
+        $error = array('error' => $this->upload->display_errors());
+        $this->session->set_flashdata('error', $error['error']);
+        redirect('backoffice/news_feed_ads');
+      }
+      else
+      {
+        $data = array('upload_data' => $this->upload->data());
+        $layout = array(
+          'layout_dir' => $config['upload_path'] ."/".$data['upload_data']['file_name'],
+          'alt' => $alt,
+          'link' => $link
+        );
+        $this->news->updateData('fn_layout', $layout, 'layout_name', $layout_name);
+        $this->session->set_flashdata('status', 'Iklan berhasil diupload');
+        redirect('backoffice/news_feed_ads');
+      }
     }
 }

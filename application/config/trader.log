@@ -1,0 +1,168 @@
+2016-12-20 09:35:03 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test03' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:35:56 => username :test04
+2016-12-20 09:35:56 => email :alterme1672@gmail.com
+2016-12-20 09:35:56 => userpass :81dc9bdb52d04dc20036dbd8313ed055
+2016-12-20 09:35:56 => fullname :Mr. Bean
+2016-12-20 09:35:56 => checkterms :on
+2016-12-20 09:35:56 => ptnya :JFX
+2016-12-20 09:35:56 => phonenumber :0628996968286
+2016-12-20 09:35:56 => register birthday :1993/04/13
+2016-12-20 09:36:01 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:36:01 => AccountList-104-query:SELECT client_accounts.accountid,client_accounts.status, client_accounts.typeaccount, bafile.* FROM bafile,client_accounts WHERE bafile.accno='dummy' AND bafile.`ACCNO` = client_accounts.`accountname` 
+2016-12-20 09:36:12 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:36:16 => postmode :createdemo
+2016-12-20 09:36:16 => demoaccount-104-querySELECT user.password, client_aecode.*,client_branch.`branch`,client_group.group AS thegroup FROM client_aecode,USER,client_group,client_branch WHERE client_aecode.aecode = 'test04' AND client_aecode.aecode = user.username AND client_aecode.groupid = client_group.groupid AND client_group.`branchid` = client_branch.branchid 
+2016-12-20 09:36:19 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:36:19 => DashBoard-483=select bafile_usd.* from bafile_usd where bafile_usd.`ACCNO` = 'test040000'
+2016-12-20 09:36:27 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:38:28 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:39:03 => postmode :createdemo
+2016-12-20 09:39:03 => demoaccount-104-querySELECT user.password, client_aecode.*,client_branch.`branch`,client_group.group AS thegroup FROM client_aecode,USER,client_group,client_branch WHERE client_aecode.aecode = 'test04' AND client_aecode.aecode = user.username AND client_aecode.groupid = client_group.groupid AND client_group.`branchid` = client_branch.branchid 
+2016-12-20 09:39:05 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:39:05 => DashBoard-483=select bafile_usd.* from bafile_usd where bafile_usd.`ACCNO` = 'test040000'
+2016-12-20 09:39:22 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:40:59 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:41:01 => postmode :createdemo
+2016-12-20 09:41:01 => demoaccount-104-querySELECT user.password, client_aecode.*,client_branch.`branch`,client_group.group AS thegroup FROM client_aecode,USER,client_group,client_branch WHERE client_aecode.aecode = 'test04' AND client_aecode.aecode = user.username AND client_aecode.groupid = client_group.groupid AND client_group.`branchid` = client_branch.branchid 
+2016-12-20 09:41:01 => demo account bafile gold query :INSERT INTO BAFILE_GOLD SET ACCNO='test040002', AECODE='test04', BAFILE.GROUP='DEMO', BRANCH='JFX', NAME='Mr. Bean', ADDRESS='none', PREVBAL='0', MARGININ='0', MARGINOUT='0', PL='0', PLJUAL='0', COMMISSION='0', CETAK='0', ROLLOVER='0', INTEREST='0', ADJUST='0', NEWBAL='0', MR1='0', MR2='0', FREEM='0', CALLMARGIN='0' 
+2016-12-20 09:41:05 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:41:05 => DashBoard-483=select bafile_usd.* from bafile_usd where bafile_usd.`ACCNO` = 'test040000'
+2016-12-20 09:42:25 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:42:29 => postmode :createdemo
+2016-12-20 09:42:29 => demoaccount-104-querySELECT user.password, client_aecode.*,client_branch.`branch`,client_group.group AS thegroup FROM client_aecode,USER,client_group,client_branch WHERE client_aecode.aecode = 'test04' AND client_aecode.aecode = user.username AND client_aecode.groupid = client_group.groupid AND client_group.`branchid` = client_branch.branchid 
+2016-12-20 09:42:29 => demo account bafile gold query :INSERT INTO BAFILE_GOLD SET ACCNO='test040003', AECODE='test04', BAFILE.GROUP='DEMO', BRANCH='JFX', NAME='Mr. Bean', ADDRESS='none', PREVBAL='0', MARGININ='0', MARGINOUT='0', PL='0', PLJUAL='0', COMMISSION='0', CETAK='0', ROLLOVER='0', INTEREST='0', ADJUST='0', NEWBAL='0', MR1='0', MR2='0', FREEM='0', CALLMARGIN='0' 
+2016-12-20 09:42:32 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:42:32 => DashBoard-483=select bafile_usd.* from bafile_usd where bafile_usd.`ACCNO` = 'test040000'
+2016-12-20 09:42:38 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:42:54 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:42:59 => postmode :createdemo
+2016-12-20 09:42:59 => demoaccount-104-querySELECT user.password, client_aecode.*,client_branch.`branch`,client_group.group AS thegroup FROM client_aecode,USER,client_group,client_branch WHERE client_aecode.aecode = 'test04' AND client_aecode.aecode = user.username AND client_aecode.groupid = client_group.groupid AND client_group.`branchid` = client_branch.branchid 
+2016-12-20 09:42:59 => demo account bafile gold query :INSERT INTO BAFILE_GOLD SET ACCNO='test040004', AECODE='test04', BAFILE_GOLD.GROUP='DEMO', BRANCH='JFX', NAME='Mr. Bean', ADDRESS='none', PREVBAL='0', MARGININ='0', MARGINOUT='0', PL='0', PLJUAL='0', COMMISSION='0', CETAK='0', ROLLOVER='0', INTEREST='0', ADJUST='0', NEWBAL='0', MR1='0', MR2='0', FREEM='0', CALLMARGIN='0' 
+2016-12-20 09:43:02 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 09:43:02 => DashBoard-483=select bafile_usd.* from bafile_usd where bafile_usd.`ACCNO` = 'test040004'
+2016-12-20 09:43:21 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 10:01:21 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 10:01:21 => AccountList-104-query:SELECT client_accounts.accountid,client_accounts.status, client_accounts.typeaccount, bafile.* FROM bafile,client_accounts WHERE bafile.accno='test040000' AND bafile.`ACCNO` = client_accounts.`accountname` 
+2016-12-20 10:01:21 => DashBoard-483=select bafile_usd.* from bafile_usd where bafile_usd.`ACCNO` = 'test040000'
+2016-12-20 10:01:28 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 10:01:31 => postmode :createdemo
+2016-12-20 10:01:31 => demoaccount-104-querySELECT user.password, client_aecode.*,client_branch.`branch`,client_group.group AS thegroup FROM client_aecode,USER,client_group,client_branch WHERE client_aecode.aecode = 'test04' AND client_aecode.aecode = user.username AND client_aecode.groupid = client_group.groupid AND client_group.`branchid` = client_branch.branchid 
+2016-12-20 10:01:31 => demo account bafile gold query :INSERT INTO BAFILE_GOLD SET ACCNO='test040005', AECODE='test04', BAFILE_GOLD.GROUP='DEMO', BRANCH='JFX', NAME='Mr. Bean', ADDRESS='none', PREVBAL='0', MARGININ='1000', MARGINOUT='0', PL='0', PLJUAL='0', COMMISSION='0', CETAK='0', ROLLOVER='0', INTEREST='0', ADJUST='0', NEWBAL='1000', MR1='0', MR2='0', FREEM='1000', CALLMARGIN='0' 
+2016-12-20 10:01:34 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 10:01:34 => DashBoard-483=select bafile_usd.* from bafile_usd where bafile_usd.`ACCNO` = 'test040005'
+2016-12-20 10:01:38 => mainmenu-206=3;SELECT TRIM(client_accounts.accountname) AS account FROM client_accounts,client_aecode WHERE client_accounts.accountname !='' AND client_accounts.aecodeid = client_aecode.aecodeid AND client_aecode.aecode = 'test04' ORDER BY client_accounts.accountname ASC
+2016-12-20 10:02:07 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:02:07 => AccountList-104-username:LPPG01
+2016-12-20 10:02:07 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:02:07 => AccountList-104-account:LPPG01
+2016-12-20 10:02:07 => AccountList-104-query:SELECT client_accounts.accountid,client_accounts.status, client_accounts.typeaccount, bafile.* FROM bafile,client_accounts WHERE bafile.accno='LPPG01' AND bafile.`ACCNO` = client_accounts.`accountname` 
+2016-12-20 10:06:26 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:06:26 => AccountList-104-username:LPPG01
+2016-12-20 10:06:26 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:06:26 => AccountList-104-account:LPPG01
+2016-12-20 10:15:00 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:15:00 => AccountList-104-username:LPPG01
+2016-12-20 10:15:00 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:15:00 => AccountList-104-account:LPPG01
+2016-12-20 10:15:25 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:15:25 => AccountList-104-username:LPPG01
+2016-12-20 10:15:25 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:15:25 => AccountList-104-account:LPPG01
+2016-12-20 10:15:45 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:15:45 => AccountList-104-username:LPPG01
+2016-12-20 10:15:45 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:15:45 => AccountList-104-account:LPPG01
+2016-12-20 10:21:52 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:21:52 => AccountList-104-username:LPPG01
+2016-12-20 10:21:52 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:21:52 => AccountList-104-account:LPPG01
+2016-12-20 10:21:52 => mm_manual_Admin_admin.php-242-Query:LPPG01;SELECT interestsell,interest_day_tripple,cetak,cetaksell,counter FROM counter_account WHERE accountid = '2' AND counter='GG100' AND active='1' ORDER BY rolldate DESC LIMIT 0,1;
+2016-12-20 10:21:59 => mm_manual_Admin_admin.php-242-Query:LPPG01;SELECT interestsell,interest_day_tripple,cetak,cetaksell,counter FROM counter_account WHERE accountid = '2' AND counter='GG100' AND active='1' ORDER BY rolldate DESC LIMIT 0,1;
+2016-12-20 10:22:00 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:22:00 => AccountList-104-username:LPPG01
+2016-12-20 10:22:00 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:22:00 => AccountList-104-account:LPPG01
+2016-12-20 10:22:00 => mm_manual_Admin_admin.php-242-Query:LPPG01;SELECT interestsell,interest_day_tripple,cetak,cetaksell,counter FROM counter_account WHERE accountid = '2' AND counter='GG100' AND active='1' ORDER BY rolldate DESC LIMIT 0,1;
+2016-12-20 10:54:54 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:54:54 => AccountList-104-username:LPPG01
+2016-12-20 10:54:54 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:54:54 => AccountList-104-account:LPPG01
+2016-12-20 10:54:54 => AccountList-104-query:SELECT client_accounts.accountid,client_accounts.status, client_accounts.typeaccount, bafile.* FROM bafile,client_accounts WHERE bafile.accno='LPPG01' AND bafile.`ACCNO` = client_accounts.`accountname` 
+2016-12-20 10:55:04 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:55:04 => AccountList-104-username:LPPG01
+2016-12-20 10:55:04 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:55:04 => AccountList-104-account:LPPG01
+2016-12-20 10:55:52 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:55:52 => AccountList-104-username:LPPG01
+2016-12-20 10:55:52 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:55:52 => AccountList-104-account:LPPG01
+2016-12-20 10:56:03 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:56:03 => AccountList-104-username:LPPG01
+2016-12-20 10:56:03 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:56:03 => AccountList-104-account:LPPG01
+2016-12-20 10:56:03 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:56:03 => AccountList-104-username:LPPG01
+2016-12-20 10:56:03 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:56:03 => AccountList-104-account:LPPG01
+2016-12-20 10:56:18 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:56:18 => AccountList-104-username:LPPG01
+2016-12-20 10:56:18 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:56:18 => AccountList-104-account:LPPG01
+2016-12-20 10:57:23 => mm_manual_Admin_admin.php-242-Query:LPPG01;SELECT interestsell,interest_day_tripple,cetak,cetaksell,counter FROM counter_account WHERE accountid = '2' AND counter='GG100' AND active='1' ORDER BY rolldate DESC LIMIT 0,1;
+2016-12-20 10:57:23 => mm_manual_Admin_admin.php-240-Cetak:7000;Pengali:100;TotalBiayaCetak:700000
+2016-12-20 10:57:40 => mm_manual_Admin_admin.php-242-Query:LPPG01;SELECT interestsell,interest_day_tripple,cetak,cetaksell,counter FROM counter_account WHERE accountid = '2' AND counter='GG100' AND active='1' ORDER BY rolldate DESC LIMIT 0,1;
+2016-12-20 10:57:40 => mm_manual_Admin_admin.php-240-Cetak:7000;Pengali:100;TotalBiayaCetak:700000
+2016-12-20 10:57:42 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='LPPG01' ORDER BY AccNo asc
+2016-12-20 10:57:42 => AccountList-104-username:LPPG01
+2016-12-20 10:57:42 => AccountList-104-accounts:["LPPG01"]
+2016-12-20 10:57:42 => AccountList-104-account:LPPG01
+2016-12-20 10:57:42 => mm_manual_Admin_admin.php-242-Query:LPPG01;SELECT interestsell,interest_day_tripple,cetak,cetaksell,counter FROM counter_account WHERE accountid = '2' AND counter='GG100' AND active='1' ORDER BY rolldate DESC LIMIT 0,1;
+2016-12-20 10:57:42 => mm_manual_Admin_admin.php-240-Cetak:7000;Pengali:100;TotalBiayaCetak:700000
+2016-12-20 10:58:13 => mainmenu-206=9;SELECT trim(accountname) AS account FROM client_accounts where accountname !='' ORDER BY accountname asc
+2016-12-20 10:58:13 => AccountList-104-query:SELECT client_accounts.accountid,client_accounts.status, client_accounts.typeaccount, bafile.* FROM bafile,client_accounts WHERE bafile.accno='123456789' AND bafile.`ACCNO` = client_accounts.`accountname` 
+2016-12-20 15:48:03 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='putri88' ORDER BY AccNo asc
+2016-12-20 15:48:03 => AccountList-104-username:putri88
+2016-12-20 15:48:03 => AccountList-104-accounts:["putri88"]
+2016-12-20 15:48:03 => AccountList-104-account:putri88
+2016-12-20 15:48:03 => AccountList-104-query:SELECT client_accounts.accountid,client_accounts.status, client_accounts.typeaccount, bafile.* FROM bafile,client_accounts WHERE bafile.accno='putri88' AND bafile.`ACCNO` = client_accounts.`accountname` 
+2016-12-20 15:48:53 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='putri88' ORDER BY AccNo asc
+2016-12-20 15:48:53 => AccountList-104-username:putri88
+2016-12-20 15:48:53 => AccountList-104-accounts:["putri88"]
+2016-12-20 15:48:53 => AccountList-104-account:putri88
+2016-12-20 15:50:43 => AccountList-104-query:SELECT client_accounts.accountid,client_accounts.status, client_accounts.typeaccount, bafile.* FROM bafile,client_accounts WHERE bafile.accno='' AND bafile.`ACCNO` = client_accounts.`accountname` 
+2016-12-20 15:51:26 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='putri88' ORDER BY AccNo asc
+2016-12-20 15:51:26 => AccountList-104-username:putri88
+2016-12-20 15:51:26 => AccountList-104-accounts:["putri88"]
+2016-12-20 15:51:26 => AccountList-104-account:putri88
+2016-12-20 15:51:26 => AccountList-104-query:SELECT client_accounts.accountid,client_accounts.status, client_accounts.typeaccount, bafile.* FROM bafile,client_accounts WHERE bafile.accno='putri88' AND bafile.`ACCNO` = client_accounts.`accountname` 
+2016-12-20 17:13:21 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='putri99' ORDER BY AccNo asc
+2016-12-20 17:13:21 => AccountList-104-username:putri99
+2016-12-20 17:13:21 => AccountList-104-accounts:["putri99"]
+2016-12-20 17:13:21 => AccountList-104-account:putri99
+2016-12-20 17:13:21 => AccountList-104-query:SELECT client_accounts.accountid,client_accounts.status, client_accounts.typeaccount, bafile.* FROM bafile,client_accounts WHERE bafile.accno='putri99' AND bafile.`ACCNO` = client_accounts.`accountname` 
+2016-12-20 17:13:31 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='putri99' ORDER BY AccNo asc
+2016-12-20 17:13:31 => AccountList-104-username:putri99
+2016-12-20 17:13:31 => AccountList-104-accounts:["putri99"]
+2016-12-20 17:13:31 => AccountList-104-account:putri99
+2016-12-20 17:17:25 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='PUTRI01' ORDER BY AccNo asc
+2016-12-20 17:17:25 => AccountList-104-username:PUTRI01
+2016-12-20 17:17:25 => AccountList-104-accounts:["dummy"]
+2016-12-20 17:17:25 => AccountList-104-account:dummy
+2016-12-20 17:17:25 => AccountList-104-query:SELECT client_accounts.accountid,client_accounts.status, client_accounts.typeaccount, bafile.* FROM bafile,client_accounts WHERE bafile.accno='dummy' AND bafile.`ACCNO` = client_accounts.`accountname` 
+2016-12-20 17:22:17 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='putri99' ORDER BY AccNo asc
+2016-12-20 17:22:17 => AccountList-104-username:putri99
+2016-12-20 17:22:17 => AccountList-104-accounts:["putri99"]
+2016-12-20 17:22:17 => AccountList-104-account:putri99
+2016-12-20 17:22:17 => AccountList-104-query:SELECT client_accounts.accountid,client_accounts.status, client_accounts.typeaccount, bafile.* FROM bafile,client_accounts WHERE bafile.accno='putri99' AND bafile.`ACCNO` = client_accounts.`accountname` 
+2016-12-20 17:22:23 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='putri99' ORDER BY AccNo asc
+2016-12-20 17:22:23 => AccountList-104-username:putri99
+2016-12-20 17:22:23 => AccountList-104-accounts:["putri99"]
+2016-12-20 17:22:23 => AccountList-104-account:putri99
+2016-12-20 17:22:50 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='putri99' ORDER BY AccNo asc
+2016-12-20 17:22:50 => AccountList-104-username:putri99
+2016-12-20 17:22:50 => AccountList-104-accounts:["putri99"]
+2016-12-20 17:22:50 => AccountList-104-account:putri99
+2016-12-20 17:23:11 => mainmenu-206=1;SELECT trim(AccNo) AS account FROM bafile WHERE AccNo='putri99' ORDER BY AccNo asc
+2016-12-20 17:23:11 => AccountList-104-username:putri99
+2016-12-20 17:23:11 => AccountList-104-accounts:["putri99"]
+2016-12-20 17:23:11 => AccountList-104-account:putri99
