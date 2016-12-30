@@ -37,6 +37,14 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
 <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" id="st_insights_js" src="http://w.sharethis.com/button/buttons.js?publisher=0cf5317e-eefd-4ac9-a44b-2b54019f7aca"></script>
 <script type="text/javascript">stLight.options({publisher: "0cf5317e-eefd-4ac9-a44b-2b54019f7aca", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-85728271-1', 'auto');
+  ga('send', 'pageview');
+</script>
 </head>
 <body>
 <div class="wrapper">
