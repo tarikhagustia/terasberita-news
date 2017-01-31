@@ -93,12 +93,20 @@ class Backoffice extends MY_Controller
 	}
 	public function manage_artikel($id=Null)
 	{
+    $bulan = date('m');
+
     for ($i=0; $i < 12 ; $i++) {
       $tgl = date('Y') . "-" . ($i+1);
       $date = date_create($tgl);
       $tgl = date_format($date , 'Y-m');
       $tanggal[] = $tgl;
     }
+    if ($bulan == '01') {
+      $year = date('Y' , strtotime("-1 year"));
+      array_push($tanggal, $year.'-12');
+      sort($tanggal);
+    }
+
 
 
     $id = $this->input->get('page');
