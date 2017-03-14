@@ -45,6 +45,14 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
   ga('create', 'UA-85728271-1', 'auto');
   ga('send', 'pageview');
 </script>
+<!-- Google adsense -->
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: "pub-1161473705566559",
+  enable_page_level_ads: true
+  });
+</script>
 </head>
 <body>
 <div class="wrapper">
@@ -153,22 +161,22 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
             <div class="row">
               <div class="col-sm-10 col-xs-16 f-nav " >
                 <ul class="list-inline ">
-                  <li> <a href="#"> Redaksi </a> </li>
-                  <li> <a href="#"> Pedoman Media Siber </a> </li>
-                  <li> <a href="#"> Karir </a> </li>
-                  <li> <a href="#"> Kotak Pos </a> </li>
-                  <li> <a href="#"> Privacy Policy </a> </li>
-                  <li> <a href="#"> Disclaimer </a> </li>
+                  <li> <a href="<?php echo base_url('redaksi'); ?>"> Redaksi </a> </li>
+                  <li> <a href="<?php echo base_url('pedoman-pemberitaan-media-siber'); ?>"> Pedoman Media Siber </a> </li>
+                  <li> <a href="<?php echo base_url('redaksi'); ?>"> Karir </a> </li>
+                  <li> <a href="<?php echo base_url('redaksi'); ?>"> Kotak Pos </a> </li>
+                  <li> <a href="<?php echo base_url('privacy-policy'); ?>"> Privacy Policy </a> </li>
+                  <li> <a href="<?php echo base_url('disclaimer'); ?>"> Disclaimer </a> </li>
                 </ul>
               </div>
-              <div class="col-sm-6 col-xs-16 copyrights text-right " >© 2016 terasberita.co</div>
+              <div class="col-sm-6 col-xs-16 copyrights text-right " >© <?php echo date('Y'); ?> terasberita.co</div>
             </div>
           </div>
           <div class="col-sm-16 f-social  ">
             <ul class="list-inline">
-              <li> <a href="#"><span class="ion-social-twitter"></span></a> </li>
-              <li> <a href="#"><span class="ion-social-facebook"></span></a> </li>
-              <li> <a href="#"><span class="ion-social-instagram"></span></a> </li>
+              <li> <a href="https://twitter.com/onterasberita"><span class="ion-social-twitter"></span></a> </li>
+              <li> <a href="https://www.facebook.com/terasmediatama/"><span class="ion-social-facebook"></span></a> </li>
+              <li> <a href="https://www.instagram.com/terasberita.co/"><span class="ion-social-instagram"></span></a> </li>
             </ul>
           </div>
         </div>
