@@ -173,6 +173,16 @@ set_config('meta_article', true);
         <div class="bordered">
           <div class="row ">
             <div class="col-sm-16 bt-space">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- homepage -->
+              <ins class="adsbygoogle"
+                   style="display:block"
+                   data-ad-client="ca-pub-1161473705566559"
+                   data-ad-slot="5244050428"
+                   data-ad-format="auto"></ins>
+              <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
               <?php echo modules::run('ads/get_kaa', 'artikel') ?>
             </div>
             <!-- flicker imgs start -->

@@ -21,6 +21,18 @@
 
   </div>
   <div class="col-sm-5">
+    <div class="iklan-google" style="margin-top : 10px;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- page home -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1161473705566559"
+           data-ad-slot="7715532020"
+           data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
     <div class="">
       <h3 class="main-title-dash"><span>NEWS FEED</span></h3>
       <div class="bordered" style="overflow-y: auto; height:800px;" id="">

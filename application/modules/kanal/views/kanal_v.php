@@ -42,6 +42,18 @@
 
   </div>
   <div class="col-sm-5">
+    <div class="iklan-google" style="margin-top: 10px;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Kanal -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1161473705566559"
+           data-ad-slot="7840508429"
+           data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
     <div class="">
       <h3 class="main-title-dash"><span>NEWS FEED</span></h3>
       <div class="bordered" style="overflow-y: auto; height:800px;" id="">
@@ -61,16 +73,6 @@
     <div class="bordered">
       <div class="fb-page" data-href="https://www.facebook.com/terasmediatama" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/terasmediatama" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/terasmediatama">terasberita.co</a></blockquote></div>
     </div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Kanal -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1161473705566559"
-     data-ad-slot="7840508429"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
   </div>
 </div>
