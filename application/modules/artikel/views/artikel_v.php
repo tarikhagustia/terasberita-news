@@ -107,6 +107,15 @@ set_config('meta_article', true);
               <div class="sec-topic col-sm-16">
                 <div class="row">
                   <div class="col-sm-16">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- article leaderboard -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:728px;height:90px"
+                         data-ad-client="ca-pub-1161473705566559"
+                         data-ad-slot="3163274426"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                     <figure>
                       <img width="1000" height="606" alt="<?= $article->news_title ?>" src="<?= $article->news_thumb ?>" class="img-thumbnail">
                       <figcaption class="text-italic"><em><?php echo $article->caption; ?></em></figcaption>
@@ -169,7 +178,7 @@ set_config('meta_article', true);
       </div>
       <!-- left sec End -->
       <!-- right sec Start -->
-      <div class="col-sm-5 hidden-xs right-sec">
+      <div class="col-sm-5 right-sec">
         <div class="bordered">
           <div class="row ">
             <div class="col-sm-16 bt-space">

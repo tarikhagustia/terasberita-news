@@ -19,6 +19,17 @@
         </ul>
       </div>
 
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Home B -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1161473705566559"
+           data-ad-slot="4640007627"
+           data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+
   </div>
   <div class="col-sm-5">
     <div class="iklan-google" style="margin-top : 10px;">
@@ -56,6 +67,16 @@
               <?php echo modules::run('berita/get_popular') ?>
             </ul>
           </div>
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- Home C -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-1161473705566559"
+               data-ad-slot="6116740821"
+               data-ad-format="auto"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
       </div>
     </div>

@@ -101,6 +101,19 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
           <?= modules::run('ads/get_leaderboard', (isset($kanal)) ? $kanal : "home"); ?>
           <!-- loaderboard end -->
         </div>
+        <div class="col-xs-16">
+          <?php if ($this->agent->is_mobile()): ?>
+            <!-- LeaderBoard Mobile -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:320px;height:100px"
+                 data-ad-client="ca-pub-1161473705566559"
+                 data-ad-slot="1826142028">
+            </ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          <?php endif; ?>
+        </div>
       </div>
     </div>
     <!-- header end -->
@@ -169,6 +182,7 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
                   <li> <a href="<?php echo base_url('redaksi'); ?>"> Kotak Pos </a> </li>
                   <li> <a href="<?php echo base_url('privacy-policy'); ?>"> Privacy Policy </a> </li>
                   <li> <a href="<?php echo base_url('disclaimer'); ?>"> Disclaimer </a> </li>
+                  <li> <a href="https://drive.google.com/file/d/0B33mZZz3cfjSNUljX0RmWXItM2c/view?usp=sharing"> Unduh Aplikasi Terasberita </a> </li>
                 </ul>
               </div>
               <div class="col-sm-6 col-xs-16 copyrights text-right " >© <?php echo date('Y'); ?> terasberita.co</div>
@@ -178,6 +192,7 @@ echo $meta_title = (isset($meta_title)) ? "<title> " . $meta_title .  " - terasb
             <ul class="list-inline">
               <li> <a href="https://twitter.com/onterasberita"><span class="ion-social-twitter"></span></a> </li>
               <li> <a href="https://www.facebook.com/terasmediatama/"><span class="ion-social-facebook"></span></a> </li>
+              <li> <a href="https://drive.google.com/file/d/0B33mZZz3cfjSNUljX0RmWXItM2c/view?usp=sharing"><span class="ion-android-playstore"></span></a> </li>
               <li> <a href="https://www.instagram.com/terasberita.co/"><span class="ion-social-instagram"></span></a> </li>
             </ul>
           </div>
